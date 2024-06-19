@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct QuizMultiChoiceView: View {
     @State var selectedAnswer = -1 // 0 - 3
@@ -44,7 +45,7 @@ struct QuizMultiChoiceView: View {
     QuizMultiChoiceView()
 }
 
-class Choice: Identifiable {
+class Choice: Identifiable, Codable, Hashable {
     var choiceId: Int
     var choiceDescription: String
     
@@ -52,4 +53,34 @@ class Choice: Identifiable {
         self.choiceId = choiceId
         self.choiceDescription = choiceDescription
     }
+    
+    static func == (lhs: Choice, rhs: Choice) -> Bool {
+        return lhs.choiceId == rhs.choiceId && lhs.choiceDescription == rhs.choiceDescription
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(choiceId)
+        hasher.combine(choiceDescription)
+    }
+}
+
+class DraggableChoice: Choice, Transferable {
+    var uniqueId: UUID
+    
+    init(choiceId: Int, choiceDescription: String, uniqueId: UUID = UUID()) {
+        self.uniqueId = uniqueId
+        super.init(choiceId: choiceId, choiceDescription: choiceDescription)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+
+    static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(contentType: .draggableChoice)
+    }
+}
+
+extension UTType {
+    static let draggableChoice = UTType(exportedAs: "appleacad.mini2.Cendekiawan.draggableChoice")
 }

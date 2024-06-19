@@ -11,6 +11,7 @@
 		0D1302952C22A00D00710D43 /* QuizMultiChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302942C22A00D00710D43 /* QuizMultiChoiceView.swift */; };
 		0D1302982C22A51100710D43 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302972C22A51100710D43 /* AnswerButton.swift */; };
 		0D13029A2C22D30100710D43 /* QuizFillBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302992C22D30100710D43 /* QuizFillBlankView.swift */; };
+		0D13029D2C232E4A00710D43 /* ChoicePoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13029C2C232E4A00710D43 /* ChoicePoolView.swift */; };
 		3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */; };
 		3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E52C22751C00C4E9C4 /* ContentView.swift */; };
 		3A9203E82C22751D00C4E9C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203E72C22751D00C4E9C4 /* Assets.xcassets */; };
@@ -23,6 +24,8 @@
 		0D1302942C22A00D00710D43 /* QuizMultiChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoiceView.swift; sourceTree = "<group>"; };
 		0D1302972C22A51100710D43 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		0D1302992C22D30100710D43 /* QuizFillBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFillBlankView.swift; sourceTree = "<group>"; };
+		0D13029B2C232BAD00710D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0D13029C2C232E4A00710D43 /* ChoicePoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePoolView.swift; sourceTree = "<group>"; };
 		3A9203E02C22751C00C4E9C4 /* Cendekiawan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cendekiawan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CendekiawanApp.swift; sourceTree = "<group>"; };
 		3A9203E52C22751C00C4E9C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				0D1302972C22A51100710D43 /* AnswerButton.swift */,
+				0D13029C2C232E4A00710D43 /* ChoicePoolView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -80,6 +84,7 @@
 		3A9203E22C22751C00C4E9C4 /* Cendekiawan */ = {
 			isa = PBXGroup;
 			children = (
+				0D13029B2C232BAD00710D43 /* Info.plist */,
 				0D1302932C2298B800710D43 /* View */,
 				3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */,
 				3A9203E52C22751C00C4E9C4 /* ContentView.swift */,
@@ -175,6 +180,7 @@
 				0D13029A2C22D30100710D43 /* QuizFillBlankView.swift in Sources */,
 				0D1302952C22A00D00710D43 /* QuizMultiChoiceView.swift in Sources */,
 				0D1302982C22A51100710D43 /* AnswerButton.swift in Sources */,
+				0D13029D2C232E4A00710D43 /* ChoicePoolView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,9 +314,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cendekiawan/Preview Content\"";
-				DEVELOPMENT_TEAM = SW8FY3LA3R;
+				DEVELOPMENT_TEAM = PS54KA4A89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cendekiawan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -338,9 +345,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cendekiawan/Preview Content\"";
-				DEVELOPMENT_TEAM = SW8FY3LA3R;
+				DEVELOPMENT_TEAM = PS54KA4A89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cendekiawan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
