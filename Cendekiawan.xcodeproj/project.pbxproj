@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0D1302922C22942300710D43 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302912C22942300710D43 /* QuizView.swift */; };
+		0D1302952C22A00D00710D43 /* QuizMultiChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302942C22A00D00710D43 /* QuizMultiChoiceView.swift */; };
+		0D1302982C22A51100710D43 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302972C22A51100710D43 /* AnswerButton.swift */; };
+		0D13029A2C22D30100710D43 /* QuizFillBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302992C22D30100710D43 /* QuizFillBlankView.swift */; };
 		3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */; };
 		3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E52C22751C00C4E9C4 /* ContentView.swift */; };
 		3A9203E82C22751D00C4E9C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203E72C22751D00C4E9C4 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		0D1302912C22942300710D43 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		0D1302942C22A00D00710D43 /* QuizMultiChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoiceView.swift; sourceTree = "<group>"; };
+		0D1302972C22A51100710D43 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		0D1302992C22D30100710D43 /* QuizFillBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFillBlankView.swift; sourceTree = "<group>"; };
 		3A9203E02C22751C00C4E9C4 /* Cendekiawan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cendekiawan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CendekiawanApp.swift; sourceTree = "<group>"; };
 		3A9203E52C22751C00C4E9C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +42,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1302932C2298B800710D43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D1302962C22A4B100710D43 /* Component */,
+				0D1302912C22942300710D43 /* QuizView.swift */,
+				0D1302942C22A00D00710D43 /* QuizMultiChoiceView.swift */,
+				0D1302992C22D30100710D43 /* QuizFillBlankView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0D1302962C22A4B100710D43 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				0D1302972C22A51100710D43 /* AnswerButton.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		3A9203D72C22751C00C4E9C4 = {
 			isa = PBXGroup;
 			children = (
@@ -55,11 +80,11 @@
 		3A9203E22C22751C00C4E9C4 /* Cendekiawan */ = {
 			isa = PBXGroup;
 			children = (
+				0D1302932C2298B800710D43 /* View */,
 				3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */,
 				3A9203E52C22751C00C4E9C4 /* ContentView.swift */,
 				3A9203E72C22751D00C4E9C4 /* Assets.xcassets */,
 				3A9203E92C22751D00C4E9C4 /* Preview Content */,
-				0D1302912C22942300710D43 /* QuizView.swift */,
 				BE7F75AF2C2294E400566C6C /* ModelData.swift */,
 			);
 			path = Cendekiawan;
@@ -147,6 +172,9 @@
 				BE7F75B02C2294E400566C6C /* ModelData.swift in Sources */,
 				3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */,
 				0D1302922C22942300710D43 /* QuizView.swift in Sources */,
+				0D13029A2C22D30100710D43 /* QuizFillBlankView.swift in Sources */,
+				0D1302952C22A00D00710D43 /* QuizMultiChoiceView.swift in Sources */,
+				0D1302982C22A51100710D43 /* AnswerButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +316,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,6 +346,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
