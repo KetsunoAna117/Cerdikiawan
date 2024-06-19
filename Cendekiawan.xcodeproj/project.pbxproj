@@ -12,6 +12,7 @@
 		3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E52C22751C00C4E9C4 /* ContentView.swift */; };
 		3A9203E82C22751D00C4E9C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203E72C22751D00C4E9C4 /* Assets.xcassets */; };
 		3A9203EB2C22751D00C4E9C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203EA2C22751D00C4E9C4 /* Preview Assets.xcassets */; };
+		BE7F75B02C2294E400566C6C /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F75AF2C2294E400566C6C /* ModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3A9203E52C22751C00C4E9C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3A9203E72C22751D00C4E9C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A9203EA2C22751D00C4E9C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE7F75AF2C2294E400566C6C /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				3A9203E72C22751D00C4E9C4 /* Assets.xcassets */,
 				3A9203E92C22751D00C4E9C4 /* Preview Content */,
 				0D1302912C22942300710D43 /* QuizView.swift */,
+				BE7F75AF2C2294E400566C6C /* ModelData.swift */,
 			);
 			path = Cendekiawan;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */,
+				BE7F75B02C2294E400566C6C /* ModelData.swift in Sources */,
 				3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */,
 				0D1302922C22942300710D43 /* QuizView.swift in Sources */,
 			);
