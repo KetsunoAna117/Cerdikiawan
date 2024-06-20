@@ -5,10 +5,16 @@
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.public.data</string>
+			</array>
 			<key>UTTypeDescription</key>
 			<string>DraggableChoice</string>
 			<key>UTTypeIconFiles</key>
 			<array/>
+			<key>UTTypeIdentifier</key>
+			<string>appleacad.mini2.Cendekiawan.draggableChoice</string>
 			<key>UTTypeTagSpecification</key>
 			<dict/>
 		</dict>
