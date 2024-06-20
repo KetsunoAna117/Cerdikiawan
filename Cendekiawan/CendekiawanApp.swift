@@ -19,8 +19,9 @@ struct CendekiawanApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//                .environmentObject(userData)
+            NavigationStack {
+                ContentView()
+            }
 //                .environmentObject(databaseHelper)
         }
     }
