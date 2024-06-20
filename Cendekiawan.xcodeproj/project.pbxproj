@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */; };
+		3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */; };
+		3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */; };
+		3A64C16C2C23E41600D0AC3A /* QuizFillBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C16B2C23E41600D0AC3A /* QuizFillBlankView.swift */; };
 		3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */; };
 		3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E52C22751C00C4E9C4 /* ContentView.swift */; };
 		3A9203E82C22751D00C4E9C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203E72C22751D00C4E9C4 /* Assets.xcassets */; };
@@ -27,6 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePoolView.swift; sourceTree = "<group>"; };
+		3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoiceView.swift; sourceTree = "<group>"; };
+		3A64C16B2C23E41600D0AC3A /* QuizFillBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFillBlankView.swift; sourceTree = "<group>"; };
+		3A64C16D2C23E47600D0AC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3A9203E02C22751C00C4E9C4 /* Cendekiawan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cendekiawan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CendekiawanApp.swift; sourceTree = "<group>"; };
 		3A9203E52C22751C00C4E9C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A64C1642C23E3AF00D0AC3A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */,
+				3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		3A9203D72C22751C00C4E9C4 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +95,7 @@
 		3A9203E22C22751C00C4E9C4 /* Cendekiawan */ = {
 			isa = PBXGroup;
 			children = (
+				3A64C16D2C23E47600D0AC3A /* Info.plist */,
 				3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */,
 				93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */,
 				93713BF12C2317CC00B41CD9 /* View */,
@@ -114,8 +133,11 @@
 		93713BF12C2317CC00B41CD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A64C1642C23E3AF00D0AC3A /* Components */,
 				3A9203E52C22751C00C4E9C4 /* ContentView.swift */,
 				93713BF32C2317F400B41CD9 /* QuizResultView.swift */,
+				3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */,
+				3A64C16B2C23E41600D0AC3A /* QuizFillBlankView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -209,6 +231,9 @@
 				93713BE62C22CB4A00B41CD9 /* Choice.swift in Sources */,
 				93713BEC2C22D24900B41CD9 /* QuizWordBlank.swift in Sources */,
 				93713BE82C22CBF000B41CD9 /* QuizFillBlank.swift in Sources */,
+				3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */,
+				3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */,
+				3A64C16C2C23E41600D0AC3A /* QuizFillBlankView.swift in Sources */,
 				93713BF42C2317F400B41CD9 /* QuizResultView.swift in Sources */,
 				93713BF02C23179300B41CD9 /* QuizViewModel.swift in Sources */,
 				3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */,
@@ -218,6 +243,7 @@
 				93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */,
 				93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */,
 				93713BEA2C22CC6100B41CD9 /* QuizConnect.swift in Sources */,
+				3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +380,7 @@
 				DEVELOPMENT_TEAM = 2U62MM8G6X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cendekiawan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -383,6 +410,7 @@
 				DEVELOPMENT_TEAM = 2U62MM8G6X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cendekiawan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
