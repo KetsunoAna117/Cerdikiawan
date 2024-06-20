@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var user = User(name: "Test1")
     var body: some View {
         VStack {
-            QuizWordBlankView()
+            HomeView()
         }
         .padding()
     }
 }
+
+//ini tadi buat testing user level
+//Text("Name: \(user.name)")
+//Text("Level: \(user.levelStorage.value)")
+//Text("Exp: \(user.exp)/\(user.levelStorage.boundaries)")
+//
+//Button("Gain Experience") {
+//    user.exp += 10
+//}
+
 
 #Preview {
     ContentView()
