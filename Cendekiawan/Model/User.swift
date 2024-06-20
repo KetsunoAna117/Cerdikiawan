@@ -7,26 +7,22 @@
 
 import SwiftUI
 
-//cara pakenya tinggal declare stateobject si class User trus ubah aja user.value ama user.exp udh auto update kalo ada Text()
+//cara pakenya tinggal declare stateobject si class User trus ubah aja user.exp udh auto update kalo ada Text()
 class User: ObservableObject {
-    private let levelStorage = Level()
+    let levelStorage = Level()
     @Published var name: String
-    
-    @Published var value: Int {
-        didSet {
-            levelStorage.value = value
-        }
-    }
     
     @Published var exp: Int {
         didSet {
-            levelStorage.exp = exp
+            let check = levelStorage.updateLevel(exp)
+            if check {
+                exp = levelStorage.exp  // Reset exp after level up
+            }
         }
     }
     
     init(name: String) {
-        self.value = levelStorage.value
-        self.exp = levelStorage.exp
         self.name = name
+        self.exp = levelStorage.exp
     }
 }
