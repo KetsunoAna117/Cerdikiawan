@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Quiz {
+class Quiz: Identifiable {
     var quizId: Int
     var quizFeedback: Feedback
     var quizDifficultyLevel: Int
