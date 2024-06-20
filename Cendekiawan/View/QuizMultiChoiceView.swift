@@ -62,6 +62,22 @@ class Choice: Identifiable, Codable, Hashable {
         hasher.combine(choiceId)
         hasher.combine(choiceDescription)
     }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        choiceId = try container.decode(Int.self, forKey: .choiceId)
+        choiceDescription = try container.decode(String.self, forKey: .choiceDescription)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(choiceId, forKey: .choiceId)
+        try container.encode(choiceDescription, forKey: .choiceDescription)
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case choiceId, choiceDescription
+    }
 }
 
 class DraggableChoice: Choice, Transferable {
@@ -73,7 +89,19 @@ class DraggableChoice: Choice, Transferable {
     }
     
     required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        uniqueId = try container.decode(UUID.self, forKey: .uniqueId)
+        try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(uniqueId, forKey: .uniqueId)
+        try super.encode(to: encoder)
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case uniqueId
     }
 
     static var transferRepresentation: some TransferRepresentation {
