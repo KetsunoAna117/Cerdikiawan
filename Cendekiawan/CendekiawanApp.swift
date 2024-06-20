@@ -20,9 +20,9 @@ struct CendekiawanApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//                .environment(quizModelData)
-//                .environmentObject(userData)
+            NavigationStack {
+                ContentView()
+            }
 //                .environmentObject(databaseHelper)
         }
     }
