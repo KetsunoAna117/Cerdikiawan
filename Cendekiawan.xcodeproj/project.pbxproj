@@ -16,7 +16,19 @@
 		3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E52C22751C00C4E9C4 /* ContentView.swift */; };
 		3A9203E82C22751D00C4E9C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203E72C22751D00C4E9C4 /* Assets.xcassets */; };
 		3A9203EB2C22751D00C4E9C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203EA2C22751D00C4E9C4 /* Preview Assets.xcassets */; };
-		BE7F75B02C2294E400566C6C /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F75AF2C2294E400566C6C /* ModelData.swift */; };
+		93713BE02C22A3B000B41CD9 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BDF2C22A3B000B41CD9 /* Quiz.swift */; };
+		93713BE22C22A52E00B41CD9 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BE12C22A52E00B41CD9 /* Feedback.swift */; };
+		93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BE32C22CA1100B41CD9 /* QuizMultiChoice.swift */; };
+		93713BE62C22CB4A00B41CD9 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BE52C22CB4A00B41CD9 /* Choice.swift */; };
+		93713BE82C22CBF000B41CD9 /* QuizFillBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BE72C22CBF000B41CD9 /* QuizFillBlank.swift */; };
+		93713BEA2C22CC6100B41CD9 /* QuizConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BE92C22CC6100B41CD9 /* QuizConnect.swift */; };
+		93713BEC2C22D24900B41CD9 /* QuizWordBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BEB2C22D24900B41CD9 /* QuizWordBlank.swift */; };
+		93713BF02C23179300B41CD9 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BEF2C23179300B41CD9 /* QuizViewModel.swift */; };
+		93713BF42C2317F400B41CD9 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BF32C2317F400B41CD9 /* QuizResultView.swift */; };
+		93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BF52C23188F00B41CD9 /* Trophy.swift */; };
+		93B233862C23CF2A006DCAFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */; };
+		93B233892C23CF5A006DCAFF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 93B233882C23CF5A006DCAFF /* FirebaseAuth */; };
+		93B2338B2C23CF5A006DCAFF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 93B2338A2C23CF5A006DCAFF /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +43,17 @@
 		3A9203E52C22751C00C4E9C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3A9203E72C22751D00C4E9C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A9203EA2C22751D00C4E9C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BE7F75AF2C2294E400566C6C /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		93713BDF2C22A3B000B41CD9 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		93713BE12C22A52E00B41CD9 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		93713BE32C22CA1100B41CD9 /* QuizMultiChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoice.swift; sourceTree = "<group>"; };
+		93713BE52C22CB4A00B41CD9 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		93713BE72C22CBF000B41CD9 /* QuizFillBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFillBlank.swift; sourceTree = "<group>"; };
+		93713BE92C22CC6100B41CD9 /* QuizConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizConnect.swift; sourceTree = "<group>"; };
+		93713BEB2C22D24900B41CD9 /* QuizWordBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlank.swift; sourceTree = "<group>"; };
+		93713BEF2C23179300B41CD9 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		93713BF32C2317F400B41CD9 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
+		93713BF52C23188F00B41CD9 /* Trophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trophy.swift; sourceTree = "<group>"; };
+		93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B233892C23CF5A006DCAFF /* FirebaseAuth in Frameworks */,
+				93B2338B2C23CF5A006DCAFF /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +111,11 @@
 				0D13029B2C232BAD00710D43 /* Info.plist */,
 				0D1302932C2298B800710D43 /* View */,
 				3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */,
-				3A9203E52C22751C00C4E9C4 /* ContentView.swift */,
+				93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */,
+				93713BF12C2317CC00B41CD9 /* View */,
 				3A9203E72C22751D00C4E9C4 /* Assets.xcassets */,
+				93713BF22C2317D200B41CD9 /* ViewModel */,
+				93713BEE2C22D2A500B41CD9 /* Model */,
 				3A9203E92C22751D00C4E9C4 /* Preview Content */,
 				BE7F75AF2C2294E400566C6C /* ModelData.swift */,
 			);
@@ -101,6 +128,38 @@
 				3A9203EA2C22751D00C4E9C4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		93713BEE2C22D2A500B41CD9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93713BDF2C22A3B000B41CD9 /* Quiz.swift */,
+				93713BE12C22A52E00B41CD9 /* Feedback.swift */,
+				93713BE52C22CB4A00B41CD9 /* Choice.swift */,
+				93713BE32C22CA1100B41CD9 /* QuizMultiChoice.swift */,
+				93713BE72C22CBF000B41CD9 /* QuizFillBlank.swift */,
+				93713BE92C22CC6100B41CD9 /* QuizConnect.swift */,
+				93713BEB2C22D24900B41CD9 /* QuizWordBlank.swift */,
+				93713BF52C23188F00B41CD9 /* Trophy.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		93713BF12C2317CC00B41CD9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A9203E52C22751C00C4E9C4 /* ContentView.swift */,
+				93713BF32C2317F400B41CD9 /* QuizResultView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		93713BF22C2317D200B41CD9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				93713BEF2C23179300B41CD9 /* QuizViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +178,10 @@
 			dependencies = (
 			);
 			name = Cendekiawan;
+			packageProductDependencies = (
+				93B233882C23CF5A006DCAFF /* FirebaseAuth */,
+				93B2338A2C23CF5A006DCAFF /* FirebaseFirestore */,
+			);
 			productName = Cendekiawan;
 			productReference = 3A9203E02C22751C00C4E9C4 /* Cendekiawan.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +210,9 @@
 				Base,
 			);
 			mainGroup = 3A9203D72C22751C00C4E9C4;
+			packageReferences = (
+				93B233872C23CF5A006DCAFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3A9203E12C22751C00C4E9C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -162,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A9203EB2C22751D00C4E9C4 /* Preview Assets.xcassets in Resources */,
+				93B233862C23CF2A006DCAFF /* GoogleService-Info.plist in Resources */,
 				3A9203E82C22751D00C4E9C4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,14 +240,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93713BE62C22CB4A00B41CD9 /* Choice.swift in Sources */,
+				93713BEC2C22D24900B41CD9 /* QuizWordBlank.swift in Sources */,
+				93713BE82C22CBF000B41CD9 /* QuizFillBlank.swift in Sources */,
+				93713BF42C2317F400B41CD9 /* QuizResultView.swift in Sources */,
+				93713BF02C23179300B41CD9 /* QuizViewModel.swift in Sources */,
 				3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */,
-				BE7F75B02C2294E400566C6C /* ModelData.swift in Sources */,
+				93713BE02C22A3B000B41CD9 /* Quiz.swift in Sources */,
+				93713BE22C22A52E00B41CD9 /* Feedback.swift in Sources */,
 				3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */,
 				0D1302922C22942300710D43 /* QuizView.swift in Sources */,
 				0D13029A2C22D30100710D43 /* QuizFillBlankView.swift in Sources */,
 				0D1302952C22A00D00710D43 /* QuizMultiChoiceView.swift in Sources */,
 				0D1302982C22A51100710D43 /* AnswerButton.swift in Sources */,
 				0D13029D2C232E4A00710D43 /* ChoicePoolView.swift in Sources */,
+				93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */,
+				93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */,
+				93713BEA2C22CC6100B41CD9 /* QuizConnect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +390,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cendekiawan/Preview Content\"";
-				DEVELOPMENT_TEAM = PS54KA4A89;
+				DEVELOPMENT_TEAM = 2U62MM8G6X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cendekiawan/Info.plist;
@@ -345,7 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cendekiawan/Preview Content\"";
-				DEVELOPMENT_TEAM = PS54KA4A89;
+				DEVELOPMENT_TEAM = 2U62MM8G6X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cendekiawan/Info.plist;
@@ -390,6 +466,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		93B233872C23CF5A006DCAFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.28.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93B233882C23CF5A006DCAFF /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93B233872C23CF5A006DCAFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		93B2338A2C23CF5A006DCAFF /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93B233872C23CF5A006DCAFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A9203D82C22751C00C4E9C4 /* Project object */;
 }
