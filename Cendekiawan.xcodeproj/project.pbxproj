@@ -102,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				3A64C16D2C23E47600D0AC3A /* Info.plist */,
-				3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */,
 				93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */,
+				3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */,
 				93713BF12C2317CC00B41CD9 /* View */,
 				3A9203E72C22751D00C4E9C4 /* Assets.xcassets */,
 				93713BF22C2317D200B41CD9 /* ViewModel */,
