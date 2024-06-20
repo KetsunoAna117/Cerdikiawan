@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A02C23F11900710D43 /* DroppableBox.swift */; };
+		0D1302A32C241EE600710D43 /* QuizWordBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */; };
 		3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */; };
 		3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */; };
 		3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D1302A02C23F11900710D43 /* DroppableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableBox.swift; sourceTree = "<group>"; };
+		0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlankView.swift; sourceTree = "<group>"; };
 		3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePoolView.swift; sourceTree = "<group>"; };
 		3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoiceView.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			children = (
 				3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */,
 				3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */,
+				0D1302A02C23F11900710D43 /* DroppableBox.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -146,7 +151,11 @@
 				93713BF32C2317F400B41CD9 /* QuizResultView.swift */,
 				3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */,
 				3A64C16B2C23E41600D0AC3A /* QuizFillBlankView.swift */,
+<<<<<<< JuanBranch2
+				0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */,
+=======
 				3A64C16E2C23EB1B00D0AC3A /* HomeView.swift */,
+>>>>>>> dev
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -251,8 +260,10 @@
 				93713BE22C22A52E00B41CD9 /* Feedback.swift in Sources */,
 				93B233932C245BDC006DCAFF /* Level.swift in Sources */,
 				3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */,
+				0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */,
 				93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */,
 				93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */,
+				0D1302A32C241EE600710D43 /* QuizWordBlankView.swift in Sources */,
 				93713BEA2C22CC6100B41CD9 /* QuizConnect.swift in Sources */,
 				3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */,
 				93B233952C245C18006DCAFF /* User.swift in Sources */,
@@ -389,7 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cendekiawan/Preview Content\"";
-				DEVELOPMENT_TEAM = 2U62MM8G6X;
+				DEVELOPMENT_TEAM = PS54KA4A89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cendekiawan/Info.plist;
@@ -397,6 +408,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -418,7 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cendekiawan/Preview Content\"";
-				DEVELOPMENT_TEAM = 2U62MM8G6X;
+				DEVELOPMENT_TEAM = PS54KA4A89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cendekiawan/Info.plist;
@@ -426,6 +438,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
