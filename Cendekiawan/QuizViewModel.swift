@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class QuizViewModel {
-    @StateObject var db: DatabaseHelper = DatabaseHelper.shared
     var quizRightAnswer: Int
     var quizExperienceGain: Int
     var quizTrophyGain: Trophy
