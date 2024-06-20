@@ -16,6 +16,9 @@
 		3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9203E52C22751C00C4E9C4 /* ContentView.swift */; };
 		3A9203E82C22751D00C4E9C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203E72C22751D00C4E9C4 /* Assets.xcassets */; };
 		3A9203EB2C22751D00C4E9C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9203EA2C22751D00C4E9C4 /* Preview Assets.xcassets */; };
+		3AE5D7FD2C24397D001AB9A4 /* QuizMatchingWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5D7FC2C24397D001AB9A4 /* QuizMatchingWordView.swift */; };
+		3AE5D8012C244030001AB9A4 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5D8002C244030001AB9A4 /* QuizView.swift */; };
+		3AE5D8032C247754001AB9A4 /* QuizMatchingWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5D8022C247754001AB9A4 /* QuizMatchingWordViewModel.swift */; };
 		93713BE02C22A3B000B41CD9 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BDF2C22A3B000B41CD9 /* Quiz.swift */; };
 		93713BE22C22A52E00B41CD9 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BE12C22A52E00B41CD9 /* Feedback.swift */; };
 		93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BE32C22CA1100B41CD9 /* QuizMultiChoice.swift */; };
@@ -43,6 +46,9 @@
 		3A9203E52C22751C00C4E9C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3A9203E72C22751D00C4E9C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A9203EA2C22751D00C4E9C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3AE5D7FC2C24397D001AB9A4 /* QuizMatchingWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMatchingWordView.swift; sourceTree = "<group>"; };
+		3AE5D8002C244030001AB9A4 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		3AE5D8022C247754001AB9A4 /* QuizMatchingWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMatchingWordViewModel.swift; sourceTree = "<group>"; };
 		93713BDF2C22A3B000B41CD9 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		93713BE12C22A52E00B41CD9 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		93713BE32C22CA1100B41CD9 /* QuizMultiChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoice.swift; sourceTree = "<group>"; };
@@ -137,9 +143,11 @@
 			children = (
 				3A64C1642C23E3AF00D0AC3A /* Components */,
 				3A9203E52C22751C00C4E9C4 /* ContentView.swift */,
+				3AE5D8002C244030001AB9A4 /* QuizView.swift */,
 				93713BF32C2317F400B41CD9 /* QuizResultView.swift */,
 				3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */,
 				3A64C16B2C23E41600D0AC3A /* QuizFillBlankView.swift */,
+				3AE5D7FC2C24397D001AB9A4 /* QuizMatchingWordView.swift */,
 				3A64C16E2C23EB1B00D0AC3A /* HomeView.swift */,
 			);
 			name = View;
@@ -149,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				93713BEF2C23179300B41CD9 /* QuizViewModel.swift */,
+				3AE5D8022C247754001AB9A4 /* QuizMatchingWordViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -233,6 +242,7 @@
 			files = (
 				93713BE62C22CB4A00B41CD9 /* Choice.swift in Sources */,
 				93713BEC2C22D24900B41CD9 /* QuizWordBlank.swift in Sources */,
+				3AE5D7FD2C24397D001AB9A4 /* QuizMatchingWordView.swift in Sources */,
 				93713BE82C22CBF000B41CD9 /* QuizFillBlank.swift in Sources */,
 				3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */,
 				3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */,
@@ -246,7 +256,9 @@
 				3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */,
 				93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */,
 				93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */,
+				3AE5D8012C244030001AB9A4 /* QuizView.swift in Sources */,
 				93713BEA2C22CC6100B41CD9 /* QuizConnect.swift in Sources */,
+				3AE5D8032C247754001AB9A4 /* QuizMatchingWordViewModel.swift in Sources */,
 				3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,10 +397,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cendekiawan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cerdikiawan;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -414,10 +427,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cendekiawan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cerdikiawan;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
