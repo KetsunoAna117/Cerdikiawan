@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(QuizViewModel.self) var quizModelData
+    var testShowData: [StoreQuizData] {
+        quizModelData.listQuizQuestion
+    }
     var body: some View {
         VStack {
-            HomeView()
+//            HomeView()
+            List{
+                ForEach(quizModelData.listQuizQuestion, id: \.quizId) { quizData in
+                    Text(quizData.quizCategory)
+                }
+            }
         }
         .padding()
     }
@@ -29,5 +38,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView()
+    ContentView().environment(QuizViewModel())
 }
