@@ -1,0 +1,254 @@
+[
+  {
+    "quizId": 1,
+    "quizFeedback": {
+      "quizId": 1,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "ide pokok",
+    "quizTitle": "Menyulap Barang Bekas Jadi Hasil Karya",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Daur ulang adalah kegiatan mengolah kembali barang-barang yang tidak terpakai menjadi karya yang baru. Barang bekas yang dapat didaur ulang, di antaranya botol minuman, koran, dan kain perca. Daur ulang dilakukan untuk mencegah banyaknya barang yang dibuang percuma.\nBanyak manfaat dari kegiatan mendaur ulang barang bekas, salah satunya bisa meningkatkan pendapatan. Barang-barang kerajinan tangan hasil daur ulang bisa kita jual. Selain itu, kegiatan daur ulang barang bekas bisa menjadi kegiatan yang bermanfaat untuk anak-anak. Barang bekas yang bisa didaur ulang oleh anak-anak, misalnya koran bekas.\nCara mendaur ulang koran bekas cukup mudah, yaitu dengan merendam kertas koran yang sudah disobek ke dalam ember berisi air selama sehari semalam. Kemudian, koran tersebut diblender dan diaduk dengan lem. Hasil daur ulang koran tersebut dapat dibentuk menjadi berbagai kreasi.\nKain-kain sisa atau kain perca bisa dibuat menjadi boneka atau tempat penyimpanan serbaguna. Berbagai cara pembuatan boneka dari kain perca dapat dicari melalui internet. Kamu tidak akan kesulitan untuk membuat barang-barang dari kain perca tersebut.",
+    "quizQuestion": "Kalimat utama paragraf kedua dalam teks tersebut adalah …",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Banyak manfaat dari kegiatan mendaur ulang barang bekas, salah satunya bisa meningkatkan pendapatan.",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Barang-barang kerajinan tangan hasil daur ulang bisa kita jual. ",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Selain itu, kegiatan daur ulang barang bekas bisa menjadi kegiatan yang bermanfaat untuk anak-anak. ",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Cara mendaur ulang koran bekas cukup mudah, yaitu dengan merendam kertas koran yang sudah disobek ke dalam ember berisi air selama sehari semalam.",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 0
+  },
+  {
+    "quizId": 2,
+    "quizFeedback": {
+      "quizId": 2,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "ide pokok",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Kucing termasuk salah satu hewan karnivora yang bisa dipelihara. Begitu pula dengan sejumlah jenis anjing. Meskipun keduanya memakan daging dan mempunyai taring serta kuku tajam, karakter dua hewan ini bisa dijinakkan. Hal ini membuktikan bahwa tidak semua hewan karnivora itu buas dan berbahaya bagi kehidupan manusia.",
+    "quizQuestion": "Dari contoh bacaan ide pokok paragraf di atas, gagasan utamanya adalah…",
+    "quizChoiceList": [
+        {
+          "choiceDescription": "Kucing adalah hewan karnivora yang bisa dipelihara.",
+          "choiceId": 0
+        },
+        {
+          "choiceDescription": "Ada beberapa jenis anjing yang bisa dipelihara.",
+          "choiceId": 1
+        },
+        {
+          "choiceDescription": "Kucing dan anjing mempunyai taring serta kuku yang tajam.",
+          "choiceId": 2
+        },
+        {
+          "choiceDescription": "Tidak semua hewan karnivora berbahaya bagi kehidupan manusia.",
+          "choiceId": 3
+        }
+    ],
+    "quizAnswerId": 3
+  },
+  {
+    "quizId": 3,
+    "quizFeedback": {
+      "quizId": 3,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "ide pokok",
+    "quizTitle": "Menyulap Barang Bekas Jadi Hasil Karya",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Daur ulang adalah kegiatan mengolah kembali barang-barang yang tidak terpakai menjadi karya yang baru. Barang bekas yang dapat didaur ulang, di antaranya botol minuman, koran, dan kain perca. Daur ulang dilakukan untuk mencegah banyaknya barang yang dibuang percuma.\nBanyak manfaat dari kegiatan mendaur ulang barang bekas, salah satunya bisa meningkatkan pendapatan. Barang-barang kerajinan tangan hasil daur ulang bisa kita jual. Selain itu, kegiatan daur ulang barang bekas bisa menjadi kegiatan yang bermanfaat untuk anak-anak. Barang bekas yang bisa didaur ulang oleh anak-anak, misalnya koran bekas.\nCara mendaur ulang koran bekas cukup mudah, yaitu dengan merendam kertas koran yang sudah disobek ke dalam ember berisi air selama sehari semalam. Kemudian, koran tersebut diblender dan diaduk dengan lem. Hasil daur ulang koran tersebut dapat dibentuk menjadi berbagai kreasi.\nKain-kain sisa atau kain perca bisa dibuat menjadi boneka atau tempat penyimpanan serbaguna. Berbagai cara pembuatan boneka dari kain perca dapat dicari melalui internet. Kamu tidak akan kesulitan untuk membuat barang-barang dari kain perca tersebut.",
+    "quizQuestion": "Kalimat utama paragraf pertama dalam teks tersebut adalah …",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Daur ulang adalah kegiatan mengolah kembali barang-barang yang tidak terpakai menjadi karya yang baru.",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Barang-barang kerajinan tangan hasil daur ulang bisa kita jual. ",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Kegiatan daur ulang barang bekas bisa menjadi kegiatan yang bermanfaat untuk anak-anak. ",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Cara mendaur ulang koran bekas cukup mudah, yaitu dengan merendam kertas koran yang sudah disobek ke dalam ember berisi air selama sehari semalam.",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 0
+  },
+  {
+    "quizId": 4,
+    "quizFeedback": {
+      "quizId": 4,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "implisit",
+    "quizTitle": "Darman dan Darmin Cerita Rakyat dari DKI Jakarta",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Dahulu kala, di suatu daerah di Jakarta, tinggallah saudagar kaya bernama Pak Salim. Dia terkenal sebagai tuan tanah. Pak Salim mempunyai dua orang anak. Anak pertama bernama Darman dan anak kedua bernama Darmin. Sepeninggal istrinya, Pak Salim merawat kedua anaknya seorang diri.\nKedua anak Pak Salim memiliki sifat yang sangat berbeda. Dari kecil, Darman senang bermain silat. Untuk memperdalam silatnya, dia tidak segan-segan mencari ilmu ke berbagai perguruan silat. Namun, ilmu yang dimilikinya tidak dimanfaatkan dengan baik. Darman sering terlibat perkelahian dengan anak-anak di sekitar kampungnya.\nSetiap hari, ada saja orang yang mengadu kepada Pak Salim akibat perbuatan Darman. Pak Salim sudah berusaha memasukkan Darman ke sekolah, tetapi dia sering bolos. Akhirnya, Pak Salim membiarkannya memilih jalan hidup sendiri.\nBeda halnya dengan anak kedua Pak Salim, Darmin. Sejak kecil, dia rajin mengikuti pengajian di sekitar kampungnya. Dia juga sering menolong tetangga yang kesusahan. Di sekolah, Darmin dikenal sebagai anak yang pintar. Oleh sebab itu, dia sering diminta ayahnya membantu pembukuan keuangan.\nSelain memiliki dua anak laki-laki, Pak Salim juga mengangkat anak perempuan bernama Amini. Orang tua Amini dan Pak Salim bersaudara. Karena kemiskinannya, orang tua Amini mempercayakan pengasuhan anaknya kepada Pak Salim. Mereka ingin anaknya mendapat pendidikan yang baik. Sejak kecil, Amini lebih dekat dengan Darmin karena mereka memiliki sifat yang sama.",
+    "quizQuestion": "Apakah watak karakter Darman?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Nakal",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Senang membantu",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Baik hati",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Pendiam",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 0
+  },
+  {
+    "quizId": 5,
+    "quizFeedback": {
+      "quizId": 5,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "implisit",
+    "quizTitle": "Darman dan Darmin Cerita Rakyat dari DKI Jakarta",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Dahulu kala, di suatu daerah di Jakarta, tinggallah saudagar kaya bernama Pak Salim. Dia terkenal sebagai tuan tanah. Pak Salim mempunyai dua orang anak. Anak pertama bernama Darman dan anak kedua bernama Darmin. Sepeninggal istrinya, Pak Salim merawat kedua anaknya seorang diri.\nKedua anak Pak Salim memiliki sifat yang sangat berbeda. Dari kecil, Darman senang bermain silat. Untuk memperdalam silatnya, dia tidak segan-segan mencari ilmu ke berbagai perguruan silat. Namun, ilmu yang dimilikinya tidak dimanfaatkan dengan baik. Darman sering terlibat perkelahian dengan anak-anak di sekitar kampungnya.\nSetiap hari, ada saja orang yang mengadu kepada Pak Salim akibat perbuatan Darman. Pak Salim sudah berusaha memasukkan Darman ke sekolah, tetapi dia sering bolos. Akhirnya, Pak Salim membiarkannya memilih jalan hidup sendiri.\nBeda halnya dengan anak kedua Pak Salim, Darmin. Sejak kecil, dia rajin mengikuti pengajian di sekitar kampungnya. Dia juga sering menolong tetangga yang kesusahan. Di sekolah, Darmin dikenal sebagai anak yang pintar. Oleh sebab itu, dia sering diminta ayahnya membantu pembukuan keuangan.\nSelain memiliki dua anak laki-laki, Pak Salim juga mengangkat anak perempuan bernama Amini. Orang tua Amini dan Pak Salim bersaudara. Karena kemiskinannya, orang tua Amini mempercayakan pengasuhan anaknya kepada Pak Salim. Mereka ingin anaknya mendapat pendidikan yang baik. Sejak kecil, Amini lebih dekat dengan Darmin karena mereka memiliki sifat yang sama.",
+    "quizQuestion": "Apakah watak karakter Darmin?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Nakal",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Suka Menolong",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Sombong",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Pemalas",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 1
+  },
+  {
+    "quizId": 6,
+    "quizFeedback": {
+      "quizId": 6,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "implisit",
+    "quizTitle": "Darman dan Darmin Cerita Rakyat dari DKI Jakarta",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Dahulu kala, di suatu daerah di Jakarta, tinggallah saudagar kaya bernama Pak Salim. Dia terkenal sebagai tuan tanah. Pak Salim mempunyai dua orang anak. Anak pertama bernama Darman dan anak kedua bernama Darmin. Sepeninggal istrinya, Pak Salim merawat kedua anaknya seorang diri.\nKedua anak Pak Salim memiliki sifat yang sangat berbeda. Dari kecil, Darman senang bermain silat. Untuk memperdalam silatnya, dia tidak segan-segan mencari ilmu ke berbagai perguruan silat. Namun, ilmu yang dimilikinya tidak dimanfaatkan dengan baik. Darman sering terlibat perkelahian dengan anak-anak di sekitar kampungnya.\nSetiap hari, ada saja orang yang mengadu kepada Pak Salim akibat perbuatan Darman. Pak Salim sudah berusaha memasukkan Darman ke sekolah, tetapi dia sering bolos. Akhirnya, Pak Salim membiarkannya memilih jalan hidup sendiri.\nBeda halnya dengan anak kedua Pak Salim, Darmin. Sejak kecil, dia rajin mengikuti pengajian di sekitar kampungnya. Dia juga sering menolong tetangga yang kesusahan. Di sekolah, Darmin dikenal sebagai anak yang pintar. Oleh sebab itu, dia sering diminta ayahnya membantu pembukuan keuangan.\nSelain memiliki dua anak laki-laki, Pak Salim juga mengangkat anak perempuan bernama Amini. Orang tua Amini dan Pak Salim bersaudara. Karena kemiskinannya, orang tua Amini mempercayakan pengasuhan anaknya kepada Pak Salim. Mereka ingin anaknya mendapat pendidikan yang baik. Sejak kecil, Amini lebih dekat dengan Darmin karena mereka memiliki sifat yang sama.",
+    "quizQuestion": "Mengapa Pak Salim pasrah terhadap sikap Darman?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Karena Darman pintar dalam sekolah",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Karena Darman tidak suka belajar silat",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Karena Darman membantunya mengurus keuangan",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Karena Darman selalu bersikap nakal dan sering bolos sekolah",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 3
+  },
+  {
+    "quizId": 7,
+    "quizFeedback": {
+      "quizId": 7,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "implisit",
+    "quizTitle": "Darman dan Darmin Cerita Rakyat dari DKI Jakarta",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Dahulu kala, di suatu daerah di Jakarta, tinggallah saudagar kaya bernama Pak Salim. Dia terkenal sebagai tuan tanah. Pak Salim mempunyai dua orang anak. Anak pertama bernama Darman dan anak kedua bernama Darmin. Sepeninggal istrinya, Pak Salim merawat kedua anaknya seorang diri.\nKedua anak Pak Salim memiliki sifat yang sangat berbeda. Dari kecil, Darman senang bermain silat. Untuk memperdalam silatnya, dia tidak segan-segan mencari ilmu ke berbagai perguruan silat. Namun, ilmu yang dimilikinya tidak dimanfaatkan dengan baik. Darman sering terlibat perkelahian dengan anak-anak di sekitar kampungnya.\nSetiap hari, ada saja orang yang mengadu kepada Pak Salim akibat perbuatan Darman. Pak Salim sudah berusaha memasukkan Darman ke sekolah, tetapi dia sering bolos. Akhirnya, Pak Salim membiarkannya memilih jalan hidup sendiri.\nBeda halnya dengan anak kedua Pak Salim, Darmin. Sejak kecil, dia rajin mengikuti pengajian di sekitar kampungnya. Dia juga sering menolong tetangga yang kesusahan. Di sekolah, Darmin dikenal sebagai anak yang pintar. Oleh sebab itu, dia sering diminta ayahnya membantu pembukuan keuangan.\nSelain memiliki dua anak laki-laki, Pak Salim juga mengangkat anak perempuan bernama Amini. Orang tua Amini dan Pak Salim bersaudara. Karena kemiskinannya, orang tua Amini mempercayakan pengasuhan anaknya kepada Pak Salim. Mereka ingin anaknya mendapat pendidikan yang baik. Sejak kecil, Amini lebih dekat dengan Darmin karena mereka memiliki sifat yang sama.",
+    "quizQuestion": "Mengapa orang tua Amini mempercayakan Amini pada Pak Salim?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Mereka ingin anaknya menjadi nakal",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Mereka ingin pendidikan Amini terjamin",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Mereka tidak menyukai Amini",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Orang tua Amini ingin mendapatkan pendidikan",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 1
+  }
+]
