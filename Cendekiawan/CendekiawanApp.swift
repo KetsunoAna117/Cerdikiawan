@@ -12,7 +12,7 @@ import Firebase
 struct CendekiawanApp: App {
 //    @StateObject var databaseHelper = DatabaseHelper()
 //    @StateObject var userData = User(name: "Test1", level: Level())
-    @State private var quizModelData = QuizViewModel()
+//    @State private var quizModelData = QuizViewModel()
     
     init() {
         FirebaseApp.configure() //combine with the info.plist of GoogleService
@@ -21,7 +21,7 @@ struct CendekiawanApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(quizModelData)
+//                .environment(quizModelData)
 //                .environmentObject(userData)
 //                .environmentObject(databaseHelper)
         }
