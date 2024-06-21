@@ -8,18 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(QuizViewModel.self) var quizModelData
-    var testShowData: [StoreQuizData] {
-        quizModelData.listQuizQuestion
-    }
     var body: some View {
         VStack {
-//            HomeView()
-            List{
-                ForEach(quizModelData.listQuizQuestion, id: \.quizId) { quizData in
-                    Text(quizData.quizCategory)
-                }
-            }
+            HomeView()
         }
         .padding()
     }
@@ -35,6 +26,17 @@ struct ContentView: View {
 //Button("Gain Experience") {
 //    user.exp += 10
 //}
+
+//ini tadi buat coba quizData
+//@Environment(QuizViewModel.self) var quizModelData
+//var testShowData: [StoreQuizData] {
+//    quizModelData.listQuizQuestion
+//}
+//            List{
+//                ForEach(quizModelData.listQuizQuestion, id: \.quizId) { quizData in
+//                    Text(quizData.quizCategory)
+//                }
+//            }
 
 
 #Preview {
