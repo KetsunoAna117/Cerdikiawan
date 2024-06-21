@@ -11,7 +11,6 @@ import Firebase
 @main
 struct CendekiawanApp: App {
 //    @StateObject var databaseHelper = DatabaseHelper()
-//    @StateObject var userData = User(name: "Test1", level: Level())
     
     init() {
         FirebaseApp.configure() //combine with the info.plist of GoogleService
