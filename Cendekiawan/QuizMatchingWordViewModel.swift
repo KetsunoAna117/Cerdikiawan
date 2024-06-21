@@ -15,6 +15,8 @@ class QuizMatchingWordViewModel: ObservableObject {
     
     @Published var listOfCorrectId: [Int] = []
     
+    @Published var quizConnect: QuizConnect? = nil
+    
     func checkIfChoiceIdTheSame(choiceId: Int, selectedFrom: String){
         // If user haven't selected any box, set either box to true
         if !leftSelectedFrom && selectedFrom == "Left" {
@@ -72,5 +74,28 @@ class QuizMatchingWordViewModel: ObservableObject {
             }
         }
         return false
+    }
+    
+    func getQuizConnectFromJSON(){
+        self.quizConnect = QuizConnect(
+            quizId: 1,
+            quizFeedback: Feedback(quizID: 1, feedbackDescription: "You are stupid ah fuck"),
+            quizDifficultyLevel: 4,
+            quizCategory: "sambung kata",
+            quizTitle: "nil",
+            quizAsset: ["nil"],
+            isRedemption: false,
+            quizPrompt: "Pasangkan idiom dibawah ini dengan pasangannya yang tepat",
+            quizLeftChoiceList: [
+                Choice(choiceID: 1, choiceText: "Rendah Hati"),
+                Choice(choiceID: 2, choiceText: "Gulung Tikar"),
+                Choice(choiceID: 3, choiceText: "Naik Daun")
+            ],
+            quizRightChoiceList: [
+                Choice(choiceID: 1, choiceText: "Tidak Sombong"),
+                Choice(choiceID: 2, choiceText: "Terkenal"),
+                Choice(choiceID: 3, choiceText: "Bangkrut"),
+            ]
+        )
     }
 }
