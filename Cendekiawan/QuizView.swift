@@ -18,7 +18,16 @@ struct QuizView: View {
                 VStack {
                     // the content of the quiz should go here
 //                    QuizWordBlankView()
-                    QuizFillBlankView()
+                    QuizMatchingWordView(choiceLeft: .constant([
+                        Choice(choiceID: 1, choiceText: "Rendah Hati"),
+                        Choice(choiceID: 2, choiceText: "Gulung Tikar"),
+                        Choice(choiceID: 3, choiceText: "Naik Daun"),
+                    ]),
+                    choiceRight: .constant([
+                        Choice(choiceID: 1, choiceText: "Tidak Sombong"),
+                        Choice(choiceID: 2, choiceText: "Terkenal"),
+                        Choice(choiceID: 3, choiceText: "Bangkrut"),
+                    ]))
                 }
                 
             })

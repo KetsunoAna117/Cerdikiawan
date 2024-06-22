@@ -35,7 +35,15 @@ struct QuizMatchingWordView: View {
                                 .lineLimit(2)
                         }
                         .onTapGesture {
-                            vm.checkIfChoiceIdTheSame(choiceId: choice.choiceID, selectedFrom: "Left")
+                            //TODO: Clean up
+                            if vm.leftSelectedChoiceId == choice.choiceID{
+                                vm.deselectChoice(choiceId: choice.choiceID, selectedFrom: "Left")
+                            } else {
+                                vm.deleteLine(choiceId: choice.choiceID, selectedFrom: "Left")
+                                vm.selectChoice(choiceId: choice.choiceID, selectedFrom: "Left")
+                                vm.checkConnection()
+                            }
+//                            vm.checkIfChoiceIdTheSame(choiceId: choice.choiceID, selectedFrom: "Left")
                         }
                         .frame(maxWidth: 155, maxHeight: 75)
                     }
@@ -54,7 +62,15 @@ struct QuizMatchingWordView: View {
                         }
                         .frame(maxWidth: 155, maxHeight: 75)
                         .onTapGesture {
-                            vm.checkIfChoiceIdTheSame(choiceId: choice.choiceID, selectedFrom: "Right")
+                            //TODO: Clean up
+                            if vm.rightSelectedChoiceId == choice.choiceID{
+                                vm.deselectChoice(choiceId: choice.choiceID, selectedFrom: "Right")
+                            } else {
+                                vm.deleteLine(choiceId: choice.choiceID, selectedFrom: "Right")
+                                vm.selectChoice(choiceId: choice.choiceID, selectedFrom: "Right")
+                                vm.checkConnection()
+                            }
+//                            vm.checkIfChoiceIdTheSame(choiceId: choice.choiceID, selectedFrom: "Right")
                         }
                     }
                 }
