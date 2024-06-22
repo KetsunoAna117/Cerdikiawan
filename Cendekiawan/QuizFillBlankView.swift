@@ -30,8 +30,6 @@ struct QuizFillBlankView: View {
     }
     
     var body: some View {
-        Text("Fill In The Blank")
-        
         HStack{
             ScrollView {
                 VStack {
