@@ -28,10 +28,6 @@ struct QuizWordBlankView: View {
     ]
     var body: some View {
         VStack {
-            Text("Kata Acak")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding([.bottom], 50)
             Text("Pesan yang disampaikan oleh penulis dalam cerita disebut...")
                 .font(.body)
                 .padding([.bottom], 30)

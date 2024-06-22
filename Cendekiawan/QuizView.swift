@@ -13,19 +13,17 @@ struct QuizView: View {
     var body: some View {
         VStack {
             GeometryReader(content: { geometry in
-                Rectangle()
-                    .foregroundStyle(Color(red: 0.5, green: 0.76, blue: 0.93))
-                    .frame(width: geometry.size.width - 50, height: 20)
-                    .position(x: geometry.size.width / 2)
-                    .padding(.vertical, 16)
-                
+            ProgressView(value: 2, total: 5)
+                    .padding([.horizontal], 52)
                 VStack {
                     // the content of the quiz should go here
-//                    QuizMatchingWordView()
+//                    QuizWordBlankView()
+                    QuizFillBlankView()
                 }
                 
             })
         }
+        .padding([.top], 16)
         .navigationTitle(quizTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(content: {
@@ -35,7 +33,7 @@ struct QuizView: View {
                 }, label: {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.secondary)
                 })
             }
         })
