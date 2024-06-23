@@ -16,6 +16,8 @@
 		3A0961442C2807DE005043FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613F2C2807DE005043FD /* User.swift */; };
 		3A0961452C2807DE005043FD /* StoreChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961402C2807DE005043FD /* StoreChoice.swift */; };
 		3A0961462C2807DE005043FD /* StoreFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961412C2807DE005043FD /* StoreFeedback.swift */; };
+		3A0961482C280F9A005043FD /* QuizWordBlankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961472C280F9A005043FD /* QuizWordBlankViewModel.swift */; };
+		3A09614A2C2813A3005043FD /* QuizFillBlankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961492C2813A3005043FD /* QuizFillBlankViewModel.swift */; };
 		3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */; };
 		3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */; };
 		3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */; };
@@ -50,6 +52,8 @@
 		3A09613F2C2807DE005043FD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3A0961402C2807DE005043FD /* StoreChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreChoice.swift; sourceTree = "<group>"; };
 		3A0961412C2807DE005043FD /* StoreFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreFeedback.swift; sourceTree = "<group>"; };
+		3A0961472C280F9A005043FD /* QuizWordBlankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlankViewModel.swift; sourceTree = "<group>"; };
+		3A0961492C2813A3005043FD /* QuizFillBlankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFillBlankViewModel.swift; sourceTree = "<group>"; };
 		3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePoolView.swift; sourceTree = "<group>"; };
 		3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoiceView.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 			children = (
 				93713BEF2C23179300B41CD9 /* QuizViewModel.swift */,
 				3AE5D8022C247754001AB9A4 /* QuizMatchingWordViewModel.swift */,
+				3A0961472C280F9A005043FD /* QuizWordBlankViewModel.swift */,
+				3A0961492C2813A3005043FD /* QuizFillBlankViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -260,10 +266,12 @@
 				93713BE62C22CB4A00B41CD9 /* Choice.swift in Sources */,
 				93713BEC2C22D24900B41CD9 /* QuizWordBlank.swift in Sources */,
 				3AE5D7FD2C24397D001AB9A4 /* QuizMatchingWordView.swift in Sources */,
+				3A0961482C280F9A005043FD /* QuizWordBlankViewModel.swift in Sources */,
 				3A0961442C2807DE005043FD /* User.swift in Sources */,
 				0DC0B9F32C28489F00844EC9 /* ConnectBoxView.swift in Sources */,
 				93713BE82C22CBF000B41CD9 /* QuizFillBlank.swift in Sources */,
 				3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */,
+				3A09614A2C2813A3005043FD /* QuizFillBlankViewModel.swift in Sources */,
 				3A0961452C2807DE005043FD /* StoreChoice.swift in Sources */,
 				3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */,
 				3A64C16C2C23E41600D0AC3A /* QuizFillBlankView.swift in Sources */,
@@ -419,7 +427,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cendekiawan/Preview Content\"";
-				DEVELOPMENT_TEAM = PS54KA4A89;
+				DEVELOPMENT_TEAM = SW8FY3LA3R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cendekiawan/Info.plist;
@@ -451,7 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cendekiawan/Preview Content\"";
-				DEVELOPMENT_TEAM = PS54KA4A89;
+				DEVELOPMENT_TEAM = SW8FY3LA3R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cendekiawan/Info.plist;
