@@ -19,15 +19,17 @@ struct QuizView: View {
                     // the content of the quiz should go here
 //                    QuizWordBlankView()
                     QuizMatchingWordView(choiceLeft: .constant([
-                        Choice(choiceID: 1, choiceText: "Rendah Hati"),
-                        Choice(choiceID: 2, choiceText: "Gulung Tikar"),
-                        Choice(choiceID: 3, choiceText: "Naik Daun"),
+                        Choice(choiceId: 1, choiceDescription: "Rendah Hati"),
+                        Choice(choiceId: 2, choiceDescription: "Gulung Tikar"),
+                        Choice(choiceId: 3, choiceDescription: "Naik Daun"),
                     ]),
                     choiceRight: .constant([
-                        Choice(choiceID: 1, choiceText: "Tidak Sombong"),
-                        Choice(choiceID: 2, choiceText: "Terkenal"),
-                        Choice(choiceID: 3, choiceText: "Bangkrut"),
-                    ]))
+                        Choice(choiceId: 1, choiceDescription: "Tidak Sombong"),
+                        Choice(choiceId: 2, choiceDescription: "Terkenal"),
+                        Choice(choiceId: 3, choiceDescription: "Bangkrut"),
+                    ]),
+                    question: "Memasangkan teks hasil idiom"
+                    )
                 }
                 
             })
@@ -52,5 +54,6 @@ struct QuizView: View {
 #Preview {
     NavigationStack {
         QuizView()
+            .environment(QuizModelData())
     }
 }

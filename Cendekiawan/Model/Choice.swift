@@ -10,33 +10,33 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 class Choice: Identifiable, Codable, Hashable {
-    var choiceID: Int
-    var choiceText: String
+    var choiceDescription: String
+    var choiceId: Int
     
-    init(choiceID: Int, choiceText: String) {
-        self.choiceText = choiceText
-        self.choiceID = choiceID
+    init(choiceId: Int, choiceDescription: String) {
+        self.choiceDescription = choiceDescription
+        self.choiceId = choiceId
     }
     
     static func == (lhs: Choice, rhs: Choice) -> Bool {
-        return lhs.choiceID == rhs.choiceID && lhs.choiceText == rhs.choiceText
+        return lhs.choiceId == rhs.choiceId && lhs.choiceDescription == rhs.choiceDescription
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(choiceID)
-        hasher.combine(choiceText)
+        hasher.combine(choiceId)
+        hasher.combine(choiceDescription)
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        choiceID = try container.decode(Int.self, forKey: .choiceID)
-        choiceText = try container.decode(String.self, forKey: .choiceText)
+        choiceId = try container.decode(Int.self, forKey: .choiceID)
+        choiceDescription = try container.decode(String.self, forKey: .choiceText)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(choiceID, forKey: .choiceID)
-        try container.encode(choiceText, forKey: .choiceText)
+        try container.encode(choiceId, forKey: .choiceID)
+        try container.encode(choiceDescription, forKey: .choiceText)
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -50,7 +50,7 @@ class DraggableChoice: Choice, Transferable {
     
     init(choiceID: Int, choiceText: String, uniqueId: UUID = UUID()) {
         self.uniqueId = uniqueId
-        super.init(choiceID: choiceID, choiceText: choiceText)
+        super.init(choiceId: choiceID, choiceDescription: choiceText)
     }
     
     required init(from decoder: Decoder) throws {

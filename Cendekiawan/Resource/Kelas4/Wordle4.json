@@ -1,0 +1,54 @@
+[
+  {
+    "quizId": 9,
+    "quizFeedback": {
+      "quizId": 9,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizPrompt": "Pesan yang disampaikan oleh penulis dalam cerita:",
+    "quizLetterCount": 6,
+    "quizLetterChoiceList": [
+      {
+        "choiceDescription": "A",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "M",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "A",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "N",
+        "choiceId": 3
+      },
+      {
+        "choiceDescription": "A",
+        "choiceId": 4
+      },
+      {
+        "choiceDescription": "T",
+        "choiceId": 5
+      },
+      {
+        "choiceDescription": "H",
+        "choiceId": 6
+      },
+      {
+        "choiceDescription": "G",
+        "choiceId": 7
+      }
+    ],
+    "quizAnswer": "AMANAT"
+  }
+]

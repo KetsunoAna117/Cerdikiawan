@@ -1,0 +1,46 @@
+[
+  {
+    "quizId": 10,
+    "quizFeedback": {
+      "quizId": 10,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizPrompt": "Sambungkanlah idiom yang ada di kolom kiri dengan arti dari idiom tersebut yang berada di kolom kanan!",
+    "quizLeftChoiceList": [
+      {
+        "choiceDescription": "Rendah Hati",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Gulung Tikar",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Naik Daun",
+        "choiceId": 2
+      }
+    ],
+    "quizRightChoiceList": [
+      {
+        "choiceDescription": "Tidak Sombong",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Bangkrut",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Terkenal",
+        "choiceId": 2
+      }
+    ]
+  }
+]

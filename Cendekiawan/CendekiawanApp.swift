@@ -9,14 +9,14 @@ import SwiftUI
 
 @main
 struct CendekiawanApp: App {
-//    @StateObject var databaseHelper = DatabaseHelper()
+    @State private var modelData = QuizModelData()
     
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 ContentView()
+                    .environment(modelData)
             }
-//                .environmentObject(databaseHelper)
         }
     }
 }

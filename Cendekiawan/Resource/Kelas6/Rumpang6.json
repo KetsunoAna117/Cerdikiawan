@@ -1,0 +1,42 @@
+[
+  {
+    "quizId": 28,
+    "quizFeedback": {
+      "quizId": 28,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 6,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Berikut adalah daftar kosakata baru.\n\nbergengsi \napresiasi\nnilai tambah\nsumber daya\t\n\t\t\nUntuk menguji pemahaman kalian atas makna kata-kata tersebut, lengkapilah kalimat berikut ini dengan daftar kosakata di atas! \n\nBanyak seniman Indonesia yang telah meraih penghargaan __________ di mancanegara.\n\nPemberian penghargaan kepada seniman merupakan bentuk __________ dalam industri kreatif.\n \t\t\nPertukaran seniman antarnegara merupakan salah satu bentuk __________ budaya. \n\t\t \t \t \t\t \nIndustri kreatif menjadi alternatif Jepang dan Korea dalam mengatasi keterbatasan __________ alamnya.\n",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "bergengsi",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "apresiasi",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "nilai tambah",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "sumber daya",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerIdList": [
+      0,
+      1,
+      2,
+      3
+    ]
+  }
+]

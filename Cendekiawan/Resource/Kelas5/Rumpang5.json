@@ -1,0 +1,52 @@
+[
+  {
+    "quizId": 18,
+    "quizFeedback": {
+      "quizId": 18,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 5,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Berikut adalah daftar kosakata baru.\npemandu\t: orang yang memberikan bimbingan, penerangan, dan petunjuk\nkoleksi\t: kumpulan (gambar, benda bersejarah, lukisan, dan sebagainya)\nkunjungan\t: hal mengunjungi\narsitektur\t: metode dan gaya rancangan suatu bangunan\npetunjuk\t\t: arah atau bimbingan dalam melakukan suatu hal\nzaman\t\t: masa, jangka waktu yang menandai sesuatu\nLengkapi kalimat di bawah ini. Gunakan kata-kata dari daftar kosakata sebagai petunjuk.\n1. \tPemasangan __________ arah memudahkan para wisatawan yang berkunjung mendatangi seluruh area wisata.\n2. \tGedung Djoeang ’45 yang besar dan kokoh memiliki __________ khas kolonial.\n3. \tMereka bergegas menuju pintu keluar museum saat jam __________ sudah berakhir.\n4. \tMuseum ini memiliki __________ benda-benda bersejarah zaman kemerdekaan.\n5. \tGedung Djoeang ‘45 didirikan pada __________ Belanda.\n6. \tPara peserta didik menyimak dengan saksama penjelasan __________ tentang sejarah gedung ini.",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "pemandu",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "koleksi",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "kunjungan",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "arsitektur",
+        "choiceId": 3
+      },
+      {
+        "choiceDescription": "petunjuk",
+        "choiceId": 4
+      },
+      {
+        "choiceDescription": "zaman",
+        "choiceId": 5
+      }
+    ],
+    "quizAnswerIdList": [
+      4,
+      3,
+      2,
+      1,
+      5,
+      0
+    ]
+  }
+]

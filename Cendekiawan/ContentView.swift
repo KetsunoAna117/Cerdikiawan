@@ -13,10 +13,10 @@ struct ContentView: View {
             QuizFillBlankView(vm: QuizFillBlankViewModel(
                 questions: "Apa yang dicari orang __________ Bintang __________  Tanpa itu, kita mempunyai __________ dan tidak akan mendapatkan __________.",
                 choices: [
-                    Choice(choiceID: 1, choiceText: "Sigma"),
-                    Choice(choiceID: 2, choiceText: "Skibidi"),
-                    Choice(choiceID: 3, choiceText: "L Rizz"),
-                    Choice(choiceID: 4, choiceText: "Gyatt")
+                    Choice(choiceId: 1, choiceDescription: "Sigma"),
+                    Choice(choiceId: 2, choiceDescription: "Skibidi"),
+                    Choice(choiceId: 3, choiceDescription: "L Rizz"),
+                    Choice(choiceId: 4, choiceDescription: "Gyatt")
                 ]
             ))
         }
@@ -26,4 +26,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(QuizModelData())
 }
