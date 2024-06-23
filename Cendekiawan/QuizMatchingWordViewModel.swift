@@ -19,6 +19,18 @@ class QuizMatchingWordViewModel: ObservableObject {
     
     @Published var quizConnect: QuizConnect? = nil
     
+    func handleSelection(choiceId: Int, selectedFrom: String) {
+        if leftSelectedChoiceId == choiceId && selectedFrom == "Left" {
+            deselectChoice(choiceId: choiceId, selectedFrom: selectedFrom)
+        } else if rightSelectedChoiceId == choiceId && selectedFrom == "Right"{
+            deselectChoice(choiceId: choiceId, selectedFrom: selectedFrom)
+        } else {
+            deleteLine(choiceId: choiceId, selectedFrom: selectedFrom)
+            selectChoice(choiceId: choiceId, selectedFrom: selectedFrom)
+            checkConnection()
+        }
+    }
+    
     func deleteLine(choiceId: Int, selectedFrom: String) {
         if selectedFrom == "Left" {
             print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.left == choiceId}))]")
@@ -71,64 +83,11 @@ class QuizMatchingWordViewModel: ObservableObject {
     }
     
     
-//    func checkIfChoiceIdTheSame(choiceId: Int, selectedFrom: String){
-//        // If user haven't selected any box, set either box to true
-//        if !leftSelectedFrom && selectedFrom == "Left" {
-//            print("[DEBUG]: LeftID selected: \(leftSelectedChoiceId)")
-//            leftSelectedChoiceId = choiceId
-//            leftSelectedFrom = true
-//        }
-//        else if !rightSelectedFrom && selectedFrom == "Right" {
-//            print("[DEBUG]: rightID selected: \(rightSelectedChoiceId)")
-//            rightSelectedChoiceId = choiceId
-//            rightSelectedFrom = true
-//        }
-//        
-//        // if user has selected the left side and click on the right side
-//        if selectedFrom == "Right" && leftSelectedFrom {
-//            if leftSelectedChoiceId == choiceId {
-//                print("[DEBUG]: Right is the correct match from left")
-//                listOfCorrectId.append(choiceId)
-//            }
-//            else {
-//                print("[DEBUG]: Right is the incorrect match from left")
-//            }
-//            resetVariables()
-//        }
-//        // if user has selected the right side and click on the left side
-//        else if selectedFrom == "Left" && rightSelectedFrom {
-//            if rightSelectedChoiceId == choiceId {
-//                print("[DEBUG]: Left is the correct match from right")
-//                listOfCorrectId.append(choiceId)
-//            }
-//            else {
-//                print("[DEBUG]: Left is the incorrect match from right")
-//            }
-//            resetVariables()
-//        }
-//    }
-    
     func resetVariables(){
         // if ever reach this part of code, regardless what happens, resets all
         leftSelectedChoiceId = -1
-//        leftSelectedFrom = false
         rightSelectedChoiceId = -1
-//        rightSelectedFrom = false
     }
-    
-//    func boxShouldActive(choiceID: Int, selectedFrom: String) -> Bool{
-//        if selectedFrom == "Left" {
-//            if leftSelectedChoiceId == choiceID || listOfCorrectId.contains(choiceID) {
-//                return true
-//            }
-//        }
-//        else if selectedFrom == "Right" {
-//            if rightSelectedChoiceId == choiceID || listOfCorrectId.contains(choiceID) {
-//                return true
-//            }
-//        }
-//        return false
-//    }
     
     func boxShouldActive(choiceID: Int, selectedFrom: String) -> Bool{
         if selectedFrom == "Left" {

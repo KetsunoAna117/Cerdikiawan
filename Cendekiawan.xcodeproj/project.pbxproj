@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A02C23F11900710D43 /* DroppableBox.swift */; };
 		0D1302A32C241EE600710D43 /* QuizWordBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */; };
+		0DC0B9F12C27F04B00844EC9 /* LineConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */; };
 		3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */; };
 		3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */; };
 		3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		0D1302A02C23F11900710D43 /* DroppableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableBox.swift; sourceTree = "<group>"; };
 		0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlankView.swift; sourceTree = "<group>"; };
+		0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineConnectionView.swift; sourceTree = "<group>"; };
 		3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePoolView.swift; sourceTree = "<group>"; };
 		3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoiceView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */,
 				3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */,
 				0D1302A02C23F11900710D43 /* DroppableBox.swift */,
+				0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */,
 				93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */,
 				93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */,
+				0DC0B9F12C27F04B00844EC9 /* LineConnectionView.swift in Sources */,
 				0D1302A32C241EE600710D43 /* QuizWordBlankView.swift in Sources */,
 				93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */,
 				3AE5D8012C244030001AB9A4 /* QuizView.swift in Sources */,
