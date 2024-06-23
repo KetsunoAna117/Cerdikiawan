@@ -10,14 +10,9 @@ import SwiftUI
 
 class QuizMatchingWordViewModel: ObservableObject {
     @Published var leftSelectedChoiceId: Int = -1
-//    @Published var leftSelectedFrom: Bool = false
     @Published var rightSelectedChoiceId: Int = -1
-//    @Published var rightSelectedFrom: Bool = false
-    
-//    @Published var listOfCorrectId: [Int] = []
     
     @Published var connectedChoiceId: [(left: Int, right: Int)] = []
-    
     @Published var quizConnect: QuizConnect? = nil
     
     func getAllConnections(choiceLeft: [Choice], choiceRight: [Choice]) -> [(CGPoint, CGPoint)] {

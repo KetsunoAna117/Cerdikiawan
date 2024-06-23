@@ -25,15 +25,7 @@ struct QuizMatchingWordView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 50) {
                     ForEach(choiceLeft) { choice in
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 155, height: 75)
-                                .foregroundStyle(
-                                    vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Left") ? Color.blue : Color.gray)
-                            Text(choice.choiceText)
-                                .padding(.vertical, 4)
-                                .lineLimit(2)
-                        }
+                        ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Left") ? Color.blue : Color.gray)
                         .onTapGesture {
                             vm.handleSelection(choiceId: choice.choiceID, selectedFrom: "Left")
                         }
@@ -43,16 +35,7 @@ struct QuizMatchingWordView: View {
                 Spacer()
                 VStack(alignment: .leading, spacing: 50) {
                     ForEach(choiceRight) { choice in
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 155, height: 75)
-                                .foregroundStyle(
-                                    vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Right") ? Color.blue : Color.gray)
-                            Text(choice.choiceText)
-                                .padding(.vertical, 4)
-                                .lineLimit(2)
-                        }
-                        .frame(maxWidth: 155, maxHeight: 75)
+                        ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Right") ? Color.blue : Color.gray)
                         .onTapGesture {
                             vm.handleSelection(choiceId: choice.choiceID, selectedFrom: "Right")
                         }
