@@ -10,6 +10,11 @@
 		0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A02C23F11900710D43 /* DroppableBox.swift */; };
 		0D1302A32C241EE600710D43 /* QuizWordBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */; };
 		0DC0B9F12C27F04B00844EC9 /* LineConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */; };
+		3A0961422C2807DE005043FD /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613D2C2807DE005043FD /* Level.swift */; };
+		3A0961432C2807DE005043FD /* StoreQuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613E2C2807DE005043FD /* StoreQuizData.swift */; };
+		3A0961442C2807DE005043FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613F2C2807DE005043FD /* User.swift */; };
+		3A0961452C2807DE005043FD /* StoreChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961402C2807DE005043FD /* StoreChoice.swift */; };
+		3A0961462C2807DE005043FD /* StoreFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961412C2807DE005043FD /* StoreFeedback.swift */; };
 		3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */; };
 		3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */; };
 		3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */; };
@@ -40,6 +45,11 @@
 		0D1302A02C23F11900710D43 /* DroppableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableBox.swift; sourceTree = "<group>"; };
 		0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlankView.swift; sourceTree = "<group>"; };
 		0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineConnectionView.swift; sourceTree = "<group>"; };
+		3A09613D2C2807DE005043FD /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		3A09613E2C2807DE005043FD /* StoreQuizData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreQuizData.swift; sourceTree = "<group>"; };
+		3A09613F2C2807DE005043FD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3A0961402C2807DE005043FD /* StoreChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreChoice.swift; sourceTree = "<group>"; };
+		3A0961412C2807DE005043FD /* StoreFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreFeedback.swift; sourceTree = "<group>"; };
 		3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePoolView.swift; sourceTree = "<group>"; };
 		3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoiceView.swift; sourceTree = "<group>"; };
@@ -132,6 +142,11 @@
 		93713BEE2C22D2A500B41CD9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3A09613D2C2807DE005043FD /* Level.swift */,
+				3A0961402C2807DE005043FD /* StoreChoice.swift */,
+				3A0961412C2807DE005043FD /* StoreFeedback.swift */,
+				3A09613E2C2807DE005043FD /* StoreQuizData.swift */,
+				3A09613F2C2807DE005043FD /* User.swift */,
 				93713BDF2C22A3B000B41CD9 /* Quiz.swift */,
 				93713BE12C22A52E00B41CD9 /* Feedback.swift */,
 				93713BE52C22CB4A00B41CD9 /* Choice.swift */,
@@ -250,16 +265,21 @@
 				93B2339B2C2479C2006DCAFF /* StoreQuizData.swift in Sources */,
 				93713BEC2C22D24900B41CD9 /* QuizWordBlank.swift in Sources */,
 				3AE5D7FD2C24397D001AB9A4 /* QuizMatchingWordView.swift in Sources */,
+				3A0961442C2807DE005043FD /* User.swift in Sources */,
 				93713BE82C22CBF000B41CD9 /* QuizFillBlank.swift in Sources */,
 				3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */,
+				3A0961452C2807DE005043FD /* StoreChoice.swift in Sources */,
 				3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */,
 				3A64C16C2C23E41600D0AC3A /* QuizFillBlankView.swift in Sources */,
 				93713BF42C2317F400B41CD9 /* QuizResultView.swift in Sources */,
+				3A0961462C2807DE005043FD /* StoreFeedback.swift in Sources */,
+				3A0961422C2807DE005043FD /* Level.swift in Sources */,
 				93713BF02C23179300B41CD9 /* QuizViewModel.swift in Sources */,
 				3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */,
 				93713BE02C22A3B000B41CD9 /* Quiz.swift in Sources */,
 				93713BE22C22A52E00B41CD9 /* Feedback.swift in Sources */,
 				3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */,
+				3A0961432C2807DE005043FD /* StoreQuizData.swift in Sources */,
 				0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */,
 				93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */,
 				93713BE42C22CA1100B41CD9 /* QuizMultiChoice.swift in Sources */,
