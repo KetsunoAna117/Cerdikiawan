@@ -11,8 +11,6 @@ import Firebase
 @main
 struct CendekiawanApp: App {
 //    @StateObject var databaseHelper = DatabaseHelper()
-//    @StateObject var userData = User(name: "Test1", level: Level())
-//    @State private var quizModelData = QuizViewModel()
     
     init() {
         FirebaseApp.configure() //combine with the info.plist of GoogleService
@@ -20,9 +18,9 @@ struct CendekiawanApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//                .environment(quizModelData)
-//                .environmentObject(userData)
+            NavigationStack {
+                ContentView()
+            }
 //                .environmentObject(databaseHelper)
         }
     }
