@@ -10,6 +10,7 @@
 		0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A02C23F11900710D43 /* DroppableBox.swift */; };
 		0D1302A32C241EE600710D43 /* QuizWordBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */; };
 		0DC0B9F12C27F04B00844EC9 /* LineConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */; };
+		0DC0B9F32C28489F00844EC9 /* ConnectBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0B9F22C28489F00844EC9 /* ConnectBoxView.swift */; };
 		3A0961422C2807DE005043FD /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613D2C2807DE005043FD /* Level.swift */; };
 		3A0961432C2807DE005043FD /* StoreQuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613E2C2807DE005043FD /* StoreQuizData.swift */; };
 		3A0961442C2807DE005043FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613F2C2807DE005043FD /* User.swift */; };
@@ -43,6 +44,7 @@
 		0D1302A02C23F11900710D43 /* DroppableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableBox.swift; sourceTree = "<group>"; };
 		0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlankView.swift; sourceTree = "<group>"; };
 		0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineConnectionView.swift; sourceTree = "<group>"; };
+		0DC0B9F22C28489F00844EC9 /* ConnectBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectBoxView.swift; sourceTree = "<group>"; };
 		3A09613D2C2807DE005043FD /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		3A09613E2C2807DE005043FD /* StoreQuizData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreQuizData.swift; sourceTree = "<group>"; };
 		3A09613F2C2807DE005043FD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */,
 				0D1302A02C23F11900710D43 /* DroppableBox.swift */,
 				0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */,
+				0DC0B9F22C28489F00844EC9 /* ConnectBoxView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				93713BEC2C22D24900B41CD9 /* QuizWordBlank.swift in Sources */,
 				3AE5D7FD2C24397D001AB9A4 /* QuizMatchingWordView.swift in Sources */,
 				3A0961442C2807DE005043FD /* User.swift in Sources */,
+				0DC0B9F32C28489F00844EC9 /* ConnectBoxView.swift in Sources */,
 				93713BE82C22CBF000B41CD9 /* QuizFillBlank.swift in Sources */,
 				3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */,
 				3A0961452C2807DE005043FD /* StoreChoice.swift in Sources */,

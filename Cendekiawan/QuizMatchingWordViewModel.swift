@@ -6,18 +6,39 @@
 //
 
 import Foundation
+import SwiftUI
 
 class QuizMatchingWordViewModel: ObservableObject {
     @Published var leftSelectedChoiceId: Int = -1
-//    @Published var leftSelectedFrom: Bool = false
     @Published var rightSelectedChoiceId: Int = -1
-//    @Published var rightSelectedFrom: Bool = false
-    
-//    @Published var listOfCorrectId: [Int] = []
     
     @Published var connectedChoiceId: [(left: Int, right: Int)] = []
-    
     @Published var quizConnect: QuizConnect? = nil
+    
+    func getAllConnections(choiceLeft: [Choice], choiceRight: [Choice]) -> [(CGPoint, CGPoint)] {
+        var connections: [(CGPoint, CGPoint)] = []
+        for con in connectedChoiceId {
+            if let leftOrder = choiceLeft.firstIndex(where: { con.left == $0.choiceID }),
+               let rightOrder = choiceRight.firstIndex(where: { con.right == $0.choiceID }) {
+                let leftCoordinate = getLineCoordinate(order: leftOrder+1, selectedFrom: "Left")
+                let rightCoordinate = getLineCoordinate(order: rightOrder+1, selectedFrom: "Right")
+                connections.append((leftCoordinate, rightCoordinate))
+            }
+        }
+        return connections
+    }
+    
+    func getLineCoordinate(order: Int, selectedFrom: String) -> CGPoint {
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        if selectedFrom == "Left" {
+            x = UIScreen.main.bounds.width / 3
+        }else {
+            x = 2*UIScreen.main.bounds.width / 3
+        }
+        y = CGFloat(3*order) * UIScreen.main.bounds.height / 20
+        return CGPoint(x: x, y: y)
+    }
     
     func handleSelection(choiceId: Int, selectedFrom: String) {
         if leftSelectedChoiceId == choiceId && selectedFrom == "Left" {

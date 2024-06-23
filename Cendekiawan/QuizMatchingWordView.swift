@@ -25,15 +25,7 @@ struct QuizMatchingWordView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 50) {
                     ForEach(choiceLeft) { choice in
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 155, height: 75)
-                                .foregroundStyle(
-                                    vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Left") ? Color.blue : Color.gray)
-                            Text(choice.choiceText)
-                                .padding(.vertical, 4)
-                                .lineLimit(2)
-                        }
+                        ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Left") ? Color.blue : Color.gray)
                         .onTapGesture {
                             vm.handleSelection(choiceId: choice.choiceID, selectedFrom: "Left")
                         }
@@ -43,16 +35,7 @@ struct QuizMatchingWordView: View {
                 Spacer()
                 VStack(alignment: .leading, spacing: 50) {
                     ForEach(choiceRight) { choice in
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 155, height: 75)
-                                .foregroundStyle(
-                                    vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Right") ? Color.blue : Color.gray)
-                            Text(choice.choiceText)
-                                .padding(.vertical, 4)
-                                .lineLimit(2)
-                        }
-                        .frame(maxWidth: 155, maxHeight: 75)
+                        ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Right") ? Color.blue : Color.gray)
                         .onTapGesture {
                             vm.handleSelection(choiceId: choice.choiceID, selectedFrom: "Right")
                         }
@@ -65,10 +48,8 @@ struct QuizMatchingWordView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .overlay {
-            LineConnectionView(connections: [
-                (CGPoint(x: 0, y: 0), CGPoint(x: 100, y: 100)),
-                (CGPoint(x: 100, y: 200), CGPoint(x: 200, y: 300))
-            ])
+            
+            LineConnectionView(connections: vm.getAllConnections(choiceLeft: choiceLeft, choiceRight: choiceRight))
         }
     }
 }
@@ -80,11 +61,15 @@ struct QuizMatchingWordView: View {
                 Choice(choiceID: 1, choiceText: "Rendah Hati"),
                 Choice(choiceID: 2, choiceText: "Gulung Tikar"),
                 Choice(choiceID: 3, choiceText: "Naik Daun"),
+                Choice(choiceID: 4, choiceText: "Naik Daun"),
+                Choice(choiceID: 5, choiceText: "Naik Daun"),
             ]),
             choiceRight: .constant([
                 Choice(choiceID: 1, choiceText: "Tidak Sombong"),
                 Choice(choiceID: 2, choiceText: "Terkenal"),
                 Choice(choiceID: 3, choiceText: "Bangkrut"),
+                Choice(choiceID: 4, choiceText: "Naik Daun"),
+                Choice(choiceID: 5, choiceText: "Naik Daun"),
             ])
         )
     }
