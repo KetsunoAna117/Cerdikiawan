@@ -37,8 +37,6 @@
 		93713BF42C2317F400B41CD9 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BF32C2317F400B41CD9 /* QuizResultView.swift */; };
 		93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BF52C23188F00B41CD9 /* Trophy.swift */; };
 		93B233862C23CF2A006DCAFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */; };
-		93B233892C23CF5A006DCAFF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 93B233882C23CF5A006DCAFF /* FirebaseAuth */; };
-		93B2338B2C23CF5A006DCAFF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 93B2338A2C23CF5A006DCAFF /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,8 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93B233892C23CF5A006DCAFF /* FirebaseAuth in Frameworks */,
-				93B2338B2C23CF5A006DCAFF /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +196,6 @@
 			);
 			name = Cendekiawan;
 			packageProductDependencies = (
-				93B233882C23CF5A006DCAFF /* FirebaseAuth */,
-				93B2338A2C23CF5A006DCAFF /* FirebaseFirestore */,
 			);
 			productName = Cendekiawan;
 			productReference = 3A9203E02C22751C00C4E9C4 /* Cendekiawan.app */;
@@ -232,7 +226,6 @@
 			);
 			mainGroup = 3A9203D72C22751C00C4E9C4;
 			packageReferences = (
-				93B233872C23CF5A006DCAFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 3A9203E12C22751C00C4E9C4 /* Products */;
 			projectDirPath = "";
@@ -262,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				93713BE62C22CB4A00B41CD9 /* Choice.swift in Sources */,
-				93B2339B2C2479C2006DCAFF /* StoreQuizData.swift in Sources */,
 				93713BEC2C22D24900B41CD9 /* QuizWordBlank.swift in Sources */,
 				3AE5D7FD2C24397D001AB9A4 /* QuizMatchingWordView.swift in Sources */,
 				3A0961442C2807DE005043FD /* User.swift in Sources */,
@@ -501,30 +493,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		93B233872C23CF5A006DCAFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.28.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		93B233882C23CF5A006DCAFF /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 93B233872C23CF5A006DCAFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		93B2338A2C23CF5A006DCAFF /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 93B233872C23CF5A006DCAFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A9203D82C22751C00C4E9C4 /* Project object */;
 }
