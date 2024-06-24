@@ -21,7 +21,7 @@ struct QuizFillBlankView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                StatsOverlay() // For debugging, can be removed later
+                //                StatsOverlay() // For debugging, can be removed later
                 HStack {
                     ScrollView {
                         VStack {
@@ -36,35 +36,18 @@ struct QuizFillBlankView: View {
                             Spacer()
                             
                             VStack(alignment: .leading) {
-                                ForEach(0..<vm.trunc.count, id: \.self) { index in
-                                    HStack(alignment: .center) {
-                                        Text(vm.trunc[index])
-                                        if index < vm.trunc.count - 1 {
-                                            Spacer()
-                                            DroppableBox(boxText: vm.droppedAnswer.isEmpty ? "" : vm.droppedAnswer[index].choiceDescription)
-                                                .dropDestination(for: DraggableChoice.self) { droppedChoice, location in
-                                                    vm.handleChoiceDrop(index: index, droppedChoice: droppedChoice)
-                                                    return true
-                                                }
-                                                .onTapGesture {
-                                                    vm.removeChoicesFromAnswer(index: index)
-                                                }
-                                        }
-                                    }
-                                }
+                                renderTextWithPlaceHolders(availableWidth: 400)
                             }
                             Spacer()
                         }
-                        .frame(maxWidth: .infinity)
                     }
-                    Spacer(minLength: 20)
                     VStack {
                         Text("Masukkan kata yang tepat untuk setiap kata yang rumpang dalam teks!")
                             .font(.title3)
                             .fontWeight(.bold)
-                        ChoicePoolView(choices: vm.choices)
+                        ChoicePoolView(choices: vm.choices, width: 400)
                     }
-                    .frame(maxWidth: .infinity)
+                    .frame(width: UIScreen.main.bounds.width * 0.4)
                 }
                 .padding(50)
                 .onAppear {
@@ -105,7 +88,7 @@ struct QuizFillBlankView: View {
         .padding(.horizontal, 50)
     }
     
-    func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View{
+    func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
         let parts = vm.questions.components(separatedBy: "___")
         var views: [AnyView] = []
         
@@ -118,7 +101,7 @@ struct QuizFillBlankView: View {
             if index < parts.indices.last! {
                 // this will append rectangle to the paragraph
                 views.append(AnyView(
-                    DroppableBox(boxText: vm.droppedAnswer.isEmpty ? "" : vm.droppedAnswer[index].choiceText)
+                    DroppableBox(boxText: vm.droppedAnswer.isEmpty ? "" : vm.droppedAnswer[index].choiceDescription)
                         .dropDestination(for: DraggableChoice.self, action: { droppedChoice, location in
                             vm.handleChoiceDrop(index: index, droppedChoice: droppedChoice)
                             return true
@@ -129,15 +112,15 @@ struct QuizFillBlankView: View {
                 ))
             }
         }
+        return VStack {
+            FlexibleView(availableWidth: availableWidth, views: views)
+        }
     }
     
     func startGameplay() {
         let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
         let (quizModel, tipeQuiz) = storeRandomizedQuiz
         
-        return VStack {
-            FlexibleView(availableWidth: availableWidth, views: views)
-        }
         nextQuiz = (quizModel, tipeQuiz)
         isDone = true
     }

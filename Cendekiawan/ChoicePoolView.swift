@@ -31,7 +31,7 @@ struct ChoicePoolView: View {
         
         for choice in choices {
             views.append(AnyView(
-                Text(choice.choiceText)
+                Text(choice.choiceDescription)
                     .padding(12)
                     .background(Color(uiColor: .secondarySystemGroupedBackground))
                     .cornerRadius(5)
