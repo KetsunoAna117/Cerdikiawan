@@ -1,0 +1,146 @@
+[
+  {
+    "quizId": 4,
+    "quizFeedback": {
+      "quizId": 4,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "implisit",
+    "quizTitle": "Darman dan Darmin Cerita Rakyat dari DKI Jakarta",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Dahulu kala, di suatu daerah di Jakarta, tinggallah saudagar kaya bernama Pak Salim. Dia terkenal sebagai tuan tanah. Pak Salim mempunyai dua orang anak. Anak pertama bernama Darman dan anak kedua bernama Darmin. Sepeninggal istrinya, Pak Salim merawat kedua anaknya seorang diri.\nKedua anak Pak Salim memiliki sifat yang sangat berbeda. Dari kecil, Darman senang bermain silat. Untuk memperdalam silatnya, dia tidak segan-segan mencari ilmu ke berbagai perguruan silat. Namun, ilmu yang dimilikinya tidak dimanfaatkan dengan baik. Darman sering terlibat perkelahian dengan anak-anak di sekitar kampungnya.\nSetiap hari, ada saja orang yang mengadu kepada Pak Salim akibat perbuatan Darman. Pak Salim sudah berusaha memasukkan Darman ke sekolah, tetapi dia sering bolos. Akhirnya, Pak Salim membiarkannya memilih jalan hidup sendiri.\nBeda halnya dengan anak kedua Pak Salim, Darmin. Sejak kecil, dia rajin mengikuti pengajian di sekitar kampungnya. Dia juga sering menolong tetangga yang kesusahan. Di sekolah, Darmin dikenal sebagai anak yang pintar. Oleh sebab itu, dia sering diminta ayahnya membantu pembukuan keuangan.\nSelain memiliki dua anak laki-laki, Pak Salim juga mengangkat anak perempuan bernama Amini. Orang tua Amini dan Pak Salim bersaudara. Karena kemiskinannya, orang tua Amini mempercayakan pengasuhan anaknya kepada Pak Salim. Mereka ingin anaknya mendapat pendidikan yang baik. Sejak kecil, Amini lebih dekat dengan Darmin karena mereka memiliki sifat yang sama.",
+    "quizQuestion": "Apakah watak karakter Darman?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Nakal",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Senang membantu",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Baik hati",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Pendiam",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 0
+  },
+  {
+    "quizId": 5,
+    "quizFeedback": {
+      "quizId": 5,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "implisit",
+    "quizTitle": "Darman dan Darmin Cerita Rakyat dari DKI Jakarta",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Dahulu kala, di suatu daerah di Jakarta, tinggallah saudagar kaya bernama Pak Salim. Dia terkenal sebagai tuan tanah. Pak Salim mempunyai dua orang anak. Anak pertama bernama Darman dan anak kedua bernama Darmin. Sepeninggal istrinya, Pak Salim merawat kedua anaknya seorang diri.\nKedua anak Pak Salim memiliki sifat yang sangat berbeda. Dari kecil, Darman senang bermain silat. Untuk memperdalam silatnya, dia tidak segan-segan mencari ilmu ke berbagai perguruan silat. Namun, ilmu yang dimilikinya tidak dimanfaatkan dengan baik. Darman sering terlibat perkelahian dengan anak-anak di sekitar kampungnya.\nSetiap hari, ada saja orang yang mengadu kepada Pak Salim akibat perbuatan Darman. Pak Salim sudah berusaha memasukkan Darman ke sekolah, tetapi dia sering bolos. Akhirnya, Pak Salim membiarkannya memilih jalan hidup sendiri.\nBeda halnya dengan anak kedua Pak Salim, Darmin. Sejak kecil, dia rajin mengikuti pengajian di sekitar kampungnya. Dia juga sering menolong tetangga yang kesusahan. Di sekolah, Darmin dikenal sebagai anak yang pintar. Oleh sebab itu, dia sering diminta ayahnya membantu pembukuan keuangan.\nSelain memiliki dua anak laki-laki, Pak Salim juga mengangkat anak perempuan bernama Amini. Orang tua Amini dan Pak Salim bersaudara. Karena kemiskinannya, orang tua Amini mempercayakan pengasuhan anaknya kepada Pak Salim. Mereka ingin anaknya mendapat pendidikan yang baik. Sejak kecil, Amini lebih dekat dengan Darmin karena mereka memiliki sifat yang sama.",
+    "quizQuestion": "Apakah watak karakter Darmin?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Nakal",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Suka Menolong",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Sombong",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Pemalas",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 1
+  },
+  {
+    "quizId": 6,
+    "quizFeedback": {
+      "quizId": 6,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "implisit",
+    "quizTitle": "Darman dan Darmin Cerita Rakyat dari DKI Jakarta",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Dahulu kala, di suatu daerah di Jakarta, tinggallah saudagar kaya bernama Pak Salim. Dia terkenal sebagai tuan tanah. Pak Salim mempunyai dua orang anak. Anak pertama bernama Darman dan anak kedua bernama Darmin. Sepeninggal istrinya, Pak Salim merawat kedua anaknya seorang diri.\nKedua anak Pak Salim memiliki sifat yang sangat berbeda. Dari kecil, Darman senang bermain silat. Untuk memperdalam silatnya, dia tidak segan-segan mencari ilmu ke berbagai perguruan silat. Namun, ilmu yang dimilikinya tidak dimanfaatkan dengan baik. Darman sering terlibat perkelahian dengan anak-anak di sekitar kampungnya.\nSetiap hari, ada saja orang yang mengadu kepada Pak Salim akibat perbuatan Darman. Pak Salim sudah berusaha memasukkan Darman ke sekolah, tetapi dia sering bolos. Akhirnya, Pak Salim membiarkannya memilih jalan hidup sendiri.\nBeda halnya dengan anak kedua Pak Salim, Darmin. Sejak kecil, dia rajin mengikuti pengajian di sekitar kampungnya. Dia juga sering menolong tetangga yang kesusahan. Di sekolah, Darmin dikenal sebagai anak yang pintar. Oleh sebab itu, dia sering diminta ayahnya membantu pembukuan keuangan.\nSelain memiliki dua anak laki-laki, Pak Salim juga mengangkat anak perempuan bernama Amini. Orang tua Amini dan Pak Salim bersaudara. Karena kemiskinannya, orang tua Amini mempercayakan pengasuhan anaknya kepada Pak Salim. Mereka ingin anaknya mendapat pendidikan yang baik. Sejak kecil, Amini lebih dekat dengan Darmin karena mereka memiliki sifat yang sama.",
+    "quizQuestion": "Mengapa Pak Salim pasrah terhadap sikap Darman?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Karena Darman pintar dalam sekolah",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Karena Darman tidak suka belajar silat",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Karena Darman membantunya mengurus keuangan",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Karena Darman selalu bersikap nakal dan sering bolos sekolah",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 3
+  },
+  {
+    "quizId": 7,
+    "quizFeedback": {
+      "quizId": 7,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "implisit",
+    "quizTitle": "Darman dan Darmin Cerita Rakyat dari DKI Jakarta",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Dahulu kala, di suatu daerah di Jakarta, tinggallah saudagar kaya bernama Pak Salim. Dia terkenal sebagai tuan tanah. Pak Salim mempunyai dua orang anak. Anak pertama bernama Darman dan anak kedua bernama Darmin. Sepeninggal istrinya, Pak Salim merawat kedua anaknya seorang diri.\nKedua anak Pak Salim memiliki sifat yang sangat berbeda. Dari kecil, Darman senang bermain silat. Untuk memperdalam silatnya, dia tidak segan-segan mencari ilmu ke berbagai perguruan silat. Namun, ilmu yang dimilikinya tidak dimanfaatkan dengan baik. Darman sering terlibat perkelahian dengan anak-anak di sekitar kampungnya.\nSetiap hari, ada saja orang yang mengadu kepada Pak Salim akibat perbuatan Darman. Pak Salim sudah berusaha memasukkan Darman ke sekolah, tetapi dia sering bolos. Akhirnya, Pak Salim membiarkannya memilih jalan hidup sendiri.\nBeda halnya dengan anak kedua Pak Salim, Darmin. Sejak kecil, dia rajin mengikuti pengajian di sekitar kampungnya. Dia juga sering menolong tetangga yang kesusahan. Di sekolah, Darmin dikenal sebagai anak yang pintar. Oleh sebab itu, dia sering diminta ayahnya membantu pembukuan keuangan.\nSelain memiliki dua anak laki-laki, Pak Salim juga mengangkat anak perempuan bernama Amini. Orang tua Amini dan Pak Salim bersaudara. Karena kemiskinannya, orang tua Amini mempercayakan pengasuhan anaknya kepada Pak Salim. Mereka ingin anaknya mendapat pendidikan yang baik. Sejak kecil, Amini lebih dekat dengan Darmin karena mereka memiliki sifat yang sama.",
+    "quizQuestion": "Mengapa orang tua Amini mempercayakan Amini pada Pak Salim?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Mereka ingin anaknya menjadi nakal",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Mereka ingin pendidikan Amini terjamin",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Mereka tidak menyukai Amini",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Orang tua Amini ingin mendapatkan pendidikan",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 1
+  }
+]

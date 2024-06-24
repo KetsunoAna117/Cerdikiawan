@@ -21,13 +21,13 @@ class QuizWordBlankViewModel: ObservableObject {
     
     func setupQuestion(){
         if guessedWord.isEmpty {
-            guessedWord = Array(repeating: Choice(choiceID: -1, choiceText: ""), count: numberOfLetter)
+            guessedWord = Array(repeating: Choice(choiceId: -1, choiceDescription: ""), count: numberOfLetter)
         }
     }
     
     func checkNextEmptyIndex(substring: [Choice]) -> Int {
         var nextInputFlag = 0
-        if let nextIndex = substring.firstIndex(where: { $0.choiceID == -1 }) {
+        if let nextIndex = substring.firstIndex(where: { $0.choiceId == -1 }) {
             nextInputFlag = nextIndex
         } else {
             nextInputFlag = substring.count
@@ -36,16 +36,16 @@ class QuizWordBlankViewModel: ObservableObject {
     }
     
     func removeCharacterFromAnswer(index: Int){
-        if guessedWord[index].choiceID != -1 {
+        if guessedWord[index].choiceId != -1 {
             choices.append(guessedWord[index])
-            guessedWord[index] = Choice(choiceID: -1, choiceText: "")
+            guessedWord[index] = Choice(choiceId: -1, choiceDescription: "")
             nextInputFlag = checkNextEmptyIndex(substring: guessedWord)
         }
     }
     
     func addCharacterToAnswer(choosed: Choice){
         if nextInputFlag < guessedWord.count {
-            choices.removeAll { $0.choiceID == choosed.choiceID }
+            choices.removeAll { $0.choiceId == choosed.choiceId }
             guessedWord[nextInputFlag] = choosed
             nextInputFlag =  checkNextEmptyIndex(substring: guessedWord)
         }

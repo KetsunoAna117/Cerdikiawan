@@ -15,7 +15,7 @@ struct ConnectBoxView: View {
             Rectangle()
                 .frame(width: 155, height: 75)
                 .foregroundStyle(boxColor)
-            Text(choice.choiceText)
+            Text(choice.choiceDescription)
                 .padding(.vertical, 4)
                 .lineLimit(2)
         }
@@ -24,5 +24,5 @@ struct ConnectBoxView: View {
 }
 
 #Preview {
-    ConnectBoxView(choice: Choice(choiceID: 1, choiceText: "Test"), boxColor: Color.blue)
+    ConnectBoxView(choice: Choice(choiceId: 1, choiceDescription: "Test"), boxColor: Color.blue)
 }

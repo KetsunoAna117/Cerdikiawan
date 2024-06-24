@@ -1,0 +1,146 @@
+[
+  {
+    "quizId": 24,
+    "quizFeedback": {
+      "quizId": 24,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 6,
+    "quizCategory": "implisit",
+    "quizTitle": "Sekilas Sejarah Bahasa Indonesia",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "\tBahasa Indonesia lahir pada 28 Oktober 1928. Pada saat itu, para pemuda dari berbagai pelosok nusantara berkumpul dalam rapat pemuda dan berikrar (1) bertumpah darah yang satu, tanah air Indonesia, (2) berbangsa yang satu, bangsa Indonesia, dan (3)menjunjung bahasa persatuan, bahasa Indonesia. Ikrar para pemuda ini dikenal dengan nama Sumpah Pemuda. Unsur ketiga dari Sumpah Pemuda merupakan pernyataan tekad bahwa bahasa Indonesia merupakan bahasa persatuan bangsa Indonesia. Pada tahun 1928 itulah bahasa Indonesia dikukuhkan kedudukannya sebagai bahasa nasional. Selanjutnya, bahasa Indonesia dinyatakan kedudukannya sebagai bahasa negara pada 18 Agustus 1945.\n\tpenggunaan bahasa Belanda tidak digunakan sebagai bahasa nasional karena para pemuda ingin melepaskan diri dari identitas yang dibentuk oleh penjajah. Bahasa Melayu dipilih sebagai bahasa nasional karena pada saat itu bahasa Melayu sudah dikenal sebagai lingua franca di kepulauan nusantara, bahkan di kawasan Asia Tenggara. Lingua franca adalah istilah yang artinya bahasa perhubungan atau bahasa yang menjembatani pihak-pihak yang menggunakan bahasa yang berbeda.\n\tBahasa Melayu digunakan secara luas oleh para pedagang di kepulauan nusantara. Penutur bahasa Melayu memang tidak sebanyak penutur bahasa Jawa, yang merupakan bahasa mayoritas pada saat itu. Namun bahasa Melayu adalah bahasa yang paling banyak menyebar di seluruh nusantara. Alasan lain dipilihnya bahasa Melayu adalah karena bahasa ini tidak mempunyai tingkat tutur seperti yang ada dalam bahasa Jawa. Bahasa Melayu, cikal bakal bahasa Indonesia sifatnya egaliter atau setara, tanpa tingkatan tertentu bagi penuturnya.",
+    "quizQuestion": "Bahasa apa yang menjadi cikal bakal bahasa Indonesia?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Melayu",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Jawa",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Batak",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Belanda",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 0
+  },
+  {
+    "quizId": 25,
+    "quizFeedback": {
+      "quizId": 25,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 6,
+    "quizCategory": "implisit",
+    "quizTitle": "Sekilas Sejarah Bahasa Indonesia",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "\tBahasa Indonesia lahir pada 28 Oktober 1928. Pada saat itu, para pemuda dari berbagai pelosok nusantara berkumpul dalam rapat pemuda dan berikrar (1) bertumpah darah yang satu, tanah air Indonesia, (2) berbangsa yang satu, bangsa Indonesia, dan (3)menjunjung bahasa persatuan, bahasa Indonesia. Ikrar para pemuda ini dikenal dengan nama Sumpah Pemuda. Unsur ketiga dari Sumpah Pemuda merupakan pernyataan tekad bahwa bahasa Indonesia merupakan bahasa persatuan bangsa Indonesia. Pada tahun 1928 itulah bahasa Indonesia dikukuhkan kedudukannya sebagai bahasa nasional. Selanjutnya, bahasa Indonesia dinyatakan kedudukannya sebagai bahasa negara pada 18 Agustus 1945.\n\tpenggunaan bahasa Belanda tidak digunakan sebagai bahasa nasional karena para pemuda ingin melepaskan diri dari identitas yang dibentuk oleh penjajah. Bahasa Melayu dipilih sebagai bahasa nasional karena pada saat itu bahasa Melayu sudah dikenal sebagai lingua franca di kepulauan nusantara, bahkan di kawasan Asia Tenggara. Lingua franca adalah istilah yang artinya bahasa perhubungan atau bahasa yang menjembatani pihak-pihak yang menggunakan bahasa yang berbeda.\n\tBahasa Melayu digunakan secara luas oleh para pedagang di kepulauan nusantara. Penutur bahasa Melayu memang tidak sebanyak penutur bahasa Jawa, yang merupakan bahasa mayoritas pada saat itu. Namun bahasa Melayu adalah bahasa yang paling banyak menyebar di seluruh nusantara. Alasan lain dipilihnya bahasa Melayu adalah karena bahasa ini tidak mempunyai tingkat tutur seperti yang ada dalam bahasa Jawa. Bahasa Melayu, cikal bakal bahasa Indonesia sifatnya egaliter atau setara, tanpa tingkatan tertentu bagi penuturnya.",
+    "quizQuestion": "Kapan bahasa Indonesia dijadikan bahasa nasional?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "17 Agustus 1945.",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "28 Oktober 1928.",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "18 Agustus 1945.",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "1 Juni 1777.",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 1
+  },
+  {
+    "quizId": 26,
+    "quizFeedback": {
+      "quizId": 26,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 6,
+    "quizCategory": "implisit",
+    "quizTitle": "Sekilas Sejarah Bahasa Indonesia",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "\tBahasa Indonesia lahir pada 28 Oktober 1928. Pada saat itu, para pemuda dari berbagai pelosok nusantara berkumpul dalam rapat pemuda dan berikrar (1) bertumpah darah yang satu, tanah air Indonesia, (2) berbangsa yang satu, bangsa Indonesia, dan (3)menjunjung bahasa persatuan, bahasa Indonesia. Ikrar para pemuda ini dikenal dengan nama Sumpah Pemuda. Unsur ketiga dari Sumpah Pemuda merupakan pernyataan tekad bahwa bahasa Indonesia merupakan bahasa persatuan bangsa Indonesia. Pada tahun 1928 itulah bahasa Indonesia dikukuhkan kedudukannya sebagai bahasa nasional. Selanjutnya, bahasa Indonesia dinyatakan kedudukannya sebagai bahasa negara pada 18 Agustus 1945.\n\tpenggunaan bahasa Belanda tidak digunakan sebagai bahasa nasional karena para pemuda ingin melepaskan diri dari identitas yang dibentuk oleh penjajah. Bahasa Melayu dipilih sebagai bahasa nasional karena pada saat itu bahasa Melayu sudah dikenal sebagai lingua franca di kepulauan nusantara, bahkan di kawasan Asia Tenggara. Lingua franca adalah istilah yang artinya bahasa perhubungan atau bahasa yang menjembatani pihak-pihak yang menggunakan bahasa yang berbeda.\n\tBahasa Melayu digunakan secara luas oleh para pedagang di kepulauan nusantara. Penutur bahasa Melayu memang tidak sebanyak penutur bahasa Jawa, yang merupakan bahasa mayoritas pada saat itu. Namun bahasa Melayu adalah bahasa yang paling banyak menyebar di seluruh nusantara. Alasan lain dipilihnya bahasa Melayu adalah karena bahasa ini tidak mempunyai tingkat tutur seperti yang ada dalam bahasa Jawa. Bahasa Melayu, cikal bakal bahasa Indonesia sifatnya egaliter atau setara, tanpa tingkatan tertentu bagi penuturnya.",
+    "quizQuestion": "Mengapa bahasa Indonesia disebut sebagai bahasa yang egaliter?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Karena hanya orang elit di Indonesia yang bisa menggunakan bahasa Indonesia",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Karena bahasa Indonesia dijadikan bahasa nasional",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Karena bahasa Indonesia tidak memiliki tingkat tutur seperti di bahasa Jawa",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Karena bahasa Indonesia bukanlah bahasa penjajah",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 2
+  },
+  {
+    "quizId": 27,
+    "quizFeedback": {
+      "quizId": 27,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 6,
+    "quizCategory": "implisit",
+    "quizTitle": "Sekilas Sejarah Bahasa Indonesia",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "\tBahasa Indonesia lahir pada 28 Oktober 1928. Pada saat itu, para pemuda dari berbagai pelosok nusantara berkumpul dalam rapat pemuda dan berikrar (1) bertumpah darah yang satu, tanah air Indonesia, (2) berbangsa yang satu, bangsa Indonesia, dan (3)menjunjung bahasa persatuan, bahasa Indonesia. Ikrar para pemuda ini dikenal dengan nama Sumpah Pemuda. Unsur ketiga dari Sumpah Pemuda merupakan pernyataan tekad bahwa bahasa Indonesia merupakan bahasa persatuan bangsa Indonesia. Pada tahun 1928 itulah bahasa Indonesia dikukuhkan kedudukannya sebagai bahasa nasional. Selanjutnya, bahasa Indonesia dinyatakan kedudukannya sebagai bahasa negara pada 18 Agustus 1945.\n\tpenggunaan bahasa Belanda tidak digunakan sebagai bahasa nasional karena para pemuda ingin melepaskan diri dari identitas yang dibentuk oleh penjajah. Bahasa Melayu dipilih sebagai bahasa nasional karena pada saat itu bahasa Melayu sudah dikenal sebagai lingua franca di kepulauan nusantara, bahkan di kawasan Asia Tenggara. Lingua franca adalah istilah yang artinya bahasa perhubungan atau bahasa yang menjembatani pihak-pihak yang menggunakan bahasa yang berbeda.\n\tBahasa Melayu digunakan secara luas oleh para pedagang di kepulauan nusantara. Penutur bahasa Melayu memang tidak sebanyak penutur bahasa Jawa, yang merupakan bahasa mayoritas pada saat itu. Namun bahasa Melayu adalah bahasa yang paling banyak menyebar di seluruh nusantara. Alasan lain dipilihnya bahasa Melayu adalah karena bahasa ini tidak mempunyai tingkat tutur seperti yang ada dalam bahasa Jawa. Bahasa Melayu, cikal bakal bahasa Indonesia sifatnya egaliter atau setara, tanpa tingkatan tertentu bagi penuturnya.",
+    "quizQuestion": "Mengapa orang tua Amini mempercayakan Amini pada Pak Salim?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Karena pemakai bahasa Indonesia jumlahnya sedikit.",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Karena pemuda bangsa Indonesia ingin melepaskan diri secara identitas dari penjajah Belanda.",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Karena bahasa Indonesia hanya merupakan satu-satunya bahasa yang digunakan para pemuda.",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Karena bahasa Melayu memiliki tingkat tutur seperti bahasa Jawa",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 1
+  }
+]

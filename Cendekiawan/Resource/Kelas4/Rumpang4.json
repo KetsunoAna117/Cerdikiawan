@@ -1,0 +1,52 @@
+[
+  {
+    "quizId": 8,
+    "quizFeedback": {
+      "quizId": 8,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 4,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "Perundungan\t: perbuatan mengusik, menyakiti, atau mengejek seseorang\njulukan\t: nama sindiran; nama ejekan\nAgresif\t: bersifat menyerang\nVerbal\t: secara lisan\nMental\t: bersangkutan dengan batin dan watak manusia\nOtoritas\t: hak untuk bertindak\nHai!\n\nMemberikan __________ kepada teman itu tidak baik. Apalagi dengan memanggilnya secara __________ setiap hari. Itu termasuk perundungan __________. Selain itu, hindari hal-hal lainnya yang bisa mengganggu __________ orang lain. Tunjukkan kebaikan dalam berkawan.  Jika melihat peristiwa __________., jangan segan untuk melaporkannya, ya. Hubungi orang-orang yang memiliki __________ seperti guru atau orang tua.",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Perundungan",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Julukan",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Agresif",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Verbal",
+        "choiceId": 3
+      },
+      {
+        "choiceDescription": "Mental",
+        "choiceId": 4
+      },
+      {
+        "choiceDescription": "Otoritas",
+        "choiceId": 5
+      }
+    ],
+    "quizAnswerIdList": [
+      1,
+      2,
+      3,
+      4,
+      0,
+      5
+    ]
+  }
+]

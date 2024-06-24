@@ -7,19 +7,30 @@
 
 import Foundation
 
-class QuizMultiChoice: Quiz {
+class QuizMultiChoice: Codable {
+    var quizId: Int
+    var quizFeedback: Feedback
+    var quizDifficultyLevel: Int
+    var quizCategory: String
+    var quizTitle: String
+    var isRedemption: Bool
+    var quizAsset: [String]
     var quizStory: String
     var quizQuestion: String
-    var quizAnswerID: Int
     var quizChoiceList: [Choice]
+    var quizAnswerId: Int
     
-    init(quizId: Int, quizFeedback: Feedback, quizDifficultyLevel: Int, quizCategory: String, quizTitle: String, quizAsset: [String], isRedemption: Bool, quizStory: String, quizQuestion: String, quizAnswerID: Int, quizChoiceList: [Choice]) {
-        
+    init(quizId: Int, quizFeedback: Feedback, quizDifficultyLevel: Int, quizCategory: String, quizTitle: String, isRedemption: Bool, quizAsset: [String], quizStory: String, quizQuestion: String, quizChoiceList: [Choice], quizAnswerId: Int) {
+        self.quizId = quizId
+        self.quizFeedback = quizFeedback
+        self.quizDifficultyLevel = quizDifficultyLevel
+        self.quizCategory = quizCategory
+        self.quizTitle = quizTitle
+        self.isRedemption = isRedemption
+        self.quizAsset = quizAsset
         self.quizStory = quizStory
         self.quizQuestion = quizQuestion
-        self.quizAnswerID = quizAnswerID
         self.quizChoiceList = quizChoiceList
-        
-        super.init(quizId: quizId, quizFeedback: quizFeedback, quizDifficultyLevel: quizDifficultyLevel, quizCategory: quizCategory, quizTitle: quizTitle, quizAsset: quizAsset, isRedemption: isRedemption)
+        self.quizAnswerId = quizAnswerId
     }
 }
