@@ -1,0 +1,58 @@
+[
+  {
+    "quizId": 19,
+    "quizFeedback": {
+      "quizId": 19,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 5,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizPrompt": "orang yang memberikan bimbingan, penerangan, dan petunjuk",
+    "quizLetterCount": 7,
+    "quizLetterChoiceList": [
+      {
+        "choiceDescription": "P",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "E",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "M",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "A",
+        "choiceId": 3
+      },
+      {
+        "choiceDescription": "N",
+        "choiceId": 4
+      },
+      {
+        "choiceDescription": "D",
+        "choiceId": 5
+      },
+      {
+        "choiceDescription": "U",
+        "choiceId": 6
+      },
+      {
+        "choiceDescription": "G",
+        "choiceId": 7
+      },
+      {
+        "choiceDescription": "I",
+        "choiceId": 8
+      }
+    ],
+    "quizAnswer": "PEMANDU"
+  }
+]

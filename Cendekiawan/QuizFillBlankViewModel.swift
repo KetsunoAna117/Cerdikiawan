@@ -17,7 +17,7 @@ class QuizFillBlankViewModel: ObservableObject {
     
     init(questions: String, choices: [Choice]) {
         self.questions = questions
-        self.choices = choices.map { DraggableChoice(choiceID: $0.choiceID, choiceText: $0.choiceText) }
+        self.choices = choices.map { DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription) }
         self.trunc = questions.split(separator: "__________").map { String($0) }
     }
     
@@ -32,15 +32,15 @@ class QuizFillBlankViewModel: ObservableObject {
         droppedAnswer[index] = droppedChoice[0]
         choices.removeAll { $0.uniqueId == droppedChoice[0].uniqueId }
         
-        if previouslySelectedChoice.choiceID != -1 {
-            print(previouslySelectedChoice.choiceID)
+        if previouslySelectedChoice.choiceId != -1 {
+            print(previouslySelectedChoice.choiceId)
             choices.append(previouslySelectedChoice)
         }
     }
     
     func removeChoicesFromAnswer(index: Int){
         // remove choices
-        if droppedAnswer[index].choiceID != -1 {
+        if droppedAnswer[index].choiceId != -1 {
             choices.append(droppedAnswer[index])
             droppedAnswer[index] = DraggableChoice(choiceID: -1, choiceText: "")
         }

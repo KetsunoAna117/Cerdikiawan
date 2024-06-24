@@ -18,7 +18,7 @@ struct ChoicePoolView: View {
                 
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(choices, id: \.uniqueId) { choice in
-                        Text(choice.choiceText)
+                        Text(choice.choiceDescription)
                             .padding(12)
                             .background(Color(uiColor: .secondarySystemGroupedBackground))
                             .cornerRadius(8)

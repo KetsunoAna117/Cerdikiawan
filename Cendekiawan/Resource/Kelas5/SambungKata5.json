@@ -1,0 +1,43 @@
+[
+  {
+    "quizId": 20,
+    "quizFeedback": {
+      "quizId": 20,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 5,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": ["nil"],
+    "quizPrompt": "Sambungkanlah idiom yang ada di kolom kiri dengan arti dari idiom tersebut yang berada di kolom kanan!",
+    "quizLeftChoiceList": [
+      {
+        "choiceDescription": "Tangan panjang",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Besar mulut",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Rendah diri",
+        "choiceId": 2
+      }
+    ],
+    "quizRightChoiceList": [
+      {
+        "choiceDescription": "Senang membantu",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Suka menyombongkan diri",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Tidak percaya diri",
+        "choiceId": 2
+      }
+    ]
+  }
+]

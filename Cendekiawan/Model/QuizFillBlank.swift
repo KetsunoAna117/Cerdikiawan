@@ -7,16 +7,28 @@
 
 import Foundation
 
-class QuizFillBlank: Quiz {
+class QuizFillBlank: Codable{
+    var quizId: Int
+    var quizFeedback: Feedback
+    var quizDifficultyLevel: Int
+    var quizCategory: String
+    var quizTitle: String
+    var isRedemption: Bool
+    var quizAsset: [String]
     var quizStory: String
     var quizChoiceList: [Choice]
-    var quizAnswerList: [Int]
+    var quizAnswerIdList: [Int]
     
-    init(quizId: Int, quizFeedback: Feedback, quizDifficultyLevel: Int, quizCategory: String, quizTitle: String, quizAsset: [String], isRedemption: Bool, quizStory: String, quizChoiceList: [Choice], quizAnswerList: [Int]) {
+    init(quizId: Int, quizFeedback: Feedback, quizDifficultyLevel: Int, quizCategory: String, quizTitle: String, isRedemption: Bool, quizAsset: [String], quizStory: String, quizChoiceList: [Choice], quizAnswerIdList: [Int]) {
+        self.quizId = quizId
+        self.quizFeedback = quizFeedback
+        self.quizDifficultyLevel = quizDifficultyLevel
+        self.quizCategory = quizCategory
+        self.quizTitle = quizTitle
+        self.isRedemption = isRedemption
+        self.quizAsset = quizAsset
         self.quizStory = quizStory
         self.quizChoiceList = quizChoiceList
-        self.quizAnswerList = quizAnswerList
-        
-        super.init(quizId: quizId, quizFeedback: quizFeedback, quizDifficultyLevel: quizDifficultyLevel, quizCategory: quizCategory, quizTitle: quizTitle, quizAsset: quizAsset, isRedemption: isRedemption)
+        self.quizAnswerIdList = quizAnswerIdList
     }
 }
