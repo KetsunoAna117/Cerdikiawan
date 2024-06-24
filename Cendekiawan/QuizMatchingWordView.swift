@@ -18,9 +18,10 @@ struct QuizMatchingWordView: View {
     @StateObject private var vm: QuizMatchingWordViewModel = QuizMatchingWordViewModel()
     
     var body: some View {
-        // buat checking aja. nanti dihapus
-        StatsOverlay()
+        
         NavigationStack {
+            // buat checking aja. nanti dihapus
+            StatsOverlay()
             VStack() {
                 HStack {
                     Rectangle()
@@ -96,8 +97,7 @@ struct QuizMatchingWordView: View {
         let (quizModel, tipeQuiz) = storeRandomizedQuiz
         print("\(quizModel), \(tipeQuiz)")
         
-        nextQuiz?.quizModel = quizModel
-        nextQuiz?.tipeQuiz = tipeQuiz
+        nextQuiz = (quizModel, tipeQuiz)
     }
     
     @ViewBuilder

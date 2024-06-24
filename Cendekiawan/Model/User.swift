@@ -60,7 +60,9 @@ class User: ObservableObject {
     func updateIdePokokProeficiency(win: Bool){
         if win {
             proficiencyLevelIdePokok += 1
-            proficiencyLevelIdePokok %= 10
+            if proficiencyLevelIdePokok > 10{
+                proficiencyLevelIdePokok = 10
+            }
         } else {
             proficiencyLevelIdePokok -= 1
             if proficiencyLevelIdePokok < 0{
@@ -73,39 +75,56 @@ class User: ObservableObject {
     func updateImplisitProeficiency(win: Bool){
         if win {
             proficiencyLevelImplisit += 1
-            proficiencyLevelImplisit %= 10
+            if proficiencyLevelImplisit > 10{
+                proficiencyLevelImplisit = 10
+            }
         } else {
             proficiencyLevelImplisit -= 1
             if proficiencyLevelImplisit < 0{
                 proficiencyLevelImplisit = 0
             }
         }
+        checkLevel()
     }
     
     func updateKosakataProeficiency(win: Bool){
         if win {
             proficiencyLevelKosakata += 1
-            proficiencyLevelKosakata %= 10
+            if proficiencyLevelKosakata > 10{
+                proficiencyLevelKosakata = 10
+            }
         } else {
             proficiencyLevelKosakata -= 1
             if proficiencyLevelKosakata < 0{
                 proficiencyLevelKosakata = 0
             }
         }
+        checkLevel()
     }
     
     func checkLevel(){
         if proficiencyLevelImplisit == 10 &&
             proficiencyLevelIdePokok == 10 &&
             proficiencyLevelKosakata == 10{
-            difficultyLevel += 1
-            difficultyLevel %= 6
+                difficultyLevel += 1
+                if difficultyLevel > 6{
+                    difficultyLevel = 6
+                } else {
+                    proficiencyLevelImplisit = 5
+                    proficiencyLevelIdePokok = 5
+                    proficiencyLevelKosakata = 5
+                }
         } else if proficiencyLevelImplisit < 3 &&
             proficiencyLevelIdePokok < 3 &&
             proficiencyLevelKosakata < 3{
+            
             difficultyLevel -= 1
             if difficultyLevel < 4{
                 difficultyLevel = 4
+            } else {
+                proficiencyLevelImplisit = 5
+                proficiencyLevelIdePokok = 5
+                proficiencyLevelKosakata = 5
             }
         }
     }

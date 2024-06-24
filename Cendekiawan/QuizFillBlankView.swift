@@ -18,9 +18,10 @@ struct QuizFillBlankView: View {
     }
     
     var body: some View {
-        // buat checking aja. nanti dihapus
-        StatsOverlay()
+        
         NavigationStack {
+            // buat checking aja. nanti dihapus
+            StatsOverlay()
             HStack{
                 ScrollView {
                     VStack {
@@ -108,10 +109,10 @@ struct QuizFillBlankView: View {
     func startGameplay() {
         let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
         let (quizModel, tipeQuiz) = storeRandomizedQuiz
+        
         print("\(quizModel), \(tipeQuiz)")
         
-        nextQuiz?.quizModel = quizModel
-        nextQuiz?.tipeQuiz = tipeQuiz
+        nextQuiz = (quizModel, tipeQuiz)
     }
     
     @ViewBuilder

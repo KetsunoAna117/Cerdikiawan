@@ -52,7 +52,7 @@ struct HomeView: View {
             case "kosakata":
                 switch quizModel {
                 case "FillBlank":
-                    let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.randomElement()
+                    let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.first
                     
                     // TODO: tambahin parameter judul buat soal
                     QuizFillBlankView(vm: QuizFillBlankViewModel(
@@ -62,7 +62,7 @@ struct HomeView: View {
                         )
                     ))
                 case "WordBlank":
-                    let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
+                    let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.first
                     QuizWordBlankView(
                         vm: QuizWordBlankViewModel(
                             choices: loadChoices(
@@ -73,7 +73,7 @@ struct HomeView: View {
                         question: wordBlankQuiz!.quizPrompt
                     )
                 default:
-                    let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
+                    let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.first
                     QuizMatchingWordView(
                         choiceLeft: .constant(loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList)),
                         choiceRight: .constant(loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList)),

@@ -119,9 +119,9 @@ func load<T: Decodable>(_ filename: String) -> T {
 
 func getRandomizedProficiency(_ proficiency: ProficiencyLevelStorage) -> (String, String) {
     let weightedValues = [
-        (value: "idePokok", weight: 10 - proficiency.idePokok),
-        (value: "kosakata", weight: 10 - proficiency.kosakata),
-        (value: "implisit", weight: 10 - proficiency.implisit)
+        (value: "idePokok", weight: 20 - proficiency.idePokok),
+        (value: "kosakata", weight: 20 - proficiency.kosakata),
+        (value: "implisit", weight: 20 - proficiency.implisit)
     ]
     
     let totalWeight = weightedValues.reduce(0) { $0 + $1.weight }

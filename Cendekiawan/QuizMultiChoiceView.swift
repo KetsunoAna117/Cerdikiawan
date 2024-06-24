@@ -12,6 +12,7 @@ struct QuizMultiChoiceView: View {
     @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
+    @State private var isDone: Bool = false
     
     var tipeQuiz: String
     private var quiz: StoreQuizData {
@@ -25,9 +26,10 @@ struct QuizMultiChoiceView: View {
     @State var selectedAnswer: Int?
     
     var body: some View {
-        // buat checking aja. nanti dihapus
-        StatsOverlay()
+        
         NavigationStack {
+            // buat checking aja. nanti dihapus
+            StatsOverlay()
             HStack{
                 // aku ganti jadi scrollview
                 ScrollView{
@@ -56,15 +58,9 @@ struct QuizMultiChoiceView: View {
                 .frame(maxWidth: .infinity)
             }
             .padding(50)
-            
-            .navigationDestination(isPresented: Binding<Bool>(
-                get: { nextQuiz != nil },
-                set: { _ in })){
-                    getDestinationView()
-                }
-            
             HStack{
                 Button{
+//                    print(user.difficultyLevel)
                     if tipeQuiz == "idePokok"{
                         user.updateIdePokokProeficiency(win: true)
                     } else {
@@ -80,6 +76,7 @@ struct QuizMultiChoiceView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
                 Button{
+//                    print(user.difficultyLevel)
                     if tipeQuiz == "idePokok"{
                         user.updateIdePokokProeficiency(win: false)
                     } else {
@@ -97,20 +94,24 @@ struct QuizMultiChoiceView: View {
             }
         }
         
+        .navigationDestination(isPresented: $isDone){
+            getDestinationView()
+        }
+        
     }
     
     func startGameplay() {
         let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
         let (quizModel, tipeQuiz) = storeRandomizedQuiz
-        print("\(quizModel), \(tipeQuiz)")
         
-        nextQuiz?.quizModel = quizModel
-        nextQuiz?.tipeQuiz = tipeQuiz
+        nextQuiz = (quizModel, tipeQuiz)
+        print("\(nextQuiz!.quizModel), \(nextQuiz!.tipeQuiz)")
+        isDone = true
     }
     
     @ViewBuilder
     func getDestinationView() -> some View {
-       
+        
         if let tipeQuizz = nextQuiz?.tipeQuiz, let quizModel = nextQuiz?.quizModel {
             
             switch tipeQuizz {

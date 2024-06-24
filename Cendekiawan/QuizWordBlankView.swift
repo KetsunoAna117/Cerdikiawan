@@ -19,9 +19,10 @@ struct QuizWordBlankView: View {
     ]
     
     var body: some View {
-        // buat checking aja. nanti dihapus
-        StatsOverlay()
+        
         NavigationStack {
+            // buat checking aja. nanti dihapus
+            StatsOverlay()
             VStack {
                 Text(question)
                     .font(.body)
@@ -113,8 +114,7 @@ struct QuizWordBlankView: View {
         let (quizModel, tipeQuiz) = storeRandomizedQuiz
         print("\(quizModel), \(tipeQuiz)")
         
-        nextQuiz?.quizModel = quizModel
-        nextQuiz?.tipeQuiz = tipeQuiz
+        nextQuiz = (quizModel, tipeQuiz)
     }
     
     @ViewBuilder
