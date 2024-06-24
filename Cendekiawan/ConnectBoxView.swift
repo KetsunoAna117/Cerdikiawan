@@ -31,7 +31,7 @@ struct ConnectBoxView: View {
                     Spacer()
                 }
                 
-                Text(choice.choiceText)
+                Text(choice.choiceDescription)
                     .font(.title3)
                     .fontWeight(.bold)
                     .foregroundStyle(Color.white)
@@ -56,5 +56,5 @@ struct ConnectBoxView: View {
 }
 
 #Preview {
-    ConnectBoxView(choice: Choice(choiceID: 1, choiceText: "Orang yang ahli dalam mencipta dan menggubah gerak tari"), boxColor: Color.blue, selectedFrom: "Right")
+    ConnectBoxView(choice: Choice(choiceId: 1, choiceDescription: "Orang yang ahli dalam mencipta dan menggubah gerak tari"), boxColor: Color.blue, selectedFrom: "Right")
 }
