@@ -49,7 +49,7 @@ struct QuizWordBlankView: View {
                             .frame(width: 437, height: 155)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.gray, lineWidth: 1)
+                                    .stroke(Color.greyMid, lineWidth: 1)
                             )
                             .padding([.horizontal], 30)
                 LazyVGrid(columns: columns, spacing: 32) {

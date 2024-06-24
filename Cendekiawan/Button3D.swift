@@ -16,8 +16,9 @@ struct Button3D: View {
             .padding()
             .background(Color.greyMid)
             .cornerRadius(5)
-            .foregroundColor(.white)
-            .font(.system(size: 17, weight: .bold))
+            .foregroundStyle(color == Color.white ? Color.black : Color.white)
+            .font(.body)
+            .fontWeight(.bold)
             .overlay{
                 ZStack{
                     RoundedRectangle(cornerRadius: 5)
@@ -27,13 +28,18 @@ struct Button3D: View {
                                 .offset(y: -4)
                         }
                     Text(text)
-                        .foregroundColor(.white)
-                        .font(.system(size: 17, weight: .bold))
+                        .foregroundStyle(color == Color.white ? Color.black : Color.white)
+                        .font(.body)
+                        .fontWeight(.bold)
+                    if color == Color.white {
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.greyMid, lineWidth: 1)
+                    }
                 }
             }
     }
 }
 
 #Preview {
-    Button3D(text: "coba-coba", color: Color.red)
+    Button3D(text: "coba-coba", color: Color.white)
 }
