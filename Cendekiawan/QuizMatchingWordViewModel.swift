@@ -18,8 +18,8 @@ class QuizMatchingWordViewModel: ObservableObject {
     func getAllConnections(choiceLeft: [Choice], choiceRight: [Choice]) -> [(CGPoint, CGPoint)] {
         var connections: [(CGPoint, CGPoint)] = []
         for con in connectedChoiceId {
-            if let leftOrder = choiceLeft.firstIndex(where: { con.left == $0.choiceID }),
-               let rightOrder = choiceRight.firstIndex(where: { con.right == $0.choiceID }) {
+            if let leftOrder = choiceLeft.firstIndex(where: { con.left == $0.choiceId }),
+               let rightOrder = choiceRight.firstIndex(where: { con.right == $0.choiceId }) {
                 let leftCoordinate = getLineCoordinate(order: leftOrder+1, selectedFrom: "Left")
                 let rightCoordinate = getLineCoordinate(order: rightOrder+1, selectedFrom: "Right")
                 connections.append((leftCoordinate, rightCoordinate))
@@ -127,7 +127,7 @@ class QuizMatchingWordViewModel: ObservableObject {
     func getQuizConnectFromJSON(){
         self.quizConnect = QuizConnect(
             quizId: 1,
-            quizFeedback: Feedback(quizID: 1, feedbackDescription: "You are stupid ah fuck"),
+            quizFeedback: Feedback(quizId: 1, feedbackDescription: "You are stupid ah fuck"),
             quizDifficultyLevel: 4,
             quizCategory: "sambung kata",
             quizTitle: "nil",
@@ -135,14 +135,14 @@ class QuizMatchingWordViewModel: ObservableObject {
             isRedemption: false,
             quizPrompt: "Pasangkan idiom dibawah ini dengan pasangannya yang tepat",
             quizLeftChoiceList: [
-                Choice(choiceID: 1, choiceText: "Rendah Hati"),
-                Choice(choiceID: 2, choiceText: "Gulung Tikar"),
-                Choice(choiceID: 3, choiceText: "Naik Daun")
+                Choice(choiceId: 1, choiceDescription: "Rendah Hati"),
+                Choice(choiceId: 2, choiceDescription: "Gulung Tikar"),
+                Choice(choiceId: 3, choiceDescription: "Naik Daun")
             ],
             quizRightChoiceList: [
-                Choice(choiceID: 1, choiceText: "Tidak Sombong"),
-                Choice(choiceID: 2, choiceText: "Terkenal"),
-                Choice(choiceID: 3, choiceText: "Bangkrut"),
+                Choice(choiceId: 1, choiceDescription: "Tidak Sombong"),
+                Choice(choiceId: 2, choiceDescription: "Terkenal"),
+                Choice(choiceId: 3, choiceDescription: "Bangkrut"),
             ]
         )
     }

@@ -1,0 +1,110 @@
+[
+  {
+    "quizId": 11,
+    "quizFeedback": {
+      "quizId": 11,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 5,
+    "quizCategory": "ide pokok",
+    "quizTitle": "SAMPAH",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "\tAktivitas yang kita lakukan sehari-hari dapat menghasilkan sampah. Sampah yang dihasilkan biasanya berupa sampah organik, yaitu sampah yang mudah terurai. Misalnya daun- daun kering, sisa makanan, dan lain-lain. Sampah lainnya yakni sampah anorganik, yaitu sampah yang sulit diurai. Misalnya plastik, logam, kaca, kertas, dan lain-lain.\n\tPengelolaan sampah yang baik harus berwawasan lingkungan, menetapkan prinsip kemandirian yang produktif, dan mengedepankan prinsip 3M. 3M merupakan singkatan yang terdiri atas mengurangi, memakai ulang, dan mendaur ulang sampah. Mengurangi sampah dapat dilakukan dengan cara mengurangi memakai plastik sekali pakai. Kita dapat memilih untuk membawa tas belanja yang dapat dicuci dan dipakai berulang kali. Prinsip memakai ulang adalah upaya menggunakan kembali bahan atau barang supaya tidak langsung menjadi sampah. Contohnya botol selai tidak dibuang, tapi masih dapat kita gunakan menjadi tempat pensil atau tempat bumbu. Mendaur ulang sampah dilakukan dengan mengolah sampah menjadi bahan yang dapat digunakan. Misalnya kemasan sabun cuci yang dibersihkan dan dibentuk pola dapat dijahit menjadi tas belanja.\n\tSampah dapat berubah menjadi berkah apabila kita bijak dalam mengelolanya. Penanganan sampah yang baik dan benar juga akan menciptakan lingkungan yang bersih sehingga membuat hidup kita nyaman dan sehat. Hal itu dapat kita wujudkan melalui partisipasi dan peran aktif kita semua.",
+    "quizQuestion": "Apa ide pokok paragraf pertama?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Aktivitas yang kita lakukan sehari-hari dapat menghasilkan sampah.",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Sampah yang dihasilkan biasanya berupa sampah organik, yaitu sampah yang mudah terurai.",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Misalnya daun- daun kering, sisa makanan, dan lain-lain.",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Sampah lainnya yakni sampah anorganik, yaitu sampah yang sulit diurai. Misalnya plastik, logam, kaca, kertas, dan lain-lain.",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 0
+  },
+  {
+    "quizId": 12,
+    "quizFeedback": {
+      "quizId": 12,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 5,
+    "quizCategory": "ide pokok",
+    "quizTitle": "SAMPAH",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "\t Aktivitas yang kita lakukan sehari-hari dapat menghasilkan sampah. Sampah yang dihasilkan biasanya berupa sampah organik, yaitu sampah yang mudah terurai. Misalnya daun- daun kering, sisa makanan, dan lain-lain. Sampah lainnya yakni sampah anorganik, yaitu sampah yang sulit diurai. Misalnya plastik, logam, kaca, kertas, dan lain-lain.\n\tPengelolaan sampah yang baik harus berwawasan lingkungan, menetapkan prinsip kemandirian yang produktif, dan mengedepankan prinsip 3M. 3M merupakan singkatan yang terdiri atas mengurangi, memakai ulang, dan mendaur ulang sampah. Mengurangi sampah dapat dilakukan dengan cara mengurangi memakai plastik sekali pakai. Kita dapat memilih untuk membawa tas belanja yang dapat dicuci dan dipakai berulang kali. Prinsip memakai ulang adalah upaya menggunakan kembali bahan atau barang supaya tidak langsung menjadi sampah. Contohnya botol selai tidak dibuang, tapi masih dapat kita gunakan menjadi tempat pensil atau tempat bumbu. Mendaur ulang sampah dilakukan dengan mengolah sampah menjadi bahan yang dapat digunakan. Misalnya kemasan sabun cuci yang dibersihkan dan dibentuk pola dapat dijahit menjadi tas belanja.\n\tSampah dapat berubah menjadi berkah apabila kita bijak dalam mengelolanya. Penanganan sampah yang baik dan benar juga akan menciptakan lingkungan yang bersih sehingga membuat hidup kita nyaman dan sehat. Hal itu dapat kita wujudkan melalui partisipasi dan peran aktif kita semua.",
+    "quizQuestion": "Apa ide pokok paragraf kedua?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "3M merupakan singkatan yang terdiri atas mengurangi, memakai ulang, dan mendaur ulang sampah.",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Prinsip memakai ulang adalah upaya menggunakan kembali bahan atau barang supaya tidak langsung menjadi sampah.",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Mendaur ulang sampah dilakukan dengan mengolah sampah menjadi bahan yang dapat digunakan. ",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Pengelolaan sampah yang baik harus berwawasan lingkungan, menerapkan prinsip kemandirian yang produktif, dan mengedepankan prinsip 3M.",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 3
+  },
+  {
+    "quizId": 13,
+    "quizFeedback": {
+      "quizId": 13,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 5,
+    "quizCategory": "ide pokok",
+    "quizTitle": "SAMPAH",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizStory": "\tAktivitas yang kita lakukan sehari-hari dapat menghasilkan sampah. Sampah yang dihasilkan biasanya berupa sampah organik, yaitu sampah yang mudah terurai. Misalnya daun- daun kering, sisa makanan, dan lain-lain. Sampah lainnya yakni sampah anorganik, yaitu sampah yang sulit diurai. Misalnya plastik, logam, kaca, kertas, dan lain-lain.\n\tPengelolaan sampah yang baik harus berwawasan lingkungan, menetapkan prinsip kemandirian yang produktif, dan mengedepankan prinsip 3M. 3M merupakan singkatan yang terdiri atas mengurangi, memakai ulang, dan mendaur ulang sampah. Mengurangi sampah dapat dilakukan dengan cara mengurangi memakai plastik sekali pakai. Kita dapat memilih untuk membawa tas belanja yang dapat dicuci dan dipakai berulang kali. Prinsip memakai ulang adalah upaya menggunakan kembali bahan atau barang supaya tidak langsung menjadi sampah. Contohnya botol selai tidak dibuang, tapi masih dapat kita gunakan menjadi tempat pensil atau tempat bumbu. Mendaur ulang sampah dilakukan dengan mengolah sampah menjadi bahan yang dapat digunakan. Misalnya kemasan sabun cuci yang dibersihkan dan dibentuk pola dapat dijahit menjadi tas belanja.\n\tSampah dapat berubah menjadi berkah apabila kita bijak dalam mengelolanya. Penanganan sampah yang baik dan benar juga akan menciptakan lingkungan yang bersih sehingga membuat hidup kita nyaman dan sehat. Hal itu dapat kita wujudkan melalui partisipasi dan peran aktif kita semua.",
+    "quizQuestion": "Apa ide pokok paragraf ketiga?",
+    "quizChoiceList": [
+      {
+        "choiceDescription": "Penanganan sampah yang baik dapat membuat hidup nyaman dan sehat.",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Penanganan sampah satu-satunya adalah dengan 3M.",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Contoh sampah yang sulit diurai adalah plastik, logam, kaca, kertas, dan lain-lain.",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "3M merupakan singkatan yang terdiri atas mengur.angi, memakai ulang, dan mendaur ulang sampah.",
+        "choiceId": 3
+      }
+    ],
+    "quizAnswerId": 0
+  }
+]

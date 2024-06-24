@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuizView: View {
     @State private var quizTitle: String = "Pasang Kata"
+    @Environment(QuizModelData.self) private var modelData
     
     var body: some View {
         VStack {
@@ -28,16 +29,19 @@ struct QuizView: View {
                 VStack {
                     // the content of the quiz should go here
 //                    QuizWordBlankView()
-                    QuizMatchingWordView(choiceLeft: .constant([
-                        Choice(choiceID: 1, choiceText: "Rendah Hati"),
-                        Choice(choiceID: 2, choiceText: "Gulung Tikar"),
-                        Choice(choiceID: 3, choiceText: "Naik Daun"),
-                    ]),
-                    choiceRight: .constant([
-                        Choice(choiceID: 1, choiceText: "Tidak Sombong"),
-                        Choice(choiceID: 2, choiceText: "Terkenal"),
-                        Choice(choiceID: 3, choiceText: "Bangkrut"),
-                    ]))
+                    QuizMatchingWordView(choiceLeft: [
+                        Choice(choiceId: 1, choiceDescription: "Rendah Hati"),
+                        Choice(choiceId: 2, choiceDescription: "Gulung Tikar"),
+                        Choice(choiceId: 3, choiceDescription: "Naik Daun"),
+                    ],
+                    choiceRight: [
+                        Choice(choiceId: 1, choiceDescription: "Tidak Sombong"),
+                        Choice(choiceId: 2, choiceDescription: "Terkenal"),
+                        Choice(choiceId: 3, choiceDescription: "Bangkrut"),
+                    ],
+                    question: "Memasangkan teks hasil idiom"
+                    )
+                    .environment(modelData)
                 }
                 
             })
@@ -50,5 +54,6 @@ struct QuizView: View {
 #Preview {
     NavigationStack {
         QuizView()
+            .environment(QuizModelData())
     }
 }

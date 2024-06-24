@@ -1,0 +1,62 @@
+[
+  {
+    "quizId": 29,
+    "quizFeedback": {
+      "quizId": 29,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 6,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": [
+      "gambar 1",
+      "gambar 2"
+    ],
+    "quizPrompt": "berhubungan dengan sifat jajahan\ncontoh dalam kata:\nPemerintah _______ mendirikan benteng dan menguasai jalur pelayaran di kepulauan itu\n",
+    "quizLetterCount": 8,
+    "quizLetterChoiceList": [
+      {
+        "choiceDescription": "K",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "O",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "L",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "O",
+        "choiceId": 3
+      },
+      {
+        "choiceDescription": "N",
+        "choiceId": 4
+      },
+      {
+        "choiceDescription": "I",
+        "choiceId": 5
+      },
+      {
+        "choiceDescription": "A",
+        "choiceId": 6
+      },
+      {
+        "choiceDescription": "L",
+        "choiceId": 7
+      },
+      {
+        "choiceDescription": "M",
+        "choiceId": 8
+      },
+      {
+        "choiceDescription": "J",
+        "choiceId": 8
+      }
+    ],
+    "quizAnswer": "KOLONIAL"
+  }
+]

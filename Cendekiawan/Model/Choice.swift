@@ -9,38 +9,13 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
-class Choice: Identifiable, Codable, Hashable {
-    var choiceID: Int
-    var choiceText: String
+class Choice: Identifiable, Codable {
+    var choiceDescription: String
+    var choiceId: Int
     
-    init(choiceID: Int, choiceText: String) {
-        self.choiceText = choiceText
-        self.choiceID = choiceID
-    }
-    
-    static func == (lhs: Choice, rhs: Choice) -> Bool {
-        return lhs.choiceID == rhs.choiceID && lhs.choiceText == rhs.choiceText
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(choiceID)
-        hasher.combine(choiceText)
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        choiceID = try container.decode(Int.self, forKey: .choiceID)
-        choiceText = try container.decode(String.self, forKey: .choiceText)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(choiceID, forKey: .choiceID)
-        try container.encode(choiceText, forKey: .choiceText)
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case choiceID, choiceText
+    init(choiceId: Int, choiceDescription: String) {
+        self.choiceDescription = choiceDescription
+        self.choiceId = choiceId
     }
 }
 
@@ -50,7 +25,7 @@ class DraggableChoice: Choice, Transferable {
     
     init(choiceID: Int, choiceText: String, uniqueId: UUID = UUID()) {
         self.uniqueId = uniqueId
-        super.init(choiceID: choiceID, choiceText: choiceText)
+        super.init(choiceId: choiceID, choiceDescription: choiceText)
     }
     
     required init(from decoder: Decoder) throws {

@@ -1,0 +1,51 @@
+[
+  {
+    "quizId": 30,
+    "quizFeedback": {
+      "quizId": 30,
+      "feedbackDescription": "ini feedback"
+    },
+    "quizDifficultyLevel": 6,
+    "quizCategory": "kosakata",
+    "quizTitle": "nil",
+    "isRedemption": false,
+    "quizAsset": ["nil"],
+    "quizPrompt": "pasangkanlah kata di kolom kanan dengan makna kata yang sesuai di kolom kiri!",
+    "quizLeftChoiceList": [
+      {
+        "choiceDescription": "Koreografer",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Kontemporer",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Sanggar",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Barang Eksotis",
+        "choiceId": 3
+      }
+    ],
+    "quizRightChoiceList": [
+      {
+        "choiceDescription": "Orang yang ahli dalam mencipta dan menggubah gerak tari",
+        "choiceId": 0
+      },
+      {
+        "choiceDescription": "Pada waktu yang sama; semasa; sewaktu; pada masa kini; dewasa ini",
+        "choiceId": 1
+      },
+      {
+        "choiceDescription": "Tempat untuk kegiatan seni (tari, lukis, dan sebagainya)",
+        "choiceId": 2
+      },
+      {
+        "choiceDescription": "Memiliki daya tarik khas karena belum banyak dikenal, ganjil, aneh,bergaya asing",
+        "choiceId": 3
+      }
+    ]
+  }
+]
