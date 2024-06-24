@@ -22,10 +22,10 @@ struct QuizMatchingWordView: View {
                 Text("Memasangkan teks hasil idiom")
             }
             
-            HStack {
+            HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 50) {
                     ForEach(choiceLeft) { choice in
-                        ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Left") ? Color.blue : Color.gray)
+                        ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Left") ? Color.blue : Color.gray, selectedFrom: "Left")
                         .onTapGesture {
                             vm.handleSelection(choiceId: choice.choiceID, selectedFrom: "Left")
                         }
@@ -35,10 +35,11 @@ struct QuizMatchingWordView: View {
                 Spacer()
                 VStack(alignment: .leading, spacing: 50) {
                     ForEach(choiceRight) { choice in
-                        ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Right") ? Color.blue : Color.gray)
+                        ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceID, selectedFrom: "Right") ? Color.blue : Color.gray, selectedFrom: "Right")
                         .onTapGesture {
                             vm.handleSelection(choiceId: choice.choiceID, selectedFrom: "Right")
                         }
+                        .frame(maxWidth: 155, maxHeight: 75)
                     }
                 }
             }

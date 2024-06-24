@@ -32,7 +32,7 @@ struct Button3D: View {
                         .font(.body)
                         .fontWeight(.bold)
                     if color == Color.white {
-                        RoundedRectangle(cornerRadius: 12)
+                        RoundedRectangle(cornerRadius: 5)
                             .stroke(Color.greyMid, lineWidth: 1)
                     }
                 }

@@ -36,7 +36,7 @@ class QuizMatchingWordViewModel: ObservableObject {
         }else {
             x = 2*UIScreen.main.bounds.width / 3
         }
-        y = CGFloat(3*order) * UIScreen.main.bounds.height / 20
+        y = CGFloat(16*order) * UIScreen.main.bounds.height / 100
         return CGPoint(x: x, y: y)
     }
     
