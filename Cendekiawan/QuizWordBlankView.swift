@@ -19,8 +19,7 @@ struct QuizWordBlankView: View {
         GridItem(.adaptive(minimum: 48))
     ]
     
-    var body: some View {
-        
+    var body: some View {  
         NavigationStack {
             VStack {
                 // buat checking aja. nanti dihapus
@@ -75,21 +74,34 @@ struct QuizWordBlankView: View {
                     
                     
                 }
-                .padding(50)
-                .onAppear{
-                    vm.setupQuestion()
-                }
-                HStack{
-                    Button{
-                        startGameplay()
-                        updateKosakataProeficiency(user: user, win: true)
-                    } label: {
-                        Text("Benar")
-                            .font(.system(size: 50))
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.green)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            Spacer()
+            ZStack {
+                RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.white)
+                            .frame(width: 437, height: 155)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.greyMid, lineWidth: 3)
+                            )
+                            .padding([.horizontal], 30)
+                LazyVGrid(columns: columns, spacing: 32) {
+                    ForEach (vm.choices, id: \.choiceID) { choosed in
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 5)
+                                .frame(width: 50, height: 33)
+                                .foregroundStyle(Color.white)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.greyMid, lineWidth: 1)
+                                )
+                            Text(choosed.choiceText)
+                                .font(.body)
+                                .foregroundStyle(Color.black)
+                        }
+                        .onTapGesture {
+                            vm.addCharacterToAnswer(choosed: choosed)
+                        }
                     }
                     Button{
                         startGameplay()
@@ -109,6 +121,23 @@ struct QuizWordBlankView: View {
             }
             .navigationDestination(isPresented: $isDone){
                 getDestinationView()
+            }
+            HStack{
+                Spacer()
+                Button{
+                    
+                } label: {
+                    ZStack{
+                        
+                        RoundedRectangle(cornerRadius: 5)
+                            .frame(width: 136, height: 33)
+                            .foregroundStyle(Color.orange)
+                            .shadow(radius: 2, y: 1)
+                        Text("Periksa")
+                            .foregroundStyle(Color.white)
+                    }
+                    
+                }.padding([.trailing], 48)
             }
         }
         
