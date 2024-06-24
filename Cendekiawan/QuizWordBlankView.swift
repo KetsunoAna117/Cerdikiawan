@@ -26,12 +26,18 @@ struct QuizWordBlankView: View {
                 ForEach (0..<vm.guessedWord.count, id: \.self) { index in
                     VStack {
                         if vm.guessedWord[index].choiceID != -1 {
-                            Text(vm.guessedWord[index].choiceText)
-                                .font(.title2)
-                                .fontWeight(.semibold)
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color.orange)
+                                            .frame(width: 50, height: 33)
+                                Text(vm.guessedWord[index].choiceText)
+                                    .font(.title2)
+                                    .foregroundStyle(Color.white)
+                                    .fontWeight(.semibold)
+                            }
                         }else {
                             Text(" ")
-                                .font(.title2)
+                                .font(.body)
                                 .fontWeight(.semibold)
                             
                         }
@@ -49,7 +55,7 @@ struct QuizWordBlankView: View {
                             .frame(width: 437, height: 155)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.gray, lineWidth: 1)
+                                    .stroke(Color.greyMid, lineWidth: 3)
                             )
                             .padding([.horizontal], 30)
                 LazyVGrid(columns: columns, spacing: 32) {
@@ -57,10 +63,14 @@ struct QuizWordBlankView: View {
                         ZStack{
                             RoundedRectangle(cornerRadius: 5)
                                 .frame(width: 50, height: 33)
-                                .foregroundStyle(Color(.blue))
+                                .foregroundStyle(Color.white)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.greyMid, lineWidth: 1)
+                                )
                             Text(choosed.choiceText)
-                                .font(.headline)
-                                .foregroundStyle(.white)
+                                .font(.body)
+                                .foregroundStyle(Color.black)
                         }
                         .onTapGesture {
                             vm.addCharacterToAnswer(choosed: choosed)
@@ -68,6 +78,23 @@ struct QuizWordBlankView: View {
                     }
                 }.frame(width: 300, height: 155)
                 .padding(30)
+            }
+            HStack{
+                Spacer()
+                Button{
+                    
+                } label: {
+                    ZStack{
+                        
+                        RoundedRectangle(cornerRadius: 5)
+                            .frame(width: 136, height: 33)
+                            .foregroundStyle(Color.orange)
+                            .shadow(radius: 2, y: 1)
+                        Text("Periksa")
+                            .foregroundStyle(Color.white)
+                    }
+                    
+                }.padding([.trailing], 48)
             }
             
             
