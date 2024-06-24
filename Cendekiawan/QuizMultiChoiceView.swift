@@ -26,78 +26,77 @@ struct QuizMultiChoiceView: View {
     @State var selectedAnswer: Int?
     
     var body: some View {
-        
         NavigationStack {
-            // buat checking aja. nanti dihapus
-            StatsOverlay()
-            HStack{
-                // aku ganti jadi scrollview
-                ScrollView{
-                    Text(quiz.quizTitle == "nil" ? "": quiz.quizTitle)
-                        .padding([.bottom], 20)
-                    
-                    // image name diganti jadi pake modelData
-                    Image("placeholderPhoto")
-                        .padding([.bottom], 50)
-                    
-                    // untuk formatting seperti menjorok (tab) dan enter bisa ditambahin \t dan \n di jsonnya
-                    Text(quiz.quizStory)
+            VStack {
+                // buat checking aja. nanti dihapus
+                StatsOverlay()
+                HStack {
+                    // aku ganti jadi scrollview
+                    ScrollView {
+                        Text(quiz.quizTitle)
+                            .padding([.bottom], 20)
+                        
+                        // image name diganti jadi pake modelData
+                        Image("placeholderPhoto")
+                            .padding([.bottom], 50)
+                        
+                        // untuk formatting seperti menjorok (tab) dan enter bisa ditambahin \t dan \n di jsonnya
+                        Text(quiz.quizStory)
+                    }
+                    .frame(maxWidth: .infinity)
+                    Spacer(minLength: 20)
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text(quiz.quizQuestion)
+                        
+                        ForEach(quiz.quizChoiceList, id: \.choiceId) { choice in
+                            AnswerButton(isClicked: choice.choiceId == selectedAnswer, choice: Choice(choiceId: choice.choiceId, choiceDescription: choice.choiceDescription))
+                                .onTapGesture {
+                                    selectedAnswer = choice.choiceId
+                                }
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-                .frame(maxWidth: .infinity)
-                Spacer(minLength: 20)
-                VStack(alignment: .leading, spacing: 20){
-                    Text(quiz.quizQuestion)
-                    
-                    ForEach(quiz.quizChoiceList, id: \.choiceId) { choice in
-                        AnswerButton(isClicked: choice.choiceId == selectedAnswer, choice: Choice(choiceId: choice.choiceId, choiceDescription: choice.choiceDescription))
-                            .onTapGesture {
-                                selectedAnswer = choice.choiceId
-                            }
+                .padding(50)
+                HStack {
+                    Button {
+                        // print(user.difficultyLevel)
+                        if tipeQuiz == "idePokok" {
+                            updateIdePokokProeficiency(user: user, win: true)
+                        } else {
+                            updateImplisitProeficiency(user: user, win: true)
+                        }
+                        startGameplay()
+                    } label: {
+                        Text("Benar")
+                            .font(.system(size: 50))
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.green)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                    Button {
+                        // print(user.difficultyLevel)
+                        if tipeQuiz == "idePokok" {
+                            updateIdePokokProeficiency(user: user, win: false)
+                        } else {
+                            updateImplisitProeficiency(user: user, win: false)
+                        }
+                        startGameplay()
+                    } label: {
+                        Text("Salah")
+                            .font(.system(size: 50))
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
-                .frame(maxWidth: .infinity)
             }
-            .padding(50)
-            HStack{
-                Button{
-//                    print(user.difficultyLevel)
-                    if tipeQuiz == "idePokok"{
-                        user.updateIdePokokProeficiency(win: true)
-                    } else {
-                        user.updateImplisitProeficiency(win: true)
-                    }
-                    startGameplay()
-                } label: {
-                    Text("Benar")
-                        .font(.system(size: 50))
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(.green)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
-                Button{
-//                    print(user.difficultyLevel)
-                    if tipeQuiz == "idePokok"{
-                        user.updateIdePokokProeficiency(win: false)
-                    } else {
-                        user.updateImplisitProeficiency(win: false)
-                    }
-                    startGameplay()
-                } label: {
-                    Text("Salah")
-                        .font(.system(size: 50))
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(.red)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
+            .navigationDestination(isPresented: $isDone) {
+                getDestinationView()
             }
         }
-        
-        .navigationDestination(isPresented: $isDone){
-            getDestinationView()
-        }
-        
     }
     
     func startGameplay() {
@@ -106,6 +105,7 @@ struct QuizMultiChoiceView: View {
         
         nextQuiz = (quizModel, tipeQuiz)
         print("\(nextQuiz!.quizModel), \(nextQuiz!.tipeQuiz)")
+        
         isDone = true
     }
     
@@ -127,6 +127,7 @@ struct QuizMultiChoiceView: View {
                             storeChoice: fillBlankQuiz!.quizChoiceList
                         )
                     ))
+                    .environment(modelData)
                 case "WordBlank":
                     let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
                     QuizWordBlankView(
@@ -138,30 +139,28 @@ struct QuizMultiChoiceView: View {
                         ),
                         question: wordBlankQuiz!.quizPrompt
                     )
+                    .environment(modelData)
                 default:
                     let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
                     QuizMatchingWordView(
-                        choiceLeft: .constant(loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList)),
-                        choiceRight: .constant(loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList)),
+                        choiceLeft: loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList),
+                        choiceRight: loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList),
                         question: matchingWordQuizz!.quizPrompt
                     )
+                    .environment(modelData)
                 }
             default:
                 //TODO: pindahin logic ke view model
                 QuizMultiChoiceView(tipeQuiz: nextQuiz!.tipeQuiz)
+                    .environment(modelData)
             }
         } else {
             Text("Error: No destination view")
         }
     }
     
-    func loadChoices(storeChoice: [StoreChoice]) -> [Choice]{
-        var choices: [Choice] = []
-        for choice in storeChoice{
-            choices.append(Choice(choiceId: choice.choiceId, choiceDescription: choice.choiceDescription))
-        }
-        
-        return choices
+    func loadChoices(storeChoice: [StoreChoice]) -> [Choice] {
+        storeChoice.map { Choice(choiceId: $0.choiceId, choiceDescription: $0.choiceDescription) }
     }
 }
 

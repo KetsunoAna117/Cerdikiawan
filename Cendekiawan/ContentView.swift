@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(QuizModelData.self) private var modelData
     var body: some View {
         VStack {
             QuizFillBlankView(vm: QuizFillBlankViewModel(
@@ -19,6 +20,7 @@ struct ContentView: View {
                     Choice(choiceId: 4, choiceDescription: "Gyatt")
                 ]
             ))
+            .environment(modelData)
         }
         .padding()
     }

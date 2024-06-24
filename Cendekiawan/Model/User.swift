@@ -56,76 +56,77 @@ class User: ObservableObject {
         self.proficiencyLevelKosakata = levelProficiency.kosakata
         self.proficiencyLevelImplisit = levelProficiency.implisit
     }
-    
-    func updateIdePokokProeficiency(win: Bool){
-        if win {
-            proficiencyLevelIdePokok += 1
-            if proficiencyLevelIdePokok > 10{
-                proficiencyLevelIdePokok = 10
-            }
-        } else {
-            proficiencyLevelIdePokok -= 1
-            if proficiencyLevelIdePokok < 0{
-                proficiencyLevelIdePokok = 0
-            }
+}
+
+func updateIdePokokProeficiency(user: User, win: Bool){
+    if win {
+        user.proficiencyLevelIdePokok += 1
+        if user.proficiencyLevelIdePokok > 10{
+            user.proficiencyLevelIdePokok = 10
         }
-        checkLevel()
-    }
-    
-    func updateImplisitProeficiency(win: Bool){
-        if win {
-            proficiencyLevelImplisit += 1
-            if proficiencyLevelImplisit > 10{
-                proficiencyLevelImplisit = 10
-            }
-        } else {
-            proficiencyLevelImplisit -= 1
-            if proficiencyLevelImplisit < 0{
-                proficiencyLevelImplisit = 0
-            }
+    } else {
+        user.proficiencyLevelIdePokok -= 1
+        if user.proficiencyLevelIdePokok < 0{
+            user.proficiencyLevelIdePokok = 0
         }
-        checkLevel()
     }
-    
-    func updateKosakataProeficiency(win: Bool){
-        if win {
-            proficiencyLevelKosakata += 1
-            if proficiencyLevelKosakata > 10{
-                proficiencyLevelKosakata = 10
-            }
-        } else {
-            proficiencyLevelKosakata -= 1
-            if proficiencyLevelKosakata < 0{
-                proficiencyLevelKosakata = 0
-            }
+    checkLevel(user: user)
+}
+
+func updateImplisitProeficiency(user: User, win: Bool){
+    if win {
+        user.proficiencyLevelImplisit += 1
+        if user.proficiencyLevelImplisit > 10{
+            user.proficiencyLevelImplisit = 10
         }
-        checkLevel()
+    } else {
+        user.proficiencyLevelImplisit -= 1
+        if user.proficiencyLevelImplisit < 0{
+            user.proficiencyLevelImplisit = 0
+        }
     }
+    checkLevel(user: user)
+}
+
+func updateKosakataProeficiency(user: User, win: Bool){
+    if win {
+        user.proficiencyLevelKosakata += 1
+        if user.proficiencyLevelKosakata > 10{
+            user.proficiencyLevelKosakata = 10
+        }
+    } else {
+        user.proficiencyLevelKosakata -= 1
+        if user.proficiencyLevelKosakata < 0{
+            user.proficiencyLevelKosakata = 0
+        }
+    }
+    checkLevel(user: user)
+}
+
+func checkLevel(user: User){
     
-    func checkLevel(){
-        if proficiencyLevelImplisit == 10 &&
-            proficiencyLevelIdePokok == 10 &&
-            proficiencyLevelKosakata == 10{
-                difficultyLevel += 1
-                if difficultyLevel > 6{
-                    difficultyLevel = 6
-                } else {
-                    proficiencyLevelImplisit = 5
-                    proficiencyLevelIdePokok = 5
-                    proficiencyLevelKosakata = 5
-                }
-        } else if proficiencyLevelImplisit < 3 &&
-            proficiencyLevelIdePokok < 3 &&
-            proficiencyLevelKosakata < 3{
-            
-            difficultyLevel -= 1
-            if difficultyLevel < 4{
-                difficultyLevel = 4
+    if user.proficiencyLevelImplisit == 10 &&
+        user.proficiencyLevelIdePokok == 10 &&
+        user.proficiencyLevelKosakata == 10{
+        user.difficultyLevel += 1
+        if user.difficultyLevel > 6{
+            user.difficultyLevel = 6
             } else {
-                proficiencyLevelImplisit = 5
-                proficiencyLevelIdePokok = 5
-                proficiencyLevelKosakata = 5
+                user.proficiencyLevelImplisit = 5
+                user.proficiencyLevelIdePokok = 5
+                user.proficiencyLevelKosakata = 5
             }
+    } else if user.proficiencyLevelImplisit < 3 &&
+                user.proficiencyLevelIdePokok < 3 &&
+                user.proficiencyLevelKosakata < 3{
+        
+        user.difficultyLevel -= 1
+        if user.difficultyLevel < 4{
+            user.difficultyLevel = 4
+        } else {
+            user.proficiencyLevelImplisit = 5
+            user.proficiencyLevelIdePokok = 5
+            user.proficiencyLevelKosakata = 5
         }
     }
 }

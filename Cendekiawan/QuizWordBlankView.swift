@@ -13,6 +13,7 @@ struct QuizWordBlankView: View {
     @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
+    @State private var isDone: Bool = false
     
     let columns = [
         GridItem(.adaptive(minimum: 200))
@@ -21,90 +22,93 @@ struct QuizWordBlankView: View {
     var body: some View {
         
         NavigationStack {
-            // buat checking aja. nanti dihapus
-            StatsOverlay()
             VStack {
-                Text(question)
-                    .font(.body)
-                    .padding([.bottom], 30)
-                Image("placeholderPhoto")
-                Spacer()
-                HStack (alignment: .center, spacing: 50) {
-                    ForEach (0..<vm.guessedWord.count, id: \.self) { index in
-                        VStack {
-                            if vm.guessedWord[index].choiceId != -1 {
-                                Text(vm.guessedWord[index].choiceDescription)
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
-                            }else {
-                                Text(" ")
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
-                                
-                            }
-                            Text("_____")
-                        }
-                        .onTapGesture {
-                            vm.removeCharacterFromAnswer(index: index)
-                        }
-                    }
-                }
-                Spacer()
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .padding([.horizontal], 30)
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 4)
-                        .foregroundColor(Color(.secondarySystemFill))
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach (vm.choices, id: \.choiceId) { choosed in
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 128, height: 34)
-                                    .foregroundStyle(Color(.lightGray))
-                                Text(choosed.choiceDescription)
-                                    .font(.headline)
+                // buat checking aja. nanti dihapus
+                StatsOverlay()
+                VStack {
+                    Text(question)
+                        .font(.body)
+                        .padding([.bottom], 30)
+                    Image("placeholderPhoto")
+                    Spacer()
+                    HStack (alignment: .center, spacing: 50) {
+                        ForEach (0..<vm.guessedWord.count, id: \.self) { index in
+                            VStack {
+                                if vm.guessedWord[index].choiceId != -1 {
+                                    Text(vm.guessedWord[index].choiceDescription)
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                }else {
+                                    Text(" ")
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                    
+                                }
+                                Text("_____")
                             }
                             .onTapGesture {
-                                vm.addCharacterToAnswer(choosed: choosed)
+                                vm.removeCharacterFromAnswer(index: index)
                             }
                         }
-                    }.padding(30)
+                    }
+                    Spacer()
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .padding([.horizontal], 30)
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 4)
+                            .foregroundColor(Color(.secondarySystemFill))
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach (vm.choices, id: \.choiceId) { choosed in
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 128, height: 34)
+                                        .foregroundStyle(Color(.lightGray))
+                                    Text(choosed.choiceDescription)
+                                        .font(.headline)
+                                }
+                                .onTapGesture {
+                                    vm.addCharacterToAnswer(choosed: choosed)
+                                }
+                            }
+                        }.padding(30)
+                    }
+                    
+                    
                 }
-                
-                
+                .padding(50)
+                .onAppear{
+                    vm.setupQuestion()
+                }
+                HStack{
+                    Button{
+                        startGameplay()
+                        updateKosakataProeficiency(user: user, win: true)
+                    } label: {
+                        Text("Benar")
+                            .font(.system(size: 50))
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.green)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                    Button{
+                        startGameplay()
+                        updateKosakataProeficiency(user: user, win: false)
+                    } label: {
+                        Text("Salah")
+                            .font(.system(size: 50))
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                }
             }
-            .padding(50)
-            .onAppear{
-                vm.setupQuestion()
+            .onAppear {
+                isDone = false
             }
-            .navigationDestination(isPresented: Binding<Bool>(
-                get: { nextQuiz != nil },
-                set: { _ in })){
-                    getDestinationView()
-                }
-            HStack{
-                Button{
-                    startGameplay()
-                    user.updateKosakataProeficiency(win: true)
-                } label: {
-                    Text("Benar")
-                        .font(.system(size: 50))
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(.green)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
-                Button{
-                    startGameplay()
-                    user.updateKosakataProeficiency(win: false)
-                } label: {
-                    Text("Salah")
-                        .font(.system(size: 50))
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(.red)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
+            .navigationDestination(isPresented: $isDone){
+                getDestinationView()
             }
         }
         
@@ -112,9 +116,12 @@ struct QuizWordBlankView: View {
     func startGameplay() {
         let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
         let (quizModel, tipeQuiz) = storeRandomizedQuiz
+        
         print("\(quizModel), \(tipeQuiz)")
         
         nextQuiz = (quizModel, tipeQuiz)
+        
+        isDone = true
     }
     
     @ViewBuilder
@@ -133,6 +140,7 @@ struct QuizWordBlankView: View {
                             storeChoice: fillBlankQuiz!.quizChoiceList
                         )
                     ))
+                    .environment(modelData)
                 case "WordBlank":
                     let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
                     QuizWordBlankView(
@@ -144,30 +152,28 @@ struct QuizWordBlankView: View {
                         ),
                         question: wordBlankQuiz!.quizPrompt
                     )
+                    .environment(modelData)
                 default:
                     let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
                     QuizMatchingWordView(
-                        choiceLeft: .constant(loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList)),
-                        choiceRight: .constant(loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList)),
+                        choiceLeft: loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList),
+                        choiceRight: loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList),
                         question: matchingWordQuizz!.quizPrompt
                     )
+                    .environment(modelData)
                 }
             default:
                 //TODO: pindahin logic ke view model
                 QuizMultiChoiceView(tipeQuiz: nextQuiz!.tipeQuiz)
+                    .environment(modelData)
             }
         } else {
             Text("Error: No destination view")
         }
     }
     
-    func loadChoices(storeChoice: [StoreChoice]) -> [Choice]{
-        var choices: [Choice] = []
-        for choice in storeChoice{
-            choices.append(Choice(choiceId: choice.choiceId, choiceDescription: choice.choiceDescription))
-        }
-        
-        return choices
+    func loadChoices(storeChoice: [StoreChoice]) -> [Choice] {
+        storeChoice.map { Choice(choiceId: $0.choiceId, choiceDescription: $0.choiceDescription) }
     }
 }
 

@@ -15,6 +15,7 @@ struct HomeView: View {
     @Environment(QuizModelData.self) private var modelData
     @State private var quizModel: String?
     @State private var tipeQuiz: String?
+    @State var isDone: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -28,11 +29,12 @@ struct HomeView: View {
                 .padding()
                 .border(Color.black)
             }
-            .navigationDestination(isPresented: Binding<Bool>(
-                get: { quizModel != nil && tipeQuiz != nil },
-                set: { _ in })){
-                    getDestinationView()
-                }
+            .onAppear {
+                isDone = false
+            }
+            .navigationDestination(isPresented: $isDone){
+                getDestinationView()
+            }
         }
     }
     
@@ -43,6 +45,8 @@ struct HomeView: View {
         
         self.quizModel = quizModel
         self.tipeQuiz = tipeQuiz
+        
+        isDone = true
     }
     
     @ViewBuilder
@@ -61,6 +65,7 @@ struct HomeView: View {
                             storeChoice: fillBlankQuiz!.quizChoiceList
                         )
                     ))
+                    .environment(modelData)
                 case "WordBlank":
                     let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.first
                     QuizWordBlankView(
@@ -72,17 +77,20 @@ struct HomeView: View {
                         ),
                         question: wordBlankQuiz!.quizPrompt
                     )
+                    .environment(modelData)
                 default:
                     let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.first
                     QuizMatchingWordView(
-                        choiceLeft: .constant(loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList)),
-                        choiceRight: .constant(loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList)),
+                        choiceLeft: loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList),
+                        choiceRight: loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList),
                         question: matchingWordQuizz!.quizPrompt
                     )
+                    .environment(modelData)
                 }
             default:
                 //TODO: pindahin logic ke view model
                 QuizMultiChoiceView(tipeQuiz: tipeQuiz)
+                    .environment(modelData)
             }
         } else {
             Text("Error: No destination view")
