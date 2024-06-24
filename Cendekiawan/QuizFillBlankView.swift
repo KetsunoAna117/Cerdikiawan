@@ -11,10 +11,30 @@ struct QuizFillBlankView: View {
     @ObservedObject var vm: QuizFillBlankViewModel
     
     var body: some View {
-        HStack {
-            GeometryReader { geometry in
-                renderTextWithPlaceHolders(availableWidth: 600)
-                    .frame(width: 600)
+        HStack(alignment: .top) {
+            VStack() {
+                Image("placeholderPhoto")
+                    .padding(.bottom, 30)
+                GeometryReader { geometry in
+                    renderTextWithPlaceHolders(availableWidth: 400)
+                        .frame(width: 400)
+                }
+            }
+            
+            VStack (alignment: .center) {
+                Text("Isilah paragraf disamping dengan kata yang tepat")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                
+                VStack(alignment: .trailing) {
+                    ChoicePoolView(choices: vm.choices, width: 400)
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Periksa")
+                    })
+                    .buttonStyle(BorderedProminentButtonStyle())
+                }
             }
         }
         .padding(.horizontal, 50)
@@ -25,14 +45,22 @@ struct QuizFillBlankView: View {
         var views: [AnyView] = []
         
         for index in parts.indices {
-            views.append(AnyView(Text(parts[index])))
+            views.append(AnyView(
+                Text(parts[index])
+                    .font(.body)
+            ))
             
             if index < parts.indices.last! {
+                // this will append rectangle to the paragraph
                 views.append(AnyView(
-                    Rectangle()
-                        .frame(width: 50, height: 20)
-                        .foregroundColor(.gray)
-                        .padding(.horizontal, 2)
+                    DroppableBox(boxText: vm.droppedAnswer.isEmpty ? "" : vm.droppedAnswer[index].choiceText)
+                        .dropDestination(for: DraggableChoice.self, action: { droppedChoice, location in
+                            vm.handleChoiceDrop(index: index, droppedChoice: droppedChoice)
+                            return true
+                        })
+                        .onTapGesture {
+                            vm.removeChoicesFromAnswer(index: index)
+                        }
                 ))
             }
         }
@@ -42,47 +70,6 @@ struct QuizFillBlankView: View {
         }
     }
 }
-
-struct FlexibleView: View {
-    let availableWidth: CGFloat
-    let views: [AnyView]
-    
-    var body: some View {
-        var width: CGFloat = 0
-        var rows: [[AnyView]] = [[]]
-        
-        for view in views {
-            let viewWidth = view.width
-            
-            if width + viewWidth > availableWidth {
-                rows.append([view])
-                width = viewWidth
-            } else {
-                rows[rows.count - 1].append(view)
-                width += viewWidth
-            }
-        }
-        
-        return VStack(alignment: .leading, content: {
-            ForEach(rows.indices, id: \.self) { rowIndex in
-                HStack {
-                    ForEach(rows[rowIndex].indices, id: \.self) { viewIndex in
-                        rows[rowIndex][viewIndex]
-                    }
-                }
-            }
-        })
-    }
-}
-
-extension View {
-    var width: CGFloat {
-        let widthConstraint = UIHostingController(rootView: self).view.intrinsicContentSize.width
-        return widthConstraint
-    }
-}
-                             
-         
 
 #Preview {
     QuizFillBlankView(

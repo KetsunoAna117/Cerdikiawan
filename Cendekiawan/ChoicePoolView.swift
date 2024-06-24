@@ -9,24 +9,39 @@ import SwiftUI
 
 struct ChoicePoolView: View {
     let choices: [DraggableChoice]
+    let width: CGFloat
+    
     var body: some View {
         VStack(alignment: .leading) {
-            ZStack{
+            ZStack (alignment: .top){
                 RoundedRectangle(cornerRadius: 12)
-                    .frame(maxWidth: .infinity)
+                    .frame(width: width, height: 300)
                     .foregroundColor(Color(.secondarySystemFill))
                 
                 VStack(alignment: .leading, spacing: 12) {
-                    ForEach(choices, id: \.uniqueId) { choice in
-                        Text(choice.choiceText)
-                            .padding(12)
-                            .background(Color(uiColor: .secondarySystemGroupedBackground))
-                            .cornerRadius(8)
-                            .shadow(radius: 1, x: 1, y: 1)
-                            .draggable(choice)
-                    }
+                    renderChoicesToChoicePool(availableWidth: width - 20)
                 }
+                .padding(.vertical, 30)
             }
+        }
+    }
+    
+    func renderChoicesToChoicePool(availableWidth: CGFloat) -> some View{
+        var views: [AnyView] = []
+        
+        for choice in choices {
+            views.append(AnyView(
+                Text(choice.choiceText)
+                    .padding(12)
+                    .background(Color(uiColor: .secondarySystemGroupedBackground))
+                    .cornerRadius(5)
+                    .shadow(radius: 1, x: 1, y: 1)
+                    .draggable(choice)
+            ))
+        }
+        
+        return VStack {
+            FlexibleView(availableWidth: availableWidth, views: views)
         }
     }
 }
@@ -36,5 +51,5 @@ struct ChoicePoolView: View {
                              DraggableChoice(choiceID: 2, choiceText: "jawaban B"),
                              DraggableChoice(choiceID: 3, choiceText: "jawaban C"),
                              DraggableChoice(choiceID: 4, choiceText: "jawaban D")
-        ])
+                            ], width: 400)
 }
