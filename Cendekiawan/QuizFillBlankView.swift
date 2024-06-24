@@ -64,31 +64,12 @@ struct QuizFillBlankView: View {
                 ))
             }
         }
-    }
-}
-
-struct FlexibleView: View {
-    let availableWidth: CGFloat
-    let views: [AnyView]
-    
-    var body: some View {
-        var width: CGFloat = 0
-        var rows: [[AnyView]] = [[]]
         
         return VStack {
             FlexibleView(availableWidth: availableWidth, views: views)
         }
     }
 }
-
-extension View {
-    var width: CGFloat {
-        let widthConstraint = UIHostingController(rootView: self).view.intrinsicContentSize.width
-        return widthConstraint
-    }
-}
-                             
-         
 
 #Preview {
     QuizFillBlankView(
