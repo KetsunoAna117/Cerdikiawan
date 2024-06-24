@@ -12,9 +12,19 @@ struct QuizView: View {
     
     var body: some View {
         VStack {
+            HStack{
+                Button{
+                    //TODO: Back Button
+                } label: {
+                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundStyle(.gray)
+                }
+                ProgressView(value: 2, total: 5)
+                        .padding([.horizontal], 52)
+            }.padding([.horizontal], 30)
             GeometryReader(content: { geometry in
-            ProgressView(value: 2, total: 5)
-                    .padding([.horizontal], 52)
                 VStack {
                     // the content of the quiz should go here
 //                    QuizWordBlankView()
@@ -33,19 +43,7 @@ struct QuizView: View {
             })
         }
         .padding([.top], 16)
-        .navigationTitle(quizTitle)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar(content: {
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: {
-                    // Back button
-                }, label: {
-                    Image(systemName: "chevron.left")
-                        .imageScale(.large)
-                        .foregroundColor(.secondary)
-                })
-            }
-        })
+        
     }
 }
 
