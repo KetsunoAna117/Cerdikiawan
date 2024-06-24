@@ -15,7 +15,7 @@ struct QuizMultiChoiceView: View {
     @State private var isDone: Bool = false
     
     var tipeQuiz: String
-    private var quiz: StoreQuizData {
+    private var quiz: QuizMultiChoice {
         if tipeQuiz == "idePokok"{
             (modelData.getIdePokok(difficulty: user.difficultyLevel)?.randomElement())!
         } else {
@@ -123,18 +123,14 @@ struct QuizMultiChoiceView: View {
                     // TODO: tambahin parameter judul buat soal
                     QuizFillBlankView(vm: QuizFillBlankViewModel(
                         questions: fillBlankQuiz!.quizStory,
-                        choices: loadChoices(
-                            storeChoice: fillBlankQuiz!.quizChoiceList
-                        )
+                        choices: fillBlankQuiz!.quizChoiceList
                     ))
                     .environment(modelData)
                 case "WordBlank":
                     let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
                     QuizWordBlankView(
                         vm: QuizWordBlankViewModel(
-                            choices: loadChoices(
-                                storeChoice: wordBlankQuiz!.quizLetterChoiceList
-                            ),
+                            choices: wordBlankQuiz!.quizLetterChoiceList,
                             numberOfLetter: wordBlankQuiz!.quizLetterCount
                         ),
                         question: wordBlankQuiz!.quizPrompt
@@ -143,8 +139,8 @@ struct QuizMultiChoiceView: View {
                 default:
                     let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
                     QuizMatchingWordView(
-                        choiceLeft: loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList),
-                        choiceRight: loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList),
+                        choiceLeft: matchingWordQuizz!.quizLeftChoiceList,
+                        choiceRight: matchingWordQuizz!.quizRightChoiceList,
                         question: matchingWordQuizz!.quizPrompt
                     )
                     .environment(modelData)
@@ -157,10 +153,6 @@ struct QuizMultiChoiceView: View {
         } else {
             Text("Error: No destination view")
         }
-    }
-    
-    func loadChoices(storeChoice: [StoreChoice]) -> [Choice] {
-        storeChoice.map { Choice(choiceId: $0.choiceId, choiceDescription: $0.choiceDescription) }
     }
 }
 

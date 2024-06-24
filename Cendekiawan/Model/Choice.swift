@@ -9,38 +9,13 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
-class Choice: Identifiable, Codable, Hashable {
+class Choice: Identifiable, Codable {
     var choiceDescription: String
     var choiceId: Int
     
     init(choiceId: Int, choiceDescription: String) {
         self.choiceDescription = choiceDescription
         self.choiceId = choiceId
-    }
-    
-    static func == (lhs: Choice, rhs: Choice) -> Bool {
-        return lhs.choiceId == rhs.choiceId && lhs.choiceDescription == rhs.choiceDescription
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(choiceId)
-        hasher.combine(choiceDescription)
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        choiceId = try container.decode(Int.self, forKey: .choiceID)
-        choiceDescription = try container.decode(String.self, forKey: .choiceText)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(choiceId, forKey: .choiceID)
-        try container.encode(choiceDescription, forKey: .choiceText)
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case choiceID, choiceText
     }
 }
 

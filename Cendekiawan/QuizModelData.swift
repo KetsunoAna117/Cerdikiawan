@@ -9,27 +9,27 @@ import Foundation
 
 @Observable
 class QuizModelData {
-    var idePokokKelas4: [StoreQuizData] = load("PilganIdePokok4.json")
-    var idePokokKelas5: [StoreQuizData] = load("PilganIdePokok5.json")
-    var idePokokKelas6: [StoreQuizData] = load("PilganIdePokok6.json")
+    var idePokokKelas4: [QuizMultiChoice] = load("PilganIdePokok4.json")
+    var idePokokKelas5: [QuizMultiChoice] = load("PilganIdePokok5.json")
+    var idePokokKelas6: [QuizMultiChoice] = load("PilganIdePokok6.json")
     
-    var implisitKelas4: [StoreQuizData] = load("PilganImplisit4.json")
-    var implisitKelas5: [StoreQuizData] = load("PilganImplisit5.json")
-    var implisitKelas6: [StoreQuizData] = load("PilganImplisit6.json")
+    var implisitKelas4: [QuizMultiChoice] = load("PilganImplisit4.json")
+    var implisitKelas5: [QuizMultiChoice] = load("PilganImplisit5.json")
+    var implisitKelas6: [QuizMultiChoice] = load("PilganImplisit6.json")
     
-    var rumpang4: [StoreQuizFillBlank] = load("Rumpang4.json")
-    var rumpang5: [StoreQuizFillBlank] = load("Rumpang5.json")
-    var rumpang6: [StoreQuizFillBlank] = load("Rumpang6.json")
+    var rumpang4: [QuizFillBlank] = load("Rumpang4.json")
+    var rumpang5: [QuizFillBlank] = load("Rumpang5.json")
+    var rumpang6: [QuizFillBlank] = load("Rumpang6.json")
     
-    var sambung4: [StoreQuizConnect] = load("SambungKata4.json")
-    var sambung5: [StoreQuizConnect] = load("SambungKata5.json")
-    var sambung6: [StoreQuizConnect] = load("SambungKata6.json")
+    var sambung4: [QuizConnect] = load("SambungKata4.json")
+    var sambung5: [QuizConnect] = load("SambungKata5.json")
+    var sambung6: [QuizConnect] = load("SambungKata6.json")
     
-    var wordle4: [StoreWordBlank] = load("Wordle4.json")
-    var wordle5: [StoreWordBlank] = load("Wordle5.json")
-    var wordle6: [StoreWordBlank] = load("Wordle6.json")
+    var wordle4: [QuizWordBlank] = load("Wordle4.json")
+    var wordle5: [QuizWordBlank] = load("Wordle5.json")
+    var wordle6: [QuizWordBlank] = load("Wordle6.json")
     
-    func getIdePokok(difficulty: Int) -> [StoreQuizData]?{
+    func getIdePokok(difficulty: Int) -> [QuizMultiChoice]?{
         switch difficulty{
         case 4:
             return idePokokKelas4
@@ -42,7 +42,7 @@ class QuizModelData {
         }
     }
     
-    func getimplisit(difficulty: Int) -> [StoreQuizData]?{
+    func getimplisit(difficulty: Int) -> [QuizMultiChoice]?{
         switch difficulty{
         case 4:
             return implisitKelas4
@@ -55,7 +55,7 @@ class QuizModelData {
         }
     }
     
-    func getRumpang(difficulty: Int) -> [StoreQuizFillBlank]?{
+    func getRumpang(difficulty: Int) -> [QuizFillBlank]?{
         switch difficulty{
         case 4:
             return rumpang4
@@ -68,7 +68,7 @@ class QuizModelData {
         }
     }
     
-    func getSambung(difficulty: Int) -> [StoreQuizConnect]?{
+    func getSambung(difficulty: Int) -> [QuizConnect]?{
         switch difficulty{
         case 4:
             return sambung4
@@ -81,7 +81,7 @@ class QuizModelData {
         }
     }
     
-    func getWordle(difficulty: Int) -> [StoreWordBlank]?{
+    func getWordle(difficulty: Int) -> [QuizWordBlank]?{
         switch difficulty{
         case 4:
             return wordle4

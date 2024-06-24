@@ -7,36 +7,28 @@
 
 import Foundation
 
-class QuizFillBlank: Quiz{
+class QuizFillBlank: Codable{
+    var quizId: Int
+    var quizFeedback: Feedback
+    var quizDifficultyLevel: Int
+    var quizCategory: String
+    var quizTitle: String
+    var isRedemption: Bool
+    var quizAsset: [String]
     var quizStory: String
     var quizChoiceList: [Choice]
-    var quizAnswerList: [Int]
+    var quizAnswerIdList: [Int]
     
-    init(quizId: Int, quizFeedback: Feedback, quizDifficultyLevel: Int, quizCategory: String, quizTitle: String, quizAsset: [String], isRedemption: Bool, quizStory: String, quizChoiceList: [Choice], quizAnswerList: [Int]) {
+    init(quizId: Int, quizFeedback: Feedback, quizDifficultyLevel: Int, quizCategory: String, quizTitle: String, isRedemption: Bool, quizAsset: [String], quizStory: String, quizChoiceList: [Choice], quizAnswerIdList: [Int]) {
+        self.quizId = quizId
+        self.quizFeedback = quizFeedback
+        self.quizDifficultyLevel = quizDifficultyLevel
+        self.quizCategory = quizCategory
+        self.quizTitle = quizTitle
+        self.isRedemption = isRedemption
+        self.quizAsset = quizAsset
         self.quizStory = quizStory
         self.quizChoiceList = quizChoiceList
-        self.quizAnswerList = quizAnswerList
-        
-        super.init(quizId: quizId, quizFeedback: quizFeedback, quizDifficultyLevel: quizDifficultyLevel, quizCategory: quizCategory, quizTitle: quizTitle, quizAsset: quizAsset, isRedemption: isRedemption)
+        self.quizAnswerIdList = quizAnswerIdList
     }
-    
-// ok to delete
-    
-//    required init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        quizStory = try container.decode(String.self, forKey: .quizStory)
-//        quizChoiceList = try container.decode([Choice].self, forKey: .quizChoiceList)
-//        quizAnswerList = try container.decode([Int].self, forKey: .quizAnswerList)
-//    }
-//    
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encode(quizStory, forKey: .quizStory)
-//        try container.encode(quizChoiceList, forKey: .quizChoiceList)
-//        try container.encode(quizAnswerList, forKey: .quizAnswerList)
-//    }
-//    
-//    private enum CodingKeys: String, CodingKey {
-//        case quizStory, quizChoiceList, quizAnswerList
-//    }
 }

@@ -136,18 +136,14 @@ struct QuizWordBlankView: View {
                     // TODO: tambahin parameter judul buat soal
                     QuizFillBlankView(vm: QuizFillBlankViewModel(
                         questions: fillBlankQuiz!.quizStory,
-                        choices: loadChoices(
-                            storeChoice: fillBlankQuiz!.quizChoiceList
-                        )
+                        choices: fillBlankQuiz!.quizChoiceList
                     ))
                     .environment(modelData)
                 case "WordBlank":
                     let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
                     QuizWordBlankView(
                         vm: QuizWordBlankViewModel(
-                            choices: loadChoices(
-                                storeChoice: wordBlankQuiz!.quizLetterChoiceList
-                            ),
+                            choices: wordBlankQuiz!.quizLetterChoiceList,
                             numberOfLetter: wordBlankQuiz!.quizLetterCount
                         ),
                         question: wordBlankQuiz!.quizPrompt
@@ -156,8 +152,8 @@ struct QuizWordBlankView: View {
                 default:
                     let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
                     QuizMatchingWordView(
-                        choiceLeft: loadChoices(storeChoice: matchingWordQuizz!.quizLeftChoiceList),
-                        choiceRight: loadChoices(storeChoice: matchingWordQuizz!.quizRightChoiceList),
+                        choiceLeft: matchingWordQuizz!.quizLeftChoiceList,
+                        choiceRight: matchingWordQuizz!.quizRightChoiceList,
                         question: matchingWordQuizz!.quizPrompt
                     )
                     .environment(modelData)
@@ -170,10 +166,6 @@ struct QuizWordBlankView: View {
         } else {
             Text("Error: No destination view")
         }
-    }
-    
-    func loadChoices(storeChoice: [StoreChoice]) -> [Choice] {
-        storeChoice.map { Choice(choiceId: $0.choiceId, choiceDescription: $0.choiceDescription) }
     }
 }
 

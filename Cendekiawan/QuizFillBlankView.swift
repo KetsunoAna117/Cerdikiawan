@@ -14,7 +14,7 @@ struct QuizFillBlankView: View {
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
     @State private var isDone: Bool = false
     
-    private var quiz: StoreQuizFillBlank {
+    private var quiz: QuizFillBlank {
         modelData.rumpang4[0]
     }
     
@@ -122,7 +122,7 @@ struct QuizFillBlankView: View {
                     if let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.randomElement() {
                         QuizFillBlankView(vm: QuizFillBlankViewModel(
                             questions: fillBlankQuiz.quizStory,
-                            choices: loadChoices(storeChoice: fillBlankQuiz.quizChoiceList)
+                            choices: fillBlankQuiz.quizChoiceList
                         ))
                         .environment(modelData)
                     }
@@ -130,7 +130,7 @@ struct QuizFillBlankView: View {
                     if let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement() {
                         QuizWordBlankView(
                             vm: QuizWordBlankViewModel(
-                                choices: loadChoices(storeChoice: wordBlankQuiz.quizLetterChoiceList),
+                                choices: wordBlankQuiz.quizLetterChoiceList,
                                 numberOfLetter: wordBlankQuiz.quizLetterCount
                             ),
                             question: wordBlankQuiz.quizPrompt
@@ -140,8 +140,8 @@ struct QuizFillBlankView: View {
                 default:
                     if let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement() {
                         QuizMatchingWordView(
-                            choiceLeft: loadChoices(storeChoice: matchingWordQuizz.quizLeftChoiceList),
-                            choiceRight: loadChoices(storeChoice: matchingWordQuizz.quizRightChoiceList),
+                            choiceLeft: matchingWordQuizz.quizLeftChoiceList,
+                            choiceRight: matchingWordQuizz.quizRightChoiceList,
                             question: matchingWordQuizz.quizPrompt
                         )
                         .environment(modelData)
@@ -154,10 +154,6 @@ struct QuizFillBlankView: View {
         } else {
             Text("Error: No destination view")
         }
-    }
-    
-    func loadChoices(storeChoice: [StoreChoice]) -> [Choice] {
-        storeChoice.map { Choice(choiceId: $0.choiceId, choiceDescription: $0.choiceDescription) }
     }
 }
 

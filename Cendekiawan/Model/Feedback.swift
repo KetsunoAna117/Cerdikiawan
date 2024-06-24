@@ -7,12 +7,12 @@
 
 import Foundation
 
-class Feedback {
-    var quizID: Int
+class Feedback: Codable {
+    var quizId: Int
     var feedbackDescription: String
-    
-    init(quizID: Int, feedbackDescription: String) {
-        self.quizID = quizID
+
+    init(quizId: Int, feedbackDescription: String) {
+        self.quizId = quizId
         self.feedbackDescription = feedbackDescription
     }
 }

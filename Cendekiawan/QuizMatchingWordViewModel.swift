@@ -127,7 +127,7 @@ class QuizMatchingWordViewModel: ObservableObject {
     func getQuizConnectFromJSON(){
         self.quizConnect = QuizConnect(
             quizId: 1,
-            quizFeedback: Feedback(quizID: 1, feedbackDescription: "You are stupid ah fuck"),
+            quizFeedback: Feedback(quizId: 1, feedbackDescription: "You are stupid ah fuck"),
             quizDifficultyLevel: 4,
             quizCategory: "sambung kata",
             quizTitle: "nil",
