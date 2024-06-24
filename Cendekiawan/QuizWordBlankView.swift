@@ -16,7 +16,7 @@ struct QuizWordBlankView: View {
     @State private var isDone: Bool = false
     
     let columns = [
-        GridItem(.adaptive(minimum: 200))
+        GridItem(.adaptive(minimum: 48))
     ]
     
     var body: some View {
