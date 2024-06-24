@@ -24,7 +24,7 @@ struct QuizWordBlankView: View {
         NavigationStack {
             VStack {
                 // buat checking aja. nanti dihapus
-                StatsOverlay()
+//                StatsOverlay()
                 VStack {
                     Text(question)
                         .font(.body)
@@ -51,58 +51,63 @@ struct QuizWordBlankView: View {
                             }
                         }
                     }
-                    Spacer()
+                    .padding([.bottom], 56)
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.greyMid, lineWidth: 3)
+                            .frame(width: 437, height: 155)
                             .padding([.horizontal], 30)
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 4)
-                            .foregroundColor(Color(.secondarySystemFill))
-                        LazyVGrid(columns: columns, spacing: 20) {
+                        LazyVGrid(columns: columns, spacing: 32) {
                             ForEach (vm.choices, id: \.choiceId) { choosed in
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 128, height: 34)
-                                        .foregroundStyle(Color(.lightGray))
-                                    Text(choosed.choiceDescription)
-                                        .font(.headline)
-                                }
+                                Button3D(text: choosed.choiceDescription, color: Color.white)
                                 .onTapGesture {
                                     vm.addCharacterToAnswer(choosed: choosed)
                                 }
                             }
-                        }.padding(30)
+                        }.frame(width: 344, height: 102)
+                        .padding(30)
+                            
                     }
                     
                     
                 }
-                .padding(50)
+                .padding([.bottom], 132)
                 .onAppear{
                     vm.setupQuestion()
                 }
-                HStack{
-                    Button{
-                        startGameplay()
-                        updateKosakataProeficiency(user: user, win: true)
-                    } label: {
-                        Text("Benar")
-                            .font(.system(size: 50))
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.green)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
-                    Button{
-                        startGameplay()
-                        updateKosakataProeficiency(user: user, win: false)
-                    } label: {
-                        Text("Salah")
-                            .font(.system(size: 50))
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.red)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
-                }
+//                HStack{
+//                    Button{
+//                        startGameplay()
+//                        updateKosakataProeficiency(user: user, win: true)
+//                    } label: {
+//                        Text("Benar")
+//                            .font(.system(size: 50))
+//                            .foregroundStyle(.white)
+//                            .padding()
+//                            .background(.green)
+//                            .clipShape(RoundedRectangle(cornerRadius: 10))
+//                    }
+//                    Button{
+//                        startGameplay()
+//                        updateKosakataProeficiency(user: user, win: false)
+//                    } label: {
+//                        Text("Salah")
+//                            .font(.system(size: 50))
+//                            .foregroundStyle(.white)
+//                            .padding()
+//                            .background(.red)
+//                            .clipShape(RoundedRectangle(cornerRadius: 10))
+//                    }
+//                }
+            }
+            
+            }
+        .overlay{
+            VStack{
+                Spacer()
+                BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.greyMid), action: {
+                    print("lol")
+                })
             }
             .onAppear {
                 isDone = false

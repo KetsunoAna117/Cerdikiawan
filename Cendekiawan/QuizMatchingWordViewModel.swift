@@ -20,8 +20,8 @@ class QuizMatchingWordViewModel: ObservableObject {
         for con in connectedChoiceId {
             if let leftOrder = choiceLeft.firstIndex(where: { con.left == $0.choiceId }),
                let rightOrder = choiceRight.firstIndex(where: { con.right == $0.choiceId }) {
-                let leftCoordinate = getLineCoordinate(order: leftOrder+1, selectedFrom: "Left")
-                let rightCoordinate = getLineCoordinate(order: rightOrder+1, selectedFrom: "Right")
+                let leftCoordinate = getLineCoordinate(order: leftOrder, selectedFrom: "Left")
+                let rightCoordinate = getLineCoordinate(order: rightOrder, selectedFrom: "Right")
                 connections.append((leftCoordinate, rightCoordinate))
             }
         }
@@ -32,11 +32,11 @@ class QuizMatchingWordViewModel: ObservableObject {
         var x: CGFloat = 0
         var y: CGFloat = 0
         if selectedFrom == "Left" {
-            x = UIScreen.main.bounds.width / 3
+            x = 38*UIScreen.main.bounds.width / 100
         }else {
-            x = 2*UIScreen.main.bounds.width / 3
+            x = 62*UIScreen.main.bounds.width / 100
         }
-        y = CGFloat(16*order) * UIScreen.main.bounds.height / 100
+        y = 16.5 * UIScreen.main.bounds.height / 100 + CGFloat(14.5 * Double(order)) * UIScreen.main.bounds.height / 100
         return CGPoint(x: x, y: y)
     }
     
