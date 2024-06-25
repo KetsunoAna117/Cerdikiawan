@@ -23,8 +23,8 @@ struct QuizWordBlankView: View {
     ]
     
     var body: some View {
+        // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
                 VStack {
-                    // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
                     Text(vm.quizWordBlank?.quizPrompt ?? "")
                         .font(.title3)
                         .fontWeight(.bold)
@@ -47,29 +47,11 @@ struct QuizWordBlankView: View {
                             .onTapGesture {
                                 vm.removeCharacterFromAnswer(index: index)
                             }
-        VStack {
-            Text(vm.quizWordBlank?.quizPrompt ?? "")
-                .font(.title3)
-                .fontWeight(.bold)
-                .padding([.bottom], 30)
-            Image("placeholderPhoto")
-            Spacer()
-            HStack (alignment: .center, spacing: 50) {
-                ForEach (0..<vm.guessedWord.count, id: \.self) { index in
-                    VStack {
-                        if vm.guessedWord[index].choiceId != -1 {
-                            Button3D(text: vm.guessedWord[index].choiceDescription, color: vm.checkBoxColor(state: "Selected", choice: vm.guessedWord[index]))
-                        }else {
-                            Text(" ")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            
                         }
-                        Text("_____")
                     }
                     .padding([.bottom], 56)
+                    // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
                     ZStack {
-                        // TODO: RoundedRectangle with corner radius as a background view in a zstack is often used. Create a function for that purpose. Also have the value of the corner radius to be a variable that is configurable consistently
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.cerdikiawanGreyMid, lineWidth: 3)
                             .frame(width: 437, height: 155)
@@ -86,30 +68,11 @@ struct QuizWordBlankView: View {
                         .padding(30)
                     }
                 }
-            }
-            .padding([.bottom], 56)
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.cerdikiawanGreyMid, lineWidth: 3)
-                    .frame(width: 437, height: 155)
-                    .padding([.horizontal], 30)
-                LazyVGrid(columns: columns, spacing: 32) {
-                    ForEach (vm.quizWordBlank?.quizLetterChoiceList ?? [], id: \.choiceId) { choosed in
-                        Button3D(text: choosed.choiceDescription, color: vm.checkBoxColor(state: "Unselected", choice: choosed)
-                        )
-                        .onTapGesture {
-                            vm.addCharacterToAnswer(choosed: choosed)
-                        }
-                    }
-                }.frame(width: 344, height: 102)
-                    .padding(30)
-            }
-        }
-        .padding([.bottom], 132)
-        .onAppear{
-            vm.setupQuestion()
-        }
-        .frame(minWidth: UIScreen.main.bounds.width)
+                .padding([.bottom], 132)
+                .onAppear{
+                    vm.setupQuestion()
+                }
+                .frame(minWidth: UIScreen.main.bounds.width)
         .onAppear {
             isDone = false
         }
@@ -125,13 +88,13 @@ struct QuizWordBlankView: View {
     }
     
     
-    
+
 }
 
 #Preview {
     QuizWordBlankView(
         vm: QuizWordBlankViewModel(model: getQuizWordBlankfromJSON()), vm2: QuizViewModel(nextQuiz: ("MultiChoice", "implisit"))
-    )
+        )
     .environment(QuizModelData())
 }
 
@@ -161,6 +124,3 @@ func getQuizWordBlankfromJSON() -> QuizWordBlank{
         quizAnswer: "AMANAT"
     )
 }
-
-
-
