@@ -13,6 +13,7 @@ struct StatsOverlay: View {
         Text("level: \(user.difficultyLevel)")
             .font(.system(size: 25))
         HStack{
+            // TODO: for every view inside the hstack, create a function with parameters (in this case which is the height value) and returns a view you need as the overlaystat
             VStack{
                 Text(String(user.proficiencyLevelIdePokok))
                     .font(.system(size: 25))

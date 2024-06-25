@@ -21,6 +21,7 @@ struct QuizWordBlankView: View {
     
     var body: some View {
                 VStack {
+                    // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
                     Text(vm.quizWordBlank?.quizPrompt ?? "")
                         .font(.title3)
                         .fontWeight(.bold)
@@ -47,6 +48,7 @@ struct QuizWordBlankView: View {
                     }
                     .padding([.bottom], 56)
                     ZStack {
+                        // TODO: RoundedRectangle with corner radius as a background view in a zstack is often used. Create a function for that purpose. Also have the value of the corner radius to be a variable that is configurable consistently
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.cerdikiawanGreyMid, lineWidth: 3)
                             .frame(width: 437, height: 155)
