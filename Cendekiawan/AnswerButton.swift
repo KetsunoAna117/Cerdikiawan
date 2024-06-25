@@ -25,7 +25,7 @@ struct AnswerButton: View {
         }
         .foregroundStyle(isClicked ? .red: .black)
         .padding(10)
-        .border(Color.black, width: 3)
+        .border(Color.cerdikiawanBlack, width: 3)
     }
 }
 

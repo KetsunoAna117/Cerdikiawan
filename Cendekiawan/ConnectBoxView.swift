@@ -8,9 +8,10 @@ struct ConnectBoxView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .foregroundStyle(Color.gray.opacity(0.5))
+                .foregroundStyle(Color.cerdikiawanGreyMid.opacity(0.5))
                 .overlay {
                     ZStack {
+                        // TODO: RoundedRectangle with corner radius as a background view in a zstack is often used. Create a function for that purpose. Also have the value of the corner radius to be a variable that is configurable consistently
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(boxColor)
                             .mask {
@@ -18,14 +19,14 @@ struct ConnectBoxView: View {
                                     .offset(y: -4)
                             }
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.gray.opacity(0.5), lineWidth: 3)
+                            .stroke(Color.cerdikiawanGreyMid.opacity(0.5), lineWidth: 3)
                     }
                 }
             
             HStack {
                 if selectedFrom == "Right" {
                     Image(systemName: "circle.fill")
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(boxColor == Color.cerdikiawanWhite ? Color.cerdikiawanBlack : Color.cerdikiawanWhite)
                         .padding(.leading, 22)
                 } else {
                     Spacer()
@@ -34,7 +35,7 @@ struct ConnectBoxView: View {
                 Text(choice.choiceDescription)
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(boxColor == Color.cerdikiawanWhite ? Color.cerdikiawanBlack : Color.cerdikiawanWhite)
                     .multilineTextAlignment(.center)
                     .padding([.leading, .trailing], 22)
                     .fixedSize(horizontal: false, vertical: true)
@@ -42,7 +43,7 @@ struct ConnectBoxView: View {
                 if selectedFrom == "Left" {
                     Spacer()
                     Image(systemName: "circle.fill")
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(boxColor == Color.cerdikiawanWhite ? Color.cerdikiawanBlack : Color.cerdikiawanWhite)
                         .padding(.trailing, 22)
                 } else {
                     Spacer()
@@ -56,5 +57,5 @@ struct ConnectBoxView: View {
 }
 
 #Preview {
-    ConnectBoxView(choice: Choice(choiceId: 1, choiceDescription: "Orang yang ahli dalam mencipta dan menggubah gerak tari"), boxColor: Color.blue, selectedFrom: "Right")
+    ConnectBoxView(choice: Choice(choiceId: 1, choiceDescription: "Orang yang ahli dalam mencipta dan menggubah gerak tari"), boxColor: Color.cerdikiawanWhite, selectedFrom: "Right")
 }

@@ -11,9 +11,41 @@ import SwiftUI
 class QuizMatchingWordViewModel: ObservableObject {
     @Published var leftSelectedChoiceId: Int = -1
     @Published var rightSelectedChoiceId: Int = -1
+    @Published var isChecked: Bool = false
     
     @Published var connectedChoiceId: [(left: Int, right: Int)] = []
     @Published var quizConnect: QuizConnect? = nil
+    
+    init(model: QuizConnect) {
+        quizConnect = model
+    }
+    
+    //check answer if all connected right == all connected left
+    func checkAnswer() -> Bool {
+        var flag = true
+        for i in 0..<connectedChoiceId.count-1 {
+            if connectedChoiceId[i].left != connectedChoiceId[i].right {
+                flag = false
+            }
+        }
+        return flag
+    }
+    
+    func checkBoxColor(choiceId: Int, selectedFrom: String) -> Color {
+        if isChecked {
+            //State checked, true false
+            if connectedChoiceId.contains(where: {$0.left == choiceId && $0.right == choiceId} ) {
+                //correct
+                return Color.cerdikiawanGreenTua
+            }else {
+                //incorrect
+                return Color.cerdikiawanRed
+            }
+        }else {
+            //State unchecked, selected unselected
+            return boxShouldActive(choiceID: choiceId, selectedFrom: selectedFrom) ? Color.cerdikiawanOrange : Color.cerdikiawanWhite
+        }
+    }
     
     func getAllConnections(choiceLeft: [Choice], choiceRight: [Choice]) -> [(CGPoint, CGPoint)] {
         var connections: [(CGPoint, CGPoint)] = []
@@ -112,12 +144,12 @@ class QuizMatchingWordViewModel: ObservableObject {
     
     func boxShouldActive(choiceID: Int, selectedFrom: String) -> Bool{
         if selectedFrom == "Left" {
-            if leftSelectedChoiceId == choiceID {
+            if leftSelectedChoiceId == choiceID || connectedChoiceId.contains(where: { $0.left == choiceID }) {
                 return true
             }
         }
         else if selectedFrom == "Right" {
-            if rightSelectedChoiceId == choiceID {
+            if rightSelectedChoiceId == choiceID || connectedChoiceId.contains(where: { $0.right == choiceID }) {
                 return true
             }
         }

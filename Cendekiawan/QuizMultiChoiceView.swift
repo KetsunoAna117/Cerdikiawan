@@ -28,9 +28,11 @@ struct QuizMultiChoiceView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                // TODO: reminder to remove all the test views and comments
                 // buat checking aja. nanti dihapus
                 StatsOverlay()
                 HStack {
+                    // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
                     // aku ganti jadi scrollview
                     ScrollView {
                         Text(quiz.quizTitle)
@@ -66,7 +68,6 @@ struct QuizMultiChoiceView: View {
                         } else {
                             updateImplisitProeficiency(user: user, win: true)
                         }
-                        startGameplay()
                     } label: {
                         Text("Benar")
                             .font(.system(size: 50))
@@ -82,7 +83,6 @@ struct QuizMultiChoiceView: View {
                         } else {
                             updateImplisitProeficiency(user: user, win: false)
                         }
-                        startGameplay()
                     } label: {
                         Text("Salah")
                             .font(.system(size: 50))
@@ -93,67 +93,10 @@ struct QuizMultiChoiceView: View {
                     }
                 }
             }
-            .navigationDestination(isPresented: $isDone) {
-                getDestinationView()
-            }
+
         }
     }
     
-    func startGameplay() {
-        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
-        let (quizModel, tipeQuiz) = storeRandomizedQuiz
-        
-        nextQuiz = (quizModel, tipeQuiz)
-        print("\(nextQuiz!.quizModel), \(nextQuiz!.tipeQuiz)")
-        
-        isDone = true
-    }
-    
-    @ViewBuilder
-    func getDestinationView() -> some View {
-        
-        if let tipeQuizz = nextQuiz?.tipeQuiz, let quizModel = nextQuiz?.quizModel {
-            
-            switch tipeQuizz {
-            case "kosakata":
-                switch quizModel {
-                case "FillBlank":
-                    let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.randomElement()
-                    
-                    // TODO: tambahin parameter judul buat soal
-                    QuizFillBlankView(vm: QuizFillBlankViewModel(
-                        questions: fillBlankQuiz!.quizStory,
-                        choices: fillBlankQuiz!.quizChoiceList
-                    ))
-                    .environment(modelData)
-                case "WordBlank":
-                    let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
-                    QuizWordBlankView(
-                        vm: QuizWordBlankViewModel(
-                            choices: wordBlankQuiz!.quizLetterChoiceList,
-                            numberOfLetter: wordBlankQuiz!.quizLetterCount
-                        ),
-                        question: wordBlankQuiz!.quizPrompt
-                    )
-                    .environment(modelData)
-                default:
-                    let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
-                    QuizMatchingWordView(
-                        choiceLeft: matchingWordQuizz!.quizLeftChoiceList,
-                        choiceRight: matchingWordQuizz!.quizRightChoiceList,
-                        question: matchingWordQuizz!.quizPrompt
-                    )
-                    .environment(modelData)
-                }
-            default:
-                //TODO: pindahin logic ke view model
-                QuizMultiChoiceView(tipeQuiz: nextQuiz!.tipeQuiz)
-                    .environment(modelData)
-            }
-        } else {
-            Text("Error: No destination view")
-        }
-    }
 }
 
 #Preview {

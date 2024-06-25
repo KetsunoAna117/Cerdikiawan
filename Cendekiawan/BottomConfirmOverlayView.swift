@@ -35,7 +35,13 @@ struct BottomConfirmOverlayView: View {
                 }
                 Spacer()
                 Button3D(text: "Periksa", color: Color.cerdikiawanOrange)
-            }.padding([.horizontal], 28)
+                    .onTapGesture {
+                        action()
+                    }
+                    .padding([.horizontal], 28)
+                
+            }
+            
             
         }
     }

@@ -9,7 +9,10 @@ import SwiftUI
 
 struct QuizWordBlankView: View {
     @ObservedObject var vm: QuizWordBlankViewModel
-    var question: String
+    
+    //to navigate user to another question by sending the same VM
+    @ObservedObject var vm2: QuizViewModel
+    
     @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
@@ -20,14 +23,11 @@ struct QuizWordBlankView: View {
     ]
     
     var body: some View {
-        
-        NavigationStack {
-            VStack {
-                // buat checking aja. nanti dihapus
-//                StatsOverlay()
+        // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
                 VStack {
-                    Text(question)
-                        .font(.body)
+                    Text(vm.quizWordBlank?.quizPrompt ?? "")
+                        .font(.title3)
+                        .fontWeight(.bold)
                         .padding([.bottom], 30)
                     Image("placeholderPhoto")
                     Spacer()
@@ -35,9 +35,7 @@ struct QuizWordBlankView: View {
                         ForEach (0..<vm.guessedWord.count, id: \.self) { index in
                             VStack {
                                 if vm.guessedWord[index].choiceId != -1 {
-                                    Text(vm.guessedWord[index].choiceDescription)
-                                        .font(.title2)
-                                        .fontWeight(.semibold)
+                                    Button3D(text: vm.guessedWord[index].choiceDescription, color: vm.checkBoxColor(state: "Selected", choice: vm.guessedWord[index]))
                                 }else {
                                     Text(" ")
                                         .font(.title2)
@@ -52,147 +50,77 @@ struct QuizWordBlankView: View {
                         }
                     }
                     .padding([.bottom], 56)
+                    // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.cerdikiawanGreyMid, lineWidth: 3)
                             .frame(width: 437, height: 155)
                             .padding([.horizontal], 30)
                         LazyVGrid(columns: columns, spacing: 32) {
-                            ForEach (vm.choices, id: \.choiceId) { choosed in
-                                Button3D(text: choosed.choiceDescription, color: Color.white)
+                            ForEach (vm.quizWordBlank?.quizLetterChoiceList ?? [], id: \.choiceId) { choosed in
+                                Button3D(text: choosed.choiceDescription, color: vm.checkBoxColor(state: "Unselected", choice: choosed)
+                                )
                                 .onTapGesture {
                                     vm.addCharacterToAnswer(choosed: choosed)
                                 }
                             }
                         }.frame(width: 344, height: 102)
                         .padding(30)
-                            
                     }
-                    
-                    
                 }
                 .padding([.bottom], 132)
                 .onAppear{
                     vm.setupQuestion()
                 }
-//                HStack{
-//                    Button{
-//                        startGameplay()
-//                        updateKosakataProeficiency(user: user, win: true)
-//                    } label: {
-//                        Text("Benar")
-//                            .font(.system(size: 50))
-//                            .foregroundStyle(.white)
-//                            .padding()
-//                            .background(.green)
-//                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                    }
-//                    Button{
-//                        startGameplay()
-//                        updateKosakataProeficiency(user: user, win: false)
-//                    } label: {
-//                        Text("Salah")
-//                            .font(.system(size: 50))
-//                            .foregroundStyle(.white)
-//                            .padding()
-//                            .background(.red)
-//                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                    }
-//                }
-            }
-            
-            }
+                .frame(minWidth: UIScreen.main.bounds.width)
+        .onAppear {
+            isDone = false
+        }
         .overlay{
             VStack{
                 Spacer()
                 BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
-                    print("lol")
+                    vm.isChecked = true
+                    vm2.startGameplay()
                 })
             }
-            .onAppear {
-                isDone = false
-            }
-            .navigationDestination(isPresented: $isDone){
-                getDestinationView()
-            }
         }
-        
-    }
-    func startGameplay() {
-        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
-        let (quizModel, tipeQuiz) = storeRandomizedQuiz
-        
-        print("\(quizModel), \(tipeQuiz)")
-        
-        nextQuiz = (quizModel, tipeQuiz)
-        
-        isDone = true
     }
     
-    @ViewBuilder
-    func getDestinationView() -> some View {
-        if let tipeQuizz = nextQuiz?.tipeQuiz, let quizModel = nextQuiz?.quizModel {
-            switch tipeQuizz {
-            case "kosakata":
-                switch quizModel {
-                case "FillBlank":
-                    let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.randomElement()
-                    
-                    // TODO: tambahin parameter judul buat soal
-                    QuizFillBlankView(vm: QuizFillBlankViewModel(
-                        questions: fillBlankQuiz!.quizStory,
-                        choices: fillBlankQuiz!.quizChoiceList
-                    ))
-                    .environment(modelData)
-                case "WordBlank":
-                    let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
-                    QuizWordBlankView(
-                        vm: QuizWordBlankViewModel(
-                            choices: wordBlankQuiz!.quizLetterChoiceList,
-                            numberOfLetter: wordBlankQuiz!.quizLetterCount
-                        ),
-                        question: wordBlankQuiz!.quizPrompt
-                    )
-                    .environment(modelData)
-                default:
-                    let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
-                    QuizMatchingWordView(
-                        choiceLeft: matchingWordQuizz!.quizLeftChoiceList,
-                        choiceRight: matchingWordQuizz!.quizRightChoiceList,
-                        question: matchingWordQuizz!.quizPrompt
-                    )
-                    .environment(modelData)
-                }
-            default:
-                //TODO: pindahin logic ke view model
-                QuizMultiChoiceView(tipeQuiz: nextQuiz!.tipeQuiz)
-                    .environment(modelData)
-            }
-        } else {
-            Text("Error: No destination view")
-        }
-    }
+    
+
 }
 
 #Preview {
     QuizWordBlankView(
-        vm: QuizWordBlankViewModel(
-            choices: [
-                Choice(choiceId: 0, choiceDescription: "A"),
-                Choice(choiceId: 1, choiceDescription: "A"),
-                Choice(choiceId: 2, choiceDescription: "M"),
-                Choice(choiceId: 3, choiceDescription: "I"),
-                Choice(choiceId: 4, choiceDescription: "H"),
-                Choice(choiceId: 5, choiceDescription: "N"),
-                Choice(choiceId: 6, choiceDescription: "E"),
-                Choice(choiceId: 7, choiceDescription: "R"),
-                Choice(choiceId: 8, choiceDescription: "T"),
-                Choice(choiceId: 9, choiceDescription: "A")],
-            numberOfLetter: 6
-        ),
-        question: "Pesan yang disampaikan oleh penulis dalam cerita disebut..."
-    )
+        vm: QuizWordBlankViewModel(model: getQuizWordBlankfromJSON()), vm2: QuizViewModel(nextQuiz: ("MultiChoice", "implisit"))
+        )
     .environment(QuizModelData())
 }
 
-
+func getQuizWordBlankfromJSON() -> QuizWordBlank{
+    return QuizWordBlank(
+        quizId: 1,
+        quizFeedback: Feedback(quizId: 1, feedbackDescription: "You are stupid ah fuck"),
+        quizDifficultyLevel: 4,
+        quizCategory: "kosakata",
+        quizTitle: "nil",
+        quizAsset: ["nil"],
+        isRedemption: false,
+        quizPrompt: "Pesan yang disampaikan oleh penulis dalam cerita disebut...",
+        quizLetterCount: 6,
+        quizLetterChoiceList: [
+            Choice(choiceId: 0, choiceDescription: "A"),
+            Choice(choiceId: 1, choiceDescription: "A"),
+            Choice(choiceId: 2, choiceDescription: "M"),
+            Choice(choiceId: 3, choiceDescription: "I"),
+            Choice(choiceId: 4, choiceDescription: "H"),
+            Choice(choiceId: 5, choiceDescription: "N"),
+            Choice(choiceId: 6, choiceDescription: "E"),
+            Choice(choiceId: 7, choiceDescription: "R"),
+            Choice(choiceId: 8, choiceDescription: "T"),
+            Choice(choiceId: 9, choiceDescription: "A")
+        ],
+        quizAnswer: "AMANAT"
+    )
+}

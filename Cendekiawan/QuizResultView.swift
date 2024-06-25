@@ -8,11 +8,51 @@
 import SwiftUI
 
 struct QuizResultView: View {
+    @ObservedObject var vm: QuizViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack{
+                Image("QuizResult")
+                Spacer()
+            }
+            VStack(spacing: 40){
+                VStack(spacing: 32) {
+                    Image("ResultViewIllustration")
+                    VStack (spacing: 24){
+                        VStack{
+                            Text("Wah kamu jago sekali!")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.cerdikiawanOrange)
+                            
+                            Text("Selamat telah menyelesaikan misi pertama!")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color.cerdikiawanBlueTua)
+                            
+                            HStack {
+                                VStack {
+                                    Image("ResultViewExp")
+                                    Text("+ \(vm.quizExperienceGain) Exp")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                }
+                            }
+                        }
+                }
+                    
+                    Button {
+                        
+                    } label: {
+                        SubmitButton(text: "Selesai", color: Color.cerdikiawanOrange)
+                    }
+                }
+            }
+        }
+        .ignoresSafeArea()
     }
 }
 
 #Preview {
-    QuizResultView()
+    QuizResultView(vm: QuizViewModel(nextQuiz: (quizModel: "multipleChoice", tipeQuiz: "implisit")))
 }

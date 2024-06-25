@@ -13,6 +13,7 @@ struct StatsOverlay: View {
         Text("level: \(user.difficultyLevel)")
             .font(.system(size: 25))
         HStack{
+            // TODO: for every view inside the hstack, create a function with parameters (in this case which is the height value) and returns a view you need as the overlaystat
             VStack{
                 Text(String(user.proficiencyLevelIdePokok))
                     .font(.system(size: 25))
@@ -20,10 +21,10 @@ struct StatsOverlay: View {
                     Rectangle()
                         .frame(width: 50, height: 100)
                         .foregroundStyle(.white)
-                        .border(Color.black)
+                        .border(Color.cerdikiawanBlack)
                     Rectangle()
                         .frame(width: 50, height: CGFloat(user.proficiencyLevelIdePokok)*10)
-                        .foregroundStyle(.green)
+                        .foregroundStyle(Color.cerdikiawanNeonGreen)
                 }
                 Text("IP")
                     .font(.system(size: 25))
@@ -35,10 +36,10 @@ struct StatsOverlay: View {
                     Rectangle()
                         .frame(width: 50, height: 100)
                         .foregroundStyle(.white)
-                        .border(Color.black)
+                        .border(Color.cerdikiawanBlack)
                     Rectangle()
                         .frame(width: 50, height: CGFloat(user.proficiencyLevelImplisit)*10)
-                        .foregroundStyle(.red)
+                        .foregroundStyle(Color.cerdikiawanRed)
                 }
                 Text("IM")
                     .font(.system(size: 25))
@@ -50,10 +51,10 @@ struct StatsOverlay: View {
                     Rectangle()
                         .frame(width: 50, height: 100)
                         .foregroundStyle(.white)
-                        .border(Color.black)
+                        .border(Color.cerdikiawanBlack)
                     Rectangle()
                         .frame(width: 50, height: CGFloat(user.proficiencyLevelKosakata)*10)
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(Color.cerdikiawanBlueMid)
                 }
                 Text("KOS")
                     .font(.system(size: 25))
