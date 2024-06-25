@@ -50,9 +50,6 @@ struct QuizFillBlankView: View {
                     .frame(width: UIScreen.main.bounds.width * 0.4)
                 }
                 .padding(50)
-                .onAppear {
-                    vm.setupQuestion()
-                }
                 HStack {
                     Button {
                         startGameplay()
@@ -101,14 +98,7 @@ struct QuizFillBlankView: View {
             if index < parts.indices.last! {
                 // this will append rectangle to the paragraph
                 views.append(AnyView(
-                    DroppableBox(boxText: vm.droppedAnswer.isEmpty ? "" : vm.droppedAnswer[index].choiceDescription)
-                        .dropDestination(for: DraggableChoice.self, action: { droppedChoice, location in
-                            vm.handleChoiceDrop(index: index, droppedChoice: droppedChoice)
-                            return true
-                        })
-                        .onTapGesture {
-                            vm.removeChoicesFromAnswer(index: index)
-                        }
+                    Text("Placeholder")
                 ))
             }
         }

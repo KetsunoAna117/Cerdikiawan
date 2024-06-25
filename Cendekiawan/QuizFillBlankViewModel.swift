@@ -9,41 +9,16 @@ import Foundation
 
 class QuizFillBlankViewModel: ObservableObject {
     @Published var questions: String
+    @Published var choices: [Choice] = []
     
-    @Published var choices: [DraggableChoice] = []
-    
-    @Published var droppedAnswer: [DraggableChoice] = []
-    @Published var trunc: [String] = []
+    // Dictionary to track placed choices
+    @Published var placedChoices: [Int: Choice] = [:]
     
     init(questions: String, choices: [Choice]) {
         self.questions = questions
         self.choices = choices.map { DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription) }
-        self.trunc = questions.split(separator: "__________").map { String($0) }
     }
     
-    func setupQuestion(){
-        if droppedAnswer.isEmpty {
-            droppedAnswer = Array(repeating: DraggableChoice(choiceID: -1, choiceText: ""), count: trunc.count - 1)
-        }
-    }
-    
-    func handleChoiceDrop(index: Int, droppedChoice: [DraggableChoice]) {
-        let previouslySelectedChoice = droppedAnswer[index]
-        droppedAnswer[index] = droppedChoice[0]
-        choices.removeAll { $0.uniqueId == droppedChoice[0].uniqueId }
-        
-        if previouslySelectedChoice.choiceId != -1 {
-            print(previouslySelectedChoice.choiceId)
-            choices.append(previouslySelectedChoice)
-        }
-    }
-    
-    func removeChoicesFromAnswer(index: Int){
-        // remove choices
-        if droppedAnswer[index].choiceId != -1 {
-            choices.append(droppedAnswer[index])
-            droppedAnswer[index] = DraggableChoice(choiceID: -1, choiceText: "")
-        }
-    }
+  
 }
 

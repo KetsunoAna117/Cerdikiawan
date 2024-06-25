@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChoicePoolView: View {
-    let choices: [DraggableChoice]
+    let choices: [Choice]
     let width: CGFloat
     
     var body: some View {
@@ -36,7 +36,6 @@ struct ChoicePoolView: View {
                     .background(Color(uiColor: .secondarySystemGroupedBackground))
                     .cornerRadius(5)
                     .shadow(radius: 1, x: 1, y: 1)
-                    .draggable(choice)
             ))
         }
         
