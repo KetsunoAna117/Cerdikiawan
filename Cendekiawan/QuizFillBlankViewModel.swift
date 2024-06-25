@@ -8,13 +8,13 @@
 import Foundation
 
 class QuizFillBlankViewModel: ObservableObject {
-    @Published var questions: String
+    @Published var questions: [String]
     
     @Published var choices: [DraggableChoice] = []
     @Published var droppedAnswer: [Int: DraggableChoice] = [:]
     
     init(questions: String, choices: [Choice]) {
-        self.questions = questions
+        self.questions = Utils.splitTextWithBlanks(questions)
         self.choices = choices.map { DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription) }
     }
     

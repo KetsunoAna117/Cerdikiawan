@@ -23,6 +23,7 @@
 		3A0961442C2807DE005043FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613F2C2807DE005043FD /* User.swift */; };
 		3A0961482C280F9A005043FD /* QuizWordBlankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961472C280F9A005043FD /* QuizWordBlankViewModel.swift */; };
 		3A09614A2C2813A3005043FD /* QuizFillBlankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961492C2813A3005043FD /* QuizFillBlankViewModel.swift */; };
+		3A4AB3702C2B15F100A03832 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AB36F2C2B15F100A03832 /* Utils.swift */; };
 		3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */; };
 		3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */; };
 		3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */; };
@@ -92,6 +93,7 @@
 		3A09613F2C2807DE005043FD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3A0961472C280F9A005043FD /* QuizWordBlankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlankViewModel.swift; sourceTree = "<group>"; };
 		3A0961492C2813A3005043FD /* QuizFillBlankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFillBlankViewModel.swift; sourceTree = "<group>"; };
+		3A4AB36F2C2B15F100A03832 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		3A64C1652C23E3BE00D0AC3A /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		3A64C1672C23E3E600D0AC3A /* ChoicePoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePoolView.swift; sourceTree = "<group>"; };
 		3A64C1692C23E40500D0AC3A /* QuizMultiChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMultiChoiceView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				3AF8EB122C292E2B000AFF5E /* Extensions.swift */,
+				3A4AB36F2C2B15F100A03832 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				93713BF02C23179300B41CD9 /* QuizViewModel.swift in Sources */,
 				0DC7781A2C29D7D20079F85C /* BottomConfirmOverlayView.swift in Sources */,
 				3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */,
+				3A4AB3702C2B15F100A03832 /* Utils.swift in Sources */,
 				3AF8EB102C292DAA000AFF5E /* FlexibleView.swift in Sources */,
 				BE0842442C298342007071DA /* Feedback.swift in Sources */,
 				BEECE0B62C2AA56700C6A492 /* ViewA.swift in Sources */,

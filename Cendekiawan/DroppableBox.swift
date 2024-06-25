@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DroppableBox: View {
     @ObservedObject var fillBlankVM: QuizFillBlankViewModel
-    @State var boxText: String
+    @State var boxText: String = ""
     
     var index: Int
     

@@ -16,9 +16,9 @@ struct FlexibleView: View {
         var rows: [[AnyView]] = [[]]
         
         for view in views {
-            let viewWidth = view.width
+            let viewWidth = view.width + 10
             
-            if width + viewWidth > availableWidth {
+            if width + viewWidth > availableWidth { // if overflow, create another row
                 rows.append([view])
                 width = viewWidth
             } else {
@@ -43,34 +43,59 @@ struct FlexibleView: View {
 #Preview {
     FlexibleView(availableWidth: 600, views: [
         AnyView(
-            renderTextWithPlaceHolders(availableWidth: 500)
+            renderTextWithPlaceHolders(availableWidth: 600)
         )
     ])
 }
 
-func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
-    let vm = QuizFillBlankViewModel(
-        questions: QuizModelData().rumpang4[0].quizStory,
-        choices: QuizModelData().rumpang4[0].quizChoiceList
-    )
+//func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
+//    let vm = QuizFillBlankViewModel(
+//        questions: QuizModelData().rumpang4[0].quizStory,
+//        choices: QuizModelData().rumpang4[0].quizChoiceList
+//    )
+//
+//    let parts = vm.questions
+//    var views: [AnyView] = []
+//    
+//    for index in parts.indices {
+//        views.append(AnyView(
+//            Text(parts[index])
+//                .font(.body)
+//        ))
+//        
+//        if index < parts.indices.last! {
+//            // this will append rectangle to the paragraph
+//            views.append(AnyView(
+//                Rectangle()
+//                    .frame(width: 100, height: 20)
+//                    
+//            ))
+//        }
+//    }
+//    return VStack {
+//        FlexibleView(availableWidth: availableWidth, views: views)
+//    }
+//}
 
-    let parts = vm.questions.components(separatedBy: "___")
+func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
+    let parts = QuizModelData().rumpang6[0].quizStory.split(separator: " ")
     var views: [AnyView] = []
     
     for index in parts.indices {
-        views.append(AnyView(
-            Text(parts[index])
-                .font(.body)
-        ))
-        
-        if index < parts.indices.last! {
-            // this will append rectangle to the paragraph
+        if parts[index] == "_" {
             views.append(AnyView(
                 Rectangle()
                     .frame(width: 100, height: 20)
-                    
             ))
         }
+        else {
+            views.append(AnyView(
+                Text(parts[index])
+                    .font(.body)
+            ))
+        }
+
+        
     }
     return VStack {
         FlexibleView(availableWidth: availableWidth, views: views)

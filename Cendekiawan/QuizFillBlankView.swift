@@ -11,6 +11,10 @@ struct QuizFillBlankView: View {
     @Environment(QuizModelData.self) private var modelData
     @ObservedObject var vm: QuizFillBlankViewModel
     
+    private let adaptipveColumns = [
+        GridItem(.adaptive(minimum: 150, maximum: .infinity))
+    ]
+    
     var body: some View {
         GeometryReader { geometry in
             HStack {
@@ -19,9 +23,18 @@ struct QuizFillBlankView: View {
                     ScrollView {
                         Image("placeholderPhoto")
                             .padding(.bottom, 40)
-                        VStack {
-                            // The question goes here
-                        }
+                        LazyVGrid(columns: adaptipveColumns, content: {
+                            ForEach(0..<vm.questions.count, id: \.self) { index in
+                                if vm.questions[index] == "_" {
+                                    Text("Deez Nuts")
+//                                    DroppableBox(fillBlankVM: vm, index: index)
+                                }
+                                else {
+                                    Text(vm.questions[index])
+                                        .padding(.vertical, 4)
+                                }
+                            }
+                        })
                     }
                 }
                 .frame(width: geometry.size.width * 0.6)
