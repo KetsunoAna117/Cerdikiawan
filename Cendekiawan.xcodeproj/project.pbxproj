@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A02C23F11900710D43 /* DroppableBox.swift */; };
 		0D1302A32C241EE600710D43 /* QuizWordBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */; };
+		0D3ED4EB2C2AC0CE00C11CA5 /* ExpProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3ED4EA2C2AC0CE00C11CA5 /* ExpProgressView.swift */; };
 		0DC0B9F12C27F04B00844EC9 /* LineConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */; };
 		0DC0B9F32C28489F00844EC9 /* ConnectBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0B9F22C28489F00844EC9 /* ConnectBoxView.swift */; };
 		0DC778162C294DFF0079F85C /* Button3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC778152C294DFF0079F85C /* Button3D.swift */; };
 		0DC778182C2961710079F85C /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC778172C2961710079F85C /* SubmitButton.swift */; };
 		0DC7781A2C29D7D20079F85C /* BottomConfirmOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC778192C29D7D20079F85C /* BottomConfirmOverlayView.swift */; };
+		0DC7781E2C2AAD7C0079F85C /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7781D2C2AAD7C0079F85C /* View1.swift */; };
+		0DC778202C2AADAE0079F85C /* View2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7781F2C2AADAE0079F85C /* View2.swift */; };
+		0DC778222C2AADDD0079F85C /* View3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC778212C2AADDD0079F85C /* View3.swift */; };
+		0DC778242C2ABD670079F85C /* LevelBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC778232C2ABD670079F85C /* LevelBadgeView.swift */; };
 		3A0961422C2807DE005043FD /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613D2C2807DE005043FD /* Level.swift */; };
 		3A0961442C2807DE005043FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09613F2C2807DE005043FD /* User.swift */; };
 		3A0961482C280F9A005043FD /* QuizWordBlankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0961472C280F9A005043FD /* QuizWordBlankViewModel.swift */; };
@@ -71,11 +76,16 @@
 /* Begin PBXFileReference section */
 		0D1302A02C23F11900710D43 /* DroppableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableBox.swift; sourceTree = "<group>"; };
 		0D1302A22C241EE600710D43 /* QuizWordBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlankView.swift; sourceTree = "<group>"; };
+		0D3ED4EA2C2AC0CE00C11CA5 /* ExpProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpProgressView.swift; sourceTree = "<group>"; };
 		0DC0B9F02C27F04B00844EC9 /* LineConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineConnectionView.swift; sourceTree = "<group>"; };
 		0DC0B9F22C28489F00844EC9 /* ConnectBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectBoxView.swift; sourceTree = "<group>"; };
 		0DC778152C294DFF0079F85C /* Button3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button3D.swift; sourceTree = "<group>"; };
 		0DC778172C2961710079F85C /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		0DC778192C29D7D20079F85C /* BottomConfirmOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomConfirmOverlayView.swift; sourceTree = "<group>"; };
+		0DC7781D2C2AAD7C0079F85C /* View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
+		0DC7781F2C2AADAE0079F85C /* View2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View2.swift; sourceTree = "<group>"; };
+		0DC778212C2AADDD0079F85C /* View3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3.swift; sourceTree = "<group>"; };
+		0DC778232C2ABD670079F85C /* LevelBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelBadgeView.swift; sourceTree = "<group>"; };
 		3A09613D2C2807DE005043FD /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		3A09613F2C2807DE005043FD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3A0961472C280F9A005043FD /* QuizWordBlankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWordBlankViewModel.swift; sourceTree = "<group>"; };
@@ -143,6 +153,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DC7781C2C2AAD6F0079F85C /* JuanTestView */ = {
+			isa = PBXGroup;
+			children = (
+				0DC7781D2C2AAD7C0079F85C /* View1.swift */,
+				0DC7781F2C2AADAE0079F85C /* View2.swift */,
+				0DC778212C2AADDD0079F85C /* View3.swift */,
+			);
+			name = JuanTestView;
+			sourceTree = "<group>";
+		};
 		3A64C1642C23E3AF00D0AC3A /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +175,8 @@
 				0DC778172C2961710079F85C /* SubmitButton.swift */,
 				BE3B0F2A2C28984C009D6B72 /* StatsOverlay.swift */,
 				0DC778192C29D7D20079F85C /* BottomConfirmOverlayView.swift */,
+				0DC778232C2ABD670079F85C /* LevelBadgeView.swift */,
+				0D3ED4EA2C2AC0CE00C11CA5 /* ExpProgressView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -221,6 +243,7 @@
 		93713BF12C2317CC00B41CD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0DC7781C2C2AAD6F0079F85C /* JuanTestView */,
 				BEECE0B92C2AA57900C6A492 /* TestingView */,
 				3A64C1642C23E3AF00D0AC3A /* Components */,
 				3A9203E52C22751C00C4E9C4 /* ContentView.swift */,
@@ -408,8 +431,10 @@
 				BE0842492C298342007071DA /* QuizFillBlank.swift in Sources */,
 				BEECE0B72C2AA56700C6A492 /* ViewB.swift in Sources */,
 				0DC0B9F32C28489F00844EC9 /* ConnectBoxView.swift in Sources */,
+				0DC778202C2AADAE0079F85C /* View2.swift in Sources */,
 				3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */,
 				3A09614A2C2813A3005043FD /* QuizFillBlankViewModel.swift in Sources */,
+				0D3ED4EB2C2AC0CE00C11CA5 /* ExpProgressView.swift in Sources */,
 				3A64C1662C23E3BE00D0AC3A /* AnswerButton.swift in Sources */,
 				BE0842472C298342007071DA /* QuizConnect.swift in Sources */,
 				3A64C16C2C23E41600D0AC3A /* QuizFillBlankView.swift in Sources */,
@@ -421,11 +446,14 @@
 				BE0842442C298342007071DA /* Feedback.swift in Sources */,
 				BEECE0B62C2AA56700C6A492 /* ViewA.swift in Sources */,
 				BE3B0F222C2878B8009D6B72 /* DifficultyLevel.swift in Sources */,
+				0DC7781E2C2AAD7C0079F85C /* View1.swift in Sources */,
 				3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */,
 				BE3B0F232C2878B8009D6B72 /* ProficiencyLevel.swift in Sources */,
+				0DC778242C2ABD670079F85C /* LevelBadgeView.swift in Sources */,
 				0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */,
 				BEC6B69A2C2AC03C0058B12E /* Testing10Soal.swift in Sources */,
 				93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */,
+				0DC778222C2AADDD0079F85C /* View3.swift in Sources */,
 				0DC0B9F12C27F04B00844EC9 /* LineConnectionView.swift in Sources */,
 				0DC778182C2961710079F85C /* SubmitButton.swift in Sources */,
 				0D1302A32C241EE600710D43 /* QuizWordBlankView.swift in Sources */,

@@ -17,19 +17,27 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Button(action: {
-                    
-                }, label: {
-                    Text("Play")
-                        .font(.system(size: 100))
-                })
-                .padding()
-                .border(Color.cerdikiawanBlack)
+            ZStack {
+                Image("HomeLemari")
+                    .resizable()
+                VStack{
+                    HStack {
+                        LevelBadgeView(level: 1)
+                        ExpProgressView(progress: 0.5)
+                        Spacer()
+                    }
+                    .padding([.leading], 63)
+                    Spacer()
+                    Image("Aminah")
+                        .resizable()
+                        .frame(width: 136, height: 359)
+                        .padding([.bottom], 42)
+                    SubmitButton(text: "Mulai", color: Color.cerdikiawanBlueMid)
+                        .padding([.bottom], 45)
+                }
+                .padding([.top], 34)
             }
-            .onAppear {
-                isDone = false
-            }
+            .ignoresSafeArea()
         }
     }
     

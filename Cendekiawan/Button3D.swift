@@ -21,6 +21,7 @@ struct Button3D: View {
             .fontWeight(.bold)
             .overlay{
                 ZStack{
+                    // TODO: RoundedRectangle with corner radius as a background view in a zstack is often used. Create a function for that purpose. Also have the value of the corner radius to be a variable that is configurable consistently
                     RoundedRectangle(cornerRadius: 5)
                         .foregroundStyle(color)
                         .mask {
