@@ -29,19 +29,7 @@ struct QuizView: View {
                 VStack {
                     // the content of the quiz should go here
 //                    QuizWordBlankView()
-                    QuizMatchingWordView(choiceLeft: [
-                        Choice(choiceId: 1, choiceDescription: "Rendah Hati"),
-                        Choice(choiceId: 2, choiceDescription: "Gulung Tikar"),
-                        Choice(choiceId: 3, choiceDescription: "Naik Daun"),
-                    ],
-                    choiceRight: [
-                        Choice(choiceId: 1, choiceDescription: "Tidak Sombong"),
-                        Choice(choiceId: 2, choiceDescription: "Terkenal"),
-                        Choice(choiceId: 3, choiceDescription: "Bangkrut"),
-                    ],
-                    question: "Memasangkan teks hasil idiom"
-                    )
-                    .environment(modelData)
+//                    QuizMatchingWordView(vm: <#QuizMatchingWordViewModel#>)
                 }
                 
             })
