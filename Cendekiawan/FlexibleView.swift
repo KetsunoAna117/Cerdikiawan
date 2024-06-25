@@ -36,9 +36,44 @@ struct FlexibleView: View {
                 }
             }
         })
+        .frame(width: availableWidth)
     }
 }
 
 #Preview {
-    FlexibleView(availableWidth: 200, views: [])
+    FlexibleView(availableWidth: 600, views: [
+        AnyView(
+            renderTextWithPlaceHolders(availableWidth: 500)
+        )
+    ])
 }
+
+func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
+    let vm = QuizFillBlankViewModel(
+        questions: QuizModelData().rumpang4[0].quizStory,
+        choices: QuizModelData().rumpang4[0].quizChoiceList
+    )
+
+    let parts = vm.questions.components(separatedBy: "___")
+    var views: [AnyView] = []
+    
+    for index in parts.indices {
+        views.append(AnyView(
+            Text(parts[index])
+                .font(.body)
+        ))
+        
+        if index < parts.indices.last! {
+            // this will append rectangle to the paragraph
+            views.append(AnyView(
+                Rectangle()
+                    .frame(width: 100, height: 20)
+                    
+            ))
+        }
+    }
+    return VStack {
+        FlexibleView(availableWidth: availableWidth, views: views)
+    }
+}
+

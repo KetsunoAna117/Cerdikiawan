@@ -9,16 +9,32 @@ import Foundation
 
 class QuizFillBlankViewModel: ObservableObject {
     @Published var questions: String
-    @Published var choices: [Choice] = []
     
-    // Dictionary to track placed choices
-    @Published var placedChoices: [Int: Choice] = [:]
+    @Published var choices: [DraggableChoice] = []
+    @Published var droppedAnswer: [Int: DraggableChoice] = [:]
     
     init(questions: String, choices: [Choice]) {
         self.questions = questions
         self.choices = choices.map { DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription) }
     }
     
-  
+    // here index acts as a key for the hashmap
+    func handleChoiceDrop(index: Int, droppedChoice: DraggableChoice) {
+        // Remove the choice from the choices array
+        if let choiceIndex = choices.firstIndex(where: { $0.id == droppedChoice.id }) {
+            choices.remove(at: choiceIndex)
+        }
+        // Assign the dropped choice to the corresponding index in droppedAnswer
+        droppedAnswer[index] = droppedChoice
+    }
+    
+    func handleRemoveChoice(index: Int) {
+        // Retrieve the choice from the droppedAnswer dictionary
+        if let removedChoice = droppedAnswer.removeValue(forKey: index) {
+            // Append the removed choice back to the choices array
+            choices.append(removedChoice)
+        }
+    }
+    
 }
 
