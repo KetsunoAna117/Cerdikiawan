@@ -23,68 +23,76 @@ struct QuizMatchingWordView: View {
         NavigationStack {
             VStack {
                 // buat checking aja. nanti dihapus
-                StatsOverlay()
+//                StatsOverlay()
                 VStack() {
-                    HStack {
-                        Rectangle()
-                            .frame(width: 23, height: 23)
-                            .foregroundStyle(Color.gray)
-                        Text(question)
-                    }
+                    Text(question)
+                        .font(.title3)
+                        .fontWeight(.bold)
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 50) {
                             ForEach(choiceLeft) { choice in
-                                ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceId, selectedFrom: "Left") ? Color.blue : Color.gray)
+                                ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceId, selectedFrom: "Left") ? Color.blue : Color.gray, selectedFrom: "Left")
                                     .onTapGesture {
                                         vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Left")
                                     }
-                                    .frame(maxWidth: 155, maxHeight: 75)
+                                    .frame(maxWidth: 243, maxHeight: 71)
                             }
                         }
                         Spacer()
                         VStack(alignment: .leading, spacing: 50) {
                             ForEach(choiceRight) { choice in
-                                ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceId, selectedFrom: "Right") ? Color.blue : Color.gray)
+                                ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceId, selectedFrom: "Right") ? Color.blue : Color.gray, selectedFrom: "Right")
                                     .onTapGesture {
                                         vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Right")
                                     }
+                                    .frame(maxWidth: 243, maxHeight: 71)
                             }
                         }
                     }
                     .padding(.top, 50)
                     .frame(maxWidth: 700, alignment: .center)
+                    
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .overlay {
                     
                     LineConnectionView(connections: vm.getAllConnections(choiceLeft: choiceLeft, choiceRight: choiceRight))
+                        .overlay{
+                            //TODO: I think this better be swapped to Quiz view
+                            VStack{
+                                Spacer()
+                                BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.greyMid), action: {
+                                    
+                                })
+                            }
+                        }
                 }
-                HStack{
-                    Button{
-                        startGameplay()
-                        updateKosakataProeficiency(user: user, win: true)
-                    } label: {
-                        Text("Benar")
-                            .font(.system(size: 50))
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.green)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
-                    Button{
-                        startGameplay()
-                        updateKosakataProeficiency(user: user, win: false)
-                    } label: {
-                        Text("Salah")
-                            .font(.system(size: 50))
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.red)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
-                }
+//                HStack{
+//                    Button{
+//                        startGameplay()
+//                        updateKosakataProeficiency(user: user, win: true)
+//                    } label: {
+//                        Text("Benar")
+//                            .font(.system(size: 50))
+//                            .foregroundStyle(.white)
+//                            .padding()
+//                            .background(.green)
+//                            .clipShape(RoundedRectangle(cornerRadius: 10))
+//                    }
+//                    Button{
+//                        startGameplay()
+//                        updateKosakataProeficiency(user: user, win: false)
+//                    } label: {
+//                        Text("Salah")
+//                            .font(.system(size: 50))
+//                            .foregroundStyle(.white)
+//                            .padding()
+//                            .background(.red)
+//                            .clipShape(RoundedRectangle(cornerRadius: 10))
+//                    }
+//                }
                 
             }
             .onAppear {
@@ -168,7 +176,7 @@ struct QuizMatchingWordView: View {
                 Choice(choiceId: 4, choiceDescription: "Naik Daun"),
                 Choice(choiceId: 5, choiceDescription: "Naik Daun"),
             ],
-            question: "Memasangkan teks hasil idiom")
+            question: "Pasangkan idiom dibawah dengan pengertian yang tepat!")
         .environment(QuizModelData())
     }
 }
