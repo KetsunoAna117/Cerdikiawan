@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-class QuizViewModel {
-    var quizRightAnswer: Int
-    var quizExperienceGain: Int
-    var quizTrophyGain: Trophy
-    var listQuizQuestion: [Quiz]
+class QuizViewModel: ObservableObject {
+    @Published var quizRightAnswer: Int
+    @Published var quizExperienceGain: Int
+    @Published var quizTrophyGain: Trophy
+    @Published var listQuizQuestion: [Quiz]
     
     init(quizRightAnswer: Int, quizExperienceGain: Int, quizTrophyGain: Trophy, listQuizQuestion: [Quiz]) {
         self.quizRightAnswer = quizRightAnswer

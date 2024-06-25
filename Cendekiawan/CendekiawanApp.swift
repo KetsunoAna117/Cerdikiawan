@@ -6,20 +6,17 @@
 //
 
 import SwiftUI
-import Firebase
 
 @main
 struct CendekiawanApp: App {
-//    @StateObject var databaseHelper = DatabaseHelper()
-    
-    init() {
-        FirebaseApp.configure() //combine with the info.plist of GoogleService
-    }
+    @State private var modelData = QuizModelData()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//                .environmentObject(databaseHelper)
+            NavigationStack {
+                ContentView()
+                    .environment(modelData)
+            }
         }
     }
 }

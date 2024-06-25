@@ -9,43 +9,97 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct QuizMultiChoiceView: View {
-    @State var selectedAnswer = -1 // 0 - 3
+    @StateObject private var user: User = User(name: "Test")
+    @Environment(QuizModelData.self) private var modelData
+    @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
+    @State private var isDone: Bool = false
     
-    @State var choices = [
-        DraggableChoice(choiceID: 1, choiceText: "jawaban A"),
-        DraggableChoice(choiceID: 2, choiceText: "jawaban B"),
-        DraggableChoice(choiceID: 3, choiceText: "jawaban C"),
-        DraggableChoice(choiceID: 4, choiceText: "jawaban D")
-    ]
+    var tipeQuiz: String
+    private var quiz: QuizMultiChoice {
+        if tipeQuiz == "idePokok"{
+            (modelData.getIdePokok(difficulty: user.difficultyLevel)?.randomElement())!
+        } else {
+            (modelData.getimplisit(difficulty: user.difficultyLevel)?.randomElement())!
+        }
+    }
+    
+    @State var selectedAnswer: Int?
     
     var body: some View {
-        HStack{
-            VStack{
-                Text("KOCHENG")
-                    .padding([.bottom], 20)
-                Image("placeholderPhoto")
-                    .padding([.bottom], 50)
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-            }
-            .frame(maxWidth: .infinity)
-            Spacer(minLength: 20)
-            VStack(alignment: .leading, spacing: 20){
-                Text("Some questions blablablablablablablabbla?")
-                
-                
-                ForEach(choices) { choice in
-                    AnswerButton(isClicked: choice.choiceID == selectedAnswer, choice: choice)
-                        .onTapGesture {
-                            selectedAnswer = choice.choiceID
+        NavigationStack {
+            VStack {
+                // TODO: reminder to remove all the test views and comments
+                // buat checking aja. nanti dihapus
+                StatsOverlay()
+                HStack {
+                    // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
+                    // aku ganti jadi scrollview
+                    ScrollView {
+                        Text(quiz.quizTitle)
+                            .padding([.bottom], 20)
+                        
+                        // image name diganti jadi pake modelData
+                        Image("placeholderPhoto")
+                            .padding([.bottom], 50)
+                        
+                        // untuk formatting seperti menjorok (tab) dan enter bisa ditambahin \t dan \n di jsonnya
+                        Text(quiz.quizStory)
+                    }
+                    .frame(maxWidth: .infinity)
+                    Spacer(minLength: 20)
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text(quiz.quizQuestion)
+                        
+                        ForEach(quiz.quizChoiceList, id: \.choiceId) { choice in
+                            AnswerButton(isClicked: choice.choiceId == selectedAnswer, choice: Choice(choiceId: choice.choiceId, choiceDescription: choice.choiceDescription))
+                                .onTapGesture {
+                                    selectedAnswer = choice.choiceId
+                                }
                         }
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                .padding(50)
+                HStack {
+                    Button {
+                        // print(user.difficultyLevel)
+                        if tipeQuiz == "idePokok" {
+                            updateIdePokokProeficiency(user: user, win: true)
+                        } else {
+                            updateImplisitProeficiency(user: user, win: true)
+                        }
+                    } label: {
+                        Text("Benar")
+                            .font(.system(size: 50))
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.green)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                    Button {
+                        // print(user.difficultyLevel)
+                        if tipeQuiz == "idePokok" {
+                            updateIdePokokProeficiency(user: user, win: false)
+                        } else {
+                            updateImplisitProeficiency(user: user, win: false)
+                        }
+                    } label: {
+                        Text("Salah")
+                            .font(.system(size: 50))
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
                 }
             }
-            .frame(maxWidth: .infinity)
+
         }
-        .padding(50)
     }
+    
 }
 
 #Preview {
-    QuizMultiChoiceView()
+    QuizMultiChoiceView(tipeQuiz: "implisit")
+        .environment(QuizModelData())
 }

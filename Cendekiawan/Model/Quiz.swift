@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Quiz {
+class Quiz: Codable {
     var quizId: Int
     var quizFeedback: Feedback
     var quizDifficultyLevel: Int
@@ -25,5 +25,4 @@ class Quiz {
         self.quizAsset = quizAsset
         self.isRedemption = isRedemption
     }
-
 }
