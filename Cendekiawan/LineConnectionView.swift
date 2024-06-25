@@ -16,7 +16,7 @@ struct LineConnectionView: View {
                 path.addLine(to: connection.right)
             }
         }
-        .stroke(.blue, lineWidth: 10)
+        .stroke(Color.yellow, lineWidth: 2)
     }
 }
 
