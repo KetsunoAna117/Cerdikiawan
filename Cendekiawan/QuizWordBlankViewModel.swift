@@ -13,6 +13,24 @@ class QuizWordBlankViewModel: ObservableObject {
     @Published var nextInputFlag = 0
     @Published var quizWordBlank: QuizWordBlank?
     @Published var isChecked: Bool = false
+    @Published var answer = [
+        Choice(choiceId: 0, choiceDescription: "A"),
+        Choice(choiceId: 1, choiceDescription: "M"),
+        Choice(choiceId: 2, choiceDescription: "A"),
+        Choice(choiceId: 3, choiceDescription: "N"),
+        Choice(choiceId: 4, choiceDescription: "A"),
+        Choice(choiceId: 5, choiceDescription: "T")
+    ]
+    
+    func checkAnswer() -> Bool{
+        var flag = true
+        for i in guessedWord{
+            if i.choiceDescription != answer[i.choiceId].choiceDescription{
+                flag = false
+            }
+        }
+        return flag
+    }
     
     init(model: QuizWordBlank) {
         quizWordBlank = model
