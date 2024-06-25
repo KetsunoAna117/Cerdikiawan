@@ -14,6 +14,27 @@ class QuizWordBlankViewModel: ObservableObject {
     @Published var quizWordBlank: QuizWordBlank?
     @Published var isChecked: Bool = false
     
+    //dummy data to check for answer in the guessWord
+    @Published var answer = [
+        Choice(choiceId: 0, choiceDescription: "A"),
+        Choice(choiceId: 1, choiceDescription: "M"),
+        Choice(choiceId: 2, choiceDescription: "A"),
+        Choice(choiceId: 3, choiceDescription: "N"),
+        Choice(choiceId: 4, choiceDescription: "A"),
+        Choice(choiceId: 5, choiceDescription: "T")
+    ]
+    
+    //func to run the dummydata comparing the answer with the guessWord
+    func checkAnswer() -> Bool{
+        var flag = true
+        for i in 0..<guessedWord.count-1 {
+            if guessedWord[i].choiceDescription != answer[i].choiceDescription {
+                flag = false
+            }
+        }
+        return flag
+    }
+    
     init(model: QuizWordBlank) {
         quizWordBlank = model
     }

@@ -9,20 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(QuizModelData.self) private var modelData
+    @ObservedObject var vm: QuizViewModel = QuizViewModel(nextQuiz: ("MultiChoice", "implisit"))
+    @State private var isDirected = false
+    
     var body: some View {
-        VStack {
-            QuizFillBlankView(vm: QuizFillBlankViewModel(
-                questions: "Apa yang dicari orang __________ Bintang __________  Tanpa itu, kita mempunyai __________ dan tidak akan mendapatkan __________.",
-                choices: [
-                    Choice(choiceId: 1, choiceDescription: "Sigma"),
-                    Choice(choiceId: 2, choiceDescription: "Skibidi"),
-                    Choice(choiceId: 3, choiceDescription: "L Rizz"),
-                    Choice(choiceId: 4, choiceDescription: "Gyatt")
-                ]
-            ))
-            .environment(modelData)
+        NavigationStack {
+            VStack {
+                Button(action: {
+                    vm.valueProgressBar = 0
+                    isDirected = true
+                    vm.startGameplay()
+                }, label: {
+                    Text("Play")
+                })
+            }
+            .navigationDestination(isPresented: $isDirected) {
+                QuizView(vm: vm)
+                    .environment(QuizModelData())
+            }
         }
-        .padding()
     }
 }
 

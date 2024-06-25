@@ -38,7 +38,10 @@ struct BottomConfirmOverlayView: View {
                     .onTapGesture {
                         action()
                     }
-            }.padding([.horizontal], 28)
+                    .padding([.horizontal], 28)
+                
+            }
+            
             
         }
     }

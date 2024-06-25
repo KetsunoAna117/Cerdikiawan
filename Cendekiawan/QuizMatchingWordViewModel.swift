@@ -20,6 +20,17 @@ class QuizMatchingWordViewModel: ObservableObject {
         quizConnect = model
     }
     
+    //check answer if all connected right == all connected left
+    func checkAnswer() -> Bool {
+        var flag = true
+        for i in 0..<connectedChoiceId.count-1 {
+            if connectedChoiceId[i].left != connectedChoiceId[i].right {
+                flag = false
+            }
+        }
+        return flag
+    }
+    
     func checkBoxColor(choiceId: Int, selectedFrom: String) -> Color {
         if isChecked {
             //State checked, true false
