@@ -3,15 +3,14 @@
     "quizId": 9,
     "quizFeedback": {
       "quizId": 9,
-      "feedbackDescription": "ini feedback"
+      "feedbackDescription": "Jawaban yang benar adalah amanat."
     },
     "quizDifficultyLevel": 4,
     "quizCategory": "kosakata",
     "quizTitle": "nil",
     "isRedemption": false,
     "quizAsset": [
-      "gambar 1",
-      "gambar 2"
+      "Amanat"
     ],
     "quizPrompt": "Pesan yang disampaikan oleh penulis dalam cerita:",
     "quizLetterCount": 6,
