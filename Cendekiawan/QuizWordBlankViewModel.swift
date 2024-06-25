@@ -6,23 +6,48 @@
 //
 
 import Foundation
+import SwiftUI
 
 class QuizWordBlankViewModel: ObservableObject {
-    @Published var choices: [Choice]
-    
-    @Published var numberOfLetter: Int = 6
     @Published var guessedWord: [Choice] = []
     @Published var nextInputFlag = 0
-    @Published var quizWordBlank: QuizWordBlank? = nil
+    @Published var quizWordBlank: QuizWordBlank?
+    @Published var isChecked: Bool = false
     
-    init(choices: [Choice], numberOfLetter: Int) {
-        self.choices = choices
-        self.numberOfLetter = numberOfLetter
+    init(model: QuizWordBlank) {
+        quizWordBlank = model
+    }
+    
+    func checkBoxColor(state: String, choice: Choice) -> Color {
+        if state == "Selected" {
+            if isChecked {
+                if let index = guessedWord.firstIndex(where: { $0.choiceId == choice.choiceId }),
+                   let quizAnswer = quizWordBlank?.quizAnswer {
+                    let stringIndex = quizAnswer.index(quizAnswer.startIndex, offsetBy: index)
+                    let correctChar = quizAnswer[stringIndex]
+                    
+                    if guessedWord[index].choiceDescription == String(correctChar) {
+                        //true
+                        return Color.cerdikiawanGreenTua
+                    } else {
+                        //false
+                        return Color.cerdikiawanRed
+                    }
+                    
+                }
+                return Color.cerdikiawanWhite
+            } else{
+                // unchecked, selected or unselected
+                return Color.cerdikiawanOrange
+            }
+        } else {
+            return Color.cerdikiawanWhite
+        }
     }
     
     func setupQuestion(){
         if guessedWord.isEmpty {
-            guessedWord = Array(repeating: Choice(choiceId: -1, choiceDescription: ""), count: numberOfLetter)
+            guessedWord = Array(repeating: Choice(choiceId: -1, choiceDescription: ""), count: quizWordBlank?.quizLetterCount ?? 0)
         }
     }
     
@@ -38,7 +63,7 @@ class QuizWordBlankViewModel: ObservableObject {
     
     func removeCharacterFromAnswer(index: Int){
         if guessedWord[index].choiceId != -1 {
-            choices.append(guessedWord[index])
+            quizWordBlank?.quizLetterChoiceList.append(guessedWord[index])
             guessedWord[index] = Choice(choiceId: -1, choiceDescription: "")
             nextInputFlag = checkNextEmptyIndex(substring: guessedWord)
         }
@@ -46,7 +71,7 @@ class QuizWordBlankViewModel: ObservableObject {
     
     func addCharacterToAnswer(choosed: Choice){
         if nextInputFlag < guessedWord.count {
-            choices.removeAll { $0.choiceId == choosed.choiceId }
+            quizWordBlank?.quizLetterChoiceList.removeAll { $0.choiceId == choosed.choiceId }
             guessedWord[nextInputFlag] = choosed
             nextInputFlag =  checkNextEmptyIndex(substring: guessedWord)
         }

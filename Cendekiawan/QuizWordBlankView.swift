@@ -9,7 +9,7 @@ import SwiftUI
 
 struct QuizWordBlankView: View {
     @ObservedObject var vm: QuizWordBlankViewModel
-    var question: String
+    
     @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
@@ -21,7 +21,7 @@ struct QuizWordBlankView: View {
     
     var body: some View {
                 VStack {
-                    Text(question)
+                    Text(vm.quizWordBlank?.quizPrompt ?? "")
                         .font(.title3)
                         .fontWeight(.bold)
                         .padding([.bottom], 30)
@@ -31,7 +31,7 @@ struct QuizWordBlankView: View {
                         ForEach (0..<vm.guessedWord.count, id: \.self) { index in
                             VStack {
                                 if vm.guessedWord[index].choiceId != -1 {
-                                    Button3D(text: vm.guessedWord[index].choiceDescription, color: Color.cerdikiawanOrange)
+                                    Button3D(text: vm.guessedWord[index].choiceDescription, color: vm.checkBoxColor(state: "Selected", choice: vm.guessedWord[index]))
                                 }else {
                                     Text(" ")
                                         .font(.title2)
@@ -52,8 +52,9 @@ struct QuizWordBlankView: View {
                             .frame(width: 437, height: 155)
                             .padding([.horizontal], 30)
                         LazyVGrid(columns: columns, spacing: 32) {
-                            ForEach (vm.choices, id: \.choiceId) { choosed in
-                                Button3D(text: choosed.choiceDescription, color: Color.cerdikiawanWhite)
+                            ForEach (vm.quizWordBlank?.quizLetterChoiceList ?? [], id: \.choiceId) { choosed in
+                                Button3D(text: choosed.choiceDescription, color: vm.checkBoxColor(state: "Unselected", choice: choosed)
+                                )
                                 .onTapGesture {
                                     vm.addCharacterToAnswer(choosed: choosed)
                                 }
@@ -74,6 +75,7 @@ struct QuizWordBlankView: View {
             VStack{
                 Spacer()
                 BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
+                    vm.isChecked = true
                 })
             }
         }
@@ -85,23 +87,37 @@ struct QuizWordBlankView: View {
 
 #Preview {
     QuizWordBlankView(
-        vm: QuizWordBlankViewModel(
-            choices: [
-                Choice(choiceId: 0, choiceDescription: "A"),
-                Choice(choiceId: 1, choiceDescription: "A"),
-                Choice(choiceId: 2, choiceDescription: "M"),
-                Choice(choiceId: 3, choiceDescription: "I"),
-                Choice(choiceId: 4, choiceDescription: "H"),
-                Choice(choiceId: 5, choiceDescription: "N"),
-                Choice(choiceId: 6, choiceDescription: "E"),
-                Choice(choiceId: 7, choiceDescription: "R"),
-                Choice(choiceId: 8, choiceDescription: "T"),
-                Choice(choiceId: 9, choiceDescription: "A")],
-            numberOfLetter: 6
-        ),
-        question: "Pesan yang disampaikan oleh penulis dalam cerita disebut..."
-    )
+        vm: QuizWordBlankViewModel(model: getQuizWordBlankfromJSON())
+        )
     .environment(QuizModelData())
 }
+
+func getQuizWordBlankfromJSON() -> QuizWordBlank{
+    return QuizWordBlank(
+        quizId: 1,
+        quizFeedback: Feedback(quizId: 1, feedbackDescription: "You are stupid ah fuck"),
+        quizDifficultyLevel: 4,
+        quizCategory: "kosakata",
+        quizTitle: "nil",
+        quizAsset: ["nil"],
+        isRedemption: false,
+        quizPrompt: "Pesan yang disampaikan oleh penulis dalam cerita disebut...",
+        quizLetterCount: 6,
+        quizLetterChoiceList: [
+            Choice(choiceId: 0, choiceDescription: "A"),
+            Choice(choiceId: 1, choiceDescription: "A"),
+            Choice(choiceId: 2, choiceDescription: "M"),
+            Choice(choiceId: 3, choiceDescription: "I"),
+            Choice(choiceId: 4, choiceDescription: "H"),
+            Choice(choiceId: 5, choiceDescription: "N"),
+            Choice(choiceId: 6, choiceDescription: "E"),
+            Choice(choiceId: 7, choiceDescription: "R"),
+            Choice(choiceId: 8, choiceDescription: "T"),
+            Choice(choiceId: 9, choiceDescription: "A")
+        ],
+        quizAnswer: "AMANAT"
+    )
+}
+
 
 
