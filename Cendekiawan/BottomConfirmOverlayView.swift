@@ -34,13 +34,12 @@ struct BottomConfirmOverlayView: View {
                     }
                 }
                 Spacer()
-                if button.text == "Periksa"{
-                    Button3D(text: "Periksa", color: Color.cerdikiawanOrange)
-                        .onTapGesture {
-                            action()
-                        }
-                        .padding([.horizontal], 28)
-                }
+                Button3D(text: "Periksa", color: Color.cerdikiawanOrange)
+                    .onTapGesture {
+                        action()
+                    }
+                    .padding([.horizontal], 28)
+                
             }
             
             
