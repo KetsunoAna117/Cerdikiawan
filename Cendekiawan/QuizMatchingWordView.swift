@@ -63,7 +63,7 @@ struct QuizMatchingWordView: View {
                             //TODO: I think this better be swapped to Quiz view
                             VStack{
                                 Spacer()
-                                BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.greyMid), action: {
+                                BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
                                     
                                 })
                             }

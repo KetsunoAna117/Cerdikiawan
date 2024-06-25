@@ -14,7 +14,7 @@ struct Button3D: View {
     var body: some View {
         Text(text)
             .padding()
-            .background(Color.greyMid)
+            .background(Color.cerdikiawanGreyMid)
             .cornerRadius(5)
             .foregroundStyle(color == Color.white ? Color.black : Color.white)
             .font(.body)
@@ -33,7 +33,7 @@ struct Button3D: View {
                         .fontWeight(.bold)
                     if color == Color.white {
                         RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color.greyMid, lineWidth: 1)
+                            .stroke(Color.cerdikiawanGreyMid, lineWidth: 1)
                     }
                 }
             }

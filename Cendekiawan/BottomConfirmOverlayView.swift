@@ -16,25 +16,25 @@ struct BottomConfirmOverlayView: View {
         ZStack{
             Rectangle()
                 .frame(height: 105)
-                .foregroundStyle(Color.yellowMuda)
+                .foregroundStyle(Color.cerdikiawanYellowMuda)
             HStack{
                 if button.text != "Periksa" {
                     VStack(alignment: .leading){
                         Text("Sedikit lagi sudah benar!")
-                            .foregroundStyle(Color.black)
+                            .foregroundStyle(Color.cerdikiawanBlack)
                             .font(.headline)
                         HStack{
                             Image(systemName: "x.circle.fill")
                                 .resizable()
                                 .frame(width: 23, height: 23)
-                                .foregroundStyle(Color.red)
+                                .foregroundStyle(Color.cerdikiawanRed)
                             Text("Jawaban yang benar adalah amanat!")
                         }
                         
                     }
                 }
                 Spacer()
-                Button3D(text: "Periksa", color: Color.orange)
+                Button3D(text: "Periksa", color: Color.cerdikiawanOrange)
             }.padding([.horizontal], 28)
             
         }
@@ -42,5 +42,5 @@ struct BottomConfirmOverlayView: View {
 }
 
 #Preview {
-    BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.orange), action: {})
+    BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanOrange), action: {})
 }
