@@ -21,6 +21,7 @@ struct ContentView: View {
                         choices: modelData.rumpang4[0].quizChoiceList
                     )
                 )
+                .preferredColorScheme(.light)
                     .environment(QuizModelData())
 //                Button(action: {
 //                    vm.valueProgressBar = 0

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChoicePoolView: View {
-    let choices: [DraggableChoice]
+    @Binding var choices: [DraggableChoice]
     let width: CGFloat
     
     var body: some View {
@@ -44,7 +44,9 @@ struct ChoicePoolView: View {
 
 #Preview {
     ChoicePoolView(
-        choices: QuizModelData().rumpang4[0].quizChoiceList.map {DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription)},
+        choices: .constant(
+            QuizModelData().rumpang4[0].quizChoiceList.map {DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription)}
+        ),
         width: 400
     )
 }

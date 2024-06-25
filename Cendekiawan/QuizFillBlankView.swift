@@ -32,7 +32,7 @@ struct QuizFillBlankView: View {
                 
                 // Right side
                 VStack(alignment: .trailing) {
-                    ChoicePoolView(choices: vm.choices, width: 400)
+                    ChoicePoolView(choices: $vm.choices, width: 400)
                     Spacer()
                     Button3D(text: "Lanjut", color: Color.cerdikiawanOrange)
                         .padding()
@@ -47,7 +47,7 @@ struct QuizFillBlankView: View {
     func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
         var order = 0 // to store the index of the droppable
         
-        let parts = QuizModelData().rumpang6[0].quizStory.split(separator: " ")
+        let parts = vm.questions.split(separator: " ")
         var views: [AnyView] = []
         
         for index in parts.indices {

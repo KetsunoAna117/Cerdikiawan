@@ -12,13 +12,22 @@ struct FlexibleView: View {
     let views: [AnyView]
     
     var body: some View {
+        GeometryReader { geometry in
+            self.generateContent(in: geometry)
+        }
+        .frame(width: availableWidth, alignment: .leading)
+    }
+    
+    private func generateContent(in geometry: GeometryProxy) -> some View {
         var width: CGFloat = 0
         var rows: [[AnyView]] = [[]]
         
         for view in views {
+            // Calculate the intrinsic width of the view plus some padding
             let viewWidth = view.width + 10
             
-            if width + viewWidth > availableWidth { // if overflow, create another row
+            // Check if the view fits in the current row
+            if width + viewWidth > geometry.size.width {
                 rows.append([view])
                 width = viewWidth
             } else {
@@ -27,7 +36,8 @@ struct FlexibleView: View {
             }
         }
         
-        return VStack(alignment: .leading, content: {
+        return VStack(alignment: .leading) {
+            // Loop through the rows and create HStack for each row
             ForEach(rows.indices, id: \.self) { rowIndex in
                 HStack {
                     ForEach(rows[rowIndex].indices, id: \.self) { viewIndex in
@@ -35,10 +45,10 @@ struct FlexibleView: View {
                     }
                 }
             }
-        })
-        .frame(width: availableWidth)
+        }
     }
 }
+
 
 #Preview {
     FlexibleView(availableWidth: 600, views: [
