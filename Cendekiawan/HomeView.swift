@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 //TODO: PENTING next soal masih bisa kepilih 2 kali
 struct HomeView: View {
     @StateObject private var user: User = User(name: "Test")

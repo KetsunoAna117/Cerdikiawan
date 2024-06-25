@@ -60,6 +60,11 @@
 		BE3B0F222C2878B8009D6B72 /* DifficultyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B0F202C2878B8009D6B72 /* DifficultyLevel.swift */; };
 		BE3B0F232C2878B8009D6B72 /* ProficiencyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B0F212C2878B8009D6B72 /* ProficiencyLevel.swift */; };
 		BE3B0F2B2C28984C009D6B72 /* StatsOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B0F2A2C28984C009D6B72 /* StatsOverlay.swift */; };
+		BEC6B69A2C2AC03C0058B12E /* Testing10Soal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC6B6992C2AC03C0058B12E /* Testing10Soal.swift */; };
+		BEECE0B42C2AA56700C6A492 /* ViewD.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEECE0B02C2AA56700C6A492 /* ViewD.swift */; };
+		BEECE0B52C2AA56700C6A492 /* ViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEECE0B12C2AA56700C6A492 /* ViewC.swift */; };
+		BEECE0B62C2AA56700C6A492 /* ViewA.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEECE0B22C2AA56700C6A492 /* ViewA.swift */; };
+		BEECE0B72C2AA56700C6A492 /* ViewB.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEECE0B32C2AA56700C6A492 /* ViewB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +123,11 @@
 		BE3B0F202C2878B8009D6B72 /* DifficultyLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultyLevel.swift; sourceTree = "<group>"; };
 		BE3B0F212C2878B8009D6B72 /* ProficiencyLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProficiencyLevel.swift; sourceTree = "<group>"; };
 		BE3B0F2A2C28984C009D6B72 /* StatsOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsOverlay.swift; sourceTree = "<group>"; };
+		BEC6B6992C2AC03C0058B12E /* Testing10Soal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing10Soal.swift; sourceTree = "<group>"; };
+		BEECE0B02C2AA56700C6A492 /* ViewD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewD.swift; sourceTree = "<group>"; };
+		BEECE0B12C2AA56700C6A492 /* ViewC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewC.swift; sourceTree = "<group>"; };
+		BEECE0B22C2AA56700C6A492 /* ViewA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewA.swift; sourceTree = "<group>"; };
+		BEECE0B32C2AA56700C6A492 /* ViewB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +219,7 @@
 		93713BF12C2317CC00B41CD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BEECE0B92C2AA57900C6A492 /* TestingView */,
 				3A64C1642C23E3AF00D0AC3A /* Components */,
 				3A9203E52C22751C00C4E9C4 /* ContentView.swift */,
 				BE3B0F1E2C287776009D6B72 /* HomeView.swift */,
@@ -278,6 +289,18 @@
 				BE3B0F082C28678F009D6B72 /* Wordle6.json */,
 			);
 			path = Kelas6;
+			sourceTree = "<group>";
+		};
+		BEECE0B92C2AA57900C6A492 /* TestingView */ = {
+			isa = PBXGroup;
+			children = (
+				BEECE0B22C2AA56700C6A492 /* ViewA.swift */,
+				BEECE0B32C2AA56700C6A492 /* ViewB.swift */,
+				BEECE0B12C2AA56700C6A492 /* ViewC.swift */,
+				BEECE0B02C2AA56700C6A492 /* ViewD.swift */,
+				BEC6B6992C2AC03C0058B12E /* Testing10Soal.swift */,
+			);
+			name = TestingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0842452C298342007071DA /* QuizMultiChoice.swift in Sources */,
+				BEECE0B42C2AA56700C6A492 /* ViewD.swift in Sources */,
 				BE0842462C298342007071DA /* Quiz.swift in Sources */,
 				BE3B0F1A2C28690C009D6B72 /* QuizModelData.swift in Sources */,
 				3AE5D7FD2C24397D001AB9A4 /* QuizMatchingWordView.swift in Sources */,
@@ -379,6 +403,7 @@
 				BE0842432C298342007071DA /* Choice.swift in Sources */,
 				3A0961442C2807DE005043FD /* User.swift in Sources */,
 				BE0842492C298342007071DA /* QuizFillBlank.swift in Sources */,
+				BEECE0B72C2AA56700C6A492 /* ViewB.swift in Sources */,
 				0DC0B9F32C28489F00844EC9 /* ConnectBoxView.swift in Sources */,
 				3A64C1682C23E3E600D0AC3A /* ChoicePoolView.swift in Sources */,
 				3A09614A2C2813A3005043FD /* QuizFillBlankViewModel.swift in Sources */,
@@ -391,10 +416,12 @@
 				0DC7781A2C29D7D20079F85C /* BottomConfirmOverlayView.swift in Sources */,
 				3A9203E62C22751C00C4E9C4 /* ContentView.swift in Sources */,
 				BE0842442C298342007071DA /* Feedback.swift in Sources */,
+				BEECE0B62C2AA56700C6A492 /* ViewA.swift in Sources */,
 				BE3B0F222C2878B8009D6B72 /* DifficultyLevel.swift in Sources */,
 				3A9203E42C22751C00C4E9C4 /* CendekiawanApp.swift in Sources */,
 				BE3B0F232C2878B8009D6B72 /* ProficiencyLevel.swift in Sources */,
 				0D1302A12C23F11900710D43 /* DroppableBox.swift in Sources */,
+				BEC6B69A2C2AC03C0058B12E /* Testing10Soal.swift in Sources */,
 				93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */,
 				0DC0B9F12C27F04B00844EC9 /* LineConnectionView.swift in Sources */,
 				0DC778182C2961710079F85C /* SubmitButton.swift in Sources */,
@@ -404,6 +431,7 @@
 				BE0842482C298342007071DA /* QuizWordBlank.swift in Sources */,
 				3AE5D8032C247754001AB9A4 /* QuizMatchingWordViewModel.swift in Sources */,
 				3A64C16A2C23E40500D0AC3A /* QuizMultiChoiceView.swift in Sources */,
+				BEECE0B52C2AA56700C6A492 /* ViewC.swift in Sources */,
 				BE3B0F2B2C28984C009D6B72 /* StatsOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
