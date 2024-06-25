@@ -15,13 +15,20 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Button(action: {
-                    vm.valueProgressBar = 0
-                    isDirected = true
-                    vm.startGameplay()
-                }, label: {
-                    Text("Play")
-                })
+                QuizFillBlankView(
+                    vm: QuizFillBlankViewModel(
+                        questions: modelData.rumpang4[0].quizStory,
+                        choices: modelData.rumpang4[0].quizChoiceList
+                    )
+                )
+                    .environment(QuizModelData())
+//                Button(action: {
+//                    vm.valueProgressBar = 0
+//                    isDirected = true
+//                    vm.startGameplay()
+//                }, label: {
+//                    Text("Play")
+//                })
             }
             .navigationDestination(isPresented: $isDirected) {
                 QuizView(vm: vm)

@@ -23,18 +23,9 @@ struct QuizFillBlankView: View {
                     ScrollView {
                         Image("placeholderPhoto")
                             .padding(.bottom, 40)
-                        LazyVGrid(columns: adaptipveColumns, content: {
-                            ForEach(0..<vm.questions.count, id: \.self) { index in
-                                if vm.questions[index] == "_" {
-                                    Text("Deez Nuts")
-//                                    DroppableBox(fillBlankVM: vm, index: index)
-                                }
-                                else {
-                                    Text(vm.questions[index])
-                                        .padding(.vertical, 4)
-                                }
-                            }
-                        })
+                        VStack {
+                            renderTextWithPlaceHolders(availableWidth: geometry.size.width * 0.5)
+                        }
                     }
                 }
                 .frame(width: geometry.size.width * 0.6)
@@ -51,6 +42,33 @@ struct QuizFillBlankView: View {
             }
         }
 
+    }
+    
+    func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
+        var order = 0 // to store the index of the droppable
+        
+        let parts = QuizModelData().rumpang6[0].quizStory.split(separator: " ")
+        var views: [AnyView] = []
+        
+        for index in parts.indices {
+            if parts[index] == "_" {
+                views.append(AnyView(
+                    DroppableBox(fillBlankVM: vm, index: order)
+                ))
+                order += 1 // increment droppable index after being added
+            }
+            else {
+                views.append(AnyView(
+                    Text(parts[index])
+                        .font(.body)
+                ))
+            }
+
+            
+        }
+        return VStack {
+            FlexibleView(availableWidth: availableWidth, views: views)
+        }
     }
 }
 
