@@ -11,9 +11,27 @@ import SwiftUI
 class QuizMatchingWordViewModel: ObservableObject {
     @Published var leftSelectedChoiceId: Int = -1
     @Published var rightSelectedChoiceId: Int = -1
+    @Published var isChecked: Bool = false
     
     @Published var connectedChoiceId: [(left: Int, right: Int)] = []
     @Published var quizConnect: QuizConnect? = nil
+    
+    func checkBoxColor(choiceId: Int, selectedFrom: String) -> Color {
+        if isChecked {
+            //State checked, true false
+            if connectedChoiceId.contains(where: {$0.left == choiceId && $0.right == choiceId} ) {
+                //correct
+                return Color.greenTua
+            }else {
+                //incorrect
+                return Color.red
+            }
+        }else {
+            //State unchecked, selected unselected
+            return boxShouldActive(choiceID: choiceId, selectedFrom: selectedFrom) ? Color.orange : Color.gray
+        }
+        return Color.white
+    }
     
     func getAllConnections(choiceLeft: [Choice], choiceRight: [Choice]) -> [(CGPoint, CGPoint)] {
         var connections: [(CGPoint, CGPoint)] = []

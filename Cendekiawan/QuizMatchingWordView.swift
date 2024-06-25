@@ -20,10 +20,7 @@ struct QuizMatchingWordView: View {
     
     var body: some View {
         
-        NavigationStack {
             VStack {
-                // buat checking aja. nanti dihapus
-//                StatsOverlay()
                 VStack() {
                     Text(question)
                         .font(.title3)
@@ -32,7 +29,7 @@ struct QuizMatchingWordView: View {
                     HStack {
                         VStack(alignment: .leading, spacing: 50) {
                             ForEach(choiceLeft) { choice in
-                                ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceId, selectedFrom: "Left") ? Color.blue : Color.gray, selectedFrom: "Left")
+                                ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Left"), selectedFrom: "Left")
                                     .onTapGesture {
                                         vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Left")
                                     }
@@ -69,30 +66,6 @@ struct QuizMatchingWordView: View {
                             }
                         }
                 }
-//                HStack{
-//                    Button{
-//                        startGameplay()
-//                        updateKosakataProeficiency(user: user, win: true)
-//                    } label: {
-//                        Text("Benar")
-//                            .font(.system(size: 50))
-//                            .foregroundStyle(.white)
-//                            .padding()
-//                            .background(.green)
-//                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                    }
-//                    Button{
-//                        startGameplay()
-//                        updateKosakataProeficiency(user: user, win: false)
-//                    } label: {
-//                        Text("Salah")
-//                            .font(.system(size: 50))
-//                            .foregroundStyle(.white)
-//                            .padding()
-//                            .background(.red)
-//                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                    }
-//                }
                 
             }
             .onAppear {
@@ -101,7 +74,6 @@ struct QuizMatchingWordView: View {
             .navigationDestination(isPresented: $isDone){
                 getDestinationView()
             }
-        }
         
     }
     func startGameplay() {

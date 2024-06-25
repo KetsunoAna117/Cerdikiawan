@@ -20,14 +20,10 @@ struct QuizWordBlankView: View {
     ]
     
     var body: some View {
-        
-        NavigationStack {
-            VStack {
-                // buat checking aja. nanti dihapus
-//                StatsOverlay()
                 VStack {
                     Text(question)
-                        .font(.body)
+                        .font(.title3)
+                        .fontWeight(.bold)
                         .padding([.bottom], 30)
                     Image("placeholderPhoto")
                     Spacer()
@@ -35,9 +31,7 @@ struct QuizWordBlankView: View {
                         ForEach (0..<vm.guessedWord.count, id: \.self) { index in
                             VStack {
                                 if vm.guessedWord[index].choiceId != -1 {
-                                    Text(vm.guessedWord[index].choiceDescription)
-                                        .font(.title2)
-                                        .fontWeight(.semibold)
+                                    Button3D(text: vm.guessedWord[index].choiceDescription, color: Color.orange)
                                 }else {
                                     Text(" ")
                                         .font(.title2)
@@ -66,42 +60,19 @@ struct QuizWordBlankView: View {
                             }
                         }.frame(width: 344, height: 102)
                         .padding(30)
-                            
                     }
-                    
-                    
                 }
                 .padding([.bottom], 132)
                 .onAppear{
                     vm.setupQuestion()
                 }
-//                HStack{
-//                    Button{
-//                        startGameplay()
-//                        updateKosakataProeficiency(user: user, win: true)
-//                    } label: {
-//                        Text("Benar")
-//                            .font(.system(size: 50))
-//                            .foregroundStyle(.white)
-//                            .padding()
-//                            .background(.green)
-//                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                    }
-//                    Button{
-//                        startGameplay()
-//                        updateKosakataProeficiency(user: user, win: false)
-//                    } label: {
-//                        Text("Salah")
-//                            .font(.system(size: 50))
-//                            .foregroundStyle(.white)
-//                            .padding()
-//                            .background(.red)
-//                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                    }
-//                }
-            }
-            
-            }
+                .frame(minWidth: UIScreen.main.bounds.width)
+        .onAppear {
+            isDone = false
+        }
+        .navigationDestination(isPresented: $isDone){
+            getDestinationView()
+        }
         .overlay{
             VStack{
                 Spacer()
@@ -109,15 +80,10 @@ struct QuizWordBlankView: View {
                     print("lol")
                 })
             }
-            .onAppear {
-                isDone = false
-            }
-            .navigationDestination(isPresented: $isDone){
-                getDestinationView()
-            }
         }
-        
     }
+    
+    
     func startGameplay() {
         let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
         let (quizModel, tipeQuiz) = storeRandomizedQuiz
