@@ -14,6 +14,7 @@ class QuizViewModel: ObservableObject {
     @StateObject var user: User = User(name: "User1")
     @Published var redemptionIdList: [Int]?
     @Published var currentQuiz: Int?
+    
     var modelData = QuizModelData()
     
     init(nextQuiz: (quizModel: String, tipeQuiz: String)) {
@@ -76,13 +77,13 @@ class QuizViewModel: ObservableObject {
         case 1...3, 11...13, 21...23:
             quiz = modelData.getIdePokok(difficulty: user.difficultyLevel)![(id-1)%2] as! T
         case 4...7, 14...17, 24...27:
-            quiz = modelData.getimplisit(difficulty: user.difficultyLevel)![(id-1)%2] as! T
+            quiz = modelData.getimplisit(difficulty: user.difficultyLevel)![(id-1)%3] as! T
         case 8, 18, 28:
             quiz = modelData.getRumpang(difficulty: user.difficultyLevel)![0] as! T
         case 9, 19, 29:
-            quiz = modelData.getSambung(difficulty: user.difficultyLevel)![0] as! T
-        case 10, 20, 30:
             quiz = modelData.getWordle(difficulty: user.difficultyLevel)![0] as! T
+        case 10, 20, 30:
+            quiz = modelData.getSambung(difficulty: user.difficultyLevel)![0] as! T
         default:
             return modelData.getSambung(difficulty: user.difficultyLevel)![0] as! T
         }

@@ -36,10 +36,12 @@ struct QuizView: View {
                         case "FillBlank":
                             TestViewFillBlank()
                         case "WordBlank":
-                            QuizWordBlankView(vm: QuizWordBlankViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)))
+                            QuizWordBlankView(vm: QuizWordBlankViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+//                            TestViewWordBlank()
 
                         default:
-                            QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)))
+//                            TestViewMatchingWord()
+                            QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
                         }
                         
                     default:
@@ -54,11 +56,11 @@ struct QuizView: View {
         }
         .padding([.top], 16)
         .navigationBarBackButtonHidden(true)
-        .task {
-            vm.startGameplay()
+//        .task {
+//            vm.startGameplay()
 //            vm.currentQuiz = 8
-            print(vm.currentQuiz as Any)
-        }
+//            print(vm.currentQuiz as Any)
+//        }
     }
 }
 

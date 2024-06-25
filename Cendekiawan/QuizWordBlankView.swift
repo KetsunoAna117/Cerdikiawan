@@ -10,6 +10,9 @@ import SwiftUI
 struct QuizWordBlankView: View {
     @ObservedObject var vm: QuizWordBlankViewModel
     
+    //to navigate user to another question by sending the same VM
+    @ObservedObject var vm2: QuizViewModel
+    
     @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
@@ -76,6 +79,7 @@ struct QuizWordBlankView: View {
                 Spacer()
                 BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
                     vm.isChecked = true
+                    vm2.startGameplay()
                 })
             }
         }
@@ -87,7 +91,7 @@ struct QuizWordBlankView: View {
 
 #Preview {
     QuizWordBlankView(
-        vm: QuizWordBlankViewModel(model: getQuizWordBlankfromJSON())
+        vm: QuizWordBlankViewModel(model: getQuizWordBlankfromJSON()), vm2: QuizViewModel(nextQuiz: ("MultiChoice", "implisit"))
         )
     .environment(QuizModelData())
 }

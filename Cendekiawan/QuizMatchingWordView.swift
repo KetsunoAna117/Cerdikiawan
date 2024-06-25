@@ -15,6 +15,9 @@ struct QuizMatchingWordView: View {
     
     @StateObject var vm: QuizMatchingWordViewModel
     
+    //to navigate user to another question by sending the same VM
+    @ObservedObject var vm2: QuizViewModel
+    
     var body: some View {
         
             VStack {
@@ -59,6 +62,7 @@ struct QuizMatchingWordView: View {
                                 Spacer()
                                 BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
                                     vm.isChecked = true
+                                    vm2.startGameplay()
                                 })
                             }
                         }
@@ -73,7 +77,7 @@ struct QuizMatchingWordView: View {
 }
 
 #Preview {
-        QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: getQuizConnectFromJSON()))
+    QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: getQuizConnectFromJSON()), vm2: QuizViewModel(nextQuiz: ("MultiChoice", "implisit")))
             .environment(QuizModelData())
 }
 
