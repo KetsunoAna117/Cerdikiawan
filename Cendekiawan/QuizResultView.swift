@@ -54,5 +54,5 @@ struct QuizResultView: View {
 }
 
 #Preview {
-    QuizResultView(vm: QuizViewModel(quizRightAnswer: 10, quizExperienceGain: 100, quizTrophyGain: Trophy(value: 0), listQuizQuestion: []))
+    QuizResultView(vm: QuizViewModel(nextQuiz: (quizModel: "multipleChoice", tipeQuiz: "implisit")))
 }
