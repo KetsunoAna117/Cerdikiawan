@@ -16,7 +16,7 @@ struct Button3D: View {
             .padding()
             .background(Color.cerdikiawanGreyMid)
             .cornerRadius(5)
-            .foregroundStyle(color == Color.white ? Color.black : Color.white)
+            .foregroundStyle(color == Color.cerdikiawanWhite ? Color.cerdikiawanBlack : Color.cerdikiawanWhite)
             .font(.body)
             .fontWeight(.bold)
             .overlay{
@@ -28,10 +28,10 @@ struct Button3D: View {
                                 .offset(y: -4)
                         }
                     Text(text)
-                        .foregroundStyle(color == Color.white ? Color.black : Color.white)
+                        .foregroundStyle(color == Color.cerdikiawanWhite ? Color.cerdikiawanBlack : Color.cerdikiawanWhite)
                         .font(.body)
                         .fontWeight(.bold)
-                    if color == Color.white {
+                    if color == Color.cerdikiawanWhite {
                         RoundedRectangle(cornerRadius: 5)
                             .stroke(Color.cerdikiawanGreyMid, lineWidth: 1)
                     }
@@ -41,5 +41,5 @@ struct Button3D: View {
 }
 
 #Preview {
-    Button3D(text: "coba-coba", color: Color.white)
+    Button3D(text: "coba-coba", color: Color.cerdikiawanWhite)
 }

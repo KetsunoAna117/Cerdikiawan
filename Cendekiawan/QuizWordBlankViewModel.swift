@@ -13,6 +13,7 @@ class QuizWordBlankViewModel: ObservableObject {
     @Published var numberOfLetter: Int = 6
     @Published var guessedWord: [Choice] = []
     @Published var nextInputFlag = 0
+    @Published var quizWordBlank: QuizWordBlank? = nil
     
     init(choices: [Choice], numberOfLetter: Int) {
         self.choices = choices

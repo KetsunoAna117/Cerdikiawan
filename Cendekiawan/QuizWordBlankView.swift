@@ -31,7 +31,7 @@ struct QuizWordBlankView: View {
                         ForEach (0..<vm.guessedWord.count, id: \.self) { index in
                             VStack {
                                 if vm.guessedWord[index].choiceId != -1 {
-                                    Button3D(text: vm.guessedWord[index].choiceDescription, color: Color.orange)
+                                    Button3D(text: vm.guessedWord[index].choiceDescription, color: Color.cerdikiawanOrange)
                                 }else {
                                     Text(" ")
                                         .font(.title2)
@@ -53,7 +53,7 @@ struct QuizWordBlankView: View {
                             .padding([.horizontal], 30)
                         LazyVGrid(columns: columns, spacing: 32) {
                             ForEach (vm.choices, id: \.choiceId) { choosed in
-                                Button3D(text: choosed.choiceDescription, color: Color.white)
+                                Button3D(text: choosed.choiceDescription, color: Color.cerdikiawanWhite)
                                 .onTapGesture {
                                     vm.addCharacterToAnswer(choosed: choosed)
                                 }
@@ -70,74 +70,17 @@ struct QuizWordBlankView: View {
         .onAppear {
             isDone = false
         }
-        .navigationDestination(isPresented: $isDone){
-            getDestinationView()
-        }
         .overlay{
             VStack{
                 Spacer()
                 BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
-                    print("lol")
                 })
             }
         }
     }
     
     
-    func startGameplay() {
-        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
-        let (quizModel, tipeQuiz) = storeRandomizedQuiz
-        
-        print("\(quizModel), \(tipeQuiz)")
-        
-        nextQuiz = (quizModel, tipeQuiz)
-        
-        isDone = true
-    }
-    
-    @ViewBuilder
-    func getDestinationView() -> some View {
-        if let tipeQuizz = nextQuiz?.tipeQuiz, let quizModel = nextQuiz?.quizModel {
-            switch tipeQuizz {
-            case "kosakata":
-                switch quizModel {
-                case "FillBlank":
-                    let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.randomElement()
-                    
-                    // TODO: tambahin parameter judul buat soal
-                    QuizFillBlankView(vm: QuizFillBlankViewModel(
-                        questions: fillBlankQuiz!.quizStory,
-                        choices: fillBlankQuiz!.quizChoiceList
-                    ))
-                    .environment(modelData)
-                case "WordBlank":
-                    let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
-                    QuizWordBlankView(
-                        vm: QuizWordBlankViewModel(
-                            choices: wordBlankQuiz!.quizLetterChoiceList,
-                            numberOfLetter: wordBlankQuiz!.quizLetterCount
-                        ),
-                        question: wordBlankQuiz!.quizPrompt
-                    )
-                    .environment(modelData)
-                default:
-                    let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
-                    QuizMatchingWordView(
-                        choiceLeft: matchingWordQuizz!.quizLeftChoiceList,
-                        choiceRight: matchingWordQuizz!.quizRightChoiceList,
-                        question: matchingWordQuizz!.quizPrompt
-                    )
-                    .environment(modelData)
-                }
-            default:
-                //TODO: pindahin logic ke view model
-                QuizMultiChoiceView(tipeQuiz: nextQuiz!.tipeQuiz)
-                    .environment(modelData)
-            }
-        } else {
-            Text("Error: No destination view")
-        }
-    }
+
 }
 
 #Preview {

@@ -21,77 +21,21 @@ struct HomeView: View {
         NavigationStack {
             VStack {
                 Button(action: {
-                    startGameplay()
+                    
                 }, label: {
                     Text("Play")
                         .font(.system(size: 100))
                 })
                 .padding()
-                .border(Color.black)
+                .border(Color.cerdikiawanBlack)
             }
             .onAppear {
                 isDone = false
             }
-            .navigationDestination(isPresented: $isDone){
-                getDestinationView()
-            }
         }
     }
     
-    func startGameplay() {
-        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
-        let (quizModel, tipeQuiz) = storeRandomizedQuiz
-        print("\(quizModel), \(tipeQuiz)")
-        
-        self.quizModel = quizModel
-        self.tipeQuiz = tipeQuiz
-        
-        isDone = true
-    }
     
-    @ViewBuilder
-    func getDestinationView() -> some View {
-        if let tipeQuiz = tipeQuiz, let quizModel = quizModel {
-            switch tipeQuiz {
-            case "kosakata":
-                switch quizModel {
-                case "FillBlank":
-                    let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.first
-                    
-                    // TODO: tambahin parameter judul buat soal
-                    QuizFillBlankView(vm: QuizFillBlankViewModel(
-                        questions: fillBlankQuiz!.quizStory,
-                        choices: fillBlankQuiz!.quizChoiceList
-                    ))
-                    .environment(modelData)
-                case "WordBlank":
-                    let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.first
-                    QuizWordBlankView(
-                        vm: QuizWordBlankViewModel(
-                            choices: wordBlankQuiz!.quizLetterChoiceList,
-                            numberOfLetter: wordBlankQuiz!.quizLetterCount
-                        ),
-                        question: wordBlankQuiz!.quizPrompt
-                    )
-                    .environment(modelData)
-                default:
-                    let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.first
-                    QuizMatchingWordView(
-                        choiceLeft: matchingWordQuizz!.quizLeftChoiceList,
-                        choiceRight: matchingWordQuizz!.quizRightChoiceList,
-                        question: matchingWordQuizz!.quizPrompt
-                    )
-                    .environment(modelData)
-                }
-            default:
-                //TODO: pindahin logic ke view model
-                QuizMultiChoiceView(tipeQuiz: tipeQuiz)
-                    .environment(modelData)
-            }
-        } else {
-            Text("Error: No destination view")
-        }
-    }
 }
 
 #Preview {

@@ -8,27 +8,24 @@
 import SwiftUI
 
 struct QuizMatchingWordView: View {
-    @State var choiceLeft: [Choice]
-    @State var choiceRight: [Choice]
-    var question: String
     @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
     @State private var isDone: Bool = false
     
-    @StateObject private var vm: QuizMatchingWordViewModel = QuizMatchingWordViewModel()
+    @StateObject var vm: QuizMatchingWordViewModel
     
     var body: some View {
         
             VStack {
                 VStack() {
-                    Text(question)
+                    Text(vm.quizConnect?.quizPrompt ?? "")
                         .font(.title3)
                         .fontWeight(.bold)
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 50) {
-                            ForEach(choiceLeft) { choice in
+                            ForEach(vm.quizConnect?.quizLeftChoiceList ?? []) { choice in
                                 ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Left"), selectedFrom: "Left")
                                     .onTapGesture {
                                         vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Left")
@@ -38,8 +35,8 @@ struct QuizMatchingWordView: View {
                         }
                         Spacer()
                         VStack(alignment: .leading, spacing: 50) {
-                            ForEach(choiceRight) { choice in
-                                ConnectBoxView(choice: choice, boxColor: vm.boxShouldActive(choiceID: choice.choiceId, selectedFrom: "Right") ? Color.blue : Color.gray, selectedFrom: "Right")
+                            ForEach(vm.quizConnect?.quizRightChoiceList ?? []) { choice in
+                                ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Right"), selectedFrom: "Right")
                                     .onTapGesture {
                                         vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Right")
                                     }
@@ -55,13 +52,13 @@ struct QuizMatchingWordView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .overlay {
                     
-                    LineConnectionView(connections: vm.getAllConnections(choiceLeft: choiceLeft, choiceRight: choiceRight))
+                    LineConnectionView(connections: vm.getAllConnections(choiceLeft: vm.quizConnect?.quizLeftChoiceList ?? [], choiceRight: vm.quizConnect?.quizRightChoiceList ?? []))
                         .overlay{
                             //TODO: I think this better be swapped to Quiz view
                             VStack{
                                 Spacer()
                                 BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
-                                    
+                                    vm.isChecked = true
                                 })
                             }
                         }
@@ -71,84 +68,34 @@ struct QuizMatchingWordView: View {
             .onAppear {
                 isDone = false
             }
-            .navigationDestination(isPresented: $isDone){
-                getDestinationView()
-            }
         
-    }
-    func startGameplay() {
-        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
-        let (quizModel, tipeQuiz) = storeRandomizedQuiz
-        print("\(quizModel), \(tipeQuiz)")
-        
-        nextQuiz = (quizModel, tipeQuiz)
-        
-        isDone = true
-    }
-    
-    @ViewBuilder
-    func getDestinationView() -> some View {
-        if let tipeQuizz = nextQuiz?.tipeQuiz, let quizModel = nextQuiz?.quizModel {
-            switch tipeQuizz {
-            case "kosakata":
-                switch quizModel {
-                case "FillBlank":
-                    let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.randomElement()
-                    
-                    // TODO: tambahin parameter judul buat soal
-                    QuizFillBlankView(vm: QuizFillBlankViewModel(
-                        questions: fillBlankQuiz!.quizStory,
-                        choices: fillBlankQuiz!.quizChoiceList
-                    ))
-                    .environment(modelData)
-                case "WordBlank":
-                    let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement()
-                    QuizWordBlankView(
-                        vm: QuizWordBlankViewModel(
-                            choices: wordBlankQuiz!.quizLetterChoiceList,
-                            numberOfLetter: wordBlankQuiz!.quizLetterCount
-                        ),
-                        question: wordBlankQuiz!.quizPrompt
-                    )
-                    .environment(modelData)
-                default:
-                    let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement()
-                    QuizMatchingWordView(
-                        choiceLeft: matchingWordQuizz!.quizLeftChoiceList,
-                        choiceRight: matchingWordQuizz!.quizRightChoiceList,
-                        question: matchingWordQuizz!.quizPrompt
-                    )
-                    .environment(modelData)
-                }
-            default:
-                //TODO: pindahin logic ke view model
-                QuizMultiChoiceView(tipeQuiz: nextQuiz!.tipeQuiz)
-                    .environment(modelData)
-            }
-        } else {
-            Text("Error: No destination view")
-        }
     }
 }
 
 #Preview {
-    NavigationStack {
-        QuizMatchingWordView(
-            choiceLeft: [
-                Choice(choiceId: 1, choiceDescription: "Rendah Hati"),
-                Choice(choiceId: 2, choiceDescription: "Gulung Tikar"),
-                Choice(choiceId: 3, choiceDescription: "Naik Daun"),
-                Choice(choiceId: 4, choiceDescription: "Naik Daun"),
-                Choice(choiceId: 5, choiceDescription: "Naik Daun"),
-            ],
-            choiceRight: [
-                Choice(choiceId: 1, choiceDescription: "Tidak Sombong"),
-                Choice(choiceId: 2, choiceDescription: "Terkenal"),
-                Choice(choiceId: 3, choiceDescription: "Bangkrut"),
-                Choice(choiceId: 4, choiceDescription: "Naik Daun"),
-                Choice(choiceId: 5, choiceDescription: "Naik Daun"),
-            ],
-            question: "Pasangkan idiom dibawah dengan pengertian yang tepat!")
-        .environment(QuizModelData())
-    }
+        QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: getQuizConnectFromJSON()))
+            .environment(QuizModelData())
+}
+
+func getQuizConnectFromJSON() -> QuizConnect{
+    return QuizConnect(
+        quizId: 1,
+        quizFeedback: Feedback(quizId: 1, feedbackDescription: "You are stupid ah fuck"),
+        quizDifficultyLevel: 4,
+        quizCategory: "sambung kata",
+        quizTitle: "nil",
+        quizAsset: ["nil"],
+        isRedemption: false,
+        quizPrompt: "Pasangkan idiom dibawah ini dengan pasangannya yang tepat",
+        quizLeftChoiceList: [
+            Choice(choiceId: 1, choiceDescription: "Rendah Hati"),
+            Choice(choiceId: 2, choiceDescription: "Gulung Tikar"),
+            Choice(choiceId: 3, choiceDescription: "Naik Daun")
+        ],
+        quizRightChoiceList: [
+            Choice(choiceId: 1, choiceDescription: "Tidak Sombong"),
+            Choice(choiceId: 2, choiceDescription: "Terkenal"),
+            Choice(choiceId: 3, choiceDescription: "Bangkrut"),
+        ]
+    )
 }

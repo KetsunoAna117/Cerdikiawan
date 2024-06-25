@@ -15,7 +15,7 @@ struct SubmitButton: View {
             .padding()
             .background(color)
             .cornerRadius(5)
-            .foregroundStyle(color == Color.white ? Color.black : Color.white)
+            .foregroundStyle(color == Color.cerdikiawanWhite ? Color.cerdikiawanWhite : Color.cerdikiawanWhite)
             .font(.body)
             .fontWeight(.bold)
             .shadow(radius: 5, y: 4)

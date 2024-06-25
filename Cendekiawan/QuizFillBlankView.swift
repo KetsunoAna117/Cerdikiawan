@@ -72,7 +72,6 @@ struct QuizFillBlankView: View {
                 }
                 HStack {
                     Button {
-                        startGameplay()
                         updateKosakataProeficiency(user: user, win: true)
                     } label: {
                         Text("Benar")
@@ -83,7 +82,6 @@ struct QuizFillBlankView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                     Button {
-                        startGameplay()
                         updateKosakataProeficiency(user: user, win: false)
                     } label: {
                         Text("Salah")
@@ -98,63 +96,9 @@ struct QuizFillBlankView: View {
             .onAppear {
                 isDone = false
             }
-            .navigationDestination(isPresented: $isDone) {
-                getDestinationView()
-            }
         }
     }
-    
-    func startGameplay() {
-        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
-        let (quizModel, tipeQuiz) = storeRandomizedQuiz
-        
-        nextQuiz = (quizModel, tipeQuiz)
-        isDone = true
-    }
-    
-    @ViewBuilder
-    func getDestinationView() -> some View {
-        if let tipeQuizz = nextQuiz?.tipeQuiz, let quizModel = nextQuiz?.quizModel {
-            switch tipeQuizz {
-            case "kosakata":
-                switch quizModel {
-                case "FillBlank":
-                    if let fillBlankQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)?.randomElement() {
-                        QuizFillBlankView(vm: QuizFillBlankViewModel(
-                            questions: fillBlankQuiz.quizStory,
-                            choices: fillBlankQuiz.quizChoiceList
-                        ))
-                        .environment(modelData)
-                    }
-                case "WordBlank":
-                    if let wordBlankQuiz = modelData.getWordle(difficulty: user.difficultyLevel)?.randomElement() {
-                        QuizWordBlankView(
-                            vm: QuizWordBlankViewModel(
-                                choices: wordBlankQuiz.quizLetterChoiceList,
-                                numberOfLetter: wordBlankQuiz.quizLetterCount
-                            ),
-                            question: wordBlankQuiz.quizPrompt
-                        )
-                        .environment(modelData)
-                    }
-                default:
-                    if let matchingWordQuizz = modelData.getSambung(difficulty: user.difficultyLevel)?.randomElement() {
-                        QuizMatchingWordView(
-                            choiceLeft: matchingWordQuizz.quizLeftChoiceList,
-                            choiceRight: matchingWordQuizz.quizRightChoiceList,
-                            question: matchingWordQuizz.quizPrompt
-                        )
-                        .environment(modelData)
-                    }
-                }
-            default:
-                QuizMultiChoiceView(tipeQuiz: nextQuiz!.tipeQuiz)
-                    .environment(modelData)
-            }
-        } else {
-            Text("Error: No destination view")
-        }
-    }
+
 }
 
 #Preview {
