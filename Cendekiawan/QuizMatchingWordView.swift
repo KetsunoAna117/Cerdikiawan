@@ -20,65 +20,65 @@ struct QuizMatchingWordView: View {
     
     var body: some View {
         
-            VStack {
-                VStack() {
-                    Text(vm.quizConnect?.quizPrompt ?? "")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                    
-                    HStack {
-                        VStack(alignment: .leading, spacing: 50) {
-                            ForEach(vm.quizConnect?.quizLeftChoiceList ?? []) { choice in
-                                ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Left"), selectedFrom: "Left")
-                                    .onTapGesture {
-                                        vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Left")
-                                    }
-                                    .frame(maxWidth: 243, maxHeight: 71)
-                            }
-                        }
-                        Spacer()
-                        VStack(alignment: .leading, spacing: 50) {
-                            ForEach(vm.quizConnect?.quizRightChoiceList ?? []) { choice in
-                                ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Right"), selectedFrom: "Right")
-                                    .onTapGesture {
-                                        vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Right")
-                                    }
-                                    .frame(maxWidth: 243, maxHeight: 71)
-                            }
+        VStack {
+            VStack() {
+                Text(vm.quizConnect?.quizPrompt ?? "")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 50) {
+                        ForEach(vm.quizConnect?.quizLeftChoiceList ?? []) { choice in
+                            ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Left"), selectedFrom: "Left")
+                                .onTapGesture {
+                                    vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Left")
+                                }
+                                .frame(maxWidth: 243, maxHeight: 71)
                         }
                     }
-                    .padding(.top, 50)
-                    .frame(maxWidth: 700, alignment: .center)
-                    
-                }
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                .overlay {
-                    
-                    LineConnectionView(connections: vm.getAllConnections(choiceLeft: vm.quizConnect?.quizLeftChoiceList ?? [], choiceRight: vm.quizConnect?.quizRightChoiceList ?? []))
-                        .overlay{
-                            //TODO: I think this better be swapped to Quiz view
-                            VStack{
-                                Spacer()
-                                BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
-                                    vm.isChecked = true
-                                    vm2.startGameplay()
-                                })
-                            }
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 50) {
+                        ForEach(vm.quizConnect?.quizRightChoiceList ?? []) { choice in
+                            ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Right"), selectedFrom: "Right")
+                                .onTapGesture {
+                                    vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Right")
+                                }
+                                .frame(maxWidth: 243, maxHeight: 71)
                         }
+                    }
                 }
+                .padding(.top, 50)
+                .frame(maxWidth: 700, alignment: .center)
                 
             }
-            .onAppear {
-                isDone = false
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .overlay {
+                
+                LineConnectionView(connections: vm.getAllConnections(choiceLeft: vm.quizConnect?.quizLeftChoiceList ?? [], choiceRight: vm.quizConnect?.quizRightChoiceList ?? []))
+                    .overlay{
+                        //TODO: I think this better be swapped to Quiz view
+                        VStack{
+                            Spacer()
+                            BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
+                                vm.isChecked = true
+                                vm2.startGameplay()
+                            })
+                        }
+                    }
             }
+            
+        }
+        .onAppear {
+            isDone = false
+        }
         
     }
 }
 
 #Preview {
     QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: getQuizConnectFromJSON()), vm2: QuizViewModel(nextQuiz: ("MultiChoice", "implisit")))
-            .environment(QuizModelData())
+        .environment(QuizModelData())
 }
 
 func getQuizConnectFromJSON() -> QuizConnect{

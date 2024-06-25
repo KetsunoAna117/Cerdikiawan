@@ -34,10 +34,9 @@ struct QuizView: View {
                     case "kosakata":
                         switch vm.nextQuiz.quizModel {
                         case "FillBlank":
-                            TestViewFillBlank()
+                            TestViewFillBlank(vm: QuizMultipleChoiceViewModel(), vm2: vm)
                         case "WordBlank":
                             QuizWordBlankView(vm: QuizWordBlankViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
-//                            TestViewWordBlank()
 
                         default:
 //                            TestViewMatchingWord()
@@ -45,10 +44,7 @@ struct QuizView: View {
                         }
                         
                     default:
-                        TestViewMultiChoice()
-//                        QuizWordBlankView(vm: QuizWordBlankViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)))
-
-//                        QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)))
+                        TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(), vm2: vm)
                     }
                         
                 }

@@ -51,26 +51,6 @@ class QuizViewModel: ObservableObject {
         updateValueProgressBar()
     }
     
-//    func nextQuiz(correct: Bool){
-//        if valueProgressBar < 10{
-//            valueProgressBar += 1
-//            currentQuiz = getQuiz()
-//            if !correct{
-//                currentQuiz!.isRedemption = true
-//                listOfQuestion.append(currentQuiz!)
-//            }
-//        }
-//        else{
-//            if !listOfQuestion.isEmpty{
-//                currentQuiz = listOfQuestion.first
-//                if !correct{
-//                    listOfQuestion.append(currentQuiz!)
-//                }
-//                listOfQuestion.removeFirst()
-//            }
-//        }
-//    }
-    
     func getQuizFromId <T>(id: Int) -> T{
         var quiz: T
         switch id{

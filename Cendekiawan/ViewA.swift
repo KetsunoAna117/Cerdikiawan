@@ -8,16 +8,32 @@
 import SwiftUI
 
 struct TestViewMultiChoice: View {
+    @ObservedObject var vm: QuizMultipleChoiceViewModel
+    @ObservedObject var vm2: QuizViewModel
     var body: some View {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all) // Extend the background color to the edges of the screen
-            Text("MultiChoice")
-                .foregroundColor(.white) // Set the text color to white for better contrast
+            VStack {
+                Text("MultiChoice")
+                    .foregroundColor(.white)
+                Text("Id: \(vm2.currentQuiz)")
+                    .foregroundColor(.white)
+            }
+            
+        }
+        .overlay{
+            VStack{
+                Spacer()
+                BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
+                    vm.isChecked = true
+                    vm2.startGameplay()
+                })
+            }
         }
     }
 }
 
 #Preview {
-    TestViewMultiChoice()
+    TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(), vm2: QuizViewModel(nextQuiz: (quizModel: "MultipleChoice", tipeQuiz: "idePopkok")))
 }

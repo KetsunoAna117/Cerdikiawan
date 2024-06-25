@@ -8,18 +8,18 @@
 import SwiftUI
 
 //struct Testing10Soal: View {
-////    @Environment(\.dismiss) private var dismiss
-////    @State private var quizTitle: String = "Pasang Kata"
-////    @Environment(QuizModelData.self) private var modelData
-////    @ObservedObject var vm: QuizViewModel
-////    @State private var isDone: Bool = false
+//    @Environment(\.dismiss) private var dismiss
+//    @State private var quizTitle: String = "Pasang Kata"
+//    @Environment(QuizModelData.self) private var modelData
+//    @ObservedObject var vm: QuizViewModel
+//    @State private var isDone: Bool = false
 //    
 //    var body: some View {
-////        Text(String(count))
+//        Text(String(count))
 //        
-////        Text(String(currentQuiz?.quizId ?? -1))
-////            .font(.system(size: 50))
-////        
+//        Text(String(currentQuiz?.quizId ?? -1))
+//            .font(.system(size: 50))
+//        
 //        HStack {
 //            Button {
 //                nextQuiz(correct: true)
