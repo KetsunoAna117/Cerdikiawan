@@ -48,7 +48,7 @@ struct QuizWordBlankView: View {
                     .padding([.bottom], 56)
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.greyMid, lineWidth: 3)
+                            .stroke(Color.cerdikiawanGreyMid, lineWidth: 3)
                             .frame(width: 437, height: 155)
                             .padding([.horizontal], 30)
                         LazyVGrid(columns: columns, spacing: 32) {
@@ -76,7 +76,7 @@ struct QuizWordBlankView: View {
         .overlay{
             VStack{
                 Spacer()
-                BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.greyMid), action: {
+                BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
                     print("lol")
                 })
             }

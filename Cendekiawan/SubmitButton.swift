@@ -23,5 +23,5 @@ struct SubmitButton: View {
 }
 
 #Preview {
-    SubmitButton(text: "Test", color: Color.greyMid)
+    SubmitButton(text: "Test", color: Color.cerdikiawanGreyMid)
 }
