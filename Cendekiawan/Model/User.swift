@@ -58,6 +58,7 @@ class User: ObservableObject {
     }
 }
 
+//TODO: SELURUH YANG DIBAWAH AKAN DIHAPUS JIKA SUDAH MAU FINALIZE
 func updateIdePokokProeficiency(user: User, win: Bool){
     if win {
         user.proficiencyLevelIdePokok += 1
