@@ -45,31 +45,45 @@ class QuizViewModel: ObservableObject {
         default:
             switch nextQuiz.quizModel{
             case "idePokok":
-                let ranges = [
-                    Array(1...3),
-                    Array(11...13),
-                    Array(21...23)
-                ]
+                let range1 = Array(1...3)
+                let range2 = Array(11...13)
+                let range3 = Array(21...23)
                 
                 currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-                
-            case "implisit":
-                let ranges = [
-                    Array(4...7),
-                    Array(14...17),
-                    Array(24...27)
-                ]
-                
-                currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                while quizIdePokok.contains(currentQuiz!){
+                    if containsRange(range: range1, in: quizIdePokok) {
+                        removeRange(range: range1, from: &quizIdePokok)
+                    }
+                    if containsRange(range: range2, in: quizIdePokok) {
+                        removeRange(range: range2, from: &quizIdePokok)
+                    }
+                    if containsRange(range: range3, in: quizIdePokok) {
+                        removeRange(range: range3, from: &quizIdePokok)
+                    }
+                    
+                    currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                }
                 
             default:
-                let ranges = [
-                    Array(4...7),
-                    Array(14...17),
-                    Array(24...27)
-                ]
-                
+                let range1 = Array(4...7)
+                let range2 = Array(14...17)
+                let range3 = Array(24...27)
+
                 currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                while quizIdePokok.contains(currentQuiz!){
+                    if containsRange(range: range1, in: quizImplisit) {
+                        removeRange(range: range1, from: &quizImplisit)
+                    }
+                    if containsRange(range: range2, in: quizImplisit) {
+                        removeRange(range: range2, from: &quizImplisit)
+                    }
+                    if containsRange(range: range3, in: quizImplisit) {
+                        removeRange(range: range3, from: &quizImplisit)
+                    }
+                    
+                    currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                }
+                
             }
         }
         updateValueProgressBar()
@@ -95,23 +109,7 @@ class QuizViewModel: ObservableObject {
         return quiz
     }
     
-    func updateValueProgressBar() {
-        if valueProgressBar >= 10 {
-            valueProgressBar = 10
-        } else {
-            valueProgressBar += 1
-        }
-    }
-    
-    func checkAndRemoveRanges(ranges: [[Int]]) {
-        for range in ranges {
-            if containsRange(range: range, in: quizIdePokok) {
-                removeRange(range: range, from: &quizIdePokok)
-                break
-            }
-        }
-    }
-    
+    // below 2 function for checking no duplicate when question appears
     // Check if all elements in the range are present in the list
     func containsRange(range: [Int], in list: [Int]) -> Bool {
         return Set(range).isSubset(of: Set(list))
@@ -120,6 +118,14 @@ class QuizViewModel: ObservableObject {
     // Remove all elements in the range from the list
     func removeRange(range: [Int], from list: inout [Int]) {
         list.removeAll(where: { range.contains($0) })
+    }
+    
+    func updateValueProgressBar() {
+        if valueProgressBar >= 10 {
+            valueProgressBar = 10
+        } else {
+            valueProgressBar += 1
+        }
     }
     
     func updateIdePokokProeficiency(win: Bool){
