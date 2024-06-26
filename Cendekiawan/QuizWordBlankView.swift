@@ -16,7 +16,6 @@ struct QuizWordBlankView: View {
     @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
-    @State private var isDone: Bool = false
     
     let columns = [
         GridItem(.adaptive(minimum: 48))
@@ -73,9 +72,6 @@ struct QuizWordBlankView: View {
                     vm.setupQuestion()
                 }
                 .frame(minWidth: UIScreen.main.bounds.width)
-        .onAppear {
-            isDone = false
-        }
         .overlay{
             VStack{
                 Spacer()
