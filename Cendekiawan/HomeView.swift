@@ -18,7 +18,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Image("HomeLemari")
+                Image("HomeBase")
                     .resizable()
                 VStack{
                     HStack {
@@ -28,10 +28,18 @@ struct HomeView: View {
                     }
                     .padding([.leading], 63)
                     Spacer()
-                    Image("Aminah")
-                        .resizable()
-                        .frame(width: 136, height: 359)
+                    HStack(alignment: .bottom) {
+                        Image("Aminah")
+                            .resizable()
+                            .frame(width: 136, height: 359)
+                            .padding(.trailing, 200)
                         .padding([.bottom], 42)
+                        BookshelfView(userLevel: .constant(20)) // TODO INTEGRATE WITH USER LEVEL HERE
+                            
+                    }
+                    .padding(.trailing, 63)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    
                     Button {
                         vm.valueProgressBar = 0
                         isDirected = true
