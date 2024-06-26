@@ -43,8 +43,9 @@ class QuizViewModel: ObservableObject {
             }
             
         default:
-            switch nextQuiz.quizModel{
+            switch nextQuiz.tipeQuiz{
             case "idePokok":
+                print("MASUK LAHH")
                 let range1 = Array(1...3)
                 let range2 = Array(11...13)
                 let range3 = Array(21...23)
@@ -62,9 +63,12 @@ class QuizViewModel: ObservableObject {
                     }
                     
                     currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                    quizIdePokok.append(currentQuiz!)
+                    print("\(quizIdePokok.count)")
                 }
                 
             default:
+                print("MASUK jir")
                 let range1 = Array(4...7)
                 let range2 = Array(14...17)
                 let range3 = Array(24...27)
@@ -82,81 +86,83 @@ class QuizViewModel: ObservableObject {
                     }
                     
                     currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                    quizImplisit.append(currentQuiz!)
+                    print("\(quizImplisit.count)")
                 }
                 
             }
         }
     }
     
-    func startGameplay(correct: Bool) {
-        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
-        let (quizModel, tipeQuiz) = storeRandomizedQuiz
-        
-        nextQuiz = (quizModel, tipeQuiz)
-        
-        switch nextQuiz.tipeQuiz {
-        case "kosakata":
-            switch nextQuiz.quizModel {
-            case "FillBlank":
-                currentQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-            case "WordBlank":
-                currentQuiz = modelData.getWordle(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-            default:
-                currentQuiz = modelData.getSambung(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-            }
-            
-        default:
-            switch nextQuiz.quizModel{
-            case "idePokok":
-                let ranges = [
-                    Array(1...3),
-                    Array(11...13),
-                    Array(21...23)
-                ]
-                
-                currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-                
-            case "implisit":
-                let ranges = [
-                    Array(4...7),
-                    Array(14...17),
-                    Array(24...27)
-                ]
-                
-                currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-                
-            default:
-                let ranges = [
-                    Array(4...7),
-                    Array(14...17),
-                    Array(24...27)
-                ]
-                
-                currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-            }
-        }
-        
-        if valueProgressBar < 10{
-            if !correct{
-                redemptionIdList.append(currentQuiz!)
-            } else {
-                updateValueProgressBar()
-            }
-        }
-        else{
-            if !redemptionIdList.isEmpty{
-                currentQuiz = redemptionIdList.first
-                if !correct{
-                    redemptionIdList.append(currentQuiz!)
-                } else {
-                    updateValueProgressBar()
-                }
-                redemptionIdList.removeFirst()
-            }
-        }
-        
-        print(redemptionIdList.count)
-    }
+//    func startGameplay(correct: Bool) {
+//        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
+//        let (quizModel, tipeQuiz) = storeRandomizedQuiz
+//        
+//        nextQuiz = (quizModel, tipeQuiz)
+//        
+//        switch nextQuiz.tipeQuiz {
+//        case "kosakata":
+//            switch nextQuiz.quizModel {
+//            case "FillBlank":
+//                currentQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+//            case "WordBlank":
+//                currentQuiz = modelData.getWordle(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+//            default:
+//                currentQuiz = modelData.getSambung(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+//            }
+//            
+//        default:
+//            switch nextQuiz.quizModel{
+//            case "idePokok":
+//                let ranges = [
+//                    Array(1...3),
+//                    Array(11...13),
+//                    Array(21...23)
+//                ]
+//                
+//                currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+//                
+//            case "implisit":
+//                let ranges = [
+//                    Array(4...7),
+//                    Array(14...17),
+//                    Array(24...27)
+//                ]
+//                
+//                currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+//                
+//            default:
+//                let ranges = [
+//                    Array(4...7),
+//                    Array(14...17),
+//                    Array(24...27)
+//                ]
+//                
+//                currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+//            }
+//        }
+//        
+//        if valueProgressBar < 10{
+//            if !correct{
+//                redemptionIdList.append(currentQuiz!)
+//            } else {
+//                updateValueProgressBar()
+//            }
+//        }
+//        else{
+//            if !redemptionIdList.isEmpty{
+//                currentQuiz = redemptionIdList.first
+//                if !correct{
+//                    redemptionIdList.append(currentQuiz!)
+//                } else {
+//                    updateValueProgressBar()
+//                }
+//                redemptionIdList.removeFirst()
+//            }
+//        }
+//        
+//        print(redemptionIdList.count)
+//    }
     
     func getQuizFromId <T>(id: Int) -> T{
         var quiz: T
