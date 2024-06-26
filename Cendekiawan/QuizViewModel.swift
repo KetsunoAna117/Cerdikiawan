@@ -65,7 +65,7 @@ class QuizViewModel: ObservableObject {
                     if ((quizIdePokok.contains(1)) && (quizIdePokok.contains(2)) && (quizIdePokok.contains(3))) ||
                         ((quizIdePokok.contains(11)) && (quizIdePokok.contains(12)) && (quizIdePokok.contains(13))) ||
                         ((quizIdePokok.contains(21)) && (quizIdePokok.contains(22)) && (quizIdePokok.contains(23))) {
-                        let temp = currentQuiz
+                        let temp = quizIdePokok.last
                         
                         quizIdePokok.removeAll()
                         
@@ -88,7 +88,7 @@ class QuizViewModel: ObservableObject {
                     if ((quizImplisit.contains(4)) && (quizImplisit.contains(5)) && (quizImplisit.contains(6)) && (quizImplisit.contains(7))) ||
                         ((quizImplisit.contains(14)) && (quizImplisit.contains(15)) && (quizImplisit.contains(16)) && (quizImplisit.contains(17)))  ||
                         ((quizImplisit.contains(24)) && (quizImplisit.contains(25)) && (quizImplisit.contains(26)) && (quizImplisit.contains(27))) {
-                        let temp = currentQuiz
+                        let temp = quizImplisit.last
                         
                         quizImplisit.removeAll()
                         
