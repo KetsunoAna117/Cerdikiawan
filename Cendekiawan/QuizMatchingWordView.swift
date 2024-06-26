@@ -8,20 +8,14 @@
 import SwiftUI
 
 struct QuizMatchingWordView: View {
-    @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
-    @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
-    
     @StateObject var vm: QuizMatchingWordViewModel
-    
-    //to navigate user to another question by sending the same VM
     @ObservedObject var vm2: QuizViewModel
     @State var checkisCorrect: Bool = false
     
     var body: some View {
-        
         VStack {
-            VStack() {
+            VStack {
                 Text(vm.quizConnect?.quizPrompt ?? "")
                     .font(.title3)
                     .fontWeight(.bold)
@@ -54,21 +48,20 @@ struct QuizMatchingWordView: View {
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .overlay {
-                
                 LineConnectionView(connections: vm.getAllConnections(choiceLeft: vm.quizConnect?.quizLeftChoiceList ?? [], choiceRight: vm.quizConnect?.quizRightChoiceList ?? []))
-                    .overlay{
-                        //TODO: I think this better be swapped to Quiz view
-                        VStack{
-                            Spacer()
-                            BottomConfirmOverlayView(isCorrect: checkisCorrect, description: "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: Color.cerdikiawanGreyMid), action: {
-                                if vm.isChecked{
-                                    vm2.startGameplay(correct: checkisCorrect)
-                                }
-                                checkisCorrect = vm.checkAnswer()
-                                vm.isChecked = true
-                            })
+                    
+            }
+            .overlay{
+                VStack{
+                    Spacer()
+                    BottomConfirmOverlayView(isCorrect: checkisCorrect, description: "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: Color.cerdikiawanGreyMid), action: {
+                        if vm.isChecked{
+                            vm2.startGameplay(correct: checkisCorrect)
                         }
-                    }
+                        checkisCorrect = vm.checkAnswer()
+                        vm.isChecked = true
+                    })
+                }
             }
             
         }

@@ -9,9 +9,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct QuizMultiChoiceView: View {
-    @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
-    @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
     @State private var checkisCorrect: Bool = false
     
     @ObservedObject var vm: QuizMultipleChoiceViewModel
@@ -68,7 +66,6 @@ struct QuizMultiChoiceView: View {
                                         Text(vm.quizMultiChoice!.quizFeedback.feedbackDescription)
                                     }
                                 }
-                                
                                 Spacer()
                             } else {
                                 Spacer()

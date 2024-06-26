@@ -18,7 +18,7 @@ struct TestViewFillBlank: View {
             VStack {
                 Text("FillBlank")
                     .foregroundColor(.white)
-                Text("Id: \(vm2.currentQuiz)")
+                Text("Id: \(String(describing: vm2.currentQuiz))")
                     .foregroundColor(.white)
             }
         }
@@ -27,7 +27,7 @@ struct TestViewFillBlank: View {
                 Spacer()
                 BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
                     vm.isChecked = true
-                    vm2.startGameplay()
+                    vm2.startGameplay(correct: true)
                 })
             }
         }
