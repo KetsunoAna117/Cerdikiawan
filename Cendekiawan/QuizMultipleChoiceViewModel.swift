@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// TODO: tar di hapus kalo dah mo finalize
 class QuizMultipleChoiceViewModel: ObservableObject {
     @Published var quizMultiChoice: QuizMultiChoice
     @Published var selectedAnswerChoiceId: Int = -1

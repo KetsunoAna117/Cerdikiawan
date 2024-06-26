@@ -9,25 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(QuizModelData.self) private var modelData
-    @ObservedObject var vm: QuizViewModel = QuizViewModel(nextQuiz: ("MultiChoice", "implisit"))
-    @State private var isDirected = false
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Button(action: {
-                    vm.valueProgressBar = 0
-                    isDirected = true
-                    vm.startGameplay()
-                }, label: {
-                    Text("Play")
-                })
-            }
-            .navigationDestination(isPresented: $isDirected) {
-                QuizView(vm: vm)
-                    .environment(QuizModelData())
-            }
-        }
+        HomeView()
+            .environment(modelData)
     }
 }
 

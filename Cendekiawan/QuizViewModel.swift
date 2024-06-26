@@ -9,12 +9,8 @@ import Foundation
 import SwiftUI
 
 class QuizViewModel: ObservableObject {
-
-    @Published var quizRightAnswer: Int = 0
+    
     @Published var quizExperienceGain: Int = 0
-    @Published var quizTrophyGain: Trophy = Trophy(value: 0)
-    @Published var listQuizQuestion: [Quiz] = []
-
     @Published var nextQuiz: (quizModel: String, tipeQuiz: String)
     @Published var valueProgressBar: Int = 0
     @StateObject var user: User = User(name: "User1")
