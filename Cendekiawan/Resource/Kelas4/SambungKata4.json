@@ -3,15 +3,14 @@
     "quizId": 10,
     "quizFeedback": {
       "quizId": 10,
-      "feedbackDescription": "ini feedback"
+      "feedbackDescription": "Jawabannya adalah Rendah hati  = tidak sombong | Gulung tikar = bangkrut | Naik daun = terkenal"
     },
     "quizDifficultyLevel": 4,
     "quizCategory": "kosakata",
     "quizTitle": "nil",
     "isRedemption": false,
     "quizAsset": [
-      "gambar 1",
-      "gambar 2"
+      "nil"
     ],
     "quizPrompt": "Sambungkanlah idiom yang ada di kolom kiri dengan arti dari idiom tersebut yang berada di kolom kanan!",
     "quizLeftChoiceList": [

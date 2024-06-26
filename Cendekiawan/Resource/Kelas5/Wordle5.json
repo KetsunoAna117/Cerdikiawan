@@ -3,15 +3,14 @@
     "quizId": 19,
     "quizFeedback": {
       "quizId": 19,
-      "feedbackDescription": "ini feedback"
+      "feedbackDescription": "Jawabannya adalah PEMANDU"
     },
     "quizDifficultyLevel": 5,
     "quizCategory": "kosakata",
     "quizTitle": "nil",
     "isRedemption": false,
     "quizAsset": [
-      "gambar 1",
-      "gambar 2"
+      "PemanduTTS"
     ],
     "quizPrompt": "orang yang memberikan bimbingan, penerangan, dan petunjuk",
     "quizLetterCount": 7,
