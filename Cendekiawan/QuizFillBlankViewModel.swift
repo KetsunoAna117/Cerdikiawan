@@ -13,9 +13,15 @@ class QuizFillBlankViewModel: ObservableObject {
     @Published var choices: [DraggableChoice] = []
     @Published var droppedAnswer: [Int: DraggableChoice] = [:]
     
+    @Published var isFieldFilled: Bool
+    @Published var choicesCount: Int
+    
     init(questions: String, choices: [Choice]) {
         self.questions = questions
         self.choices = choices.map { DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription) }
+        
+        self.isFieldFilled = false
+        self.choicesCount = choices.count
     }
     
     // here index acts as a key for the hashmap
@@ -30,6 +36,14 @@ class QuizFillBlankViewModel: ObservableObject {
         }
         // Assign the dropped choice to the corresponding index in droppedAnswer
         droppedAnswer[index] = droppedChoice
+        
+        // update is All Field Filled status
+        if droppedAnswer.count >= choicesCount {
+            isFieldFilled = true
+        }
+        else {
+            isFieldFilled = false
+        }
     }
     
     func handleRemoveChoice(index: Int) {
@@ -37,6 +51,7 @@ class QuizFillBlankViewModel: ObservableObject {
         if let removedChoice = droppedAnswer.removeValue(forKey: index) {
             // Append the removed choice back to the choices array
             choices.append(removedChoice)
+            isFieldFilled = false
         }
     }
     

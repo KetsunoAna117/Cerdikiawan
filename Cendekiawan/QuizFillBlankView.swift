@@ -11,9 +11,8 @@ struct QuizFillBlankView: View {
     @Environment(QuizModelData.self) private var modelData
     @ObservedObject var vm: QuizFillBlankViewModel
     
-    private let adaptipveColumns = [
-        GridItem(.adaptive(minimum: 150, maximum: .infinity))
-    ]
+    @State private var isAllFieldFilled: Bool = false
+    @State private var isAnswerChecked: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -32,13 +31,38 @@ struct QuizFillBlankView: View {
                 
                 // Right side
                 VStack(alignment: .trailing) {
-                    ChoicePoolView(choices: $vm.choices, width: 400)
+                    VStack(alignment: .leading) {
+                        ChoicePoolView(choices: $vm.choices, width: 400)
+                        
+                        // Feedback
+                        if isAnswerChecked {
+                            VStack() {
+                                Text("Yuk, cek artinya terlebih dahulu")
+                                    .font(.title3)
+                            }
+                            .padding(.horizontal, 30)
+                        }
+                    }
+
                     Spacer()
-                    Button3D(text: "Lanjut", color: Color.cerdikiawanOrange)
-                        .padding()
+                    
+                    if isAnswerChecked == false {
+                        Button3D(text: "Periksa", color: isAllFieldFilled ? Color.cerdikiawanOrange : Color.cerdikiawanGreyMid)
+                            .padding()
+                            .disabled(!isAllFieldFilled)
+                    }
+                    else {
+                        Button3D(text: "Lanjut", color: Color.cerdikiawanOrange)
+                            .padding()
+                    }
+
                 }
                 .background(Color.cerdikiawanYellowMuda)
                 .frame(width: geometry.size.width * 0.4)
+                .onChange(of: vm.isFieldFilled) { oldValue, newValue in
+                    // listen for change from viewModel
+                    isAllFieldFilled = newValue
+                }
             }
         }
 

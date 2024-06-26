@@ -12,17 +12,26 @@ struct ChoicePoolView: View {
     let width: CGFloat
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Isilah paragraf disamping dengan kata yang tepat!")
+        VStack(alignment: .leading) {
+            Text("Pasangkan kata dibawah ini ke paragraf disamping dengan tepat!")
                 .font(.title3)
                 .fontWeight(.bold)
+                .frame(width: width, alignment: .leading)
             VStack {
                 renderChoicesToChoicePool(availableWidth: width - 20)
             }
-            .frame(height: 300, alignment: .top)
+            .frame(height: 180, alignment: .top)
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .inset(by: 1.5)
+                    .stroke(Color.cerdikiawanGreyMid, lineWidth: 5)
+                
+            )
         }
         .padding(30)
         .background(Color.cerdikiawanYellowMuda)
+
     }
     
     func renderChoicesToChoicePool(availableWidth: CGFloat) -> some View{
