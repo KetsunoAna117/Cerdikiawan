@@ -16,6 +16,8 @@ class QuizViewModel: ObservableObject {
     @StateObject var user: User = User(name: "User1")
     @Published var redemptionIdList: [Int]?
     @Published var currentQuiz: Int?
+    @Published var quizIdePokok: [Int] = []
+    @Published var quizImplisit: [Int] = []
     
     var modelData = QuizModelData()
     
@@ -43,10 +45,30 @@ class QuizViewModel: ObservableObject {
         default:
             switch nextQuiz.quizModel{
             case "idePokok":
+                let ranges = [
+                    Array(1...3),
+                    Array(11...13),
+                    Array(21...23)
+                ]
+                
                 currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                
             case "implisit":
+                let ranges = [
+                    Array(4...7),
+                    Array(14...17),
+                    Array(24...27)
+                ]
+                
                 currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                
             default:
+                let ranges = [
+                    Array(4...7),
+                    Array(14...17),
+                    Array(24...27)
+                ]
+                
                 currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
             }
         }
@@ -79,6 +101,25 @@ class QuizViewModel: ObservableObject {
         } else {
             valueProgressBar += 1
         }
+    }
+    
+    func checkAndRemoveRanges(ranges: [[Int]]) {
+        for range in ranges {
+            if containsRange(range: range, in: quizIdePokok) {
+                removeRange(range: range, from: &quizIdePokok)
+                break
+            }
+        }
+    }
+    
+    // Check if all elements in the range are present in the list
+    func containsRange(range: [Int], in list: [Int]) -> Bool {
+        return Set(range).isSubset(of: Set(list))
+    }
+    
+    // Remove all elements in the range from the list
+    func removeRange(range: [Int], from list: inout [Int]) {
+        list.removeAll(where: { range.contains($0) })
     }
     
     func updateIdePokokProeficiency(win: Bool){

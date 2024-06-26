@@ -46,7 +46,7 @@ struct HomeView: View {
             .ignoresSafeArea()
             .navigationDestination(isPresented: $isDirected) {
                 QuizView(vm: vm)
-                    .environment(QuizModelData())
+                    .environment(modelData)
             }
         }
     }
