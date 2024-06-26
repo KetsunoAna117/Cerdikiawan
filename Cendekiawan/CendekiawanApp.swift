@@ -17,6 +17,7 @@ struct CendekiawanApp: App {
                 ContentView()
                     .environment(modelData)
             }
+            .preferredColorScheme(.light)
         }
     }
 }
