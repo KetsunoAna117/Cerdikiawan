@@ -3,15 +3,14 @@
     "quizId": 29,
     "quizFeedback": {
       "quizId": 29,
-      "feedbackDescription": "ini feedback"
+      "feedbackDescription": "Jawabannya adalah KOLONIAL"
     },
     "quizDifficultyLevel": 6,
     "quizCategory": "kosakata",
     "quizTitle": "nil",
     "isRedemption": false,
     "quizAsset": [
-      "gambar 1",
-      "gambar 2"
+      "KolonialTTS"
     ],
     "quizPrompt": "berhubungan dengan sifat jajahan\ncontoh dalam kata:\nPemerintah _______ mendirikan benteng dan menguasai jalur pelayaran di kepulauan itu\n",
     "quizLetterCount": 8,
