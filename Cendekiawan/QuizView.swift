@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct QuizView: View {
-    @Environment(\.dismiss) private var dismiss
     @State private var quizTitle: String = "Pasang Kata"
     @Environment(QuizModelData.self) private var modelData
     @ObservedObject var vm: QuizViewModel
     @State private var isDone: Bool = false
+    @Binding var rootIsActive: Bool
     
     var body: some View {
         VStack {
             HStack{
                 Button{
-                    dismiss()
+                    rootIsActive = false
                 } label: {
                     Image(systemName: "rectangle.portrait.and.arrow.right")
                         .resizable()
@@ -30,25 +30,28 @@ struct QuizView: View {
             }.padding([.horizontal], 30)
             GeometryReader(content: { geometry in
                 VStack {
-                    switch vm.nextQuiz.tipeQuiz {
-                    case "kosakata":
-                        switch vm.nextQuiz.quizModel {
-                        case "FillBlank":
-                            TestViewFillBlank(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()), vm2: vm)
-                        case "WordBlank":
-                            QuizWordBlankView(vm: QuizWordBlankViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+                    if vm.redemptionIdList.isEmpty && vm.valueProgressBar >= 10{
+                        QuizResultView(vm: vm, rootIsActive: $rootIsActive)
+                    } else {
+                        switch vm.nextQuiz.tipeQuiz {
+                        case "kosakata":
+                            switch vm.nextQuiz.quizModel {
+                            case "FillBlank":
+                                QuizFillBlankView(vm: QuizFillBlankViewModel(quizFillBlankModel: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+                            case "WordBlank":
+                                QuizWordBlankView(vm: QuizWordBlankViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
 
+                            default:
+    //                            TestViewMatchingWord()
+                                QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+                            }
+                            
                         default:
-//                            TestViewMatchingWord()
-                            QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+    //                         nambahin multichoice
+                            QuizMultiChoiceView(vm: QuizMultipleChoiceViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+    //                        TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()), vm2: vm)
                         }
-                        
-                    default:
-//                         nambahin multichoice
-                        QuizMultiChoiceView(vm: QuizMultipleChoiceViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
-//                        TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()), vm2: vm)
                     }
-                        
                 }
             })
         }
@@ -65,7 +68,7 @@ struct QuizView: View {
 
 #Preview {
     NavigationStack {
-        QuizView(vm: QuizViewModel(nextQuiz: ("MultiChoice", "implisit")))
+        QuizView(vm: QuizViewModel(nextQuiz: ("MultiChoice", "implisit")), rootIsActive: .constant(true))
                 .environment(QuizModelData())
     }
 }

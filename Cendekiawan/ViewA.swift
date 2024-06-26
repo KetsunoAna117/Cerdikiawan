@@ -17,7 +17,7 @@ struct TestViewMultiChoice: View {
             VStack {
                 Text("MultiChoice")
                     .foregroundColor(.white)
-                Text("Id: \(vm2.currentQuiz)")
+                Text("Id: \(String(describing: vm2.currentQuiz))")
                     .foregroundColor(.white)
             }
             

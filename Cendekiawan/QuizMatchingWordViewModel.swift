@@ -90,13 +90,13 @@ class QuizMatchingWordViewModel: ObservableObject {
     
     func deleteLine(choiceId: Int, selectedFrom: String) {
         if selectedFrom == "Left" {
-            print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.left == choiceId}))]")
+//            print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.left == choiceId}))]")
             connectedChoiceId.removeAll(where: {$0.left == choiceId})
-            print("[DEBUG] All available Connection: \(connectedChoiceId)")
+//            print("[DEBUG] All available Connection: \(connectedChoiceId)")
         } else if selectedFrom == "Right" {
-            print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.right == choiceId}))]")
+//            print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.right == choiceId}))]")
             connectedChoiceId.removeAll(where: {$0.right == choiceId})
-            print("[DEBUG] All available Connection: \(connectedChoiceId)")
+//            print("[DEBUG] All available Connection: \(connectedChoiceId)")
         }
     }
     
@@ -132,7 +132,7 @@ class QuizMatchingWordViewModel: ObservableObject {
                 //connection are made
                 connectedChoiceId.append((left: leftSelectedChoiceId, right: rightSelectedChoiceId))
                 //TODO: Draw line
-                print("[DEBUG] Connected, all available connection: \(connectedChoiceId)")
+//                print("[DEBUG] Connected, all available connection: \(connectedChoiceId)")
                 resetVariables()
             }
             

@@ -10,9 +10,10 @@ import SwiftUI
 struct QuizFillBlankView: View {
     @Environment(QuizModelData.self) private var modelData
     @ObservedObject var vm: QuizFillBlankViewModel
-    
+    @ObservedObject var vm2: QuizViewModel
     @State private var isAllFieldFilled: Bool = false
     @State private var isAnswerChecked: Bool = false
+    @State private var checkisCorrect: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -91,7 +92,8 @@ struct QuizFillBlankView: View {
                         Button3D(text: "Lanjut", color: Color.cerdikiawanOrange)
                             .padding()
                             .onTapGesture {
-                                // logic for lanjut here
+                                checkisCorrect = (vm.listWrongAnswerId.count == 0)
+                                vm2.startGameplay(correct: checkisCorrect)
                             }
                     }
 
@@ -139,7 +141,7 @@ struct QuizFillBlankView: View {
     QuizFillBlankView(
         vm: QuizFillBlankViewModel(
             quizFillBlankModel: QuizModelData().rumpang4[0]
-        )
+        ), vm2: QuizViewModel(nextQuiz: (quizModel: "FillBlank", tipeQuiz: "kosakata"))
     )
     .environment(QuizModelData())
 }

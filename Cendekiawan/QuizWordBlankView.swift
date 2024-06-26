@@ -9,13 +9,8 @@ import SwiftUI
 
 struct QuizWordBlankView: View {
     @ObservedObject var vm: QuizWordBlankViewModel
-    
-    //to navigate user to another question by sending the same VM
     @ObservedObject var vm2: QuizViewModel
-    
-    @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
-    @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
     @State var checkisCorrect: Bool = false
     
     let columns = [
@@ -78,7 +73,7 @@ struct QuizWordBlankView: View {
                 Spacer()
                 BottomConfirmOverlayView(isCorrect: checkisCorrect, description: "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: Color.cerdikiawanGreyMid), action: {
                     if vm.isChecked{
-                        vm2.startGameplay()
+                        vm2.startGameplay(correct: checkisCorrect)
                     }
                     checkisCorrect = vm.checkAnswer()
                     vm.isChecked = true
