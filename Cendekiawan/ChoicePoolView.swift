@@ -8,33 +8,61 @@
 import SwiftUI
 
 struct ChoicePoolView: View {
-    let choices: [DraggableChoice]
+    @ObservedObject var fillBlankVM: QuizFillBlankViewModel
+    @Binding var choices: [DraggableChoice]
+    let width: CGFloat
+    
     var body: some View {
         VStack(alignment: .leading) {
-            ZStack{
-                RoundedRectangle(cornerRadius: 12)
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(Color(.secondarySystemFill))
-                
-                VStack(alignment: .leading, spacing: 12) {
-                    ForEach(choices, id: \.uniqueId) { choice in
-                        Text(choice.choiceDescription)
-                            .padding(12)
-                            .background(Color(uiColor: .secondarySystemGroupedBackground))
-                            .cornerRadius(8)
-                            .shadow(radius: 1, x: 1, y: 1)
-                            .draggable(choice)
-                    }
-                }
+            Text("Pasangkan kata dibawah ini ke paragraf disamping dengan tepat!")
+                .font(.title3)
+                .fontWeight(.bold)
+                .frame(width: width, alignment: .leading)
+            VStack {
+                renderChoicesToChoicePool(availableWidth: width - 20)
             }
+            .frame(height: 180, alignment: .top)
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .inset(by: 1.5)
+                    .stroke(Color.cerdikiawanGreyMid, lineWidth: 5)
+                
+            )
+        }
+        .padding(30)
+        .background(Color.cerdikiawanYellowMuda)
+
+    }
+    
+    func renderChoicesToChoicePool(availableWidth: CGFloat) -> some View{
+        var views: [AnyView] = []
+        
+        for choice in choices {
+            views.append(AnyView(
+                Button3D(text: choice.choiceDescription, color: Color.cerdikiawanWhite)
+//                    .onTapGesture {
+//                        fillBlankVM.handleChoiceTap(droppedChoice: choice)
+//                    }
+                    .draggable(choice) // make it so it can be dragable (have to conform transferable protocol)
+
+            ))
+        }
+        
+        return VStack {
+            FlexibleView(availableWidth: availableWidth, views: views)
         }
     }
 }
 
 #Preview {
-    ChoicePoolView(choices: [DraggableChoice(choiceID: 1, choiceText: "jawaban A"),
-                             DraggableChoice(choiceID: 2, choiceText: "jawaban B"),
-                             DraggableChoice(choiceID: 3, choiceText: "jawaban C"),
-                             DraggableChoice(choiceID: 4, choiceText: "jawaban D")
-        ])
+    ChoicePoolView(
+        fillBlankVM: QuizFillBlankViewModel(
+            quizFillBlankModel: QuizModelData().rumpang4[0]
+        ),
+        choices: .constant(
+            QuizModelData().rumpang4[0].quizChoiceList.map {DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription)}
+        ),
+        width: 400
+    )
 }

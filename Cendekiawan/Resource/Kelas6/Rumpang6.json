@@ -3,7 +3,7 @@
     "quizId": 28,
     "quizFeedback": {
       "quizId": 28,
-      "feedbackDescription": "ini feedback"
+      "feedbackDescription": "Bergengsi\napresiasi\nnilai tambah\nsumber daya\n"
     },
     "quizDifficultyLevel": 6,
     "quizCategory": "kosakata",
@@ -13,7 +13,7 @@
       "gambar 1",
       "gambar 2"
     ],
-    "quizStory": "Berikut adalah daftar kosakata baru.\n\nbergengsi \napresiasi\nnilai tambah\nsumber daya\t\n\t\t\nUntuk menguji pemahaman kalian atas makna kata-kata tersebut, lengkapilah kalimat berikut ini dengan daftar kosakata di atas! \n\nBanyak seniman Indonesia yang telah meraih penghargaan __________ di mancanegara.\n\nPemberian penghargaan kepada seniman merupakan bentuk __________ dalam industri kreatif.\n \t\t\nPertukaran seniman antarnegara merupakan salah satu bentuk __________ budaya. \n\t\t \t \t \t\t \nIndustri kreatif menjadi alternatif Jepang dan Korea dalam mengatasi keterbatasan __________ alamnya.\n",
+    "quizStory": "Banyak seniman Indonesia yang telah meraih penghargaan _ di mancanegara.Pemberian penghargaan kepada seniman merupakan bentuk _ dalam industri kreatif. Pertukaran seniman antarnegara merupakan salah satu bentuk _ budaya. Industri kreatif menjadi alternatif Jepang dan Korea dalam mengatasi keterbatasan _ alamnya.",
     "quizChoiceList": [
       {
         "choiceDescription": "bergengsi",
