@@ -23,6 +23,10 @@ class QuizMatchingWordViewModel: ObservableObject {
     //check answer if all connected right == all connected left
     func checkAnswer() -> Bool {
         var flag = true
+        let total = quizConnect!.quizLeftChoiceList.count
+        if connectedChoiceId.count != total{
+            return false
+        }
         for i in 0..<connectedChoiceId.count-1 {
             if connectedChoiceId[i].left != connectedChoiceId[i].right {
                 flag = false

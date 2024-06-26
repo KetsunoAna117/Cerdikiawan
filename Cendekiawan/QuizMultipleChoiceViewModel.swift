@@ -10,7 +10,7 @@ import SwiftUI
 
 // TODO: tar di hapus kalo dah mo finalize
 class QuizMultipleChoiceViewModel: ObservableObject {
-    @Published var quizMultiChoice: QuizMultiChoice
+    @Published var quizMultiChoice: QuizMultiChoice?
     @Published var selectedAnswerChoiceId: Int = -1
     @Published var isChecked: Bool = false
     
@@ -21,9 +21,9 @@ class QuizMultipleChoiceViewModel: ObservableObject {
     func checkBoxColor(choice: Choice) -> Color {
         if isChecked {
             // true false mode
-            if quizMultiChoice.quizAnswerId == choice.choiceId {
+            if quizMultiChoice!.quizAnswerId == choice.choiceId {
                 return Color.cerdikiawanGreenTua
-            } else if selectedAnswerChoiceId == choice.choiceId && choice.choiceId != quizMultiChoice.quizAnswerId {
+            } else if selectedAnswerChoiceId == choice.choiceId && choice.choiceId != quizMultiChoice!.quizAnswerId {
                 return Color.cerdikiawanRed
             } else {
                 return Color.cerdikiawanWhite
@@ -39,7 +39,7 @@ class QuizMultipleChoiceViewModel: ObservableObject {
     }
     
     func checkAnswer() -> Bool {
-        if quizMultiChoice.quizAnswerId == selectedAnswerChoiceId {
+        if quizMultiChoice!.quizAnswerId == selectedAnswerChoiceId {
             return true
         } else {
             return false

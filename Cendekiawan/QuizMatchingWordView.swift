@@ -11,12 +11,12 @@ struct QuizMatchingWordView: View {
     @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
     @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
-    @State private var isDone: Bool = false
     
     @StateObject var vm: QuizMatchingWordViewModel
     
     //to navigate user to another question by sending the same VM
     @ObservedObject var vm2: QuizViewModel
+    @State var checkisCorrect: Bool = false
     
     var body: some View {
         
@@ -60,17 +60,17 @@ struct QuizMatchingWordView: View {
                         //TODO: I think this better be swapped to Quiz view
                         VStack{
                             Spacer()
-                            BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanGreyMid), action: {
+                            BottomConfirmOverlayView(isCorrect: checkisCorrect, description: "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: Color.cerdikiawanGreyMid), action: {
+                                if vm.isChecked{
+                                    vm2.startGameplay()
+                                }
+                                checkisCorrect = vm.checkAnswer()
                                 vm.isChecked = true
-                                vm2.startGameplay()
                             })
                         }
                     }
             }
             
-        }
-        .onAppear {
-            isDone = false
         }
         
     }

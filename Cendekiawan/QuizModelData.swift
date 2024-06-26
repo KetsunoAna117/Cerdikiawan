@@ -84,11 +84,11 @@ class QuizModelData {
     func getWordle(difficulty: Int) -> [QuizWordBlank]?{
         switch difficulty{
         case 4:
-            return wordle4
+            return load("Wordle4.json")
         case 5:
-            return wordle5
+            return load("Wordle5.json")
         case 6:
-            return wordle6
+            return load("Wordle6.json")
         default:
             return nil
         }

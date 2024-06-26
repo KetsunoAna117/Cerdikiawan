@@ -44,7 +44,9 @@ struct QuizView: View {
                         }
                         
                     default:
-                        TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()), vm2: vm)
+//                         nambahin multichoice
+                        QuizMultiChoiceView(vm: QuizMultipleChoiceViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+//                        TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()), vm2: vm)
                     }
                         
                 }
@@ -52,10 +54,11 @@ struct QuizView: View {
         }
         .padding([.top], 16)
         .navigationBarBackButtonHidden(true)
+        
+        // kalo mau testing di quiz view bisa di uncomment ini
+        
 //        .task {
 //            vm.startGameplay()
-//            vm.currentQuiz = 8
-//            print(vm.currentQuiz as Any)
 //        }
     }
 }

@@ -15,6 +15,7 @@ struct QuizMultiChoiceView: View {
     @State private var isDone: Bool = false
     
     @ObservedObject var vm: QuizMultipleChoiceViewModel
+    @ObservedObject var vm2: QuizViewModel
     
 //    var tipeQuiz: String
 //    private var quiz: QuizMultiChoice {
@@ -31,15 +32,15 @@ struct QuizMultiChoiceView: View {
                         // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
                         // aku ganti jadi scrollview
                         ScrollView {
-                            Text(vm.quizMultiChoice.quizTitle)
+                            Text(vm.quizMultiChoice!.quizTitle)
                                 .padding([.bottom], 20)
                             
                             // image name diganti jadi pake modelData
-                            Image(vm.quizMultiChoice.quizAsset[0])
+                            Image(vm.quizMultiChoice!.quizAsset[0])
                                 .padding([.bottom], 50)
                             
                             // untuk formatting seperti menjorok (tab) dan enter bisa ditambahin \t dan \n di jsonnya
-                            Text(vm.quizMultiChoice.quizStory)
+                            Text(vm.quizMultiChoice!.quizStory)
                         }
                         .frame(maxWidth: geometry.size.width * 0.6)
                         Spacer(minLength: 20)
@@ -47,9 +48,9 @@ struct QuizMultiChoiceView: View {
                             Text("Pertanyaan")
                                 .font(.headline)
                                 .fontWeight(.bold)
-                            Text(vm.quizMultiChoice.quizQuestion)
+                            Text(vm.quizMultiChoice!.quizQuestion)
                             
-                            ForEach(vm.quizMultiChoice.quizChoiceList, id: \.choiceId) { choice in
+                            ForEach(vm.quizMultiChoice!.quizChoiceList, id: \.choiceId) { choice in
                                 AnswerButton(boxColor: vm.checkBoxColor(choice: choice), choice: Choice(choiceId: choice.choiceId, choiceDescription: choice.choiceDescription))
                                     .onTapGesture {
                                         if !vm.isChecked {
@@ -71,7 +72,7 @@ struct QuizMultiChoiceView: View {
                                             .resizable()
                                             .foregroundStyle(vm.checkAnswer() ? Color.cerdikiawanGreenTua:Color.cerdikiawanRed)
                                             .frame(width: 23, height: 23)
-                                        Text(vm.quizMultiChoice.quizFeedback.feedbackDescription)
+                                        Text(vm.quizMultiChoice!.quizFeedback.feedbackDescription)
                                     }
                                 }
                                 
@@ -84,6 +85,9 @@ struct QuizMultiChoiceView: View {
                                 Spacer()
                                 Button {
                                     if vm.selectedAnswerChoiceId != -1 {
+                                        if vm.isChecked {
+                                            vm2.startGameplay()
+                                        }
                                         vm.isChecked = true
                                     }
                                 } label : {
@@ -107,7 +111,7 @@ struct QuizMultiChoiceView: View {
 }
 
 #Preview {
-    QuizMultiChoiceView(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()))
+    QuizMultiChoiceView(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()), vm2: QuizViewModel(nextQuiz: (quizModel: "MultiChoice", tipeQuiz: "idePokok")))
         .environment(QuizModelData())
 }
 
