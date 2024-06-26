@@ -53,10 +53,8 @@ struct QuizMultiChoiceView: View {
                             if vm.isChecked {
                                 //TODO: Change later for feedback
                                 VStack (alignment: .leading) {
-                                    Text(vm.checkAnswer() ?
-                                        "Hore! Jawaban Kamu benar!" :
-                                        "Yuk dibaca lagi kamu pasti bisa!"
-                                    ).font(.headline)
+                                    Text((vm.quizMultiChoice?.quizFeedback.feedbackDescription)!)
+                                        .font(.headline)
                                         .fontWeight(.bold)
                                     HStack {
                                         Image(systemName: vm.checkAnswer() ? "checkmark.circle.fill" : "x.circle.fill")

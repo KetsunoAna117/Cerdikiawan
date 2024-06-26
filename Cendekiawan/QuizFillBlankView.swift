@@ -21,7 +21,9 @@ struct QuizFillBlankView: View {
                 // Left side
                 VStack {
                     ScrollView {
-                        Image("placeholderPhoto")
+                        Image(vm.model.quizAsset[0])
+                            .resizable()
+                            .frame(width: 187, height: 147)
                             .padding(.bottom, 40)
                         VStack {
                             renderTextWithPlaceHolders(availableWidth: geometry.size.width * 0.5)
@@ -39,13 +41,13 @@ struct QuizFillBlankView: View {
                         if isAnswerChecked {
                             VStack(alignment: .leading) {
                                 if $vm.listWrongAnswerId.count <= 0 {
-                                    Text("Horee! Jawaban kamu benar!")
+                                    Text(vm.model.quizFeedback.feedbackDescription)
                                         .font(.title3)
                                         .fontWeight(.bold)
                                         .foregroundStyle(Color.cerdikiawanGreenTua)
                                 }
                                 else {
-                                    Text("Yuk, cek artinya terlebih dahulu")
+                                    Text(vm.model.quizFeedback.feedbackDescription)
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                 }
