@@ -34,6 +34,6 @@ struct TestViewMultiChoice: View {
     }
 }
 
-#Preview {
-    TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(), vm2: QuizViewModel(nextQuiz: (quizModel: "MultipleChoice", tipeQuiz: "idePopkok")))
-}
+//#Preview {
+//    TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(), vm2: QuizViewModel(nextQuiz: (quizModel: "MultipleChoice", tipeQuiz: "idePopkok")))
+//}
