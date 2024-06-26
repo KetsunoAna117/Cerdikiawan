@@ -57,7 +57,7 @@ class QuizViewModel: ObservableObject {
         default:
             switch nextQuiz.tipeQuiz{
             case "idePokok":
-//                print("MASUK default multichoice idepokok")
+                print("MASUK default multichoice idepokok")
                 
                 currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
                 while quizIdePokok.contains(currentQuiz!){
@@ -77,10 +77,10 @@ class QuizViewModel: ObservableObject {
                     }
                 }
                 quizIdePokok.append(currentQuiz!)
-//                print("\(quizIdePokok)")
+                print("idePokok: \(quizIdePokok)")
                 
             default:
-//                print("MASUK default multichoice implisit")
+                print("MASUK default multichoice implisit")
                 
                 currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
                 while quizImplisit.contains(currentQuiz!){
@@ -101,73 +101,118 @@ class QuizViewModel: ObservableObject {
 
                 }
                 quizImplisit.append(currentQuiz!)
-//                print("\(quizImplisit)")
+                print("implisit: \(quizImplisit)")
             }
         }
     }
     
     func startGameplay(correct: Bool) {
         
-        if valueProgressBar < 10{
+        if valueProgressBar < 10 {
             if correct {
                 switch currentQuiz! {
                 case 1...10:
                     user.exp += 1
+                    quizExperienceGain += 1
+                    print("exp nambah, \(user.exp)")
                 case 11...20:
                     user.exp += 5
+                    quizExperienceGain += 5
+                    print("exp nambah, \(user.exp)")
                 default:
                     user.exp += 10
+                    quizExperienceGain += 10
+                    print("exp nambah, \(user.exp)")
                 }
+                
+                switch nextQuiz.tipeQuiz {
+                case "kosakata":
+                    updateKosakataProeficiency(win: correct)
+                case "idePokok":
+                    updateIdePokokProeficiency(win: correct)
+                default:
+                    updateImplisitProeficiency(win: correct)
+                }
+                
+//                print("\(nextQuiz.quizModel), \(nextQuiz.tipeQuiz)")
+//                print("idePokok: \(user.proficiencyLevelIdePokok)")
+//                print("kosakata: \(user.proficiencyLevelKosakata)")
+//                print("implisit: \(user.proficiencyLevelImplisit)")
+//                print("kelas: \(user.difficultyLevel)")
+            } else {
+                switch nextQuiz.tipeQuiz {
+                case "kosakata":
+                    updateKosakataProeficiency(win: correct)
+                case "idePokok":
+                    updateIdePokokProeficiency(win: correct)
+                default:
+                    updateImplisitProeficiency(win: correct)
+                }
+                
+//                print("\(nextQuiz.quizModel), \(nextQuiz.tipeQuiz)")
+//                print("idePokok: \(user.proficiencyLevelIdePokok)")
+//                print("kosakata: \(user.proficiencyLevelKosakata)")
+//                print("implisit: \(user.proficiencyLevelImplisit)")
+//                print("kelas: \(user.difficultyLevel)")
             }
             
             updateValueProgressBar()
-            startGameplay()
-            
             if !correct{
                 redemptionIdList.append(currentQuiz!)
             }
+            
+            if valueProgressBar < 10 {
+                startGameplay()
+            } else {
+                startRedemption(correct: correct, QuesNo10: true)
+            }
         }
         else{
-            if !redemptionIdList.isEmpty{
-                currentQuiz = redemptionIdList.first
-                switch currentQuiz!{
-                case 1...3, 11...13, 21...23:
-                    nextQuiz = ("MultiChoice", "idePokok")
-                case 4...7, 14...17, 24...27:
-                    nextQuiz = ("MultiChoice", "implisit")
-                case 8, 18, 28:
-                    nextQuiz = ("FillBlank", "kosakata")
-                case 9, 19, 29:
-                    nextQuiz = ("WordBlank", "kosakata")
-                case 10, 20, 30:
-                    nextQuiz = ("Connect", "kosakata")
-                default:
-                    nextQuiz = ("MultiChoice", "idePokok")
-                }
+            startRedemption(correct: correct, QuesNo10: false)
+        }
+    }
+    
+    func startRedemption(correct: Bool, QuesNo10: Bool) {
+        if !redemptionIdList.isEmpty{
+            currentQuiz = redemptionIdList.first
+            switch currentQuiz!{
+            case 1...3, 11...13, 21...23:
+                nextQuiz = ("MultiChoice", "idePokok")
+            case 4...7, 14...17, 24...27:
+                nextQuiz = ("MultiChoice", "implisit")
+            case 8, 18, 28:
+                nextQuiz = ("FillBlank", "kosakata")
+            case 9, 19, 29:
+                nextQuiz = ("WordBlank", "kosakata")
+            case 10, 20, 30:
+                nextQuiz = ("Connect", "kosakata")
+            default:
+                nextQuiz = ("MultiChoice", "idePokok")
+            }
+            if !QuesNo10 {
                 if !correct{
                     redemptionIdList.append(currentQuiz!)
                 }
-                if redemptionIdList.count == 1{
-                    redemptionIdList.removeAll()
-                } else {
-                    redemptionIdList.removeFirst()
-                }
+                redemptionIdList.removeFirst()
             }
         }
-        
-        if !redemptionIdList.isEmpty{
-            print(redemptionIdList.count)
-        }
-        print(redemptionIdList.isEmpty)
     }
     
     func getQuizFromId <T>(id: Int) -> T{
         var quiz: T
-        switch id{
-        case 1...3, 11...13, 21...23:
-            quiz = modelData.getIdePokok(difficulty: user.difficultyLevel)![(id-1)%2] as! T
-        case 4...7, 14...17, 24...27:
-            quiz = modelData.getimplisit(difficulty: user.difficultyLevel)![(id-1)%3] as! T
+        switch id {
+        case 1...3:
+            quiz = modelData.getIdePokok(difficulty: user.difficultyLevel)![id-1] as! T
+        case 11...13:
+            quiz = modelData.getIdePokok(difficulty: user.difficultyLevel)![id-11] as! T
+        case 21...23:
+            quiz = modelData.getIdePokok(difficulty: user.difficultyLevel)![id-21] as! T
+        case 4...7:
+            quiz = modelData.getimplisit(difficulty: user.difficultyLevel)![id-4] as! T
+        case 14...17:
+            quiz = modelData.getimplisit(difficulty: user.difficultyLevel)![id-14] as! T
+        case 24...27:
+            quiz = modelData.getimplisit(difficulty: user.difficultyLevel)![id-24] as! T
         case 8, 18, 28:
             quiz = modelData.getRumpang(difficulty: user.difficultyLevel)![0] as! T
         case 9, 19, 29:
