@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BookshelfView: View {
-    @Binding var userLevel: Int
+    var userLevel: Int
     let booksPerRow = 13
     let rowHeight: CGFloat = 100
     let verticalSpacing: CGFloat = 35
@@ -117,6 +117,6 @@ struct BookView: View {
 
 #Preview {
     BookshelfView(
-        userLevel: .constant(40)
+        userLevel: 40
     )
 }
