@@ -78,7 +78,7 @@ struct QuizWordBlankView: View {
                 Spacer()
                 BottomConfirmOverlayView(isCorrect: checkisCorrect, description: "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: Color.cerdikiawanGreyMid), action: {
                     if vm.isChecked{
-                        vm2.startGameplay()
+                        vm2.startGameplay(correct: checkisCorrect)
                     }
                     checkisCorrect = vm.checkAnswer()
                     vm.isChecked = true
