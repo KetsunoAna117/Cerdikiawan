@@ -34,7 +34,7 @@ struct QuizResultView: View {
                             HStack {
                                 VStack {
                                     Image("ResultViewExp")
-                                    Text("+ \(vm.quizExperienceGain) Exp")
+                                    Text("+ \(vm.user.exp) Exp")
                                         .font(.title3)
                                         .fontWeight(.bold)
                                 }

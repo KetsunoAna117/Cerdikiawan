@@ -23,7 +23,7 @@ struct HomeView: View {
                 VStack{
                     HStack {
                         LevelBadgeView(level: vm.user.levelStorage.value)
-                        ExpProgressView(progress: CGFloat(vm.user.exp))
+                        ExpProgressView(progress: CGFloat(vm.user.exp)/CGFloat(vm.user.levelStorage.boundaries))
                         Spacer()
                     }
                     .padding([.leading], 63)

@@ -109,8 +109,20 @@ class QuizViewModel: ObservableObject {
     func startGameplay(correct: Bool) {
         
         if valueProgressBar < 10{
+            if correct {
+                switch currentQuiz! {
+                case 1...10:
+                    user.exp += 1
+                case 11...20:
+                    user.exp += 5
+                default:
+                    user.exp += 10
+                }
+            }
+            
             updateValueProgressBar()
             startGameplay()
+            
             if !correct{
                 redemptionIdList.append(currentQuiz!)
             }
