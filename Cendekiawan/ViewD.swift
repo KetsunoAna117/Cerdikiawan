@@ -35,5 +35,5 @@ struct TestViewFillBlank: View {
 }
 
 #Preview {
-    TestViewFillBlank(vm: QuizMultipleChoiceViewModel(), vm2: QuizViewModel(nextQuiz: (quizModel: "MultipleChoice", tipeQuiz: "idePopkok")))
+    TestViewFillBlank(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()), vm2: QuizViewModel(nextQuiz: (quizModel: "MultipleChoice", tipeQuiz: "idePopkok")))
 }
