@@ -36,33 +36,27 @@ struct BottomConfirmOverlayView: View {
                                             .resizable()
                                             .frame(width: 23, height: 23)
                                             .foregroundStyle(Color.cerdikiawanRed)
-                                        Text("Jawaban yang benar adalah amanat!")
+                                        Text(description)
                                     }
                             }
                         }
                         
                     }
+                        .padding(.leading, 28)
                 }
+                
                 Spacer()
-                if button.text == "Periksa" {
-                    Button3D(text: "Periksa", color: Color.cerdikiawanOrange)
-                        .onTapGesture {
-                            action()
-                        }
-                        .padding([.horizontal], 28)
-                } else {
-                    Button3D(text: "Lanjut", color: Color.cerdikiawanOrange)
-                        .onTapGesture {
-                            action()
-                        }
-                        .padding([.horizontal], 28)
+                button
+                    .padding([.horizontal], 28)
+                    .onTapGesture {
+                        action()
+                    }
                 }
             }
             
             
         }
     }
-}
 
 
 #Preview {

@@ -20,6 +20,12 @@ class QuizMatchingWordViewModel: ObservableObject {
         quizConnect = model
     }
     
+    
+    // to check whether all connectedChoiceId is connected
+    func checkFilled() -> Bool {
+        return quizConnect?.quizLeftChoiceList.count == connectedChoiceId.count
+    }
+    
     //check answer if all connected right == all connected left
     func checkAnswer() -> Bool {
         var flag = true

@@ -40,7 +40,9 @@ struct QuizWordBlankView: View {
                                 Text("_____")
                             }
                             .onTapGesture {
-                                vm.removeCharacterFromAnswer(index: index)
+                                if !vm.isChecked {
+                                    vm.removeCharacterFromAnswer(index: index)
+                                }
                             }
                         }
                     }
@@ -56,7 +58,9 @@ struct QuizWordBlankView: View {
                                 Button3D(text: choosed.choiceDescription, color: vm.checkBoxColor(state: "Unselected", choice: choosed)
                                 )
                                 .onTapGesture {
-                                    vm.addCharacterToAnswer(choosed: choosed)
+                                    if !vm.isChecked {
+                                        vm.addCharacterToAnswer(choosed: choosed)
+                                    }
                                 }
                             }
                         }.frame(width: 344, height: 102)
@@ -71,15 +75,17 @@ struct QuizWordBlankView: View {
         .overlay{
             VStack{
                 Spacer()
-                BottomConfirmOverlayView(isCorrect: checkisCorrect, description: "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: Color.cerdikiawanGreyMid), action: {
+                BottomConfirmOverlayView(isCorrect: checkisCorrect, description: vm.quizWordBlank?.quizFeedback.feedbackDescription ?? "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: vm.checkFilled() ? Color.cerdikiawanOrange : Color.cerdikiawanGreyMid), action: {
                     if vm.isChecked{
                         vm2.startGameplay(correct: checkisCorrect)
+                    } else if vm.checkFilled(){
+                        vm.isChecked = true
+                        checkisCorrect = vm.checkAnswer()
                     }
-                    checkisCorrect = vm.checkAnswer()
-                    vm.isChecked = true
                 })
             }
         }
+        .ignoresSafeArea()
     }
     
     

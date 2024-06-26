@@ -24,15 +24,27 @@ class QuizWordBlankViewModel: ObservableObject {
         Choice(choiceId: 5, choiceDescription: "T")
     ]
     
-    //func to run the dummydata comparing the answer with the guessWord
-    func checkAnswer() -> Bool{
-        var flag = true
-        for i in 0..<guessedWord.count-1 {
-            if guessedWord[i].choiceDescription != answer[i].choiceDescription {
-                flag = false
+    func checkFilled() -> Bool {
+        for i in 0..<guessedWord.count {
+            if guessedWord[i].choiceDescription == "" {
+                return false
             }
         }
-        return flag
+        return true
+    }
+    
+    //func to run the dummydata comparing the answer with the guessWord
+    func checkAnswer() -> Bool{
+        if let correctString = quizWordBlank?.quizAnswer{
+            for i in 0..<guessedWord.count-1 {
+                if guessedWord[i].choiceDescription != String(correctString[correctString.index(correctString.startIndex, offsetBy: i)]) {
+                    return false
+                }
+            }
+        }else {
+            return false
+        }
+        return true
     }
     
     init(model: QuizWordBlank) {
