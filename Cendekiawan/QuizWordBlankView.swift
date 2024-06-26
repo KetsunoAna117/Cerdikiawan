@@ -24,7 +24,10 @@ struct QuizWordBlankView: View {
                         .font(.title3)
                         .fontWeight(.bold)
                         .padding([.bottom], 30)
-                    Image("placeholderPhoto")
+                    Image((vm.quizWordBlank?.quizAsset[0])!)
+                        .resizable()
+                        .frame(width: 187, height: 147)
+                        .padding(.bottom, 40)
                     Spacer()
                     HStack (alignment: .center, spacing: 50) {
                         ForEach (0..<vm.guessedWord.count, id: \.self) { index in
@@ -82,7 +85,7 @@ struct QuizWordBlankView: View {
                         vm.isChecked = true
                         checkisCorrect = vm.checkAnswer()
                     }
-                })
+                }, feedback: (vm.quizWordBlank?.quizFeedback.feedbackDescription)!)
             }
         }
         .ignoresSafeArea()

@@ -12,6 +12,7 @@ struct BottomConfirmOverlayView: View {
     var description: String
     var button: Button3D
     var action: () -> Void
+    var feedback: String
     var body: some View {
         ZStack{
             Rectangle()
@@ -25,7 +26,7 @@ struct BottomConfirmOverlayView: View {
                                     .resizable()
                                     .frame(width: 23, height: 23)
                                     .foregroundStyle(Color.cerdikiawanGreenTua)
-                                Text("Jawaban Anda sudah benar!")
+                                Text(feedback)
                             } else {
                                 VStack(alignment: .leading){
                                     Text("Sedikit lagi sudah benar!")
@@ -36,7 +37,7 @@ struct BottomConfirmOverlayView: View {
                                             .resizable()
                                             .frame(width: 23, height: 23)
                                             .foregroundStyle(Color.cerdikiawanRed)
-                                        Text(description)
+                                        Text(feedback)
                                     }
                             }
                         }
@@ -60,7 +61,7 @@ struct BottomConfirmOverlayView: View {
 
 
 #Preview {
-    BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Lanjut", color: Color.cerdikiawanOrange), action: {})
+    BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Lanjut", color: Color.cerdikiawanOrange), action: {}, feedback: "feedback")
 }
 
 //struct BottomConfirmOverlayView: View {

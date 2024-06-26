@@ -65,7 +65,7 @@ struct QuizMatchingWordView: View {
                             vm.isChecked = true
                             checkisCorrect = vm.checkAnswer()
                         }
-                    })
+                    }, feedback: (vm.quizConnect?.quizFeedback.feedbackDescription)!)
                 }
             }
             
