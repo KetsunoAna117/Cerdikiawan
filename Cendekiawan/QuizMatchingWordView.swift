@@ -25,7 +25,9 @@ struct QuizMatchingWordView: View {
                         ForEach(vm.quizConnect?.quizLeftChoiceList ?? []) { choice in
                             ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Left"), selectedFrom: "Left")
                                 .onTapGesture {
-                                    vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Left")
+                                    if !vm.isChecked {
+                                        vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Left")
+                                    }
                                 }
                                 .frame(maxWidth: 243, maxHeight: 71)
                         }
@@ -35,7 +37,9 @@ struct QuizMatchingWordView: View {
                         ForEach(vm.quizConnect?.quizRightChoiceList ?? []) { choice in
                             ConnectBoxView(choice: choice, boxColor: vm.checkBoxColor(choiceId: choice.choiceId, selectedFrom: "Right"), selectedFrom: "Right")
                                 .onTapGesture {
-                                    vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Right")
+                                    if !vm.isChecked {
+                                        vm.handleSelection(choiceId: choice.choiceId, selectedFrom: "Right")
+                                    }
                                 }
                                 .frame(maxWidth: 243, maxHeight: 71)
                         }
@@ -49,22 +53,24 @@ struct QuizMatchingWordView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .overlay {
                 LineConnectionView(connections: vm.getAllConnections(choiceLeft: vm.quizConnect?.quizLeftChoiceList ?? [], choiceRight: vm.quizConnect?.quizRightChoiceList ?? []))
-                    
+                
             }
             .overlay{
                 VStack{
                     Spacer()
-                    BottomConfirmOverlayView(isCorrect: checkisCorrect, description: "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: Color.cerdikiawanGreyMid), action: {
+                    BottomConfirmOverlayView(isCorrect: checkisCorrect, description: vm.quizConnect?.quizFeedback.feedbackDescription ?? "", button: Button3D(text: vm.isChecked ? "Lanjut" : "Periksa", color: vm.checkFilled() ? Color.cerdikiawanOrange : Color.cerdikiawanGreyMid), action: {
                         if vm.isChecked{
                             vm2.startGameplay(correct: checkisCorrect)
+                        } else if vm.checkFilled(){
+                            vm.isChecked = true
+                            checkisCorrect = vm.checkAnswer()
                         }
-                        checkisCorrect = vm.checkAnswer()
-                        vm.isChecked = true
                     }, feedback: (vm.quizConnect?.quizFeedback.feedbackDescription)!)
                 }
             }
             
         }
+        .ignoresSafeArea()
         
     }
 }

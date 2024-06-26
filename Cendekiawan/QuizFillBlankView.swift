@@ -108,6 +108,9 @@ struct QuizFillBlankView: View {
                 }
             }
         }
+        .padding(.trailing, 50)
+        .padding(.vertical, 50)
+        .frame(alignment: .leading)
 
     }
     

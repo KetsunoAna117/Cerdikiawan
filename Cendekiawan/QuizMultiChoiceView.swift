@@ -92,6 +92,7 @@ struct QuizMultiChoiceView: View {
                             )
                         .frame(maxWidth: geometry.size.width * 0.4)
                     }
+                    .ignoresSafeArea()
                     .padding(50)
             
         }

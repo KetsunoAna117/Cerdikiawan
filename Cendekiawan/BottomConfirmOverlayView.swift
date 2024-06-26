@@ -43,27 +43,21 @@ struct BottomConfirmOverlayView: View {
                         }
                         
                     }
+                        .padding(.leading, 28)
                 }
+                
                 Spacer()
-                if button.text == "Periksa" {
-                    Button3D(text: "Periksa", color: Color.cerdikiawanOrange)
-                        .onTapGesture {
-                            action()
-                        }
-                        .padding([.horizontal], 28)
-                } else {
-                    Button3D(text: "Lanjut", color: Color.cerdikiawanOrange)
-                        .onTapGesture {
-                            action()
-                        }
-                        .padding([.horizontal], 28)
+                button
+                    .padding([.horizontal], 28)
+                    .onTapGesture {
+                        action()
+                    }
                 }
             }
             
             
         }
     }
-}
 
 
 #Preview {
