@@ -14,7 +14,7 @@ class QuizViewModel: ObservableObject {
     @Published var nextQuiz: (quizModel: String, tipeQuiz: String)
     @Published var valueProgressBar: Int = 0
     @StateObject var user: User = User(name: "User1")
-    @Published var redemptionIdList: [Int]?
+    @Published var redemptionIdList: [Int] = []
     @Published var currentQuiz: Int?
     @Published var quizIdePokok: [Int] = []
     @Published var quizImplisit: [Int] = []
@@ -72,7 +72,76 @@ class QuizViewModel: ObservableObject {
                 currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
             }
         }
-        updateValueProgressBar()
+    }
+    
+    func startGameplay(correct: Bool) {
+        let storeRandomizedQuiz: (String, String) = getRandomizedProficiency(ProficiencyLevelStorage(idePokok: user.proficiencyLevelIdePokok, kosakata: user.proficiencyLevelKosakata, implisit: user.proficiencyLevelImplisit))
+        let (quizModel, tipeQuiz) = storeRandomizedQuiz
+        
+        nextQuiz = (quizModel, tipeQuiz)
+        
+        switch nextQuiz.tipeQuiz {
+        case "kosakata":
+            switch nextQuiz.quizModel {
+            case "FillBlank":
+                currentQuiz = modelData.getRumpang(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+            case "WordBlank":
+                currentQuiz = modelData.getWordle(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+            default:
+                currentQuiz = modelData.getSambung(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+            }
+            
+        default:
+            switch nextQuiz.quizModel{
+            case "idePokok":
+                let ranges = [
+                    Array(1...3),
+                    Array(11...13),
+                    Array(21...23)
+                ]
+                
+                currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                
+            case "implisit":
+                let ranges = [
+                    Array(4...7),
+                    Array(14...17),
+                    Array(24...27)
+                ]
+                
+                currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+                
+            default:
+                let ranges = [
+                    Array(4...7),
+                    Array(14...17),
+                    Array(24...27)
+                ]
+                
+                currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
+            }
+        }
+        
+        if valueProgressBar < 10{
+            if !correct{
+                redemptionIdList.append(currentQuiz!)
+            } else {
+                updateValueProgressBar()
+            }
+        }
+        else{
+            if !redemptionIdList.isEmpty{
+                currentQuiz = redemptionIdList.first
+                if !correct{
+                    redemptionIdList.append(currentQuiz!)
+                } else {
+                    updateValueProgressBar()
+                }
+                redemptionIdList.removeFirst()
+            }
+        }
+        
+        print(redemptionIdList.count)
     }
     
     func getQuizFromId <T>(id: Int) -> T{
@@ -136,7 +205,7 @@ class QuizViewModel: ObservableObject {
         }
         checkLevel()
     }
-
+    
     func updateImplisitProeficiency(win: Bool){
         if win {
             user.proficiencyLevelImplisit += 1
@@ -151,7 +220,7 @@ class QuizViewModel: ObservableObject {
         }
         checkLevel()
     }
-
+    
     func updateKosakataProeficiency(win: Bool){
         if win {
             user.proficiencyLevelKosakata += 1
@@ -166,7 +235,7 @@ class QuizViewModel: ObservableObject {
         }
         checkLevel()
     }
-
+    
     func checkLevel(){
         
         if user.proficiencyLevelImplisit == 10 &&
@@ -175,11 +244,11 @@ class QuizViewModel: ObservableObject {
             user.difficultyLevel += 1
             if user.difficultyLevel > 6{
                 user.difficultyLevel = 6
-                } else {
-                    user.proficiencyLevelImplisit = 5
-                    user.proficiencyLevelIdePokok = 5
-                    user.proficiencyLevelKosakata = 5
-                }
+            } else {
+                user.proficiencyLevelImplisit = 5
+                user.proficiencyLevelIdePokok = 5
+                user.proficiencyLevelKosakata = 5
+            }
         } else if user.proficiencyLevelImplisit < 3 &&
                     user.proficiencyLevelIdePokok < 3 &&
                     user.proficiencyLevelKosakata < 3{
