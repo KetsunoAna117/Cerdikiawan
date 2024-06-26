@@ -60,7 +60,7 @@ struct QuizMatchingWordView: View {
                         }
                         checkisCorrect = vm.checkAnswer()
                         vm.isChecked = true
-                    })
+                    }, feedback: (vm.quizConnect?.quizFeedback.feedbackDescription)!)
                 }
             }
             

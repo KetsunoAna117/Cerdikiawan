@@ -42,14 +42,11 @@ struct QuizView: View {
                                 QuizWordBlankView(vm: QuizWordBlankViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
 
                             default:
-    //                            TestViewMatchingWord()
                                 QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
                             }
                             
                         default:
-    //                         nambahin multichoice
                             QuizMultiChoiceView(vm: QuizMultipleChoiceViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
-    //                        TestViewMultiChoice(vm: QuizMultipleChoiceViewModel(model: getQuizMultiChoiceFromJSON()), vm2: vm)
                         }
                     }
                 }
