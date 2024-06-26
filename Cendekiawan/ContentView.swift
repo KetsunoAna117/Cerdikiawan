@@ -15,8 +15,7 @@ struct ContentView: View {
             VStack {
                 QuizFillBlankView(
                     vm: QuizFillBlankViewModel(
-                        questions: modelData.rumpang4[0].quizStory,
-                        choices: modelData.rumpang4[0].quizChoiceList
+                        quizFillBlankModel: modelData.rumpang4[0]
                     )
                 )
                 .preferredColorScheme(.light)
@@ -29,10 +28,10 @@ struct ContentView: View {
 //                    Text("Play")
 //                })
             }
-            .navigationDestination(isPresented: $isDirected) {
-                QuizView(vm: vm)
-                    .environment(QuizModelData())
-            }
+//            .navigationDestination(isPresented: $isDirected) {
+//                QuizView(vm: vm)
+//                    .environment(QuizModelData())
+//            }
         }
     }
 }

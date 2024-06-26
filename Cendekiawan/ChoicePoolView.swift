@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChoicePoolView: View {
+    @ObservedObject var fillBlankVM: QuizFillBlankViewModel
     @Binding var choices: [DraggableChoice]
     let width: CGFloat
     
@@ -40,6 +41,9 @@ struct ChoicePoolView: View {
         for choice in choices {
             views.append(AnyView(
                 Button3D(text: choice.choiceDescription, color: Color.cerdikiawanWhite)
+//                    .onTapGesture {
+//                        fillBlankVM.handleChoiceTap(droppedChoice: choice)
+//                    }
                     .draggable(choice) // make it so it can be dragable (have to conform transferable protocol)
 
             ))
@@ -53,6 +57,9 @@ struct ChoicePoolView: View {
 
 #Preview {
     ChoicePoolView(
+        fillBlankVM: QuizFillBlankViewModel(
+            quizFillBlankModel: QuizModelData().rumpang4[0]
+        ),
         choices: .constant(
             QuizModelData().rumpang4[0].quizChoiceList.map {DraggableChoice(choiceID: $0.choiceId, choiceText: $0.choiceDescription)}
         ),

@@ -32,13 +32,42 @@ struct QuizFillBlankView: View {
                 // Right side
                 VStack(alignment: .trailing) {
                     VStack(alignment: .leading) {
-                        ChoicePoolView(choices: $vm.choices, width: 400)
+                        ChoicePoolView(fillBlankVM: vm ,choices: $vm.choicesPool, width: 400)
                         
                         // Feedback
                         if isAnswerChecked {
-                            VStack() {
-                                Text("Yuk, cek artinya terlebih dahulu")
-                                    .font(.title3)
+                            VStack(alignment: .leading) {
+                                if $vm.listWrongAnswerId.count <= 0 {
+                                    Text("Horee! Jawaban kamu benar!")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(Color.cerdikiawanGreenTua)
+                                }
+                                else {
+                                    Text("Yuk, cek artinya terlebih dahulu")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                }
+                                // feedback view
+                                VStack(alignment: .leading) {
+                                    ForEach(Utils.splitTextIntoPairs(text: vm.model.quizFeedback.feedbackDescription), id: \.0) { pair in
+                                        HStack{
+                                            Text("\(pair.0)")
+                                                .fontWeight(.bold)
+                                                .frame(width: 150, alignment: .leading)
+                                            Text("=")
+                                            Text("\(pair.1)")
+                                        }
+                                        .padding(.bottom, 10)
+//                                        .overlay{
+//                                            RoundedRectangle(cornerRadius: 2)
+//                                                .inset(by: 1.5)
+//                                                .stroke(Color.cerdikiawanGreyMid, lineWidth: 1)
+//                                        }
+                                    }
+                                        
+                                }
+                                
                             }
                             .padding(.horizontal, 30)
                         }
@@ -50,10 +79,20 @@ struct QuizFillBlankView: View {
                         Button3D(text: "Periksa", color: isAllFieldFilled ? Color.cerdikiawanOrange : Color.cerdikiawanGreyMid)
                             .padding()
                             .disabled(!isAllFieldFilled)
+                            .onTapGesture {
+                                // check answer logic at viewModel if all field has been filled
+                                if isAllFieldFilled {
+                                    vm.checkAnswer()
+                                    isAnswerChecked = true
+                                }
+                            }
                     }
                     else {
                         Button3D(text: "Lanjut", color: Color.cerdikiawanOrange)
                             .padding()
+                            .onTapGesture {
+                                // logic for lanjut here
+                            }
                     }
 
                 }
@@ -71,7 +110,7 @@ struct QuizFillBlankView: View {
     func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
         var order = 0 // to store the index of the droppable
         
-        let parts = vm.questions.split(separator: " ")
+        let parts = vm.model.quizStory.split(separator: " ")
         var views: [AnyView] = []
         
         for index in parts.indices {
@@ -99,8 +138,7 @@ struct QuizFillBlankView: View {
 #Preview {
     QuizFillBlankView(
         vm: QuizFillBlankViewModel(
-            questions: QuizModelData().rumpang4[0].quizStory,
-            choices: QuizModelData().rumpang4[0].quizChoiceList
+            quizFillBlankModel: QuizModelData().rumpang4[0]
         )
     )
     .environment(QuizModelData())

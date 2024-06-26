@@ -20,4 +20,20 @@ struct Utils {
         }
         return result
     }
+    
+    static func splitTextIntoPairs(text: String) -> [(String, String)] {
+        var pairs: [(String, String)] = []
+        let items = text.components(separatedBy: ". ")
+        
+        for item in items {
+            let parts = item.components(separatedBy: ": ")
+            if parts.count == 2 {
+                let title = parts[0].trimmingCharacters(in: .whitespacesAndNewlines)
+                let description = parts[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                pairs.append((title, description))
+            }
+        }
+        
+        return pairs
+    }
 }
