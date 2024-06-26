@@ -34,8 +34,7 @@ struct HomeView: View {
                             .frame(width: 136, height: 359)
                             .padding(.trailing, 200)
                         .padding([.bottom], 42)
-                        BookshelfView(userLevel: vm.user.levelStorage.value) // TODO INTEGRATE WITH USER LEVEL HERE
-                            
+                        BookshelfView(userLevel: vm.user.levelStorage.value)
                     }
                     .padding(.trailing, 63)
                     .frame(maxWidth: .infinity, alignment: .trailing)
