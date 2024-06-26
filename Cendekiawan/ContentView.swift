@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(QuizModelData.self) private var modelData
-    @ObservedObject var vm: QuizViewModel = QuizViewModel(nextQuiz: ("MultiChoice", "implisit"))
-    @State private var isDirected = false
     
     var body: some View {
         NavigationStack {

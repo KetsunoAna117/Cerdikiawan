@@ -40,7 +40,6 @@
 		93713BF02C23179300B41CD9 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BEF2C23179300B41CD9 /* QuizViewModel.swift */; };
 		93713BF42C2317F400B41CD9 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BF32C2317F400B41CD9 /* QuizResultView.swift */; };
 		93713BF62C23188F00B41CD9 /* Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93713BF52C23188F00B41CD9 /* Trophy.swift */; };
-		93B233862C23CF2A006DCAFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */; };
 		BE0842432C298342007071DA /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE08423E2C298342007071DA /* Choice.swift */; };
 		BE0842442C298342007071DA /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0842402C298342007071DA /* Feedback.swift */; };
 		BE0842452C298342007071DA /* QuizMultiChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0842422C298342007071DA /* QuizMultiChoice.swift */; };
@@ -112,7 +111,6 @@
 		93713BEF2C23179300B41CD9 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		93713BF32C2317F400B41CD9 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
 		93713BF52C23188F00B41CD9 /* Trophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trophy.swift; sourceTree = "<group>"; };
-		93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE08423C2C298342007071DA /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		BE08423D2C298342007071DA /* QuizFillBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFillBlank.swift; sourceTree = "<group>"; };
 		BE08423E2C298342007071DA /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				3AF8EB112C292E1E000AFF5E /* Utils */,
 				BE3B0EF72C28674D009D6B72 /* Resource */,
 				3A64C16D2C23E47600D0AC3A /* Info.plist */,
-				93B233852C23CF2A006DCAFF /* GoogleService-Info.plist */,
 				3A9203E32C22751C00C4E9C4 /* CendekiawanApp.swift */,
 				93713BF12C2317CC00B41CD9 /* View */,
 				3A9203E72C22751D00C4E9C4 /* Assets.xcassets */,
@@ -419,7 +416,6 @@
 				3A9203EB2C22751D00C4E9C4 /* Preview Assets.xcassets in Resources */,
 				BE3B0F172C28678F009D6B72 /* SambungKata6.json in Resources */,
 				BE3B0F142C28678F009D6B72 /* PilganIdePokok6.json in Resources */,
-				93B233862C23CF2A006DCAFF /* GoogleService-Info.plist in Resources */,
 				BE3B0F152C28678F009D6B72 /* PilganImplisit6.json in Resources */,
 				BE3B0F0D2C28678F009D6B72 /* SambungKata5.json in Resources */,
 				BE3B0F162C28678F009D6B72 /* Rumpang6.json in Resources */,
