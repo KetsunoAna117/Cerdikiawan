@@ -63,9 +63,9 @@ class QuizViewModel: ObservableObject {
                     }
                     
                     currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-                    quizIdePokok.append(currentQuiz!)
-                    print("\(quizIdePokok.count)")
                 }
+                quizIdePokok.append(currentQuiz!)
+                print("\(quizIdePokok.count)")
                 
             default:
                 print("MASUK jir")
@@ -86,10 +86,9 @@ class QuizViewModel: ObservableObject {
                     }
                     
                     currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
-                    quizImplisit.append(currentQuiz!)
-                    print("\(quizImplisit.count)")
                 }
-                
+                quizImplisit.append(currentQuiz!)
+                print("\(quizImplisit.count)")
             }
         }
     }
