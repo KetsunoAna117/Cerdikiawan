@@ -43,7 +43,6 @@ struct QuizResultView: View {
                 }
                     
                     Button {
-                        //TODO: navigate to home view I guess?
                         rootIsActive = false
                     } label: {
                         SubmitButton(text: "Selesai", color: Color.cerdikiawanOrange)

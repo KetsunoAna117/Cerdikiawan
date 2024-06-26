@@ -11,7 +11,6 @@ struct QuizView: View {
     @State private var quizTitle: String = "Pasang Kata"
     @Environment(QuizModelData.self) private var modelData
     @ObservedObject var vm: QuizViewModel
-    @State private var isDone: Bool = false
     @Binding var rootIsActive: Bool
     
     var body: some View {
@@ -54,12 +53,6 @@ struct QuizView: View {
         }
         .padding([.top], 16)
         .navigationBarBackButtonHidden(true)
-        
-        // kalo mau testing di quiz view bisa di uncomment ini
-        
-//        .task {
-//            vm.startGameplay()
-//        }
     }
 }
 

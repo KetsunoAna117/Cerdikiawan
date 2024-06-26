@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//cara pakenya tinggal declare stateobject si class User trus ubah aja user.exp udh auto update kalo ada Text()
+//cara pakenya tinggal declare stateobject si class User trus ubah aja user.exp udh auto update kalo ada Text(), atau jadiin published di VM lebih bagus sih
 class User: ObservableObject {
     let levelStorage = Level()
     let levelDifficulty = DifficultyLevel()
@@ -57,77 +57,3 @@ class User: ObservableObject {
         self.proficiencyLevelImplisit = levelProficiency.implisit
     }
 }
-
-//TODO: SELURUH YANG DIBAWAH AKAN DIHAPUS JIKA SUDAH MAU FINALIZE
-//func updateIdePokokProeficiency(user: User, win: Bool){
-//    if win {
-//        user.proficiencyLevelIdePokok += 1
-//        if user.proficiencyLevelIdePokok > 10{
-//            user.proficiencyLevelIdePokok = 10
-//        }
-//    } else {
-//        user.proficiencyLevelIdePokok -= 1
-//        if user.proficiencyLevelIdePokok < 0{
-//            user.proficiencyLevelIdePokok = 0
-//        }
-//    }
-//    checkLevel(user: user)
-//}
-//
-//func updateImplisitProeficiency(user: User, win: Bool){
-//    if win {
-//        user.proficiencyLevelImplisit += 1
-//        if user.proficiencyLevelImplisit > 10{
-//            user.proficiencyLevelImplisit = 10
-//        }
-//    } else {
-//        user.proficiencyLevelImplisit -= 1
-//        if user.proficiencyLevelImplisit < 0{
-//            user.proficiencyLevelImplisit = 0
-//        }
-//    }
-//    checkLevel(user: user)
-//}
-//
-//func updateKosakataProeficiency(user: User, win: Bool){
-//    if win {
-//        user.proficiencyLevelKosakata += 1
-//        if user.proficiencyLevelKosakata > 10{
-//            user.proficiencyLevelKosakata = 10
-//        }
-//    } else {
-//        user.proficiencyLevelKosakata -= 1
-//        if user.proficiencyLevelKosakata < 0{
-//            user.proficiencyLevelKosakata = 0
-//        }
-//    }
-//    checkLevel(user: user)
-//}
-//
-//func checkLevel(user: User){
-//    
-//    if user.proficiencyLevelImplisit == 10 &&
-//        user.proficiencyLevelIdePokok == 10 &&
-//        user.proficiencyLevelKosakata == 10{
-//        user.difficultyLevel += 1
-//        if user.difficultyLevel > 6{
-//            user.difficultyLevel = 6
-//            } else {
-//                user.proficiencyLevelImplisit = 5
-//                user.proficiencyLevelIdePokok = 5
-//                user.proficiencyLevelKosakata = 5
-//            }
-//    } else if user.proficiencyLevelImplisit < 3 &&
-//                user.proficiencyLevelIdePokok < 3 &&
-//                user.proficiencyLevelKosakata < 3{
-//        
-//        user.difficultyLevel -= 1
-//        if user.difficultyLevel < 4{
-//            user.difficultyLevel = 4
-//        } else {
-//            user.proficiencyLevelImplisit = 5
-//            user.proficiencyLevelIdePokok = 5
-//            user.proficiencyLevelKosakata = 5
-//        }
-//    }
-//}

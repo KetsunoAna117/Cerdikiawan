@@ -11,7 +11,8 @@ import SwiftUI
 class QuizViewModel: ObservableObject {
     
     @Published var quizExperienceGain: Int = 0
-    @Published var nextQuiz: (quizModel: String, tipeQuiz: String)
+    @Published var nextQuiz: (quizModel: String, tipeQuiz: String) //quizModel itu "MultiChoice", "FillBlank", "WordBlank", "Connect"
+                                                                   //tipeQuiz itu "idePokok", "implisit", "kosakata"
     @Published var valueProgressBar: Int = 0
     @Published var user: User = User(name: "Test")
     @Published var redemptionIdList: [Int] = []
@@ -26,12 +27,13 @@ class QuizViewModel: ObservableObject {
         self.nextQuiz = nextQuiz
     }
     
+    //fungsi untuk masuk ke main quiz dari homeview ke quizview untuk pertama kalinya (jalan sekali doank saat aplikasi jalan)
     func startGameplay() {
         var storeRandomizedQuiz: (String, String)
         let options = ["FillBlank", "Connect", "WordBlank"]
         
         repeat {
-            storeRandomizedQuiz = getRandomizedProficiency(ProficiencyLevelStorage(
+            storeRandomizedQuiz = getRandomizedProficiency(ProficiencyLevelStorage( //ini fungsi buat get randomsoal
                 idePokok: user.proficiencyLevelIdePokok,
                 kosakata: user.proficiencyLevelKosakata,
                 implisit: user.proficiencyLevelImplisit
@@ -41,8 +43,11 @@ class QuizViewModel: ObservableObject {
             
             nextQuiz = (quizModel, tipeQuiz)
             
-        } while (options.contains(nextQuiz.quizModel) && storedQuizModel == nextQuiz.quizModel)
-        
+        } while (options.contains(nextQuiz.quizModel) && storedQuizModel == nextQuiz.quizModel) //ini buat bikin biar kalo soalnya adalah fillblank, connect-
+                                                                                                //atau wordblank, nanti dia bakal mastiin habis wordblank gak bakal-
+                                                                                                //wordblank lagi(kalo soalnya banyak, bisa dicounter pake cara dibawah
+                                                                                                //ini)
+        //ini buat counter bagaimana cara get random id yang tidak akan mengulang kembali sblm soalnya dipakai semuanya
         switch nextQuiz.tipeQuiz {
         case "kosakata":
             switch nextQuiz.quizModel {
@@ -57,11 +62,9 @@ class QuizViewModel: ObservableObject {
         default:
             switch nextQuiz.tipeQuiz{
             case "idePokok":
-                print("MASUK default multichoice idepokok")
-                
                 currentQuiz = modelData.getIdePokok(difficulty: user.difficultyLevel)!.randomElement()?.quizId
                 while quizIdePokok.contains(currentQuiz!){
-
+                    //disini check buat mastiin bahwa jika id dari quiz sudah ada semua sesuai user diffulty dan profisiensi, maka harus reset
                     if ((quizIdePokok.contains(1)) && (quizIdePokok.contains(2)) && (quizIdePokok.contains(3))) ||
                         ((quizIdePokok.contains(11)) && (quizIdePokok.contains(12)) && (quizIdePokok.contains(13))) ||
                         ((quizIdePokok.contains(21)) && (quizIdePokok.contains(22)) && (quizIdePokok.contains(23))) {
@@ -77,14 +80,11 @@ class QuizViewModel: ObservableObject {
                     }
                 }
                 quizIdePokok.append(currentQuiz!)
-                print("idePokok: \(quizIdePokok)")
                 
             default:
-                print("MASUK default multichoice implisit")
-                
                 currentQuiz = modelData.getimplisit(difficulty: user.difficultyLevel)!.randomElement()?.quizId
                 while quizImplisit.contains(currentQuiz!){
-                    
+                    //disini check buat mastiin bahwa jika id dari quiz sudah ada semua sesuai user diffulty dan profisiensi, maka harus reset
                     if ((quizImplisit.contains(4)) && (quizImplisit.contains(5)) && (quizImplisit.contains(6)) && (quizImplisit.contains(7))) ||
                         ((quizImplisit.contains(14)) && (quizImplisit.contains(15)) && (quizImplisit.contains(16)) && (quizImplisit.contains(17)))  ||
                         ((quizImplisit.contains(24)) && (quizImplisit.contains(25)) && (quizImplisit.contains(26)) && (quizImplisit.contains(27))) {
@@ -101,16 +101,15 @@ class QuizViewModel: ObservableObject {
 
                 }
                 quizImplisit.append(currentQuiz!)
-                print("implisit: \(quizImplisit)")
             }
         }
     }
     
+    //fungsi untuk start main quiz seterusnya di setiap view saat/setelah main
     func startGameplay(correct: Bool) {
-        
         if valueProgressBar < 10 {
             if correct {
-                switch currentQuiz! {
+                switch currentQuiz! { //ini buat add exp ke user default & nampung quizExperienceGain untuk QuizResultView
                 case 1...10:
                     user.exp += 1
                     quizExperienceGain += 1
@@ -124,51 +123,23 @@ class QuizViewModel: ObservableObject {
                     quizExperienceGain += 10
                     print("exp nambah, \(user.exp)")
                 }
-                
-                switch nextQuiz.tipeQuiz {
-                case "kosakata":
-                    updateKosakataProeficiency(win: correct)
-                case "idePokok":
-                    updateIdePokokProeficiency(win: correct)
-                default:
-                    updateImplisitProeficiency(win: correct)
-                }
-                
-//                print("\(nextQuiz.quizModel), \(nextQuiz.tipeQuiz)")
-//                print("idePokok: \(user.proficiencyLevelIdePokok)")
-//                print("kosakata: \(user.proficiencyLevelKosakata)")
-//                print("implisit: \(user.proficiencyLevelImplisit)")
-//                print("kelas: \(user.difficultyLevel)")
-            } else {
-                switch nextQuiz.tipeQuiz {
-                case "kosakata":
-                    updateKosakataProeficiency(win: correct)
-                case "idePokok":
-                    updateIdePokokProeficiency(win: correct)
-                default:
-                    updateImplisitProeficiency(win: correct)
-                }
-                
-//                print("\(nextQuiz.quizModel), \(nextQuiz.tipeQuiz)")
-//                print("idePokok: \(user.proficiencyLevelIdePokok)")
-//                print("kosakata: \(user.proficiencyLevelKosakata)")
-//                print("implisit: \(user.proficiencyLevelImplisit)")
-//                print("kelas: \(user.difficultyLevel)")
             }
             
+            UpdateUserDefaultProficiency(correct)
             updateValueProgressBar()
-            if !correct{
+            
+            if !correct{ //jika jawaban salah, nambahin ke redemption list
                 redemptionIdList.append(currentQuiz!)
             }
             
-            if valueProgressBar < 10 {
+            if valueProgressBar < 10 { //ini khusus buat handle soal ke 10, karena kalo engga, redemption ga jalan, ya ngebug sih
                 startGameplay()
             } else {
                 startRedemption(correct: correct, QuesNo10: true)
             }
         }
         else{
-            startRedemption(correct: correct, QuesNo10: false)
+            startRedemption(correct: correct, QuesNo10: false)// jalanin redemption jalur normal stlh lewat soal no 10
         }
     }
     
@@ -198,9 +169,11 @@ class QuizViewModel: ObservableObject {
         }
     }
     
+    //buat get quiz id untuk secara otomatis udh di bagi berdasarkan kelas yang sesuai dengan user difficulty dan profisiensi user, dimana-
+    //fungsi randomizernya udh jalan sblmnya pas startGameplay
     func getQuizFromId <T>(id: Int) -> T{
         var quiz: T
-        switch id {
+        switch id { //ini id soal json nya
         case 1...3:
             quiz = modelData.getIdePokok(difficulty: user.difficultyLevel)![id-1] as! T
         case 11...13:
@@ -226,11 +199,24 @@ class QuizViewModel: ObservableObject {
         return quiz
     }
     
+    //buat update progressbar yang di quizview
     func updateValueProgressBar() {
         if valueProgressBar >= 10 {
             valueProgressBar = 10
         } else {
             valueProgressBar += 1
+        }
+    }
+    
+    //function untuk update proficiency kalau benar/salah jawab soal ke user default
+    func UpdateUserDefaultProficiency(_ correct: Bool) {
+        switch nextQuiz.tipeQuiz {
+        case "kosakata":
+            updateKosakataProeficiency(win: correct)
+        case "idePokok":
+            updateIdePokokProeficiency(win: correct)
+        default:
+            updateImplisitProeficiency(win: correct)
         }
     }
     
@@ -279,8 +265,8 @@ class QuizViewModel: ObservableObject {
         checkLevel()
     }
     
+    //ini buat check untuk user nya naik kelas atau turun kelas (4, 5, 6)
     func checkLevel(){
-        
         if user.proficiencyLevelImplisit == 10 &&
             user.proficiencyLevelIdePokok == 10 &&
             user.proficiencyLevelKosakata == 10{
