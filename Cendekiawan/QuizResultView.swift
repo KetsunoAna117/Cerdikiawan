@@ -34,7 +34,7 @@ struct QuizResultView: View {
                             HStack {
                                 VStack {
                                     Image("ResultViewExp")
-                                    Text("+ \(vm.user.exp) Exp")
+                                    Text("+ \(vm.quizExperienceGain) Exp")
                                         .font(.title3)
                                         .fontWeight(.bold)
                                 }
@@ -43,7 +43,6 @@ struct QuizResultView: View {
                 }
                     
                     Button {
-                        //TODO: navigate to home view I guess?
                         rootIsActive = false
                     } label: {
                         SubmitButton(text: "Selesai", color: Color.cerdikiawanOrange)

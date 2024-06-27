@@ -95,6 +95,7 @@ class QuizModelData {
     }
 }
 
+//fungsi untuk load dari json di decode
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 

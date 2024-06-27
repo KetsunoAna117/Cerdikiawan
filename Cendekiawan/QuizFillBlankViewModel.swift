@@ -10,12 +10,9 @@ import Foundation
 class QuizFillBlankViewModel: ObservableObject {
     @Published var choicesPool: [DraggableChoice] = []
     @Published var droppedAnswer: [Int: DraggableChoice] = [:]
-    
     @Published var model: QuizFillBlank
-    
     @Published var isFieldFilled: Bool
     @Published var choicesCount: Int
-    
     @Published var listCorrectAnswerId: [Int]
     @Published var listWrongAnswerId: [Int]
     @Published var checkAnswerEvent: Bool

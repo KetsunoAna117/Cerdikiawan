@@ -80,7 +80,7 @@ struct QuizMatchingWordView: View {
         .environment(QuizModelData())
 }
 
-// TODO: Let your code lives inside a class or struct
+// TODO: Let your code lives inside a class or struct (PAK HAR :D)
 func getQuizConnectFromJSON() -> QuizConnect{
     return QuizConnect(
         quizId: 1,

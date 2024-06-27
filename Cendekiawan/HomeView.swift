@@ -41,6 +41,7 @@ struct HomeView: View {
                     
                     Button {
                         vm.valueProgressBar = 0
+                        vm.quizExperienceGain = 0
                         isDirected = true
                         vm.startGameplay()
                     } label: {

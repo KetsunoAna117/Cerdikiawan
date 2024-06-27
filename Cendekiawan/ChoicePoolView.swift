@@ -41,9 +41,9 @@ struct ChoicePoolView: View {
         for choice in choices {
             views.append(AnyView(
                 Button3D(text: choice.choiceDescription, color: Color.cerdikiawanWhite)
-                    .onTapGesture {
-                        fillBlankVM.handleChoiceTap(droppedChoice: choice)
-                    }
+//                    .onTapGesture {
+//                        fillBlankVM.handleChoiceTap(droppedChoice: choice)
+//                    }
                     .draggable(choice) // make it so it can be dragable (have to conform transferable protocol)
 
             ))
