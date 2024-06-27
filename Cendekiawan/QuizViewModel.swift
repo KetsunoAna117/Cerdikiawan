@@ -115,15 +115,12 @@ class QuizViewModel: ObservableObject {
                 case 1...10:
                     user.exp += 1
                     quizExperienceGain += 1
-                    print("exp nambah, \(user.exp)")
                 case 11...20:
                     user.exp += 5
                     quizExperienceGain += 5
-                    print("exp nambah, \(user.exp)")
                 default:
                     user.exp += 10
                     quizExperienceGain += 10
-                    print("exp nambah, \(user.exp)")
                 }
             }
             
