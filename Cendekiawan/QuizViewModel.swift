@@ -103,6 +103,8 @@ class QuizViewModel: ObservableObject {
                 quizImplisit.append(currentQuiz!)
             }
         }
+        
+        storedQuizModel = nextQuiz.quizModel //to store the quizModel to be used in next iteration for unique random question
     }
     
     //fungsi untuk start main quiz seterusnya di setiap view saat/setelah main
