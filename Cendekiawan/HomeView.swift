@@ -29,9 +29,9 @@ struct HomeView: View {
                     .padding([.leading], 63)
                     Spacer()
                     HStack(alignment: .bottom) {
-                        Image("Aminah")
+                        Image("AvatarDefaultBoy")
                             .resizable()
-                            .frame(width: 136, height: 359)
+                            .frame(width: 134, height: 353)
                             .padding(.trailing, 200)
                         .padding([.bottom], 42)
                         BookshelfView(userLevel: vm.user.levelStorage.value)
