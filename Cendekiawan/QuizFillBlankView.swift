@@ -41,13 +41,13 @@ struct QuizFillBlankView: View {
                         if isAnswerChecked {
                             VStack(alignment: .leading) {
                                 if $vm.listWrongAnswerId.count <= 0 {
-                                    Text(vm.model.quizFeedback.feedbackDescription)
+                                    Text("Horee! Jawaban kamu benar")
                                         .font(.title3)
                                         .fontWeight(.bold)
                                         .foregroundStyle(Color.cerdikiawanGreenTua)
                                 }
                                 else {
-                                    Text(vm.model.quizFeedback.feedbackDescription)
+                                    Text("Yuk, cek artinya terlebih dahulu")
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                 }

@@ -10,7 +10,6 @@ import SwiftUI
 struct QuizWordBlankView: View {
     @ObservedObject var vm: QuizWordBlankViewModel
     @ObservedObject var vm2: QuizViewModel
-    @Environment(QuizModelData.self) private var modelData
     @State var checkisCorrect: Bool = false
     
     let columns = [
@@ -99,7 +98,6 @@ struct QuizWordBlankView: View {
     QuizWordBlankView(
         vm: QuizWordBlankViewModel(model: getQuizWordBlankfromJSON()), vm2: QuizViewModel(nextQuiz: ("MultiChoice", "implisit"))
         )
-    .environment(QuizModelData())
 }
 
 func getQuizWordBlankfromJSON() -> QuizWordBlank{
