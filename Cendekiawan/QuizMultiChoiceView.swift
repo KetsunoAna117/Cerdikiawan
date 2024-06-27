@@ -50,7 +50,7 @@ struct QuizMultiChoiceView: View {
                         
                         if vm.isChecked {
                             VStack (alignment: .leading) {
-                                Text((vm.quizMultiChoice?.quizFeedback.feedbackDescription)!)
+                                Text("Feedback")
                                     .font(.headline)
                                     .fontWeight(.bold)
                                 HStack {
