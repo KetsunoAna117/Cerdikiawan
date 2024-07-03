@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuizResultView: View {
     @ObservedObject var vm: QuizViewModel
+    @Binding var rootIsActive: Bool
     var body: some View {
         ZStack {
             VStack{
@@ -42,7 +43,7 @@ struct QuizResultView: View {
                 }
                     
                     Button {
-                        
+                        rootIsActive = false
                     } label: {
                         SubmitButton(text: "Selesai", color: Color.cerdikiawanOrange)
                     }
@@ -54,5 +55,5 @@ struct QuizResultView: View {
 }
 
 #Preview {
-    QuizResultView(vm: QuizViewModel(quizRightAnswer: 10, quizExperienceGain: 100, quizTrophyGain: Trophy(value: 0), listQuizQuestion: []))
+    QuizResultView(vm: QuizViewModel(nextQuiz: (quizModel: "multipleChoice", tipeQuiz: "implisit")), rootIsActive: .constant(false))
 }

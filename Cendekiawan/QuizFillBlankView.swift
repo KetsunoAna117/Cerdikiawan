@@ -10,111 +10,143 @@ import SwiftUI
 struct QuizFillBlankView: View {
     @Environment(QuizModelData.self) private var modelData
     @ObservedObject var vm: QuizFillBlankViewModel
-    @StateObject private var user: User = User(name: "Test")
-    @State private var nextQuiz: (quizModel: String, tipeQuiz: String)?
-    @State private var isDone: Bool = false
-    
-    private var quiz: QuizFillBlank {
-        modelData.rumpang4[0]
-    }
+    @ObservedObject var vm2: QuizViewModel
+    @State private var isAllFieldFilled: Bool = false
+    @State private var isAnswerChecked: Bool = false
+    @State private var checkisCorrect: Bool = false
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                // TODO: reminder to remove all the test views and comments
-                StatsOverlay() // For debugging, can be removed later
-                
-                // TODO: Increase readability: for all the view inside the vstack that involved a various of stacks, consider to create a function that represent each (function of UI) view. Create an identifiable function name and let the function recieve parameters (a data or vm that holds the information the view needs to decide its behavior). Let the padding and all view positioning value to be a configurable variable consistently maintained as a single source.
-                HStack {
+        GeometryReader { geometry in
+            HStack {
+                // Left side
+                VStack {
                     ScrollView {
+                        Image(vm.model.quizAsset[0])
+                            .resizable()
+                            .frame(width: 187, height: 147)
+                            .padding(.bottom, 40)
                         VStack {
-                            Text(quiz.quizTitle == "nil" ? "" : quiz.quizTitle)
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                                .padding([.bottom], 30)
-                            Spacer()
-                            
-                            Image("placeholderPhoto")
-                                .padding([.bottom], 30)
-                            Spacer()
-                            
+                            renderTextWithPlaceHolders(availableWidth: geometry.size.width * 0.5)
+                        }
+                    }
+                }
+                .frame(width: geometry.size.width * 0.6)
+                
+                // Right side
+                VStack(alignment: .trailing) {
+                    VStack(alignment: .leading) {
+                        ChoicePoolView(fillBlankVM: vm ,choices: $vm.choicesPool, width: 400)
+                        
+                        // Feedback
+                        if isAnswerChecked {
                             VStack(alignment: .leading) {
-                                ForEach(0..<vm.trunc.count, id: \.self) { index in
-                                    HStack(alignment: .center) {
-                                        Text(vm.trunc[index])
-                                        if index < vm.trunc.count - 1 {
-                                            Spacer()
-                                            DroppableBox(boxText: vm.droppedAnswer.isEmpty ? "" : vm.droppedAnswer[index].choiceDescription)
-                                                .dropDestination(for: DraggableChoice.self) { droppedChoice, location in
-                                                    vm.handleChoiceDrop(index: index, droppedChoice: droppedChoice)
-                                                    return true
-                                                }
-                                                .onTapGesture {
-                                                    vm.removeChoicesFromAnswer(index: index)
-                                                }
+                                if $vm.listWrongAnswerId.count <= 0 {
+                                    Text("Horee! Jawaban kamu benar")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(Color.cerdikiawanGreenTua)
+                                }
+                                else {
+                                    Text("Yuk, cek artinya terlebih dahulu")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                }
+                                // feedback view
+                                VStack(alignment: .leading) {
+                                    ForEach(Utils.splitTextIntoPairs(text: vm.model.quizFeedback.feedbackDescription), id: \.0) { pair in
+                                        HStack{
+                                            Text("\(pair.0)")
+                                                .fontWeight(.bold)
+                                                .frame(width: 150, alignment: .leading)
+                                            Text("=")
+                                            Text("\(pair.1)")
                                         }
+                                        .padding(.bottom, 10)
+//                                        .overlay{
+//                                            RoundedRectangle(cornerRadius: 2)
+//                                                .inset(by: 1.5)
+//                                                .stroke(Color.cerdikiawanGreyMid, lineWidth: 1)
+//                                        }
                                     }
+                                        
+                                }
+                                
+                            }
+                            .padding(.horizontal, 30)
+                        }
+                    }
+
+                    Spacer()
+                    
+                    if isAnswerChecked == false {
+                        Button3D(text: "Periksa", color: isAllFieldFilled ? Color.cerdikiawanOrange : Color.cerdikiawanGreyMid)
+                            .padding()
+                            .disabled(!isAllFieldFilled)
+                            .onTapGesture {
+                                // check answer logic at viewModel if all field has been filled
+                                if isAllFieldFilled {
+                                    vm.checkAnswer()
+                                    isAnswerChecked = true
                                 }
                             }
-                            Spacer()
-                        }
-                        .frame(maxWidth: .infinity)
                     }
-                    Spacer(minLength: 20)
-                    VStack {
-                        Text("Masukkan kata yang tepat untuk setiap kata yang rumpang dalam teks!")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                        ChoicePoolView(choices: vm.choices)
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-                .padding(50)
-                .onAppear {
-                    vm.setupQuestion()
-                }
-                HStack {
-                    Button {
-                        updateKosakataProeficiency(user: user, win: true)
-                    } label: {
-                        Text("Benar")
-                            .font(.system(size: 50))
-                            .foregroundStyle(.white)
+                    else {
+                        Button3D(text: "Lanjut", color: Color.cerdikiawanOrange)
                             .padding()
-                            .background(.green)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .onTapGesture {
+                                checkisCorrect = (vm.listWrongAnswerId.count == 0)
+                                vm2.startGameplay(correct: checkisCorrect)
+                            }
                     }
-                    Button {
-                        updateKosakataProeficiency(user: user, win: false)
-                    } label: {
-                        Text("Salah")
-                            .font(.system(size: 50))
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.red)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
+
                 }
-            }
-            .onAppear {
-                isDone = false
+                .background(Color.cerdikiawanYellowMuda)
+                .frame(width: geometry.size.width * 0.4)
+                .onChange(of: vm.isFieldFilled) { oldValue, newValue in
+                    // listen for change from viewModel
+                    isAllFieldFilled = newValue
+                }
             }
         }
-    }
+        .padding(.trailing, 50)
+        .padding(.vertical, 50)
+        .frame(alignment: .leading)
 
+    }
+    
+    func renderTextWithPlaceHolders(availableWidth: CGFloat) -> some View {
+        var order = 0 // to store the index of the droppable
+        
+        let parts = vm.model.quizStory.split(separator: " ")
+        var views: [AnyView] = []
+        
+        for index in parts.indices {
+            if parts[index] == "_" {
+                views.append(AnyView(
+                    DroppableBox(fillBlankVM: vm, index: order)
+                ))
+                order += 1 // increment droppable index after being added
+            }
+            else {
+                views.append(AnyView(
+                    Text(parts[index])
+                        .font(.body)
+                ))
+            }
+
+            
+        }
+        return VStack {
+            FlexibleView(availableWidth: availableWidth, views: views)
+        }
+    }
 }
 
 #Preview {
     QuizFillBlankView(
         vm: QuizFillBlankViewModel(
-            questions: "Apa yang dicari orang __________? Bintang __________. Kita Tanpa itu, kita mempunyai __________ dan tidak akan mendapatkan __________",
-            choices: [
-                Choice(choiceId: 1, choiceDescription: "Sigma"),
-                Choice(choiceId: 2, choiceDescription: "Skibidi"),
-                Choice(choiceId: 3, choiceDescription: "L Rizz"),
-                Choice(choiceId: 4, choiceDescription: "Gyatt")
-            ]
-        )
+            quizFillBlankModel: QuizModelData().rumpang4[0]
+        ), vm2: QuizViewModel(nextQuiz: (quizModel: "FillBlank", tipeQuiz: "kosakata"))
     )
     .environment(QuizModelData())
 }

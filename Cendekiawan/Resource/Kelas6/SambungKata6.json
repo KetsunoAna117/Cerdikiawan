@@ -3,13 +3,13 @@
     "quizId": 30,
     "quizFeedback": {
       "quizId": 30,
-      "feedbackDescription": "ini feedback"
+      "feedbackDescription": "Jawabannya adalah Koreografer = Pencipta Tarian | Kontemporer = Pada masa kini | Sanggar = Tempat kegiatan seni | Barang Eksotis = Memiliki daya tarik khas"
     },
     "quizDifficultyLevel": 6,
     "quizCategory": "kosakata",
     "quizTitle": "nil",
     "isRedemption": false,
-    "quizAsset": ["nil"],
+    "quizAsset": ["Seniman"],
     "quizPrompt": "pasangkanlah kata di kolom kanan dengan makna kata yang sesuai di kolom kiri!",
     "quizLeftChoiceList": [
       {
@@ -31,19 +31,19 @@
     ],
     "quizRightChoiceList": [
       {
-        "choiceDescription": "Orang yang ahli dalam mencipta dan menggubah gerak tari",
+        "choiceDescription": "Pencipta Tarian",
         "choiceId": 0
       },
       {
-        "choiceDescription": "Pada waktu yang sama; semasa; sewaktu; pada masa kini; dewasa ini",
+        "choiceDescription": "Pada masa kini",
         "choiceId": 1
       },
       {
-        "choiceDescription": "Tempat untuk kegiatan seni (tari, lukis, dan sebagainya)",
+        "choiceDescription": "Tempat kegiatan seni",
         "choiceId": 2
       },
       {
-        "choiceDescription": "Memiliki daya tarik khas karena belum banyak dikenal, ganjil, aneh,bergaya asing",
+        "choiceDescription": "Memiliki daya tarik khas",
         "choiceId": 3
       }
     ]

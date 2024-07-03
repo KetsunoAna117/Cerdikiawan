@@ -12,6 +12,7 @@ struct BottomConfirmOverlayView: View {
     var description: String
     var button: Button3D
     var action: () -> Void
+    var feedback: String
     var body: some View {
         ZStack{
             Rectangle()
@@ -19,31 +20,46 @@ struct BottomConfirmOverlayView: View {
                 .foregroundStyle(Color.cerdikiawanYellowMuda)
             HStack{
                 if button.text != "Periksa" {
-                    VStack(alignment: .leading){
-                        Text("Sedikit lagi sudah benar!")
-                            .foregroundStyle(Color.cerdikiawanBlack)
-                            .font(.headline)
                         HStack{
-                            Image(systemName: "x.circle.fill")
-                                .resizable()
-                                .frame(width: 23, height: 23)
-                                .foregroundStyle(Color.cerdikiawanRed)
-                            Text("Jawaban yang benar adalah amanat!")
+                            if isCorrect {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .resizable()
+                                    .frame(width: 23, height: 23)
+                                    .foregroundStyle(Color.cerdikiawanGreenTua)
+                                Text(feedback)
+                            } else {
+                                VStack(alignment: .leading){
+                                    Text("Sedikit lagi sudah benar!")
+                                        .foregroundStyle(Color.cerdikiawanBlack)
+                                        .font(.headline)
+                                    HStack {
+                                        Image(systemName: "x.circle.fill")
+                                            .resizable()
+                                            .frame(width: 23, height: 23)
+                                            .foregroundStyle(Color.cerdikiawanRed)
+                                        Text(feedback)
+                                    }
+                            }
                         }
                         
                     }
+                        .padding(.leading, 28)
                 }
+                
                 Spacer()
-                Button3D(text: "Periksa", color: Color.cerdikiawanOrange)
+                button
+                    .padding([.horizontal], 28)
                     .onTapGesture {
                         action()
                     }
-            }.padding([.horizontal], 28)
+                }
+            }
+            
             
         }
     }
-}
+
 
 #Preview {
-    BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Periksa", color: Color.cerdikiawanOrange), action: {})
+    BottomConfirmOverlayView(isCorrect: false, description: "", button: Button3D(text: "Lanjut", color: Color.cerdikiawanOrange), action: {}, feedback: "feedback")
 }

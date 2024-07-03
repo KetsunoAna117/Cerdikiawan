@@ -10,38 +10,55 @@ import SwiftUI
 struct QuizView: View {
     @State private var quizTitle: String = "Pasang Kata"
     @Environment(QuizModelData.self) private var modelData
+    @ObservedObject var vm: QuizViewModel
+    @Binding var rootIsActive: Bool
     
     var body: some View {
         VStack {
             HStack{
                 Button{
-                    //TODO: Back Button
+                    rootIsActive = false
                 } label: {
                     Image(systemName: "rectangle.portrait.and.arrow.right")
                         .resizable()
                         .frame(width: 30, height: 30)
                         .foregroundStyle(.gray)
                 }
-                ProgressView(value: 2, total: 5)
+                ProgressView(value: Double(vm.valueProgressBar), total: 10)
                         .padding([.horizontal], 52)
             }.padding([.horizontal], 30)
             GeometryReader(content: { geometry in
                 VStack {
-                    // the content of the quiz should go here
-//                    QuizWordBlankView()
-//                    QuizMatchingWordView(vm: <#QuizMatchingWordViewModel#>)
+                    if vm.redemptionIdList.isEmpty && vm.valueProgressBar >= 10{
+                        QuizResultView(vm: vm, rootIsActive: $rootIsActive)
+                    } else {
+                        switch vm.nextQuiz.tipeQuiz {
+                        case "kosakata":
+                            switch vm.nextQuiz.quizModel {
+                            case "FillBlank":
+                                QuizFillBlankView(vm: QuizFillBlankViewModel(quizFillBlankModel: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+                            case "WordBlank":
+                                QuizWordBlankView(vm: QuizWordBlankViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+
+                            default:
+                                QuizMatchingWordView(vm: QuizMatchingWordViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+                            }
+                            
+                        default:
+                            QuizMultiChoiceView(vm: QuizMultipleChoiceViewModel(model: vm.getQuizFromId(id: vm.currentQuiz!)), vm2: vm)
+                        }
+                    }
                 }
-                
             })
         }
         .padding([.top], 16)
-        
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
     NavigationStack {
-        QuizView()
-            .environment(QuizModelData())
+        QuizView(vm: QuizViewModel(nextQuiz: ("MultiChoice", "implisit")), rootIsActive: .constant(true))
+                .environment(QuizModelData())
     }
 }

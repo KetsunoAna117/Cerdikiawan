@@ -7,39 +7,55 @@
 
 import SwiftUI
 
-import SwiftUI
-
 //TODO: PENTING next soal masih bisa kepilih 2 kali
 struct HomeView: View {
-    @StateObject private var user: User = User(name: "Test")
     @Environment(QuizModelData.self) private var modelData
-    @State private var quizModel: String?
-    @State private var tipeQuiz: String?
-    @State var isDone: Bool = false
+    
+    //2 line of code below is for connecting to gameplay purposes
+    @ObservedObject var vm: QuizViewModel = QuizViewModel(nextQuiz: ("MultiChoice", "implisit"))
+    @State private var isDirected = false
     
     var body: some View {
         NavigationStack {
             ZStack {
-                Image("HomeLemari")
+                Image("HomeBase")
                     .resizable()
                 VStack{
                     HStack {
-                        LevelBadgeView(level: 1)
-                        ExpProgressView(progress: 0.5)
+                        LevelBadgeView(level: vm.user.levelStorage.value)
+                        ExpProgressView(progress: CGFloat(vm.user.exp)/CGFloat(vm.user.levelStorage.boundaries))
                         Spacer()
                     }
                     .padding([.leading], 63)
                     Spacer()
-                    Image("Aminah")
-                        .resizable()
-                        .frame(width: 136, height: 359)
+                    HStack(alignment: .bottom) {
+                        Image("AvatarDefaultBoy")
+                            .resizable()
+                            .frame(width: 134, height: 353)
+                            .padding(.trailing, 200)
                         .padding([.bottom], 42)
-                    SubmitButton(text: "Mulai", color: Color.cerdikiawanBlueMid)
-                        .padding([.bottom], 45)
+                        BookshelfView(userLevel: vm.user.levelStorage.value)
+                    }
+                    .padding(.trailing, 63)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    
+                    Button {
+                        vm.valueProgressBar = 0
+                        vm.quizExperienceGain = 0
+                        isDirected = true
+                        vm.startGameplay()
+                    } label: {
+                        SubmitButton(text: "Mulai", color: Color.cerdikiawanBlueMid)
+                            .padding([.bottom], 45)
+                    }
                 }
                 .padding([.top], 34)
             }
             .ignoresSafeArea()
+            .navigationDestination(isPresented: $isDirected) {
+                QuizView(vm: vm, rootIsActive: $isDirected)
+                    .environment(modelData)
+            }
         }
     }
     

@@ -20,6 +20,27 @@ class QuizMatchingWordViewModel: ObservableObject {
         quizConnect = model
     }
     
+    
+    // to check whether all connectedChoiceId is connected
+    func checkFilled() -> Bool {
+        return quizConnect?.quizLeftChoiceList.count == connectedChoiceId.count
+    }
+    
+    //check answer if all connected right == all connected left
+    func checkAnswer() -> Bool {
+        var flag = true
+        let total = quizConnect!.quizLeftChoiceList.count
+        if connectedChoiceId.count != total{
+            return false
+        }
+        for i in 0..<connectedChoiceId.count-1 {
+            if connectedChoiceId[i].left != connectedChoiceId[i].right {
+                flag = false
+            }
+        }
+        return flag
+    }
+    
     func checkBoxColor(choiceId: Int, selectedFrom: String) -> Color {
         if isChecked {
             //State checked, true false
@@ -75,13 +96,13 @@ class QuizMatchingWordViewModel: ObservableObject {
     
     func deleteLine(choiceId: Int, selectedFrom: String) {
         if selectedFrom == "Left" {
-            print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.left == choiceId}))]")
+//            print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.left == choiceId}))]")
             connectedChoiceId.removeAll(where: {$0.left == choiceId})
-            print("[DEBUG] All available Connection: \(connectedChoiceId)")
+//            print("[DEBUG] All available Connection: \(connectedChoiceId)")
         } else if selectedFrom == "Right" {
-            print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.right == choiceId}))]")
+//            print("[DEBUG] Delete connection: [\(connectedChoiceId.contains(where: {$0.right == choiceId}))]")
             connectedChoiceId.removeAll(where: {$0.right == choiceId})
-            print("[DEBUG] All available Connection: \(connectedChoiceId)")
+//            print("[DEBUG] All available Connection: \(connectedChoiceId)")
         }
     }
     
@@ -117,7 +138,7 @@ class QuizMatchingWordViewModel: ObservableObject {
                 //connection are made
                 connectedChoiceId.append((left: leftSelectedChoiceId, right: rightSelectedChoiceId))
                 //TODO: Draw line
-                print("[DEBUG] Connected, all available connection: \(connectedChoiceId)")
+//                print("[DEBUG] Connected, all available connection: \(connectedChoiceId)")
                 resetVariables()
             }
             
